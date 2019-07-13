@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Link</title>
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
+</head>
+
+<body>
+    <header id="navbar">
+        <nav class="grey lighten-4" id="secondnavbar">
+            <div class="nav-wrapper container-wrap2 ">
+                <a href="#!" class="brand-logo"><img src="assets/images/logo.png" alt=""></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="sass.html">About Us</a></li>
+                    <li><a href="badges.html">Team</a></li>
+                    <li><a href="collapsible.html">Mission & Vision</a></li>
+                    <li><a href="mobile.html">Product & Service</a></li>
+                    <li><a class="register-nav" href="">Register</a></li>
+                    <li><a href="">login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="sass.html">About Us</a></li>
+            <li><a href="badges.html">Team</a></li>
+            <li><a href="collapsible.html">Mission & Vision</a></li>
+            <li><a href="mobile.html">Product & Service</a></li>
+            <li><a href="mobile.html">Refer & Earn</a></li>
+            <li><a href="">Register</a></li>
+            <li><a href="">Log in</a></li>
+        </ul>
+        <div class="hederHight"></div>
+    </header>
+
+    <section class="agent-profile">
+        <div class="container-wrap3">
+            <div class="row mb-0">
+                <div class="col l3 m4 s12">
+                    <button class="waves-effect right" id="sidebarToggle" href="#">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <button class="waves-effect right" id="sidebarclose" href="#">
+                        <i class="material-icons dp48">close</i>
+                    </button>
+                    <div class="card" id="agent-sidebar">
+                        <div class="card-content">
+                            <ul class="agent-profile-sidebar">
+                                <li><a class="waves-effect " href="">Dashboard</a></li>
+                                <li><a class="waves-effect" href="">Profile</a>
+                                </li>
+                                <li><a class="waves-effect">Change Password</a></li>
+                                <li><a class="waves-effect">Refer a friend</a></li>
+                                <li><a class="waves-effect " href="">Reward Points</a></li>
+                                <li><a class="waves-effect " href="">List of Referrals</a></li>
+                                <li><a class="waves-effect active" href="">List of Claims</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- side bar end -->
+                <div class="col  l9 m8 s12">
+                    <div class="card agent-profile-right">
+                        <div class="card-content agent-right-content">
+                            <div class="agent-edit-title">
+                                <h6 class="agent-edit-title-cn">List of Claim</h6>
+                            </div>
+                            <div class="claim-detail">
+                                <div class="row">
+                                    <div class="col xl12 l12 m12 s12">
+                                           <table class="striped claim-table responsive-table" id="">
+                                            <thead>
+                                              <tr>
+                                                  <th>Date</th>
+                                                  <th>Claimed Point</th>
+                                                  <th>Status</th>
+                                                  <th>Smart Code</th> 
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <td>6-07-2019</td>
+                                                <td>600</td>
+                                                <td>pending</td>
+                                                <td>-------</td>
+                                              </tr>
+                                              <tr>
+                                                <td>7-07-2019</td>
+                                                <td>200</td>
+                                                <td>pending</td>
+                                                <td>-------</td>
+                                              </tr>
+                                              <tr>
+                                                <td>8-07-2019</td>
+                                                <td>800</td>
+                                                <td>Completed</td>
+                                                <td><a  class="view-code modal-trigger" href="#smartcode">View Code</a></td>
+                                              </tr>
+                                              <tr>
+                                                <td>8-07-2019</td>
+                                                <td>1000</td>
+                                                <td>pending</td>
+                                                <td>-------</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>         
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Modal Structure -->
+  <!-- Modal Structure -->
+  <div id="smartcode" class="modal">
+    <form>
+        <div class="modal-content mc-smartcode">
+          <h4>LOGIN</h4>
+          <p>To View Smart Code Please enter the Below Detail</p>
+        </div>
+        <div class="modal-footer"></div>
+    </form>
+  </div>
+    <footer class="page-footer grey lighten-4">
+        <div class="container-wrap3 pb-25">
+            <div class="row mb-0">
+                <div class="col l12 m12  s12">
+                    <h5 class="black-text center-align subscribe-heading">SUBSCRIBE NOW</h5>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="col  l12 m12  s12">
+                    <div class="newsletter-box">
+                        <form>
+                            <div class="row mb-0">
+                                <div class="input-field col offset-l3 l6 offset-m2 m6 s7">
+                                    <input placeholder="Enter Your Email" id="subscribe-input" type="text" class="validate">
+                                </div>
+                                <button class="waves-effect waves-light btn subscribe-button">button</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="col l4 m4  s12">
+                    <h6 class="center-align black-text">Useful Links</h6>
+                    <ul class="center-align useful-links">
+                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Contact Us</a> | </li>
+                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">About Us</a> | </li>
+                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
+                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Product & Service</a> |
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l4 m4 s12">
+                    <h6 class="center-align black-text">Follow Us</h6>
+                    <ul class=" center-align social-icons">
+                        <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
+                                    class="fab fa-facebook-f"></i></a></li>
+                        <li><a class="btn-floating twitter btn-small waves-effect waves-light "><i
+                                    class="fab fa-twitter"></i></a></li>
+
+                        <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
+                                    class="fab fa-youtube "></i></a></li>
+
+                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i class="fab fa-linkedin-in"></i>
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="col l4 m4 s12">
+                    <h6 class="center-align black-text">Address</h6>
+                    <p class="footer-address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="footer-copyright ">
+            <div class="container-wrap3">
+                <center>
+                    <span class="copry-right">© Smart Link, All Rights Reserved. Developed By <a
+                        target="_blank" href="http://www.5ines.com/">5ine</a></span></center>
+            </div>
+        </div>
+    </footer>
+
+    <!-- javascript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/jquery.validate.min.js"></script>
+    <script>
+     $(document).ready(function(){
+        $('.modal').modal();
+    });       
+    </script>
+</body>
+
+</html>
