@@ -1057,6 +1057,7 @@ border-bottom-left-radius: 4px;
 #smartcode {
 
     width: 35%;
+    border-radius: 5px;
 
 }
 .mc-smartcode h4 {
@@ -1069,8 +1070,10 @@ border-bottom-left-radius: 4px;
 }
 .mc-smartcode p {
 
-    font-size: 13px;
+    font-size: 12px;
     text-align: center;
+    margin: 0px;
+    padding-bottom: 25px;
 
 }
 /* ******** ** ****************MEDIA QUERY **small device********************* */
@@ -1101,7 +1104,16 @@ border-bottom-left-radius: 4px;
 .count-ref {
     padding: 14px;
     }
+    /*list of claim*/
+#smartcode {
 
+    width: 80%;
+    border-radius: 5px;
+
+}
+.claim-table {
+    z-index: 99;
+}
 }
 @media(min-width: 601px) and (max-width: 991px){
     .dashboard-list {
