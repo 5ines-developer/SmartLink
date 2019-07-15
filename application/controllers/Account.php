@@ -55,8 +55,7 @@ class Account extends CI_Controller
         }
         
     }
-    
-    
+
     // refer a friend -> agent
     public function refer_friend($var = null)
     {
@@ -455,17 +454,6 @@ class Account extends CI_Controller
     
         }
 
-
-
-    
-
-
-        // dashboard -> agent
-    public function dashboard($var = null)
-    {
-        $this->load->view('account/dashboard');
-
-    }
 
 
     // notification -> agent

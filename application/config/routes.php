@@ -70,7 +70,7 @@ $route['change-password']       = 'account/change_psw';
 $route['refer-a-friend']       	= 'account/refer_friend';
 $route['add-refer-a-friend']    = 'account/insert_refer';
 // agent dashboard
-$route['dashboard']    			= 'account/dashboard';
+$route['dashboard']    			= 'authendication/enter';
 $route['notification']    		= 'account/notification_dash';
 $route['reward-point']    		= 'account/reward_point';
 // list of referals

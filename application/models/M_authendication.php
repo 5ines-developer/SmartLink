@@ -208,6 +208,49 @@ class M_authendication extends CI_Model {
     }
 
 
+    //get total referal count
+    public function get_referal()
+    {
+        $this->db->select('referee_id');
+        $this->db->where('agent_id', $this->session->userdata('sid'));
+        $query = $this->db->get('referral');
+        if( $query->num_rows() > 0){
+            return $query->num_rows();
+        }else{
+            return false;
+        }
+    }
+        //get total referal count
+        public function pending_referal()
+        {
+            $this->db->select('referee_id');
+            $this->db->where('agent_id', $this->session->userdata('sid'));
+            $this->db->where('referee_status', '0');
+            $query = $this->db->get('referral');
+            if( $query->num_rows() > 0){
+                return $query->num_rows();
+            }else{
+                return false;
+            }
+        }
+
+         //get total referal count
+         public function approved_referal()
+         {
+             $this->db->select('referee_id');
+             $this->db->where('agent_id', $this->session->userdata('sid'));
+             $this->db->where('referee_status', '1');
+             $query = $this->db->get('referral');
+             if( $query->num_rows() > 0){
+                 return $query->num_rows();
+             }else{
+                 return false;
+             }
+         }
+
+    
+
+
 
 
 

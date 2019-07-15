@@ -182,7 +182,7 @@ class Authendication extends CI_Controller {
                         ); 
                         
 						$this->session->set_userdata($session_data); 
-						redirect('authendication/enter'); 
+						redirect('dashboard'); 
 					} 
 				else 
 					{
@@ -207,10 +207,11 @@ class Authendication extends CI_Controller {
     public function enter()
 	{
 		if($this->session->userdata('sid') != ''){ 
-                $data['title'] = 'Account - Smart Link';
-                $uid = $this->session->userdata('sid');
-                $data['profile'] = $this->m_account->profileGet($uid);
-                $this->load->view('account/account', $data, FALSE);
+            $data['title'] = 'Dashboard - Smart Link';
+            $data['referal'] = $this->m_authendication->get_referal(); //get referals count
+            $data['approved'] = $this->m_authendication->approved_referal(); //get referals count
+            $data['pending'] = $this->m_authendication->pending_referal(); //get referals count
+            $this->load->view('account/dashboard',$data);
 		} 
 		else{
 				redirect('login');
