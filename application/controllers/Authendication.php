@@ -14,6 +14,7 @@ class Authendication extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->model('m_authendication');
         $this->load->model('m_account');
+        $this->data =  $this->get_notification();
 
     }
 
@@ -207,6 +208,7 @@ class Authendication extends CI_Controller {
     public function enter()
 	{
 		if($this->session->userdata('sid') != ''){ 
+            $data['alert']   = $this->data;
             $data['title'] = 'Dashboard - Smart Link';
             $data['referal'] = $this->m_authendication->get_referal(); //get referals count
             $data['approved'] = $this->m_authendication->approved_referal(); //get referals count
@@ -360,6 +362,13 @@ class Authendication extends CI_Controller {
                 return TRUE;
             }
     }
+
+           // notification 
+	  public function get_notification($id='')
+	  {
+        $datas = $this->m_account->get_noti();
+		return $datas;
+	  }
 
 }
 

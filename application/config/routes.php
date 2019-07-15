@@ -63,16 +63,20 @@ $route['logout']                = 'authendication/logout';
 $route['forgot-password']       = 'authendication/forgot_password';
 $route['forgot-verify']         = 'authendication/forgot_verify';
 $route['forgot-password-set']   = 'authendication/forgot_password_set';
+// agent dashboard
+$route['dashboard']    			= 'authendication/enter';
 // account
 $route['account-setting']       = 'account';
 $route['change-password']       = 'account/change_psw';
 //refer a friend
 $route['refer-a-friend']       	= 'account/refer_friend';
 $route['add-refer-a-friend']    = 'account/insert_refer';
-// agent dashboard
-$route['dashboard']    			= 'authendication/enter';
-$route['notification']    		= 'account/notification_dash';
+//notification
+$route['notifications']    		= 'account/notification_dash';
+$route['noti-view/(:any)/(:any)/(:any)']  = 'account/noti_view/$1/$2/$3';
+//reward points
 $route['reward-point']    		= 'account/reward_point';
 // list of referals
 $route['referal-list']    		= 'account/referal_list';
+$route['referal-list/(:any)']   = 'account/referal_list/$1';
 

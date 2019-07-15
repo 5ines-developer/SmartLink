@@ -16,6 +16,7 @@
                                         friend</a></li>
                                 <li><a class="waves-effect " href="">Reward Points</a></li>
                                 <li><a class="waves-effect <?php if($this->uri->segment(1)=="referal-list"){echo "active";}?>" href="<?php echo base_url('referal-list')?>">List of Referrals</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="notifications"){echo "active";}?>" href="<?php echo base_url('notifications')?>">Notifications</a></li>
                             </ul>
                         </div>
                     </div>

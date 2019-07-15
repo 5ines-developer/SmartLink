@@ -46,3 +46,6 @@ $(document).ready(function() {
         $('.overlay-popup').css({ 'visibility': 'hidden', 'opacity': '0' });
     });
 });
+
+
+$(".dropdown-trigger").dropdown();

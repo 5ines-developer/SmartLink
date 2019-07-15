@@ -206,6 +206,70 @@ nav ul a {
     right: 64px;
 }
 
+i.left {
+    margin-right: 4px;
+}
+
+.fas.fa-sign-out-alt {
+    font-size: 16px;
+}
+
+#secondnavbar.white a {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.notibadge.bg-red {
+    background: #F70C0C !important;
+    border: 1px solid #FF0F01 !important;
+    color: #fff;
+}
+
+.notibadge {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 13px;
+    padding: 1px 4px;
+    position: absolute;
+    right: 78px;
+    top: 15px;
+    display: inline-block;
+    min-width: 10px;
+    border-radius: 10px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#dropdown1 {
+    top: 65px !important;
+    width: 300px !important;
+    left: 836.1px !important;
+}
+
+#dropdown1 a:hover {
+    background-color: transparent;
+}
+
+#dropdown1 a {
+    font-size: 13px;
+    color: #000;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px !important;
+    font-weight: 400;
+}
+
+.right.time {
+    margin-left: 16px;
+}
+
+.see-all {
+    background-color: #eee;
+}
+
 
 /* register page */
 
