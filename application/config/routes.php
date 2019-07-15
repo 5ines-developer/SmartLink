@@ -74,9 +74,12 @@ $route['add-refer-a-friend']    = 'account/insert_refer';
 //notification
 $route['notifications']    		= 'account/notification_dash';
 $route['noti-view/(:any)/(:any)/(:any)']  = 'account/noti_view/$1/$2/$3';
-//reward points
-$route['reward-point']    		= 'account/reward_point';
 // list of referals
 $route['referal-list']    		= 'account/referal_list';
 $route['referal-list/(:any)']   = 'account/referal_list/$1';
+
+//reward points
+$route['reward-points']    		= 'account/reward_point';
+$route['claim-points']    		= 'account/claim_reward';
+
 

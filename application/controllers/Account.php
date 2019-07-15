@@ -449,7 +449,6 @@ class Account extends CI_Controller
         $data['title'] = 'List Of Referals - Smart Link';
         $data['referal'] = $this->m_account->referal_list($refid);
         $this->load->view('account/referal-list', $data, false);
-
     }
 
 
@@ -458,7 +457,28 @@ class Account extends CI_Controller
     {
         $data['alert'] = $this->data;
         $this->load->view('account/reward-point');
+    }
 
+    public function claim_reward($var = null)
+    {
+        $this->form_validation->set_rules('reward', 'Reward Point', 'trim|required');
+        if ($this->form_validation->run() == true) {
+
+           $reward = $this->input->post('reward');
+           
+           echo "<pre>";
+           print_r ($reward);
+           echo "</pre>";exit;
+           
+           
+            $datas = array(
+                'agent_password' => $reward,
+            );
+
+        }else{
+            $this->session->set_flashdata('error', 'Unable to process your request, Please try again!');
+            redirect('reward-points', 'refresh');
+        }
     }
 
     // notification
