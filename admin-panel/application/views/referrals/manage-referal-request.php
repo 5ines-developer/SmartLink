@@ -1,3 +1,7 @@
+<?php
+  $this->ci =& get_instance();
+  $this->ci->load->model('referal_model');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -130,7 +134,7 @@
                         foreach ($referal as $key => $value) {$cont = $cont + 1;?>
                           <tr>
                           <td><?php echo (!empty($referal))?$cont:'' ?></td>
-                          <td><?php echo (!empty($value->agent_id))?$value->agent_id:''  ?></td>
+                          <td><?php echo $this->ci->referal_model->refered_by((!empty($value->agent_id))?$value->agent_id:'')  ?></td>
                           <td><?php echo (!empty($value->referee_name))?$value->referee_name:''  ?></td>
                           <td><?php echo (!empty($value->referee_phone))?$value->referee_phone:''  ?></td>
                           <td><?php echo (!empty($value->product))?$value->product:''  ?></td>

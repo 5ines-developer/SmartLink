@@ -71,6 +71,7 @@ class Referal_model extends CI_Model {
 
 		public function get_noti($id=null)
 		{
+			$this->db->where('noti_to_type ', 'admin');
 			$this->db->where('notification_seen ', '0');
 			$this->db->order_by('added_on', 'desc');
 			return $this->db->get('notification')->result();
@@ -78,6 +79,7 @@ class Referal_model extends CI_Model {
 
 		public function noti_seen($uniq=null)
 		{
+			$this->db->where('noti_to_type ', 'admin');
 			$this->db->where('notification_seen ', '0');
 			$this->db->where('uniq ', $uniq);
 			$this->db->update('notification', array('notification_seen' => '1'));
@@ -90,8 +92,13 @@ class Referal_model extends CI_Model {
 
 		public function all_noti($id=null)
 		{
-			$this->db->order_by('added_on', 'desc');
-			return $this->db->get('notification')->result();
+
+			$this->db->select('no.notification_id,no.added_on,no.notification_subject,no.notification_description,no.notification_type,no.notification_seen,no.thing_id, no.uniq, no.added_by_type,no.noti_to,ag.agent_name')
+			->where('no.noti_to_type ', 'admin')
+			->order_by('no.added_on', 'desc')
+			->from('notification no')
+			->join('agent ag', 'ag.agent_id  = no.added_by', 'inner');
+			return $this->db->get()->result();
 		}
 
 
@@ -131,7 +138,36 @@ class Referal_model extends CI_Model {
             {
                 return $this->db->insert('notification',$notification);
             }
-        }
+		}
+		
+		// get product reward if its exist
+		public function product_reward($uniq = '')
+		{
+			$this->db->select('reward_points');
+			$this->db->where('uniq', $uniq);
+			$query = $this->db->get('product');
+			if ($query->num_rows() > 0) 
+            {
+				return $query->row_array();
+			}
+            else
+            {
+                return false;
+            }
+			
+		}
+
+		// get refered by 
+		public function refered_by($id = null)
+		{
+			$this->db->select('agent_name');
+			$this->db->where('agent_id',$id);
+			$query = $this->db->get('agent')->row_array();
+			return $query['agent_name'];
+		}
+
+
+
 
 		
 

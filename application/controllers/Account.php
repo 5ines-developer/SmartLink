@@ -113,7 +113,13 @@ class Account extends CI_Controller
                 'thing_id' => $uniq,
                 'notification_type' => '1',
                 'uniq' => random_string('alnum', 10),
+                'added_by_type' => 'agent',
+                'noti_to_type' => 'admin'
+
             );
+
+
+            
 
             $output = $this->m_account->insert_referrals($insert);
             $notioutput = $this->notification($notification);

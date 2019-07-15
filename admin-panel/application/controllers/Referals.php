@@ -61,6 +61,9 @@ class Referals extends CI_Controller {
             $data['title']      = 'View Referals - Smart Link';
             $data['referal']    = $this->referal_model->single_referal($id);
             $data['alert']      = $this->data;
+            if (!empty($data['referal'] ['sub_product'])) {
+                $data['reward']    = $this->referal_model->product_reward($data['referal'] ['sub_product']);
+            }
             $this->load->view('referrals/view-referals',$data);
         }
 

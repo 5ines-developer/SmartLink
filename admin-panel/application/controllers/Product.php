@@ -27,6 +27,7 @@ class Product extends CI_Controller {
 	*/
     public function index()
     {
+        $data['alert']   = $this->data;
         $data['title'] = 'Add Product - Smart Link';
 		$this->load->view('product/add-product',$data);
     }

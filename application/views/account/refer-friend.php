@@ -43,15 +43,15 @@
                                                     <span class="error"><?php echo form_error('name'); ?></span>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Nick Email" id="email" name="email" type="email">
+                                                    <input placeholder="Enter Your Email" id="email" name="email" type="email">
                                                     <input  id="uniq" name="uniq" type="hidden" value="<?php echo random_string('alnum',16); ?>">
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Nick Phone No." id="phone" type="number" name="phone" required>
-                                                    <label for="phone">Phone <span class="error">*</span></label>
+                                                    <input placeholder="Enter Your Mobile No." id="phone" type="text" name="phone" required>
+                                                    <label for="phone">Mobile No. <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('phone'); ?></span>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
@@ -61,7 +61,7 @@
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Nick Phone No." id="location" type="text" name="location">
+                                                    <input placeholder="Enter Your Area" id="location" type="text" name="location">
                                                     <label for="location">Location</label>
                                                 </div>
                                                 <div id="select-product">
@@ -116,7 +116,7 @@
                                                         <select name="sub_product" id="customer">
                                                             <?php if (!empty($product)) {
                                                             foreach ($product as $key => $value) { ?>
-                                                            <option value="<?php echo $value->product_name ?>"><?php echo $value->product_name ?></option>
+                                                            <option value="<?php echo $value->uniq ?>"><?php echo $value->service ?></option>
                                                             <?php   } } ?>
                                                         </select>
                                                         <label>select a product</label>
@@ -125,7 +125,7 @@
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l12 m12 s12">
-                                                    <textarea placeholder="Description" id="description" name="description"
+                                                    <textarea placeholder="Enter Description" id="description" name="description"
                                                     class="materialize-textarea"></textarea>
                                                     <label for="description">Description</label>
                                                 </div>
@@ -160,13 +160,22 @@
             $("#edit-form").validate({
             rules: {
             name: {
-            required: true,
-            name: true
-            },
-            phone: "required",
+                required: true,
+                },
+            phone: {
+                    required: true,
+                    number: true,
+                    minlength: 10,
+                    maxlength: 10,
+                },
             },
             messages: {
-            phone: "Please enter your phone number",
+                phone: {
+                    required: "Please enter your Mobile number",
+                    number: "Please enter a valid Mobile number",
+                    minlength: "Your Mobile number at least 10 digits",
+                    maxlength: "Your Mobile number must be 10 digits",
+                },
             name: "Please enter a valid Username",
             }
             });

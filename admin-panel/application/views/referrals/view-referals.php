@@ -1,3 +1,7 @@
+<?php
+  $this->ci =& get_instance();
+  $this->ci->load->model('referal_model');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,9 +110,9 @@
                                             <button type="button" class="btn btn-danger" data-toggle="modal"
                                             data-target="#reject-modal">Reject</button>
                                         <?php } elseif (!empty($referal['referee_status']) && $referal['referee_status']=='2') { ?>
+                                            <button type="button" class="btn btn-info" data-toggle="modal"
+                                             data-target="#approve-model">Approve</button>
                                            <button type="button" class="btn btn-dsable">Rejected</button>
-                                           <button type="button" class="btn btn-info" data-toggle="modal"
-                                            data-target="#approve-model">Approve</button>
                                            <?php } elseif (empty($referal['referee_status']) && $referal['referee_status']=='0') { ?>
                                             <button type="button" class="btn btn-info" data-toggle="modal"
                                             data-target="#approve-model">Approve</button>
@@ -138,8 +142,7 @@
                                         </tr>
                                         <tr>
                                             <th>Refered by</th>
-                                            <td><?php echo (!empty($referal['agent_id']))?$referal['agent_id']:''  ?>
-                                            </td>
+                                            <td><?php echo $this->ci->referal_model->refered_by((!empty($referal['agent_id']))?$referal['agent_id']:'')  ?></td>
                                         </tr>
                                         <tr>
                                             <th>Location</th>
@@ -226,6 +229,15 @@
                                         value="<?php echo (!empty($referal['agent_id']))?$referal['agent_id']:''  ?>">
                                 </div>
                                 <p class="paswrd-error required"></p>
+
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12col-xs-12">
+                                        <label class="control-label" for="rewrd">Reward Point <span
+                                                class="required">*</span>
+                                        </label>
+                                        <input type="text" id="rewrd" required="required"
+                                            class="form-control col-md-7 col-xs-12" name="rewrd" value="<?php echo (!empty($reward['reward_points']))?$reward['reward_points']:''  ?>"> </div>
+                                </div>
                                 <div class="ln_solid"></div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -274,7 +286,7 @@
                                     </div>
                                 </div>
 
-                                <p class="paswrd-error required"></p>
+                                <p class="paswrd-error-reject required"></p>
 
 
 
@@ -372,11 +384,11 @@
                 data: DataString,
                 success: function(data) {
                     if (data == 'wrong password') {
-                        $(".paswrd-error").append("<span>Wrong password</span>");
+                        $(".paswrd-error-reject").append("<span>Wrong password</span>");
                     } else if (data == '1') {
                         location.href = "<?php echo base_url('manage-referals')?>"
                     } else if (data == '') {
-                        $(".paswrd-error").append(
+                        $(".paswrd-error-reject").append(
                             "<span>Unable to process your request please try again!</span>"
                             );
                     }
