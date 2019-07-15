@@ -211,6 +211,7 @@ class Authendication extends CI_Controller {
             $data['referal'] = $this->m_authendication->get_referal(); //get referals count
             $data['approved'] = $this->m_authendication->approved_referal(); //get referals count
             $data['pending'] = $this->m_authendication->pending_referal(); //get referals count
+            $this->session->set_flashdata('referal', 'You have earned new reward points');
             $this->load->view('account/dashboard',$data);
 		} 
 		else{

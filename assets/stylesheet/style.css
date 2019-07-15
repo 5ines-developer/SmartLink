@@ -455,7 +455,6 @@ section {
 }
 
 
-
 /**************otp verification**********************/
 
 .para {
@@ -496,6 +495,7 @@ section {
     color: black;
     font-weight: 400;
 }
+
 #resend-code {
     cursor: pointer;
     float: right;
@@ -996,6 +996,40 @@ section {
 
 #referal-list td {
     font-size: 13px !important;
+}
+
+
+/* *******toast*********** */
+
+#toast-container {
+    top: 75% !important;
+    right: 0 !important;
+    max-width: 26% !important;
+    left: 35px !important;
+    bottom: 20% !important;
+    color: #000;
+}
+
+.toast {
+    color: #000;
+    font-size: 13px;
+    border: 1px solid #dfdbdb;
+    padding: 25px 25px;
+    -webkit-box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toast .toast-action {
+    color: #000;
+    font-size: 12px;
+    position: relative;
+    top: -21px;
+}
+
+.toast .btn-flat i {
+    font-size: 18px;
+    line-height: inherit;
+    color: #5e6062;
 }
 
 

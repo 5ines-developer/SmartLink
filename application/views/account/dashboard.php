@@ -15,69 +15,68 @@
 
 </head>
 
-<body class="header_sticky">
-    <div class="boxed">
-        <?php  $this->load->view('includes/header');?>
-        <section class="agent-profile">
-            <div class="container-wrap3">
-                <div class="row mb-0">
-                    <!-- sidebar -->
+<body>
 
-                    <?php $this->load->view('includes/agent-sidebar.php'); ?>
+    <?php  $this->load->view('includes/header');?>
+    <section class="agent-profile">
+        <div class="container-wrap3">
+            <div class="row mb-0">
+                <!-- sidebar -->
 
-                    <!-- side bar end -->
-                    <div class="col  l9 m8 s12">
-                        <div class="card agent-profile-right">
-                            <div class="card-content agent-right-content">
-                                <div class="agent-edit-title">
-                                    <h6 class="agent-edit-title-cn">Dashboard
-                                </div>
-                                <div class="dashboard-detail">
-                                    <div class="row">
-                                        <div class="col xl4 m6 s12 l6">
-                                            <div class="dashboard-list" id="process-refer">
-                                                <i class="fas fa-sync icon-dash"></i>
-                                                <h5 class="m0"><?php echo (!empty($referal))?$referal:''; ?></h5>
-                                                <p>Total no of Referral</p>
-                                            </div>
-                                        </div>
-                                        <div class="col xl4 m6 s12 l6">
-                                            <div class=" dashboard-list" id="completed-refer">
-                                                <i class="fas fa-thumbs-up icon-dash"></i>
-                                                <h5 class="m0"><?php echo (!empty($approved))?$approved:''; ?></h5>
-                                                <p>Reference Completed</p>
-                                            </div>
-                                        </div>
-                                        <div class="col xl4 m6 s12 l6">
-                                            <div class=" dashboard-list" id="pending-refer">
-                                                <i class="fas fa-thumbs-down icon-dash"></i>
-                                                <h5 class="m0"><?php echo (!empty($pending))?$pending:''; ?></h5>
-                                                <p>Reference Pending</p>
-                                            </div>
+                <?php $this->load->view('includes/agent-sidebar.php'); ?>
+
+                <!-- side bar end -->
+                <div class="col  l9 m8 s12">
+                    <div class="card agent-profile-right">
+                        <div class="card-content agent-right-content">
+                            <div class="agent-edit-title">
+                                <h6 class="agent-edit-title-cn">Dashboard
+                            </div>
+                            <div class="dashboard-detail">
+                                <div class="row">
+                                    <div class="col xl4 m6 s12 l6">
+                                        <div class="dashboard-list" id="process-refer">
+                                            <i class="fas fa-sync icon-dash"></i>
+                                            <h5 class="m0"><?php echo (!empty($referal))?$referal:''; ?></h5>
+                                            <p>Total no of Referral</p>
                                         </div>
                                     </div>
-                                    <div class="row m0">
-                                        <div class="col l12 m12 s12 xl6">
-                                            <div class="dashboard-ref">
-                                                <div class="row">
-                                                    <div class="col l3 m2 s3">
-                                                        <span class="m0 count-ref">30</span>
-                                                    </div>
-                                                    <div class="col l9 m10 s9">
-                                                        <span class="title-ref">Total Unclaimed Reward Point</span>
-                                                    </div>
+                                    <div class="col xl4 m6 s12 l6">
+                                        <div class=" dashboard-list" id="completed-refer">
+                                            <i class="fas fa-thumbs-up icon-dash"></i>
+                                            <h5 class="m0"><?php echo (!empty($approved))?$approved:''; ?></h5>
+                                            <p>Reference Completed</p>
+                                        </div>
+                                    </div>
+                                    <div class="col xl4 m6 s12 l6">
+                                        <div class=" dashboard-list" id="pending-refer">
+                                            <i class="fas fa-thumbs-down icon-dash"></i>
+                                            <h5 class="m0"><?php echo (!empty($pending))?$pending:''; ?></h5>
+                                            <p>Reference Pending</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m0">
+                                    <div class="col l12 m12 s12 xl6">
+                                        <div class="dashboard-ref">
+                                            <div class="row">
+                                                <div class="col l3 m2 s3">
+                                                    <span class="m0 count-ref">30</span>
+                                                </div>
+                                                <div class="col l9 m10 s9">
+                                                    <span class="title-ref">Total Unclaimed Reward Point</span>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col l12 m12 s12 xl6">
-                                            <div class="dashboard-ref">
-                                                <div class="row">
-                                                    <div class="col l3 m2 s3">
-                                                        <span class="m0 count-ref">30</span>
-                                                    </div>
-                                                    <div class="col l9 m10 s9">
-                                                        <span class="title-ref">Total Claimed Reward Point</span>
-                                                    </div>
+                                    </div>
+                                    <div class="col l12 m12 s12 xl6">
+                                        <div class="dashboard-ref">
+                                            <div class="row">
+                                                <div class="col l3 m2 s3">
+                                                    <span class="m0 count-ref">30</span>
+                                                </div>
+                                                <div class="col l9 m10 s9">
+                                                    <span class="title-ref">Total Claimed Reward Point</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -88,14 +87,31 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <?php  $this->load->view('includes/footer');?>
-    </div><!-- /.boxed -->
+        </div>
+    </section>
+    <?php  $this->load->view('includes/footer');?>
+    <!-- /.boxed -->
     <!-- Javascript -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
+
+    <script>
+        
+    var toastHTML = '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+    M.toast({
+        html: toastHTML,
+        displayLength:100000,
+        classes:'white'
+    });
+
+    function toast() {
+        var toastElement = document.querySelector('.toast');
+  var toastInstance = M.Toast.getInstance(toastElement);
+  toastInstance.dismiss(); 
+}
+    </script>
 </body>
 
 </html>
