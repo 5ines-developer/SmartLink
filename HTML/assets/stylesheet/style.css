@@ -960,7 +960,46 @@ border-bottom-left-radius: 4px;
 .claim-table td {
     font-size: 12px;
 }
+.claim-detail {
+    margin-top: 12px;
+}
+.view-code {
 
+    color: #000;
+    border: 1px solid #040404;
+    padding: 5px 10px;
+    border-radius: 20px;
+
+}
+.view-code:hover {
+    background: #009cbe;
+    color: white;
+    border-color: #009cbe;
+    cursor: pointer;
+}
+#smartcode {
+
+    width: 35%;
+    border-radius: 5px;
+
+}
+.mc-smartcode h4 {
+
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    color: #056a6a;
+
+}
+.mc-smartcode p {
+
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
+    padding-bottom: 25px;
+
+}
+/*end list of claim*/
 
 
 /* ******** ** ****************MEDIA QUERY **mobile********************* */
@@ -1037,45 +1076,8 @@ border-bottom-left-radius: 4px;
         font-size: 18px;
     }
 }
-.claim-detail {
-    margin-top: 12px;
-}
-.view-code {
 
-    color: #000;
-    border: 1px solid #040404;
-    padding: 5px 10px;
-    border-radius: 20px;
 
-}
-.view-code:hover {
-    background: #009cbe;
-    color: white;
-    border-color: #009cbe;
-    cursor: pointer;
-}
-#smartcode {
-
-    width: 35%;
-    border-radius: 5px;
-
-}
-.mc-smartcode h4 {
-
-    font-size: 17px;
-    font-weight: 600;
-    text-align: center;
-    color: #056a6a;
-
-}
-.mc-smartcode p {
-
-    font-size: 12px;
-    text-align: center;
-    margin: 0px;
-    padding-bottom: 25px;
-
-}
 /* ******** ** ****************MEDIA QUERY **small device********************* */
 
 @media(min-width:320px) and (max-width: 600px) {
@@ -1104,7 +1106,8 @@ border-bottom-left-radius: 4px;
 .count-ref {
     padding: 14px;
     }
-    /*list of claim*/
+
+/*list of claim*/
 #smartcode {
 
     width: 80%;
