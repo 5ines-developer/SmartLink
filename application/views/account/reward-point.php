@@ -60,11 +60,10 @@
                                                         <label for="reward" class="g-list">Enter reward point</label>
                                                         <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
                                                             <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
-                                                            <input  name="uniq" id="uniq" type="hidden"  value="<?php random_string('alnum','10') ?>">
+                                                            <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
                                                             <p id="paswrd-error" class="error required"></p>
                                                     </div>
-                                                    <p class="top-claim"><strong>Note : </strong> Min 100 - Max 1000 You
-                                                        can claim</p>
+                                                    <p class="top-claim"><strong>Note : </strong> Min 100 - Max 1000 You can claim</p>
                                                     <button type="submit" class="btn register-formbutton" value="submit" name="submit"
                                                         id="process-claim">Claim</button>
                                                 </form>

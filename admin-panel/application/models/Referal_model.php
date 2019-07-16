@@ -49,7 +49,7 @@ class Referal_model extends CI_Model {
 
 
 		/**
-         * delete referals 
+         * view referals 
          * @url : delete-referals
          * @param : id
          * 

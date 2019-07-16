@@ -18,11 +18,8 @@
                       <li><a href="<?php echo base_url() ?>manage-product">Manage Product</a></li>
                       </ul>
                   </li>
-                <li><a href="<?php echo base_url() ?>manage-referals"><i class="fa fa-user-plus" aria-hidden="true"></i> Referals</a></li>
-                 
-                  
-                  
-
+                  <li><a href="<?php echo base_url() ?>manage-referals"><i class="fa fa-user-plus" aria-hidden="true"></i> Referals</a></li>
+                  <li><a href="<?php echo base_url() ?>manage-reward-claims"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Rewards Claim Request</a></li>
                 </ul>
               </div>
             </div>

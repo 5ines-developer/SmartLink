@@ -5189,3 +5189,7 @@ ul.notifications {
 .btn.btn-dsable {
     cursor: no-drop !important;
 }
+
+.viedet th {
+    width: 250px;
+}

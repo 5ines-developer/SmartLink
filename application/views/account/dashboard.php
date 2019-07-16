@@ -37,21 +37,21 @@
                                     <div class="col xl4 m6 s12 l6">
                                         <div class="dashboard-list" id="process-refer">
                                             <i class="fas fa-sync icon-dash"></i>
-                                            <h5 class="m0"><?php echo (!empty($referal))?$referal:''; ?></h5>
+                                            <h5 class="m0"><?php echo (!empty($referal))?$referal:'0'; ?></h5>
                                             <p>Total no of Referral</p>
                                         </div>
                                     </div>
                                     <div class="col xl4 m6 s12 l6">
                                         <div class=" dashboard-list" id="completed-refer">
                                             <i class="fas fa-thumbs-up icon-dash"></i>
-                                            <h5 class="m0"><?php echo (!empty($approved))?$approved:''; ?></h5>
+                                            <h5 class="m0"><?php echo (!empty($approved))?$approved:'0'; ?></h5>
                                             <p>Reference Completed</p>
                                         </div>
                                     </div>
                                     <div class="col xl4 m6 s12 l6">
                                         <div class=" dashboard-list" id="pending-refer">
                                             <i class="fas fa-thumbs-down icon-dash"></i>
-                                            <h5 class="m0"><?php echo (!empty($pending))?$pending:''; ?></h5>
+                                            <h5 class="m0"><?php echo (!empty($pending))?$pending:'0'; ?></h5>
                                             <p>Reference Pending</p>
                                         </div>
                                     </div>

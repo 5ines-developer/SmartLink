@@ -1066,7 +1066,7 @@ section {
 /* *******toast*********** */
 
 #toast-container {
-    top: 75% !important;
+    top: 50% !important;
     right: 0 !important;
     max-width: 26% !important;
     left: 35px !important;
@@ -1129,6 +1129,13 @@ section {
     /**********refer a friend********/
     .refer-friend .card-content.agent-right-content {
         padding: 24px !important;
+    }
+    #toast-container {
+        top: 50% !important;
+        right: 10px !important;
+        max-width: 26% !important;
+        bottom: 20% !important;
+        color: #000;
     }
 }
 
