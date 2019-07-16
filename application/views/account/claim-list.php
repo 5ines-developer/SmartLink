@@ -170,7 +170,6 @@
                                 dataType: "html",
                                 data: DataString,
                                 success: function(data) {
-                                    console.log(data);
                                     if (data == 'wrong password') {
                                         $("#paswrd-error>span").remove();
                                         $("#paswrd-error").append("<span>Wrong password</span>");

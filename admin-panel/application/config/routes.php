@@ -89,5 +89,7 @@ $route['delete-reward-claims/(:any)'] = 'Rewards/delete_claims/$1';
 $route['view-reward-claims/(:any)'] = 'Rewards/view_claims/$1';
 $route['approve-claim'] 	 	 = 'Rewards/approve_rewards';
 $route['reject-claim'] 	 	 = 'Rewards/reject_rewards';
-
-
+//agents
+$route['manage-agents'] 	 = 'Agent/index';
+$route['view-agent/(:any)'] 	 	 = 'Agent/view_agent/$1';
+$route['delete-agent'] 	 	 = 'Agent/delet_agent';
