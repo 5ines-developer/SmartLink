@@ -98,7 +98,7 @@
                     required: "Please provide a password",
                     minlength: "Your password must be at least 5 characters long"
                 },
-                username: "Please enter a valid Username",
+                username: "Please enter a valid Nick Name",
             }
         });
     });

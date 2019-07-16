@@ -63,7 +63,7 @@
                     <?php   }} ?>
 
                     <li class="divider"></li>
-                    <li><a class="center-align see-all" href="#!">See All</a></li>
+                    <li><a class="center-align see-all" href="<?php echo base_url('notifications')?>">See All</a></li>
                 </ul>
                 <!-- <li><a href="<?php echo base_url () ?>register"><i class="material-icons dp48">notifications_none</i><span class="notibadge bg-red"> 3 </span></a></li> -->
                 <li><a href="<?php echo base_url () ?>logout">logout <i class="fas fa-sign-out-alt"></i></a></li>

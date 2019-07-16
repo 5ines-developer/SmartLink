@@ -188,6 +188,8 @@ class Referals extends CI_Controller
         $data['seen'] = $this->referal_model->noti_seen($uniq);
         if ($notitype == '1') {
             redirect('view-referals/' . $itemid, 'refresh');
+        }elseif ($notitype == '2') {
+            redirect('view-reward-claims/' . $itemid, 'refresh');
         }
     }
 

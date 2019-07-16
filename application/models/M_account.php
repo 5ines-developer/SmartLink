@@ -142,7 +142,7 @@ class M_account extends CI_Model
         return $this->db->get('notification')->result();
     }
 
-    // phone check
+    // referal list
     public function referal_list($refid =null )
     {
         if ($refid !='') {
@@ -210,6 +210,47 @@ class M_account extends CI_Model
             return $this->db->insert('claim_reward', $insert);
         }
     }
+
+        // claim list
+        public function claim_list($refid =null )
+        {
+            if ($refid !='') {
+                $this->db->where('uniq', $refid);
+            }
+            $this->db->where('agent_id', $this->session->userdata('sid'));
+            $query = $this->db->get('claim_reward');
+    
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return false;
+            }
+        }
+
+        public function check_user($name = null)
+        {
+            $this->db->where('agent_id', $this->session->userdata('sid'));
+            $this->db->group_start();
+                $this->db->where('agent_phone', $name);
+                $this->db->or_where('agent_name', $name);
+            $this->db->group_end();
+            $query = $this->db->get('agent');
+            if ($query->num_rows() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function coupon($claimid)
+        {
+            $this->db->select('coupon_code');
+            $this->db->where('agent_id', $this->session->userdata('sid'));
+            $this->db->where('claim_id', $claimid);
+            $query = $this->db->get('claim_reward')->row_array();
+            return $query['coupon_code'];
+
+        }
 
     
 

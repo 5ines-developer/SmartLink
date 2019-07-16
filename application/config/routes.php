@@ -81,5 +81,8 @@ $route['referal-list/(:any)']   = 'account/referal_list/$1';
 //reward points
 $route['reward-points']    		= 'account/reward_point';
 $route['claim-points']    		= 'account/claim_reward';
+$route['claim-list']    		= 'account/claims';
+$route['claim-list/(:any)']   = 'account/claims/$1';
+$route['verify-credentials']    		= 'account/code_auth';
 
 

@@ -114,12 +114,9 @@ class Account extends CI_Controller
                 'notification_type' => '1',
                 'uniq' => random_string('alnum', 10),
                 'added_by_type' => 'agent',
-                'noti_to_type' => 'admin'
+                'noti_to_type' => 'admin',
 
             );
-
-
-            
 
             $output = $this->m_account->insert_referrals($insert);
             $notioutput = $this->notification($notification);
@@ -138,8 +135,6 @@ class Account extends CI_Controller
             redirect('refer-a-friend', 'refresh');
         }
     }
-
-  
 
     //  send refer a friend request to admin
     public function sendreferrals($insert = '')
@@ -410,18 +405,6 @@ class Account extends CI_Controller
 
     }
 
-    // psw check function
-    public function checkpsw_check($psw)
-    {
-        if ($this->m_account->checkpsw($psw)) {
-            return true;
-        } else {
-            $this->form_validation->set_message('checkpsw_check', 'Invalid {field}');
-            return false;
-        }
-
-    }
-
     // phone number function
     public function phone_check($phone)
     {
@@ -443,66 +426,97 @@ class Account extends CI_Controller
         $this->load->view('account/referal-list', $data, false);
     }
 
-
     //reward-point -> agent
     public function reward_point($var = null)
     {
         $data['alert'] = $this->data;
-        $data['reward'] = $this->m_account->reward_point();  
+        $data['reward'] = $this->m_account->reward_point();
         $data['claimed'] = $this->m_account->claimed_point();
-        $this->load->view('account/reward-point',$data);
+        $this->load->view('account/reward-point', $data);
     }
 
+    //claim reward point
     public function claim_reward($var = null)
     {
         $this->form_validation->set_rules('reward', 'Reward Point', 'trim|required');
         if ($this->form_validation->run() == true) {
 
-           $claimed_points = $this->input->post('reward');
-           $agent_id = $this->session->userdata('sid');
-           $uniq = $this->input->post('uniq');
-           $insert = array('claimed_points' => $claimed_points,
-           'agent_id' => $agent_id ,
-           'uniq' => $uniq         
-        );
-        $ouput1 = $this->m_account->insert_claimrequest($insert);
+            $claimed_points = $this->input->post('reward');
+            $agent_id = $this->session->userdata('sid');
+            $uniq = $this->input->post('uniq');
+            $insert = array('claimed_points' => $claimed_points,
+                'agent_id' => $agent_id,
+                'uniq' => $uniq,
+            );
+            $ouput1 = $this->m_account->insert_claimrequest($insert);
 
-        $notification = array(
-            'notification_subject' => 'Claim reward points',
-            'notification_description' => 'agent has requested to claim the reward points',
-            'added_by' => $this->session->userdata('sid'),
-            'thing_id' => $uniq,
-            'notification_type' => '1',
-            'uniq' => random_string('alnum', 10),
-            'added_by_type' => 'agent',
-            'noti_to_type' => 'admin'
+            $notification = array(
+                'notification_subject' => 'Claim reward points',
+                'notification_description' => 'agent has requested to claim the reward points',
+                'added_by' => $this->session->userdata('sid'),
+                'thing_id' => $uniq,
+                'notification_type' => '2',
+                'uniq' => random_string('alnum', 10),
+                'added_by_type' => 'agent',
+                'noti_to_type' => 'admin',
 
-        );
+            );
 
-        $ouput2 = $this->notification($notification);
+            $ouput2 = $this->notification($notification);
 
-        if ($ouput1 !='' && $ouput2!='') {
-            $this->session->set_flashdata('success', 'friend reference Added Successfully');
-            redirect('reward-points', 'refresh');
-        }     
+            if ($ouput1 != '' && $ouput2 != '') {
+                $this->session->set_flashdata('success', 'friend reference Added Successfully');
+                redirect('reward-points', 'refresh');
+            }
 
-
-        }else{
+        } else {
             $this->session->set_flashdata('error', 'Unable to process your request, Please try again!');
             redirect('reward-points', 'refresh');
         }
     }
 
+    //list of claims
+    public function claims($refid = null)
+    {
+        $data['alert'] = $this->data;
+        $data['title'] = 'List Of Claims - Smart Link';
+        $data['claim'] = $this->m_account->claim_list($refid);
+        $this->load->view('account/claim-list', $data);
 
-      // insert notification
-      public function notification($notification = '')
-      {
-          if ($this->m_account->insert_notification($notification)) {
-              return true;
-          } else {
-              return false;
-          }
-      }
+    }
+
+    public function code_auth(Type $var = null)
+    {
+        $name = $this->input->post('name');
+        $password = $this->input->post('password');
+        $claimid = $this->input->post('claimid');
+        $output = $this->checkpsw_check($password);
+        if ($output != '') {
+            if($data['claim'] = $this->m_account->check_user($name))
+            {
+                $data['coupon'] = $this->m_account->coupon($claimid);
+                echo $data['coupon'];
+            }else{
+                echo 'error';
+            }
+            
+        }else{
+            echo 'wrong password';
+        }
+
+        
+  
+    }
+
+    // insert notification
+    public function notification($notification = '')
+    {
+        if ($this->m_account->insert_notification($notification)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // notification
     public function get_notification($id = '')
@@ -515,7 +529,9 @@ class Account extends CI_Controller
     {
         $data['seen'] = $this->m_account->noti_seen($uniq);
         if ($notitype == '1') {
-            redirect('referal-list/'.$itemid, 'refresh');
+            redirect('referal-list/' . $itemid, 'refresh');
+        } elseif ($notitype == '2') {
+            redirect('claim-list/' . $itemid, 'refresh');
         }
     }
 
@@ -526,6 +542,21 @@ class Account extends CI_Controller
         $data['title'] = 'Notification - Smart Link';
         $data['alert'] = $this->data;
         $this->load->view('account/notification', $data);
+
+    }
+
+
+  
+
+    // psw check function
+    public function checkpsw_check($psw)
+    {
+        if ($this->m_account->checkpsw($psw)) {
+            return true;
+        } else {
+            $this->form_validation->set_message('checkpsw_check', 'Invalid {field}');
+            return false;
+        }
 
     }
 

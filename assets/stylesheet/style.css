@@ -1044,6 +1044,57 @@ section {
 }
 
 
+/**list-of-claim**/
+
+.claim-table th {
+    font-size: 13px;
+}
+
+.claim-table td {
+    font-size: 12px;
+}
+
+.claim-detail {
+    margin-top: 12px;
+}
+
+.view-code {
+    color: #000;
+    border: 1px solid #040404;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.view-code:hover {
+    background: #009cbe;
+    color: white;
+    border-color: #009cbe;
+    cursor: pointer;
+}
+
+.modal.smartcode {
+    width: 35%;
+    border-radius: 5px;
+}
+
+.mc-smartcode h4 {
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    color: #056a6a;
+}
+
+.mc-smartcode p {
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
+    padding-bottom: 25px;
+}
+
+
+/*end list of claim*/
+
+
 /* ********** referal list detail********** */
 
 .referal-list-title {
@@ -1095,9 +1146,6 @@ section {
     line-height: inherit;
     color: #5e6062;
 }
-
-
-/* ******** ** ****************MEDIA QUERY **TABLET********************* */
 
 
 /* ******** ** ****************MEDIA QUERY **TABLET********************* */
@@ -1250,6 +1298,14 @@ section {
     }
     .count-ref {
         padding: 14px;
+    }
+    /*list of claim*/
+    .modal.smartcode {
+        width: 80%;
+        border-radius: 5px;
+    }
+    .claim-table {
+        z-index: 99;
     }
 }
 
