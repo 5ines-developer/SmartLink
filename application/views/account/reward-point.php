@@ -35,18 +35,20 @@
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
                                                 <i class="fas fa-thumbs-down icon-reward"></i>
-                                                <h5 class="m0 head-reward">5000</h5>
+                     
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'' ?></h5>
                                                 <p class="para-reward">Unclaimed Rewards Points</p>
                                             </div>
                                         </div>
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="completed-refer">
                                                 <i class="fas fa-thumbs-up icon-reward"></i>
-                                                <h5 class="m0 head-reward">2000</h5>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($claimed))?$claimed:'0' ?></h5>
                                                 <p class="para-reward">Claimed Rewards Points</p>
                                             </div>
                                         </div>
                                     </div>
+                                   
                                     <div class="row">
                                         <div class="col xl6">
                                             <div class="claim-point">
@@ -56,11 +58,15 @@
                                                         <input placeholder="Enter reward point" name="reward"
                                                             id="reward" type="text" required>
                                                         <label for="reward" class="g-list">Enter reward point</label>
+                                                        <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
+                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
+                                                            <input  name="uniq" id="uniq" type="hidden"  value="<?php random_string('alnum','10') ?>">
+                                                            <p id="paswrd-error" class="error required"></p>
                                                     </div>
                                                     <p class="top-claim"><strong>Note : </strong> Min 100 - Max 1000 You
                                                         can claim</p>
-                                                    <button class="btn register-formbutton" value="submit" name="submit"
-                                                        id="process-refer">Claim</button>
+                                                    <button type="submit" class="btn register-formbutton" value="submit" name="submit"
+                                                        id="process-claim">Claim</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -79,6 +85,28 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        $("#process-claim").click(function () {
+
+            var total_reward = $('#tot_reward').val();
+            var unclaimed = $('#unclaimed').val();
+            var reward = $("input[name=reward]").val();
+
+
+            if (reward <= unclaimed) {
+                $( "#signup-form" ).submit();
+            } else{
+                $("#paswrd-error>span").remove();
+                $("#paswrd-error").append("<span>Please enter a reward point which is less than available points</span>");
+                return false;
+
+            }         
+
+            });
+    });
+    </script>
     <script>
     $(document).ready(function() {
         $("#signup-form").validate({

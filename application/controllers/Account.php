@@ -126,7 +126,7 @@ class Account extends CI_Controller
             $emailoutput = $this->sendreferrals($insert);
 
             if ($output != '' && $notioutput != '' && $emailoutput != '') {
-                $this->session->set_flashdata('success', 'friend reference Added Successfully');
+                $this->session->set_flashdata('success', 'friend reference Submitted Successfully');
                 redirect('refer-a-friend', 'refresh');
             } else {
                 $this->session->set_flashdata('error', 'Something went wrong please try again!');
@@ -139,15 +139,7 @@ class Account extends CI_Controller
         }
     }
 
-    // insert notification
-    public function notification($notification = '')
-    {
-        if ($this->m_account->insert_notification($notification)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+  
 
     //  send refer a friend request to admin
     public function sendreferrals($insert = '')
@@ -456,7 +448,9 @@ class Account extends CI_Controller
     public function reward_point($var = null)
     {
         $data['alert'] = $this->data;
-        $this->load->view('account/reward-point');
+        $data['reward'] = $this->m_account->reward_point();  
+        $data['claimed'] = $this->m_account->claimed_point();
+        $this->load->view('account/reward-point',$data);
     }
 
     public function claim_reward($var = null)
@@ -464,22 +458,51 @@ class Account extends CI_Controller
         $this->form_validation->set_rules('reward', 'Reward Point', 'trim|required');
         if ($this->form_validation->run() == true) {
 
-           $reward = $this->input->post('reward');
-           
-           echo "<pre>";
-           print_r ($reward);
-           echo "</pre>";exit;
-           
-           
-            $datas = array(
-                'agent_password' => $reward,
-            );
+           $claimed_points = $this->input->post('reward');
+           $agent_id = $this->session->userdata('sid');
+           $uniq = $this->input->post('uniq');
+           $insert = array('claimed_points' => $claimed_points,
+           'agent_id' => $agent_id ,
+           'uniq' => $uniq         
+        );
+        $ouput1 = $this->m_account->insert_claimrequest($insert);
+
+        $notification = array(
+            'notification_subject' => 'Claim reward points',
+            'notification_description' => 'agent has requested to claim the reward points',
+            'added_by' => $this->session->userdata('sid'),
+            'thing_id' => $uniq,
+            'notification_type' => '1',
+            'uniq' => random_string('alnum', 10),
+            'added_by_type' => 'agent',
+            'noti_to_type' => 'admin'
+
+        );
+
+        $ouput2 = $this->notification($notification);
+
+        if ($ouput1 !='' && $ouput2!='') {
+            $this->session->set_flashdata('success', 'friend reference Added Successfully');
+            redirect('reward-points', 'refresh');
+        }     
+
 
         }else{
             $this->session->set_flashdata('error', 'Unable to process your request, Please try again!');
             redirect('reward-points', 'refresh');
         }
     }
+
+
+      // insert notification
+      public function notification($notification = '')
+      {
+          if ($this->m_account->insert_notification($notification)) {
+              return true;
+          } else {
+              return false;
+          }
+      }
 
     // notification
     public function get_notification($id = '')
