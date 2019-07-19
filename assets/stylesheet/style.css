@@ -8,6 +8,7 @@ body {
 
 body {
     overflow: hidden;
+    background-color: #fbfbfb;
 }
 
 body p {
@@ -259,7 +260,7 @@ i.left {
     display: block;
     line-height: 22px;
     padding: 14px 16px !important;
-    font-weight: 400;
+    font-weight: 400 !important;
 }
 
 .right.time {
@@ -390,6 +391,11 @@ section {
 
 
 /* ****footer */
+.page-footer {
+    padding-top: 20px;
+    color: #fff;
+    background-color: #777 !important;
+}
 
 .subscribe-heading {
     font-size: 21px;
@@ -485,10 +491,10 @@ section {
 }
 
 .forgot-link {
-    margin-left: 84px;
+   float: right;
     font-weight: 500;
     color: #039be5;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .error {
@@ -749,6 +755,8 @@ section {
     font-size: 14px;
     color: gray;
     margin-bottom: 7px;
+    text-align: center;
+font-weight: 600;
 }
 
 .text-center {
@@ -1045,6 +1053,35 @@ section {
 
 
 /**list-of-claim**/
+.view-smart-code{
+    background-color: #00a0c1;
+    font-size: 12px;
+}
+
+.code-displayed{
+    width: 55%;
+font-size: 15px;
+
+height: 32.4px;
+
+line-height: 1.4px;
+
+position: relative;
+
+cursor: pointer;
+
+display: inline-block;
+
+overflow: hidden;
+
+text-align: center;
+
+color: #151515;
+
+padding: 17px 0px;
+
+border: 2px dashed #00a0c1; }
+
 
 .claim-table th {
     font-size: 13px;
@@ -1076,6 +1113,19 @@ section {
     width: 35%;
     border-radius: 5px;
 }
+.modal.newpass{ 
+    width: 35%;
+    border-radius: 5px;
+}
+.modal.otpmodal{ 
+    width: 35%;
+    border-radius: 5px;
+}
+.modal.newpass{ 
+    width: 35%;
+    border-radius: 5px;
+}
+
 
 .mc-smartcode h4 {
     font-size: 17px;
@@ -1084,12 +1134,21 @@ section {
     color: #056a6a;
 }
 
-.mc-smartcode p {
+.mc-smartcode .mod-title{
     font-size: 12px;
     text-align: center;
     margin: 0px;
     padding-bottom: 25px;
 }
+.modal.forgot-pass{
+    width: 35%;
+border-radius: 5px;
+}
+#resend-success {
+    font-size: 13px;
+}
+
+
 
 
 /*end list of claim*/
@@ -1147,6 +1206,11 @@ section {
     color: #5e6062;
 }
 
+/************tool tip******/
+.material-tooltip {
+    font-size: 11px;
+}
+
 
 /* ******** ** ****************MEDIA QUERY **TABLET********************* */
 
@@ -1170,6 +1234,12 @@ section {
     .loginpad {
         padding: 25px 15px 25px 15px;
     }
+    .forgot-link {
+   float: right;
+    font-weight: 500;
+    color: #039be5;
+    font-size: 13px;
+}
     /* agent edit profile */
     #agent-edit {
         width: 75%;
@@ -1185,6 +1255,24 @@ section {
         bottom: 20% !important;
         color: #000;
     }
+    /*claim reward*/
+    .modal.smartcode {
+    width: 50%;
+    border-radius: 5px;
+}
+.modal.newpass{ 
+    width: 50%;
+    border-radius: 5px;
+}
+.modal.otpmodal{ 
+    width: 50%;
+    border-radius: 5px;
+}
+.modal.newpass{ 
+    width: 50%;
+    border-radius: 5px;
+}
+
 }
 
 
@@ -1235,7 +1323,7 @@ section {
         margin-bottom: 6px;
     }
     .forgot-link {
-        margin-left: 40px;
+        float: right;
     }
     .register-formbutton {
         padding-right: 20px;
@@ -1265,6 +1353,11 @@ section {
         font-size: 12px;
         font-weight: 600;
     }
+    /*****claim reward*****/
+        .modal.forgot-pass {
+    width: 80%;
+    border-radius: 5px;
+}
 }
 
 
@@ -1272,7 +1365,7 @@ section {
 
 @media(min-width:320px) and (max-width: 600px) {
     .forgot-link {
-        margin-left: 12px;
+       float: right;
     }
     /* agent edit profile */
     #agent-edit {
@@ -1304,6 +1397,19 @@ section {
         width: 80%;
         border-radius: 5px;
     }
+    .modal.newpass{ 
+    width: 80%;
+    border-radius: 5px;
+}
+.modal.otpmodal{ 
+    width: 80%;
+    border-radius: 5px;
+}
+.modal.newpass{ 
+    width: 80%;
+    border-radius: 5px;
+}
+
     .claim-table {
         z-index: 99;
     }

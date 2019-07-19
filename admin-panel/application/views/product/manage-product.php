@@ -118,15 +118,15 @@
                         {
                         foreach ($product as $key => $value) {$cont = $cont + 1;?>
                           <tr>
-                          <td><?php echo (!empty($product))?$cont:'' ?></td>
-                          <td><?php echo (!empty($value->category))?$value->category:''  ?></td>
-                          <td><?php echo (!empty($value->telecom_for ))?$value->telecom_for :''  ?></td>
-                          <td><?php echo (!empty($value->it_service))?$value->it_service:''  ?></td>
-                          <td><?php echo (!empty($value->user_type))?$value->user_type:''  ?></td>
-                          <td><?php echo (!empty($value->service))?$value->service:''  ?></td>
-                          <td><?php echo (!empty($value->reward_points))?$value->reward_points:''; ?></td>
-                          <td><?php echo (!empty($value->reward_expiry_date))?date("d-M-y", strtotime($value->reward_expiry_date)):''; ?></td>
-                          <td><?php echo (!empty($value->added_on))?date("d-M-y", strtotime($value->added_on)):''; ?></td>
+                          <td><?php echo (!empty($product))?$cont:'---' ?></td>
+                          <td><?php echo (!empty($value->category))?$value->category:'--'  ?></td>
+                          <td><?php echo (!empty($value->telecom_for ))?$value->telecom_for :'---'  ?></td>
+                          <td><?php echo (!empty($value->it_service))?$value->it_service:'---'  ?></td>
+                          <td><?php echo (!empty($value->user_type))?$value->user_type:'---'  ?></td>
+                          <td><?php echo (!empty($value->service))?$value->service:'---'  ?></td>
+                          <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'; ?></td>
+                          <td><?php echo (!empty($value->reward_expiry_date))?date("d-M-y", strtotime($value->reward_expiry_date)):'---'; ?></td>
+                          <td><?php echo (!empty($value->added_on))?date("d-M-y", strtotime($value->added_on)):'---'; ?></td>
                           <td style="text-align:center;"><a href="<?php echo base_url('edit-product/').$value->uniq?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-product/').$value->uniq?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>
                         </td>

@@ -20,7 +20,7 @@
                   </li>
                   <li><a href="<?php echo base_url() ?>manage-referals"><i class="fa fa-user-plus" aria-hidden="true"></i> Referals</a></li>
                   <li><a href="<?php echo base_url() ?>manage-reward-claims"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Rewards Claim Request</a></li>
-                  <li><a href="<?php echo base_url() ?>manage-agents"><i class="fa fa-users" aria-hidden="true"></i> Rewards Claim Request</a></li>
+                  <li><a href="<?php echo base_url() ?>manage-agents"><i class="fa fa-users" aria-hidden="true"></i> Agents</a></li>
                 </ul>
               </div>
             </div>

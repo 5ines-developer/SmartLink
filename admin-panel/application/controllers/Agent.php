@@ -61,7 +61,6 @@ class Agent extends CI_Controller
             $data['title'] = 'View agent - Siemens';
             $data['agent']   = $this->agent_model->viewagent($id);
             $data['referal']      = $this->agent_model->referals($id);
-            // $data['shipping']   = $this->agent_model->shippingaddress($id);
             $this->load->view('agent/view-agent',$data);
         }
 

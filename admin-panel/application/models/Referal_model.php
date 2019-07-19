@@ -10,28 +10,22 @@ class Referal_model extends CI_Model {
         */
         public function getreferal($filter='')
 		{
-			
+			$this->db->select('ref.*,ag.agent_id as agentId,ag.agent_name,pr.service,pr.it_service');
+
 			if (!empty($filter)) {
 				if ($filter == 'approved') {
-					$this->db->where('referee_status', '1');
+					$this->db->where('ref.referee_status', '1');
 				}else if ($filter == 'rejected') {
-					$this->db->where('referee_status', '2');
+					$this->db->where('ref.referee_status', '2');
 				}else if ($filter == 'pending'){
-					$this->db->where('referee_status', '0');
+					$this->db->where('ref.referee_status', '0');
 				}
 			}
-			
-			$this->db->order_by('referee_id', 'desc');
-			$query = $this->db->get('referral');
-			if ($query->num_rows() > 0) 
-			{
-				
-				return $query->result();
-			}
-			else
-			{
-				return false;
-			}
+			$this->db->order_by('ref.referee_id', 'desc');
+			$this->db->from('referral ref');
+			$this->db->join('agent ag', 'ag.agent_id  = ref.agent_id', 'left');
+			$this->db->join('product pr', 'pr.uniq  = ref.sub_product', 'left');
+			return $this->db->get()->result();
 		}
 		
 
@@ -56,17 +50,14 @@ class Referal_model extends CI_Model {
         */
         public function single_referal($id)
 		{
-			$this->db->where('uniq', $id);
+			$this->db->select('ref.*,ag.agent_id as agentId,ag.agent_name,pr.service,pr.it_service');
+			$this->db->where('ref.uniq', $id);
+			$this->db->order_by('ref.referee_id', 'desc');
+			$this->db->from('referral ref');
+			$this->db->join('agent ag', 'ag.agent_id  = ref.agent_id', 'left');
+			$this->db->join('product pr', 'pr.uniq  = ref.sub_product', 'left');
+			return $this->db->get()->row_array();
 			$query = $this->db->get('referral');
-			if ($query->num_rows() > 0) 
-			{
-				
-				return $query->row_array();
-			}
-			else
-			{
-				return false;
-			}
 		}
 
 		public function get_noti($id=null)
@@ -143,7 +134,7 @@ class Referal_model extends CI_Model {
 		// get product reward if its exist
 		public function product_reward($uniq = '')
 		{
-			$this->db->select('reward_points');
+			$this->db->select('reward_points,reward_expiry_date');
 			$this->db->where('uniq', $uniq);
 			$query = $this->db->get('product');
 			if ($query->num_rows() > 0) 
@@ -165,18 +156,6 @@ class Referal_model extends CI_Model {
 			$query = $this->db->get('agent')->row_array();
 			return $query['agent_name'];
 		}
-
-
-
-
-		
-
-
-
-			
-			
-		
-
 		
 
 }

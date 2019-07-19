@@ -81,7 +81,8 @@ class Referals extends CI_Controller
         $noti_to = $this->input->post('noti_to');
         $rewrd = $this->input->post('rewrd');
         $Date = date("Y-m-d");
-        $reward_expiry_date = date('Y-m-d', strtotime($Date . ' + 90 days'));
+        $exipry = $this->input->post('reward_expiry');
+        $reward_expiry_date = date('Y-m-d', strtotime($Date . ' + '.$exipry));
 
         if ($this->checkpsw_check($ap_password)) {
             $change = array('referee_status' => $approve, 'reward_points' => $rewrd, 'reward_points' => $rewrd, 'reward_expiry_date' => $reward_expiry_date);

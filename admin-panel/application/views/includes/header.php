@@ -19,13 +19,13 @@
                         <span>Change Password</span>
                       </a>
                     </li>
-                    <li><a href="<?php echo base_url() ?>logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?php echo base_url() ?>logout"><i class="fa fa-sign-out pull-right"></i> Logout</a></li>
                   </ul>
                 </li>
 
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-envelope-o"></i>
+                    <i class="fa fa-bell-o" aria-hidden="true"></i>
                     <?php if (!empty($alert)) { ?>
                     <span class="badge bg-green"> <?php echo (!empty($alert))?count($alert):''; ?> </span>
                     <?php } ?>

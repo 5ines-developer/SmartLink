@@ -15,7 +15,7 @@
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
-<body>
+<body class="white">
 
     <?php $this->load->view('includes/header.php'); ?>
 

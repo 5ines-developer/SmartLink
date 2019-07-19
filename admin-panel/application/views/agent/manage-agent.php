@@ -83,7 +83,7 @@
                   </div>
                   <?php } ?>
                   <div class="x_title">
-                    <h2>Products</h2>
+                    <h2>Agents</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -111,13 +111,13 @@
                         {
                         foreach ($agent as $key => $value) {$cont = $cont + 1;?>
                           <tr>
-                          <td><?php echo (!empty($agent))?$cont:'' ?></td>
+                          <td><?php echo (!empty($agent))?$cont:'---' ?></td>
                           <td><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></td>
                           <td><?php echo (!empty($value->agent_phone ))?$value->agent_phone :'---'  ?></td>
                           <td><?php echo (!empty($value->employee_reference_id))?$value->employee_reference_id:'---'  ?></td>
-                          <td><?php echo (!empty($value->agent_registered_on))?date("d-M-y", strtotime($value->agent_registered_on)):''; ?></td>
+                          <td><?php echo (!empty($value->agent_registered_on))?date("d-M-y", strtotime($value->agent_registered_on)):'---'; ?></td>
                           <td style="text-align:center;"><a href="<?php echo base_url('view-agent/').$value->agent_id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-agent/').$value->agent_id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          <!-- <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-agent/').$value->agent_id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> -->
                         </td>
                       </tr>
                       <?php } }?>

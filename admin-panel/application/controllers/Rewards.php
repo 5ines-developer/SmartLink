@@ -64,7 +64,7 @@ class Rewards extends CI_Controller
         $data['alert'] = $this->data;
         $agentid = $data['claim']['agent_id'];
         $data['reward'] = $this->reward_model->reward_point($agentid);
-        $data['claimed'] = $this->reward_model->claimed_point($agentid);
+        // $data['claimed'] = $this->reward_model->unclaimed_point($agentid);
         $data['ap_claim'] = $this->reward_model->approved_point($agentid);
         $this->load->view('rewards/view-reward-request', $data);
     }
@@ -82,7 +82,6 @@ class Rewards extends CI_Controller
         $noti_to        = $this->input->post('noti_to');
         $smart_code     = $this->input->post('smart_code');
         $Date           = date("Y-m-d");
-        $reward_expiry_date = date('Y-m-d', strtotime($Date . ' + 90 days'));
 
         if ($this->checkpsw_check($ap_password)) {
             $change = array('claim_status' => $approve, 'coupon_code' => $smart_code,'validated_on' => date("Y-m-d h:i:s"));

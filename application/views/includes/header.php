@@ -21,8 +21,8 @@
                 <li><a href="badges.html">Team</a></li>
                 <li><a href="collapsible.html">Mission & Vision</a></li>
                 <li><a href="mobile.html">Product & Service</a></li>
-                <li><a class="register-nav" href="<?php echo base_url () ?>register">Register</a></li>
-                <li><a href="<?php echo base_url () ?>login">login</a></li>
+                <li><a class="register-nav" href="<?php echo base_url () ?>register">Sign Up</a></li>
+                <li><a href="<?php echo base_url () ?>login">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -33,8 +33,8 @@
         <li><a href="collapsible.html">Mission & Vision</a></li>
         <li><a href="mobile.html">Product & Service</a></li>
         <li><a href="mobile.html">Refer & Earn</a></li>
-        <li><a href="<?php echo base_url () ?>register">Register</a></li>
-        <li><a href="<?php echo base_url () ?>login">Log in</a></li>
+        <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
+        <li><a href="<?php echo base_url () ?>login">Login</a></li>
     </ul>
     <?php }else{ ?>
     <nav class="white" id="secondnavbar">
@@ -66,7 +66,7 @@
                     <li><a class="center-align see-all" href="<?php echo base_url('notifications')?>">See All</a></li>
                 </ul>
                 <!-- <li><a href="<?php echo base_url () ?>register"><i class="material-icons dp48">notifications_none</i><span class="notibadge bg-red"> 3 </span></a></li> -->
-                <li><a href="<?php echo base_url () ?>logout">logout <i class="fas fa-sign-out-alt"></i></a></li>
+                <li><a href="<?php echo base_url () ?>logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
 
 
             </ul>
@@ -79,8 +79,8 @@
         <li><a href="collapsible.html">Mission & Vision</a></li>
         <li><a href="mobile.html">Product & Service</a></li>
         <li><a href="mobile.html">Refer & Earn</a></li>
-        <li><a href="<?php echo base_url () ?>register">Register</a></li>
-        <li><a href="<?php echo base_url () ?>login">Log in</a></li>
+        <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
+        <li><a href="<?php echo base_url () ?>login">Login</a></li>
     </ul>
 
     <?php } ?>

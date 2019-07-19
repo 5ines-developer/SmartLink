@@ -1,8 +1,8 @@
-<footer class="page-footer grey lighten-4">
+<footer class="page-footer">
         <div class="container-wrap3 pb-25">
             <div class="row mb-0">
                 <div class="col l12 m12  s12">
-                    <h5 class="black-text center-align subscribe-heading">SUBSCRIBE NOW</h5>
+                    <h5 class="center-align subscribe-heading">SUBSCRIBE NOW FOR UPDATES</h5>
                 </div>
             </div>
             <div class="row mb-0">
@@ -14,7 +14,7 @@
                                     <input placeholder="Enter Your Email" id="subscribe-input" type="text"
                                         class="validate">
                                 </div>
-                                <button class="waves-effect waves-light btn subscribe-button">button</button>
+                                <button class="waves-effect waves-light btn subscribe-button">Subscribe</button>
                             </div>
                         </form>
                     </div>
@@ -22,17 +22,17 @@
             </div>
             <div class="row mb-0">
                 <div class="col l4 m4  s12">
-                    <h6 class="center-align black-text">Useful Links</h6>
+                    <h6 class="center-align">Useful Links</h6>
                     <ul class="center-align useful-links">
-                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Contact Us</a> | </li>
-                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">About Us</a> | </li>
-                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
-                        <li class="black-text"><a class="black-text text-lighten-3" href="#!">Product & Service</a> |
+                        <li class="white-text"><a class="white-text" href="#!">Contact Us</a> | </li>
+                        <li class="white-text"><a class="white-text" href="#!">About Us</a> | </li>
+                        <li class="white-text"><a class="white-text" href="#!">Refer & Earn</a> | </li>
+                        <li class="white-text"><a class="white-text" href="#!">Product & Service</a> |
                         </li>
                     </ul>
                 </div>
                 <div class="col l4 m4 s12">
-                    <h6 class="center-align black-text">Follow Us</h6>
+                    <h6 class="center-align white-text">Follow Us</h6>
                     <ul class=" center-align social-icons">
                         <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
                                     class="fab fa-facebook-f"></i></a></li>
@@ -47,8 +47,8 @@
                     </ul>
                 </div>
                 <div class="col l4 m4 s12">
-                    <h6 class="center-align black-text">Address</h6>
-                    <p class="footer-address">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+                    <h6 class="center-align white-text">Address</h6>
+                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
                         animi, eveniet hic aliquid </p>
                 </div>
             </div>

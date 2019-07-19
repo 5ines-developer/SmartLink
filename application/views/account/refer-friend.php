@@ -38,19 +38,19 @@
                                             class="col l12 m12 s12" id="edit-form">
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Nick Name" id="name" name="name" type="text" required>
-                                                    <label for="name">Nick Name <span class="error">*</span></label>
+                                                    <input placeholder="Enter Full Name" id="name" name="name" type="text" required>
+                                                    <label for="name">Full Name <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('name'); ?></span>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Email" id="email" name="email" type="email">
+                                                    <input placeholder="Enter Email" id="email" name="email" type="email">
                                                     <input  id="uniq" name="uniq" type="hidden" value="<?php echo random_string('alnum',16); ?>">
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Mobile No." id="phone" type="text" name="phone" required>
+                                                    <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required>
                                                     <label for="phone">Mobile No. <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('phone'); ?></span>
                                                 </div>
@@ -61,13 +61,13 @@
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Your Area" id="location" type="text" name="location">
+                                                    <input placeholder="Enter Location" id="location" type="text" name="location">
                                                     <label for="location">Location</label>
                                                 </div>
                                                 <div id="select-product">
                                                     <div class="input-field col l6 m6 s12">
                                                         <select name="product" id="product">
-                                                            <option value="" disabled selected>Select Your Product</option>
+                                                            <option value="" disabled selected>Select the Product</option>
                                                             <option value="telecom">Telecom</option>
                                                             <option value="it">IT</option>
                                                         </select>
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <textarea placeholder="Enter Your Location" id="area" name="area"
+                                                    <textarea placeholder="Enter Area" id="area" name="area"
                                                     class="materialize-textarea"></textarea>
                                                     <label for="area">Area</label>
                                                 </div>
@@ -115,9 +115,10 @@
                                                     <div class="input-field col l6 m6 s12">
                                                         <select name="sub_product" id="customer">
                                                             <?php if (!empty($product)) {
-                                                            foreach ($product as $key => $value) { ?>
+                                                            foreach ($product as $key => $value) {
+                                                            if ($value->category == 'telecom'){ ?>
                                                             <option value="<?php echo $value->uniq ?>"><?php echo $value->service ?></option>
-                                                            <?php   } } ?>
+                                                            <?php  } } } ?>
                                                         </select>
                                                         <label>select a product</label>
                                                     </div>
@@ -160,22 +161,22 @@
             $("#edit-form").validate({
             rules: {
             name: {
-                required: true,
-                },
+            required: true,
+            },
             phone: {
-                    required: true,
-                    number: true,
-                    minlength: 10,
-                    maxlength: 10,
-                },
+            required: true,
+            number: true,
+            minlength: 10,
+            maxlength: 10,
+            },
             },
             messages: {
-                phone: {
-                    required: "Please enter your Mobile number",
-                    number: "Please enter a valid Mobile number",
-                    minlength: "Your Mobile number at least 10 digits",
-                    maxlength: "Your Mobile number must be 10 digits",
-                },
+            phone: {
+            required: "Please enter your Mobile number",
+            number: "Please enter a valid Mobile number",
+            minlength: "Your Mobile number at least 10 digits",
+            maxlength: "Your Mobile number must be 10 digits",
+            },
             name: "Please enter a valid Username",
             }
             });

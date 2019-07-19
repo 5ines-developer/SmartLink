@@ -12,6 +12,7 @@ class Account extends CI_Controller
             redirect('login', 'refresh');
         }
         $this->load->model('m_account');
+        $this->load->model('m_authendication');
         $this->data = $this->get_notification();
 
     }
@@ -123,7 +124,7 @@ class Account extends CI_Controller
             $emailoutput = $this->sendreferrals($insert);
 
             if ($output != '' && $notioutput != '' && $emailoutput != '') {
-                $this->session->set_flashdata('success', 'friend reference Submitted Successfully');
+                $this->session->set_flashdata('success', 'Friend reference has been Submitted Successfully');
                 redirect('refer-a-friend', 'refresh');
             } else {
                 $this->session->set_flashdata('error', 'Something went wrong please try again!');
@@ -389,7 +390,7 @@ class Account extends CI_Controller
                     'agent_password' => $hash,
                 );
                 if ($this->m_account->changePassword($datas, $uid, $input['current_pws'])) {
-                    $this->session->set_flashdata('success', 'Your password has been reset successfully');
+                    $this->session->set_flashdata('success', 'Your password has been Changed successfully');
                     redirect('change-password', 'refresh');
                 } else {
                     $this->session->set_flashdata('error', 'Invalid Current password!');
@@ -458,14 +459,14 @@ class Account extends CI_Controller
                 'notification_type' => '2',
                 'uniq' => random_string('alnum', 10),
                 'added_by_type' => 'agent',
-                'noti_to_type' => 'admin',
+                'noti_to_type' => 'admin'
 
             );
 
             $ouput2 = $this->notification($notification);
 
             if ($ouput1 != '' && $ouput2 != '') {
-                $this->session->set_flashdata('success', 'friend reference Added Successfully');
+                $this->session->set_flashdata('success', 'Reward points claim request has been submitted successfully');
                 redirect('reward-points', 'refresh');
             }
 
@@ -503,10 +504,113 @@ class Account extends CI_Controller
         }else{
             echo 'wrong password';
         }
-
-        
-  
     }
+
+    //**forgot password
+
+    public function claim_forgot($value='')
+    {
+        $mobile = $this->input->post('mobile');
+        $otp = random_string('numeric', '6');
+        $data['phone'] = $mobile;
+        if ($result = $this->m_account->forgotPassword($mobile, $otp)) {
+            $msg = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
+            $data = $this->otpsend($mobile, $otp, $msg);
+            echo $data;
+        } else {
+            echo 'wrong mobile';
+        }
+        
+    }
+
+        //  otp Forgot password
+    public function otpsend($phone, $otp, $msg)
+    {
+
+        /* API URL */
+        $url = 'http://trans.smsfresh.co/api/sendmsg.php';
+        $param = 'user=5inewebsolutions&pass=5ine5ine&sender=PROPSB&phone=' . $phone . '&text=' . $msg . '&priority=ndnd&stype=normal';
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+        curl_close($ch);
+        return $server_output;
+    }
+
+
+    public function forgot_verify()
+    {
+        $otp = $this->input->Post('otp');
+        $phone = $this->input->Post('phone');
+        $data['output'] = $this->m_authendication->forgot_verify($otp, $phone);
+
+        if ($data['output'] == '') {
+            $this->session->set_flashdata('error', 'you have tried more than 2 attempts, Please enter your mobile number and try again');
+            echo $data['output'];
+        } else if (!empty($data['output']['agent_id'])) {
+            $this->session->set_flashdata('success', 'OTP has been verified Successfully, you can set a new password now');
+            echo 'success';
+        } else if (!empty($data['output']['otpcount'])) {
+            $this->session->set_flashdata('error', 'Invalid OTP!, Please try again with valid OTP');
+            echo $data['output']['otpcount'];
+        }
+
+    }
+
+
+
+        // forgot password set
+    public function forgot_password_set()
+    {
+
+            $refid = random_string('numeric', 6);
+            $mobile = $this->input->post('s_phone');
+            $otp = $this->input->post('otp_code');
+            $password = $this->input->post('n_password');
+            $cpass = $this->input->post('c_password');
+            $hash = $this->bcrypt->hash_password($password);
+
+
+                $datas = array(
+                    'otp' => $refid,
+                    'agent_password' => $hash,
+                );
+              $data['output'] = $this->m_authendication->setPassword($datas, $mobile, $otp);
+                if ($data['output'] !='') {
+                    $this->session->set_flashdata('success', 'Your password has been updated successfully, you can login now with the new password!');
+                   echo "success";
+                } else {
+                    $this->session->set_flashdata('error', 'Invalid Phone Number');
+                    echo "error";
+                }
+
+    }
+
+    public function resend_code($value = '')
+    {
+        $phone = $this->input->get('mobile');
+        $otp = random_string('numeric', '6');
+        $msg = 'Your One time Password For smart link reset password is ' . $otp . ' . Do not share with anyone';
+        $data['phone'] = $phone;
+        if ($this->m_authendication->resend_code($phone, $otp)) {
+            if ($this->otpsend($phone, $otp, $msg)) {
+                echo 'success';
+            } else {
+                $this->session->set_flashdata('error', 'Some error occured! Please contact our support team');
+                echo 'error';
+            }
+        } else {
+            echo 'wrong mobile';
+        }
+
+    }
+
+
+
+
 
     // insert notification
     public function notification($notification = '')

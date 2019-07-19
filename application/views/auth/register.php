@@ -15,7 +15,7 @@
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
-<body>
+<body class="white">
     <?php $this->load->view('includes/header.php'); ?>
 
     <section>
@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-0">
-                                    <div class="input-field col l4 s2">
+                                    <div class="input-field col l4 m4 s4">
                                         <select name="country_code" required id="country_code">
                                             <option value="" disabled selected>ex: +971</option>
                                             <?php if (!empty($country_code)) {
@@ -51,7 +51,7 @@
                                         </select>
                                         <label for="country_code">Country Code <span class="error">*</span></label>
                                     </div>
-                                    <div class="input-field col l8 m12 s12">
+                                    <div class="input-field col l8 m8 s8">
                                         <input placeholder="Mobile No." id="mobile" name="phone" type="text" required>
                                         <label for="mobile">Mobile No. <span class="error">*</span> </label>
                                         <span class="error"><?php echo form_error('phone'); ?></span>
@@ -85,7 +85,7 @@
                                         <label class="termlable" for="terms-checkbox"> <input type="checkbox"
                                                 name="terms" id="terms-checkbox" class="terms-checkbox">I accept the
                                             terms & conditions
-                                            <a href="<?php echo base_url()?>"><i
+                                            <a href="<?php echo base_url()?>terms-and-conditions"><i
                                                     class="material-icons dp48">info_outline</i></a>
                                         </label>
                                         <!-- <label>
@@ -121,7 +121,7 @@
                                 ipsa similique ex earum? Ex, quidem voluptatum recusandae expedita, ipsum nobis id
                                 repellendus modi voluptatem totam adipisci nisi?
                             </p>
-                            <a class="terms-link center-align" href="<?php echo base_url()?>">Terms & Condition</a>
+                            <a class="terms-link center-align" href="<?php echo base_url()?>terms-and-conditions">Terms & Condition</a>
                         </div>
                     </div>
                 </div>

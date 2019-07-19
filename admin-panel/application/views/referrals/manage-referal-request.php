@@ -91,7 +91,7 @@
                     <div class="banner-button">
                       <ul class="referal-filter">
                         <li class="dropdown">
-                          <a class="referal-filter-button" href="#"><i class="fa fa-filter" aria-hidden="true"></i></a>
+                          <a class="btn btn-app referal-filter-button" href="#"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>
                           <ul class="dropdown-menu filter-menu">
                             <li><a class="refer-filter" href="<?php echo base_url() ?>manage-referals"  >All</a></li>
                             <li><a class="refer-filter" href="<?php echo base_url() ?>manage-referals?filter=approved" >Approved</a></li>
@@ -124,7 +124,8 @@
                           <th>Product</th>
                           <th>Status</th>
                           <th>Location</th>
-                          <th>Requested On</th>
+                          <th>Reward Points</th>
+                          <!-- <th>Requested On</th> -->
                           <th>Operations</th>
                         </tr>
                       </thead>
@@ -133,12 +134,23 @@
                         {
                         foreach ($referal as $key => $value) {$cont = $cont + 1;?>
                           <tr>
-                          <td><?php echo (!empty($referal))?$cont:'' ?></td>
-                          <td><?php echo $this->ci->referal_model->refered_by((!empty($value->agent_id))?$value->agent_id:'')  ?></td>
-                          <td><?php echo (!empty($value->referee_name))?$value->referee_name:''  ?></td>
-                          <td><?php echo (!empty($value->referee_phone))?$value->referee_phone:''  ?></td>
-                          <td><?php echo (!empty($value->product))?$value->product:''  ?></td>
-                          <td><?php echo (!empty($value->sub_product))?$value->sub_product:''  ?></td>
+                          <td><?php echo (!empty($referal))?$cont:'---' ?></td>
+                          <td><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></td>
+                          <td><?php echo (!empty($value->referee_name))?$value->referee_name:'---'  ?></td>
+                          <td><?php echo (!empty($value->referee_phone))?$value->referee_phone:'---'  ?></td>
+                          <td><?php echo (!empty($value->product))?$value->product:'---'  ?></td>
+                          <td><?php 
+
+                          if($value->product == 'telecom'){
+                            echo $value->service ;
+                          }else if($value->product == 'it'){
+                             echo $value->it_service;
+                          }else{
+                            echo '---';
+                          }
+
+
+                           ?></td>
                           <td class="<?php echo 'refre_status'.$value->referee_status?>"><?php if ($value->referee_status == '1') {
                             echo 'Approved';
                           }else if ($value->referee_status == '2') {
@@ -146,10 +158,11 @@
                           }else{
                             echo 'Pending';
                           } ?></td>
-                          <td><?php echo (!empty($value->referee_location))?$value->referee_location:''  ?></td>
-                          <td><?php echo (!empty($value->referee_addedon))?date("d-M-y h:i:s", strtotime($value->referee_addedon)):''; ?></td>
+                          <td><?php echo (!empty($value->referee_location))?$value->referee_location:'---'  ?></td>
+                          <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'  ?></td>
+                          <!-- <td><?php echo (!empty($value->referee_addedon))?date("d-M-y h:i:s", strtotime($value->referee_addedon)):''; ?></td> -->
                           <td style="text-align:center;"><a href="<?php echo base_url('view-referals/').$value->uniq?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-referals/').$value->uniq?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          <!-- <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-referals/').$value->uniq?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> -->
                         </td>
                       </tr>
                       <?php } }?>

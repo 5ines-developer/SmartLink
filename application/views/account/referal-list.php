@@ -44,9 +44,21 @@
                                        foreach ($referal as $key => $value) { ?>
                                     <tr>
                                         <td><?php echo (!empty($value->referee_name))?$value->referee_name:''; ?></td>
-                                        <td><?php echo $value->referee_status ?></td>
+                                        <td class="<?php if ($value->referee_status == '1') {
+                                            echo "green-text";
+                                        }else if ($value->referee_status == '0') {
+                                             echo "blue-text";
+                                        }else if ($value->referee_status == '2') {
+                                             echo "red-text";
+                                        }?>  "><?php if ($value->referee_status == '1') {
+                                            echo "Success";
+                                        }else if ($value->referee_status == '0') {
+                                             echo "Process";
+                                        }else if ($value->referee_status == '2') {
+                                             echo "Failed <a class='tooltipped' data-position='right' data-tooltip='".$value->referee_failed_reason."'><i class='far fa-question-circle'></i></a>";
+                                        }?></td>
                                         <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'; ?></td>
-                                        <td><?php echo (!empty($value->reward_expiry_date ) && $value->reward_expiry_date !='0000-00-00 00:00:00')?$value->reward_expiry_date:'---'; ?></td>
+                                        <td><?php echo (!empty($value->reward_expiry_date) && $value->reward_expiry_date !='0000-00-00')?$value->reward_expiry_date:'---'; ?></td>
                                     </tr>
                                     <?php   } } ?>
                                 </tbody>
@@ -65,6 +77,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
+    <script> $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });</script>
 
 </body>
 

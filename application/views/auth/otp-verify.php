@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
-<body>
+<body class="white">
 <?php $this->load->view('includes/header.php'); ?>
 
 <!-- otp-section -->

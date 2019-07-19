@@ -34,15 +34,14 @@
                                     <div class="row">
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
-                                                <i class="fas fa-thumbs-down icon-reward"></i>
-                     
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'' ?></h5>
+                                                <i class="fas fa-thumbs-up icon-reward"></i>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ?></h5>
                                                 <p class="para-reward">Unclaimed Rewards Points</p>
                                             </div>
                                         </div>
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="completed-refer">
-                                                <i class="fas fa-thumbs-up icon-reward"></i>
+                                                <i class="fas fa-thumbs-down icon-reward"></i>
                                                 <h5 class="m0 head-reward"><?php echo (!empty($claimed))?$claimed:'0' ?></h5>
                                                 <p class="para-reward">Claimed Rewards Points</p>
                                             </div>
@@ -57,13 +56,14 @@
                                                     <div class="input-field ">
                                                         <input placeholder="Enter reward point" name="reward"
                                                             id="reward" type="text" required>
-                                                        <label for="reward" class="g-list">Enter reward point</label>
+                                                        <label for="reward" class="black-text">Enter reward point</label>
                                                         <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
+                                                        <span class="helper-text" data-error="wrong" data-success="right"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
+
                                                             <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
                                                             <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
                                                             <p id="paswrd-error" class="error required"></p>
                                                     </div>
-                                                    <p class="top-claim"><strong>Note : </strong> Min 100 - Max 1000 You can claim</p>
                                                     <button type="submit" class="btn register-formbutton" value="submit" name="submit"
                                                         id="process-claim">Claim</button>
                                                 </form>

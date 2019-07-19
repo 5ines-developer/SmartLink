@@ -120,11 +120,11 @@
                         {
                          foreach ($noti as $key => $value) {$cont = $cont + 1;?>
                           <tr class="<?php if($value->notification_seen == '1'){echo 'active'; } ?>">
-                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($noti))?$cont:'' ?></a></td>
-                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->notification_subject))?ucfirst($value->notification_subject):''  ?></a></td>
-                          <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->agent_name))?$value->agent_name:''  ?></a></td>
-                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->notification_description))?$value->notification_description:''  ?></a></td>
-                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->added_on))?$value->added_on:''  ?></a></td>
+                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($noti))?$cont:'---' ?></a></td>
+                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->notification_subject))?ucfirst($value->notification_subject):'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></a></td>
+                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->notification_description))?$value->notification_description:'---'  ?></a></td>
+                        <td><a href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>"><?php echo (!empty($value->added_on))?$value->added_on:'---'  ?></a></td>
                         </tr>
                         <?php  }} ?>
                       

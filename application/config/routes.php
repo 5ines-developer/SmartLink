@@ -85,4 +85,7 @@ $route['claim-list']    		= 'account/claims';
 $route['claim-list/(:any)']   = 'account/claims/$1';
 $route['verify-credentials']    		= 'account/code_auth';
 
+//terms and conditions
+$route['terms-and-conditions']    		= 'pages/terms';
+
 

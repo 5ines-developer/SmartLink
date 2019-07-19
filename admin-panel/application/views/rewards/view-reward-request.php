@@ -126,22 +126,22 @@ $this->ci->load->model('referal_model');
                                             <td><?php echo (!empty($claim['agent_name'])) ? $claim['agent_name'] : '' ?>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                             <th>Total Reward Points</th>
                                             <td><?php if (!empty($reward)) { echo $reward; }  ?>
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
-                                            <th>Available Reward Points</th>
+                                            <th>Claimed Reward Points</th>
                                             <td><?php 
-                                            if (!empty($reward) && !empty($ap_claim)) { 
-                                                echo $reward-$ap_claim; 
+                                            if (!empty($ap_claim)) { 
+                                                echo $ap_claim; 
                                             } ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Unclaimed Reward Points</th>
-                                            <td><?php if (!empty($reward)) { $unclaimed = $reward - $claimed; } echo $unclaimed; ?>
+                                            <td><?php if (!empty($reward)) { $unclaimed = $reward - $ap_claim; } echo $unclaimed; ?>
                                             </td>
                                         </tr>
                                         <tr>

@@ -97,21 +97,21 @@ $this->ci->load->model('Product_model');
                                     <table class="table viedet" style="margin-bottom: 0px;">
                                         <tr>
                                             <th>Name</th>
-                                            <td><?php echo (!empty($agent['agent_name'])) ? $agent['agent_name'] : '' ?></td>
+                                            <td><?php echo (!empty($agent['agent_name'])) ? $agent['agent_name'] : '---' ?></td>
                                         </tr>
                                         <tr>
                                             <th>Phone</th>
-                                            <td><?php echo (!empty($agent['agent_phone'])) ? $agent['agent_phone'] : '' ?>
+                                            <td><?php echo (!empty($agent['agent_phone'])) ? $agent['agent_phone'] : '---' ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Employee Reference Id</th>
-                                            <td><?php echo (!empty($agent['employee_reference_id'])) ? $agent['employee_reference_id'] : '' ?>
+                                            <td><?php echo (!empty($agent['employee_reference_id'])) ? $agent['employee_reference_id'] : '---' ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Registered On</th>
-                                            <td><?php echo (!empty($agent['agent_registered_on'])) ? $agent['agent_registered_on'] : '' ?>
+                                            <td><?php echo (!empty($agent['agent_registered_on'])) ? $agent['agent_registered_on'] : '---' ?>
                                             </td>
                                         </tr>
                                     </table>
@@ -152,14 +152,14 @@ $this->ci->load->model('Product_model');
                                         foreach ($referal as $key => $value) {$cont = $cont + 1;?>
                                         <tr>
                                             <td><?php echo (!empty($referal)) ? $cont : '' ?></td>
-                                            <td><?php echo $this->ci->referal_model->refered_by((!empty($value->agent_id)) ? $value->agent_id : '') ?>
+                                            <td><?php echo $this->ci->referal_model->refered_by((!empty($value->agent_id)) ? $value->agent_id : '---') ?>
                                             </td>
-                                            <td><?php echo (!empty($value->referee_name)) ? $value->referee_name : '' ?>
+                                            <td><?php echo (!empty($value->referee_name)) ? $value->referee_name : '---' ?>
                                             </td>
-                                            <td><?php echo (!empty($value->referee_phone)) ? $value->referee_phone : '' ?>
+                                            <td><?php echo (!empty($value->referee_phone)) ? $value->referee_phone : '---' ?>
                                             </td>
-                                            <td><?php echo (!empty($value->product)) ? $value->product : '' ?></td>
-                                            <td><?php echo (!empty($value->sub_product)) ? $value->sub_product : '' ?>
+                                            <td><?php echo (!empty($value->product)) ? $value->product : '---' ?></td>
+                                            <td><?php echo (!empty($value->sub_product)) ? $value->sub_product : '---' ?>
                                             </td>
                                             <td class="<?php echo 'refre_status' . $value->referee_status ?>"><?php if ($value->referee_status == '1') {
                                             echo 'Approved';
@@ -168,9 +168,9 @@ $this->ci->load->model('Product_model');
                                         } else {
                                             echo 'Pending';
                                         }?></td>
-                                            <td><?php echo (!empty($value->referee_location)) ? $value->referee_location : '' ?>
+                                            <td><?php echo (!empty($value->referee_location)) ? $value->referee_location : '---' ?>
                                             </td>
-                                            <td><?php echo (!empty($value->referee_addedon)) ? date("d-M-y h:i:s", strtotime($value->referee_addedon)) : ''; ?>
+                                            <td><?php echo (!empty($value->referee_addedon)) ? date("d-M-y h:i:s", strtotime($value->referee_addedon)) : '---'; ?>
                                             </td>
                                         </tr>
                                         <?php }}?>
