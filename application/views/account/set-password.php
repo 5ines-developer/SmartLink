@@ -186,6 +186,30 @@
     });
     </script>
 
+<script>
+
+<?php if (!empty($alert)) { 
+
+    foreach ($alert as $key => $value) { ?>
+
+        var toastHTML = '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+        M.toast({
+            html: toastHTML,
+            displayLength:4000,
+            classes:'white'
+        });
+    
+        function toast() {
+            var toastElement = document.querySelector('.toast');
+      var toastInstance = M.Toast.getInstance(toastElement);
+      toastInstance.dismiss(); 
+        }
+      <?php  } }  ?>
+
+        
+
+    </script>
+
 </body>
 
 </html>
