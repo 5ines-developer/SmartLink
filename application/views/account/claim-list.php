@@ -529,9 +529,9 @@
         //page loader
         function loder(status) {
             if (status == true) {
-                $('#preloader').css('display', 'block');
+                $('.preloader-verfy').css('display', 'block');
             } else {
-                $('#preloader').css('display', 'none');
+                $('.preloader-verfy').css('display', 'none');
             }
         }
 
