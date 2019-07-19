@@ -67,6 +67,9 @@
         </div>
     </section>
 
+    
+
+
 <?php $this->load->view('includes/footer.php'); ?>
 
     <!-- javascript -->

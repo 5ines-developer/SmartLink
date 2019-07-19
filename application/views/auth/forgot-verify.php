@@ -46,17 +46,11 @@
                                         <input type="hidden" id="phone" name="phone" value="<?php echo $phone ?>" />
                                         <p id="paswrd-error" class="error required"></p>
                                     </div>
-                                    <!--  <div class="input-field col l12 m12 s12 m0">
-                                            <p class="m0 ">
-                                                <label>
-                                                    <input class="filled-in" type="checkbox" required=""><span class="ter-tex">Terms & Condition</span>
-                                                </label>
-                                            </p>
-                                    </div> -->
+                                    <?php $this->load->view('includes/pre-loader'); ?>
 
                                 </div>
-                                 <button class="btn  left-align sub-button" value="submit"
-                                        name="submit" type="submit">Submit</button>
+                                <button class="btn  left-align sub-button" value="submit" name="submit"
+                                    type="submit">Submit</button>
                             </form>
                             <form action="<?php echo base_url('forgot-password') ?>" method="post" id="resendotp-form">
                                 <a class="forgot-link right-align" id="resend-code">Resend Code?</a>
@@ -80,12 +74,12 @@
     $(document).ready(function() {
         $('.sidenav').sidenav();
 
-        $("#resend-code").click(function () {
-            $( "#resendotp-form" ).submit();
+        $("#resend-code").click(function() {
+            $("#resendotp-form").submit();
 
-            });
+        });
 
-        
+
     });
     </script>
     <script>
@@ -117,12 +111,12 @@
             event.preventDefault();
             var otp = $("#otp").val();
             var phone = $("#phone").val();
-            var max ='3';
+            var max = '3';
             if (otp == '') {
                 return false;
             } else {
                 var DataString = $("#otpform").serialize();
-
+                loder(true);
                 $.ajax({
                     url: "<?php echo base_url();?>forgot-verify",
                     type: "Post",
@@ -130,20 +124,32 @@
                     data: DataString,
                     success: function(data) {
                         console.log(data);
-                        if (data =='') {
+                        if (data == '') {
                             location.href = "<?php echo base_url('forgot-password')?>"
-                        } else if(data < '3' && data >= '1') {
+                        } else if (data < '3' && data >= '1') {
 
                             $("#paswrd-error>span").remove();
-                            $("#paswrd-error").append("<span>You have entered invalid OTP, You have only " + (max - data) + " attempts left</span>");
-                        }else{
+                            $("#paswrd-error").append(
+                                "<span>You have entered invalid OTP, You have only " + (
+                                    max - data) + " attempts left</span>");
+                        } else {
                             $('#my_div').html(data);
                             $('body').html(data);
                         }
+                        loder(false);
                     }
                 });
             }
         });
+
+        //page loader
+        function loder(status) {
+            if (status == true) {
+                $('.preloader-verfy').css('display', 'block');
+            } else {
+                $('.preloader-verfy').css('display', 'none');
+            }
+        }
     });
     </script>
 </body>

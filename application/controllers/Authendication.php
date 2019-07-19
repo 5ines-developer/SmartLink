@@ -44,16 +44,23 @@ class Authendication extends CI_Controller
                 $terms = $this->input->post('terms');
                 $otp = random_string('numeric', '6');
 
-                $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[agent.agent_phone]');
-                $this->form_validation->set_rules('username', 'username', 'required|is_unique[agent.agent_name]');
+
+                $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[agent.agent_phone]',array('is_unique' => 'Account with This %s is already exist'));
+                $this->form_validation->set_rules('username', 'username', 'required|is_unique[agent.agent_name]',array('is_unique' => 'Account with This %s is already exist'));
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
                 $this->form_validation->set_rules('terms', 'Terms & Condition', 'trim|required');
                 $this->form_validation->set_rules('cpassword', 'Password Confirmation', 'trim|required|matches[password]');
                 if ($this->form_validation->run() == false) {
+                    $error = validation_errors();
+                    $this->session->set_flashdata('error', $error);
                     $this->load->view('auth/register', $data, false);
                 } else {
                     if ($ref_code != '') {
-                        $this->referencecode_check($ref_code);
+                        $ref['output'] = $this->referencecode_check($ref_code);
+                        if (empty($ref['output'])) {
+                            $this->session->set_flashdata('error', 'Invalid referrence code please enter the correct one or keep it blank');
+                            redirect('register', 'refresh');
+                        }
                     }
 
                     $insert = array(
@@ -66,6 +73,8 @@ class Authendication extends CI_Controller
                         'agent_country_code' => $country_code,
                         'otp' => $otp,
                     );
+
+                    
                     // $data['phone'] = '+'.$country_code.$phone;
                     $data['phone'] = $phone;
 

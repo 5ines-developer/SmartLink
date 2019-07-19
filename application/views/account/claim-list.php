@@ -77,7 +77,7 @@
         </div>
     </section>
     <!-- Modal Structure -->
-   
+
     <div id="smartcode" class="modal smartcode">
         <form id="code-view">
             <div class="modal-content mc-smartcode">
@@ -99,9 +99,10 @@
                             <span class="error"><?php echo form_error('password'); ?></span>
                             <p id="paswrd-error" class="paswrd-error error required"></p>
                         </div>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
-                            <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
+                        <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
                     </div>
                 </div>
             </div>
@@ -117,12 +118,13 @@
                 <div class="row">
                     <div class="col l12 s12">
                         <div class="input-field">
-                            <input class="" placeholder="Enter Your Mobile No." id="mobile" name="mobile"
-                                type="text" required="" autocomplete="off">
+                            <input class="" placeholder="Enter Your Mobile No." id="mobile" name="mobile" type="text"
+                                required="" autocomplete="off">
                             <label for="mobile" class="">Mobile No.</label>
                             <span class="error"><?php echo form_error('mobile'); ?></span>
                             <p id="mobile-error" class="mobile-error error required"></p>
                         </div>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
                     </div>
@@ -132,7 +134,7 @@
     </div>
 
 
-        <div id="otpmodal" class="modal otpmodal">
+    <div id="otpmodal" class="modal otpmodal">
         <form id="otp-form">
             <div class="modal-content mc-smartcode">
                 <h4>Verify</h4>
@@ -140,8 +142,8 @@
                 <div class="row">
                     <div class="col l12 s12">
                         <div class="input-field">
-                            <input class="" placeholder="Enter the OTP" id="otp" name="otp"
-                                type="text" required="" autocomplete="off">
+                            <input class="" placeholder="Enter the OTP" id="otp" name="otp" type="text" required=""
+                                autocomplete="off">
                             <label for="otp" class="">Enter the OTP</label>
                             <span class="error"><?php echo form_error('otp'); ?></span>
                             <input type="hidden" class="" id="phone" name="phone">
@@ -149,9 +151,10 @@
                             <p id="resend-error" class="otp-error error required"></p>
                             <p id="resend-success" class="otp-error green-text  required"></p>
                         </div>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
-                            <a class="forgot-link right-align" id="resend-code" href="#">Resend Code?</a>
+                        <a class="forgot-link right-align" id="resend-code" href="#">Resend Code?</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +162,7 @@
     </div>
 
 
-       <div id="newpass" class="modal newpass">
+    <div id="newpass" class="modal newpass">
         <form id="set-pass">
             <div class="modal-content mc-smartcode">
                 <h4>Verify</h4>
@@ -167,8 +170,8 @@
                 <div class="row">
                     <div class="col l12">
                         <div class="input-field">
-                            <input class="" placeholder="Enter Your Mobile No." id="s_phone" name="s_phone"
-                                type="text" required="" autocomplete="off">
+                            <input class="" placeholder="Enter Your Mobile No." id="s_phone" name="s_phone" type="text"
+                                required="" autocomplete="off">
                             <label for="s_phone" class="">Mobile No.</label>
                             <span class="error"><?php echo form_error('s_phone'); ?></span>
                         </div>
@@ -186,9 +189,10 @@
                             <span class="error"><?php echo form_error('c_password'); ?></span>
                             <p id="forgot-error" class="error required"></p>
                         </div>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
-                            <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
+                        <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
                     </div>
                 </div>
             </div>
@@ -207,7 +211,7 @@
     <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
     <script>
     $(document).ready(function() {
-        
+
         $('.smartcode').modal();
         $('#otpmodal').modal();
         $('#newpass').modal();
@@ -223,7 +227,6 @@
 
 
     });
-
     </script>
     <script>
     $(document).ready(function() {
@@ -249,7 +252,7 @@
         });
     });
     </script>
-        <script>
+    <script>
     $(document).ready(function() {
         $("#otp-form").validate({
             rules: {
@@ -281,15 +284,15 @@
                     required: true,
                     number: true,
                     minlength: 10,
-                    maxlength:10
-                    },
+                    maxlength: 10
                 },
+            },
             messages: {
                 mobile: {
-                        required: "Please enter your Mobile number",
-                        number:"Please enter a valid Mobile number",
-                        minlength: "Your Mobile number at least 10 digits",
-                        maxlength:"Your Mobile number must be 10 digits",
+                    required: "Please enter your Mobile number",
+                    number: "Please enter a valid Mobile number",
+                    minlength: "Your Mobile number at least 10 digits",
+                    maxlength: "Your Mobile number must be 10 digits",
                 }
             }
         });
@@ -297,7 +300,7 @@
     </script>
 
 
-   <script>
+    <script>
     $(document).ready(function() {
         $("#set-pass").validate({
             rules: {
@@ -307,16 +310,16 @@
                     minlength: 10,
                     maxlength: 10,
                 },
-            n_password: {
-                required: true,
-                minlength: 5
+                n_password: {
+                    required: true,
+                    minlength: 5
+                },
+                c_password: {
+                    required: true,
+                    minlength: 5,
+                    equalTo: "#n-password"
+                },
             },
-            c_password: {
-                required: true,
-                minlength: 5,
-                equalTo: "#n-password"
-            },
-        },
             messages: {
                 s_phone: {
 
@@ -344,86 +347,85 @@
     <script>
     $(document).ready(function() {
 
-                $(".view-smart-code").click(function() {
-                    var id = $(this).attr('id');
-                    $("#claimid").val(id);
-                });
+        $(".view-smart-code").click(function() {
+            var id = $(this).attr('id');
+            $("#claimid").val(id);
+        });
 
 
+        // view code submit
+        $("#code-view").on('submit', function(event) {
+            event.preventDefault();
+            var DataString = $("#code-view").serialize();
+            var btnid = $("#claimid").val();
+            loder(true);
+            $.ajax({
+                url: "<?php echo base_url();?>verify-credentials",
+                type: "Post",
+                dataType: "html",
+                data: DataString,
+                success: function(data) {
+                    if (data == 'wrong password') {
+                        $("#paswrd-error>span").remove();
+                        $("#paswrd-error").append("<span>Wrong password</span>");
+                    } else if (data != 'wrong password' && data != 'error' && data != '') {
+                        $('.smartcode').modal('close');;
+                        $("#" + btnid).after("<a class ='code-displayed'> " + data +
+                            "</a>");
+                        $("#" + btnid).remove();
+                        $('.modal-overlay').css('display', 'none');
+                    } else if (data == 'error') {
+                        $("#paswrd-error>span").remove();
+                        $("#paswrd-error").append(
+                            "<span>Unable to process your request please try again, please enter the valid credentials</span>"
+                        );
+                    }
+                    loder(false);
+                }
+            });
+        });
 
-                $("#code-view").on('submit', function(event) {
-                        event.preventDefault();
-                        var DataString = $("#code-view").serialize();
-                        var btnid = $("#claimid").val();
-                        $.ajax({
-                                url: "<?php echo base_url();?>verify-credentials",
-                                type: "Post",
-                                dataType: "html",
-                                data: DataString,
-                                success: function(data) {
-                                    if (data == 'wrong password') {
-                                        $("#paswrd-error>span").remove();
-                                        $("#paswrd-error").append("<span>Wrong password</span>");
-                                    } else if (data != 'wrong password' && data != 'error' && data != '') {
-                                        $('.smartcode').modal('close');;
-                                        $("#" + btnid).after("<a class ='code-displayed'> "+ data +"</a>");
-                                        $("#" + btnid).remove(); 
-                                        $('.modal-overlay').css('display', 'none');
-                                        }else if (data == 'error'){
-                                            $("#paswrd-error>span").remove();
-                                            $("#paswrd-error").append("<span>Unable to process your request please try again, please enter the valid credentials</span>"
-                                            );
-                                        }
-                                    }
-                                });
-                        });
-                });
-    </script>
+        //forgot password submit
+        $("#forgot-password").on('submit', function(event) {
+            event.preventDefault();
+            var DataString = $("#forgot-password").serialize();
+            var mobile = $("#mobile").val();
+            loder(true);
+            $.ajax({
+                url: "<?php echo base_url();?>account/claim_forgot",
+                type: "Post",
+                dataType: "html",
+                data: DataString,
+                success: function(data) {
+                    if (data == 'wrong mobile') {
+                        $(".mobile-error>span").remove();
+                        $(".mobile-error").append("<span>Invalid Mobile No.</span>");
+                    } else if (data != 'wrong mobile' && data != '') {
+                        $('.forgot-pass').modal('close');
+                        $('#otpmodal').modal('open');
+                        $("#phone").val(mobile);
+                    } else if (data == 'error') {
+                        $(".mobile-error>span").remove();
+                        $(".mobile-error").append(
+                            "<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
+                        );
+                    }
+                    loder(false);
+                }
+            });
+        });
 
-
-    <script>
-    $(document).ready(function() {
-
-                $("#forgot-password").on('submit', function(event) {
-                        event.preventDefault();
-                        var DataString = $("#forgot-password").serialize();
-                        var mobile = $("#mobile").val();
-                        $.ajax({
-                                url: "<?php echo base_url();?>account/claim_forgot",
-                                type: "Post",
-                                dataType: "html",
-                                data: DataString,
-                                success: function(data) {
-                                    if (data == 'wrong mobile') {
-                                        $(".mobile-error>span").remove();
-                                        $(".mobile-error").append("<span>Invalid Mobile No.</span>");
-                                    } else if (data != 'wrong mobile' && data != '') {
-                                        $('.forgot-pass').modal('close');
-                                        $('#otpmodal').modal('open');
-                                        $("#phone").val(mobile);
-                                        }else if (data == 'error'){
-                                            $(".mobile-error>span").remove();
-                                            $(".mobile-error").append("<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
-                                            );
-                                        }
-                                    }
-                                });
-                        });
-                });
-    </script>
-
-        <script>
-    $(document).ready(function() {
+        //otform submit
         $("#otp-form").on('submit', function(event) {
             event.preventDefault();
             var otp = $("#otp").val();
             var phone = $("#phone").val();
-            var max ='3';
+            var max = '3';
             if (otp == '') {
                 return false;
             } else {
                 var DataString = $("#otp-form").serialize();
-
+                loder(true);
                 $.ajax({
                     url: "<?php echo base_url();?>account/forgot_verify",
                     type: "Post",
@@ -431,95 +433,112 @@
                     data: DataString,
                     success: function(data) {
                         console.log(data);
-                        if (data =='') {
+                        if (data == '') {
                             $(".otp-error>span").remove();
-                            $(".otp-error").append("<span>You have entered invalid OTP, Please Resend the code and try again</span>");
-                        } else if(data < '3' && data >= '1') {
+                            $(".otp-error").append(
+                                "<span>You have entered invalid OTP, Please Resend the code and try again</span>"
+                            );
+                        } else if (data < '3' && data >= '1') {
                             $(".otp-error>span").remove();
-                            $(".otp-error").append("<span>You have entered invalid OTP, You have only " + (max - data) + " attempts left</span>");
-                        }else{
+                            $(".otp-error").append(
+                                "<span>You have entered invalid OTP, You have only " + (
+                                    max - data) + " attempts left</span>");
+                        } else {
                             $('#otpmodal').modal('close');
                             $('#newpass').modal('open');
                             $("#otp-code").val(otp);
                         }
+                        loder(false);
                     }
                 });
             }
         });
-    });
-    </script>
 
+        //set password submit
+        $("#set-pass").on('submit', function(event) {
+            event.preventDefault();
+            var DataString = $("#set-pass").serialize();
+            loder(true);
+            $.ajax({
+                url: "<?php echo base_url();?>account/forgot_password_set",
+                type: "Post",
+                dataType: "html",
+                data: DataString,
+                success: function(data) {
+                    console.log(data);
+                    if (data == 'error') {
+                        $("#forgot-error>span").remove();
+                        $("#forgot-error").append(
+                            "<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
+                        );
+                    } else if (data == 'success') {
+                        $('#newpass').modal('close');
+                        $('.smartcode').modal('open');
+                    } else {
+                        $("#forgot-error").append(
+                            "<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
+                        );
 
-    <script>
-    $(document).ready(function() {
+                    }
+                    loder(false);
+                }
+            });
+        });
 
-                $("#set-pass").on('submit', function(event) {
-                        event.preventDefault();
-                        var DataString = $("#set-pass").serialize();
-                        $.ajax({
-                                url: "<?php echo base_url();?>account/forgot_password_set",
-                                type: "Post",
-                                dataType: "html",
-                                data: DataString,
-                                success: function(data) {
-                                    console.log(data);
-                                    if (data == 'error') {
-                                        $("#forgot-error>span").remove();
-                                        $("#forgot-error").append("<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
-                                            );
-                                    } else if (data == 'success') {
-                                        $('#newpass').modal('close');
-                                        $('.smartcode').modal('open');
-                                        }else{
-                                            $("#forgot-error").append("<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
-                                            );
-                                            
-                                        }
-                                    }
-                                });
-                        });
-                });
-    </script>
-
-        <script>
-    $(document).ready(function() {
-    $("#resend-code").click(function(event) {
-        event.preventDefault();
+        //resend code
+        $("#resend-code").click(function(event) {
+            event.preventDefault();
 
             var otp = $("#otp").val();
             var phone = $("#phone").val();
-                                    $.ajax({
-                                url: "<?php echo base_url();?>account/resend_code",
-                                type: "get",
-                                dataType: "html",
-                                data: {mobile:phone},
-                                success: function(data) {
-                                    console.log(data);
-                                    if (data == 'error') {
-                                        $("#resend-error>span").remove();
-                                        $("#resend-success>span").remove();
-                                        $("#resend-error").append("<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
-                                            );
-                                    } else if (data == 'success') {
-                                        $("#resend-error>span").remove();
-                                        $("#resend-success>span").remove();
-                                        $('#resend-success').append("<span>'We have sent an OTP to "+ phone +", Please enter the OTP and verify your account</span>");
-                                        }else if (data == 'wrong mobile'){
-                                            $("#resend-error>span").remove();
-                                            $("#resend-success>span").remove();
-                                            $("#resend-error").append("<span>Invalid Mobile No.</span>"
-                                            );
-                                            
-                                        }
-                                    }
-                                });
+            loder(true);
+            $.ajax({
+                url: "<?php echo base_url();?>account/resend_code",
+                type: "get",
+                dataType: "html",
+                data: {
+                    mobile: phone
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data == 'error') {
+                        $("#resend-error>span").remove();
+                        $("#resend-success>span").remove();
+                        $("#resend-error").append(
+                            "<span>Unable to process your request please try again, please enter the valid Mobile No</span>"
+                        );
+                    } else if (data == 'success') {
+                        $("#resend-error>span").remove();
+                        $("#resend-success>span").remove();
+                        $('#resend-success').append("<span>'We have sent an OTP to " +
+                            phone +
+                            ", Please enter the OTP and verify your account</span>");
+                    } else if (data == 'wrong mobile') {
+                        $("#resend-error>span").remove();
+                        $("#resend-success>span").remove();
+                        $("#resend-error").append("<span>Invalid Mobile No.</span>");
 
-    });
+                    }
+                    loder(false);
+                }
+            });
+
+        });
+
+
+        //page loader
+        function loder(status) {
+            if (status == true) {
+                $('#preloader').css('display', 'block');
+            } else {
+                $('#preloader').css('display', 'none');
+            }
+        }
+
+
+
     });
     </script>
-
-
-
 
 </body>
 

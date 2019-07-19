@@ -7,16 +7,18 @@
     <title>Smart Link</title>
     <!--Import materialize.css-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.3/css/all.css"integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"crossorigin="anonymous">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
-<body class="white">
-<?php $this->load->view('includes/header.php'); ?>
 
-<!-- otp-section -->
+<body class="white">
+    <?php $this->load->view('includes/header.php'); ?>
+
+    <!-- otp-section -->
     <section>
         <div class="container-wrap3">
             <div class="row mb-0">
@@ -25,39 +27,39 @@
                         <div class=" center-align">
                             <h5 class="register-title black-text">Verification Code</h5>
                             <p class="para">Use your device to signin to your smart link account</p>
-                            <center><img src="<?php echo base_url()?>assets/images/otp.png" class="img-responsive otp-img" alt="otp"></center>
+                            <center><img src="<?php echo base_url()?>assets/images/otp.png"
+                                    class="img-responsive otp-img" alt="otp"></center>
                         </div>
                         <div>
                             <div class="center-align">
                                 <h5 class="register-title black-text">Enter a verification Code</h5>
-                                <p class="para">A text message with a verification code was sent to (<?php echo $phone ?> )</p>
+                                <p class="para">A text message with a verification code was sent to
+                                    (<?php echo $phone ?> )</p>
                             </div>
-                            <form action="<?php echo base_url('account-verify')?>" method="post" id="otpform" class="col l12 m12 s12" >
+                            <form action="<?php echo base_url('account-verify')?>" method="post" id="otpform"
+                                class="col l12 m12 s12">
                                 <div class="row mb-0">
                                     <div class="input-field col l12 m12 s12 m0">
-                                        <input id="otp" name="otp" type="text" placeholder="Enter the 6 digit code"  class="validate">
+                                        <input id="otp" name="otp" type="text" placeholder="Enter the 6 digit code"
+                                            class="validate">
                                         <span class="error"><?php echo form_error('otp'); ?></span>
-                                        <input type="hidden" id="phone" name="phone" value="<?php echo $phone ?>"/>
+                                        <input type="hidden" id="phone" name="phone" value="<?php echo $phone ?>" />
                                         <p id="paswrd-error" class="error required"></p>
                                     </div>
-                                   <!--  <div class="input-field col l12 m12 s12 m0">
-                                            <p class="m0 ">
-                                                <label>
-                                                    <input class="filled-in" type="checkbox" required=""><span class="ter-tex">Terms & Condition</span>
-                                                </label>
-                                            </p>
-                                    </div> -->
+
+                                    <?php $this->load->view('includes/pre-loader'); ?>
 
                                 </div>
-                               <button class="btn  left-align sub-button" value="submit"
-                                    name="submit" id="otp-submit">Submit</button>
+                                <button class="btn  left-align sub-button" value="submit" name="submit"
+                                    id="otp-submit">Submit</button>
                             </form>
 
 
-                                     <form action="<?php echo base_url('authendication/resend_code') ?>" method="post" id="resendotp-form">
-                                        <a class="forgot-link right-align" id="resend-code">Resend Code?</a>
-                                        <input type="hidden" id="mobile" name="mobile" value="<?php echo $phone ?>" />
-                                    </form>
+                            <form action="<?php echo base_url('authendication/resend_code') ?>" method="post"
+                                id="resendotp-form">
+                                <a class="forgot-link right-align" id="resend-code">Resend Code?</a>
+                                <input type="hidden" id="mobile" name="mobile" value="<?php echo $phone ?>" />
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -65,79 +67,98 @@
         </div>
     </section>
 
-<?php $this->load->view('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer.php'); ?>
 
     <!-- javascript -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="<?php echo base_url() ?>assets/javascript/script.js"></script>
-        <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
     <script>
     $(document).ready(function() {
         $('.sidenav').sidenav();
 
-        $("#resend-code").click(function () {
-            $( "#resendotp-form" ).submit();
+        $("#resend-code").click(function() {
+            $("#resendotp-form").submit();
 
-            });
+        });
     });
     </script>
 
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
         $("#otpform").validate({
-        rules: {
-        otp: {
-        required: true,
-        minlength:6,
-        maxlength:6,
-        number: true
-        },
-        },
-        messages: {
-            otp: {
-            required: "Please enter a OTP",
-            minlength: "OTP must be 6 digit",
-            maxlength:"OTP must be 6 digit",
-            number:"Please enter a valid OTP"
+            rules: {
+                otp: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 6,
+                    number: true
+                },
             },
-        }
+            messages: {
+                otp: {
+                    required: "Please enter a OTP",
+                    minlength: "OTP must be 6 digit",
+                    maxlength: "OTP must be 6 digit",
+                    number: "Please enter a valid OTP"
+                },
+            }
         });
-        });
-        </script>
+    });
+    </script>
     <script>
-   $(document).ready(function() {
-        $( "#otpform" ).on('submit', function(event) {
+    $(document).ready(function() {
+        $("#otpform").on('submit', function(event) {
             event.preventDefault();
             var otp = $("#otp").val();
             var phone = $("#phone").val();
-            var max ='3';
-            if (otp =='') { return false; }else{
-            $.ajax({
+            var max = '3';
+            if (otp == '') {
+                return false;
+            } else {
+                loder(true);
+                $.ajax({
                     url: "<?php echo base_url();?>account-verify",
                     type: "get",
                     dataType: "html",
                     data: {
-                        "otp": otp,'phone' : phone
+                        "otp": otp,
+                        'phone': phone
                     },
                     success: function(data) {
                         console.log(data);
                         if (data == otp) {
                             location.href = "<?php echo base_url('login')?>"
-                        } else if(data < '3' && data >= '1') {
+                        } else if (data < '3' && data >= '1') {
 
                             $("#paswrd-error>span").remove();
-                            $("#paswrd-error").append("<span>You have entered invalid OTP, You have only " + (max - data) + " attempts left</span>");
-                        } if (data =='') {
+                            $("#paswrd-error").append(
+                                "<span>You have entered invalid OTP, You have only " + (
+                                    max - data) + " attempts left</span>");
+                        }
+                        if (data == '') {
                             location.href = "<?php echo base_url('register')?>";
                         }
+                        loder(false);
                     }
                 });
-        }
+            }
         });
+
+        //page loader
+        function loder(status) {
+            if (status == true) {
+                $('.preloader-verfy').css('display', 'block');
+            } else {
+                $('.preloader-verfy').css('display', 'none');
+            }
+        }
+
+
     });
-</script>
- 
+    </script>
+
 </body>
 
 </html>
