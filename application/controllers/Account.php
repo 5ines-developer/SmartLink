@@ -87,14 +87,25 @@ class Account extends CI_Controller
                 'refree_email' => $email,
                 'refree_area' => $area,
                 'refree_company' => $company,
-                'product' => $product,
-                'telecom_type' => $telecom_type,
-                'it_type' => $it_type,
-                'customer_type' => $customer_type,
-                'sub_product' => $sub_product,
                 'uniq' => $uniq,
                 'description' => $description
             );
+
+            if ($product =='telecom') {
+                $insert['product'] = $product;
+                $insert['telecom_type'] = $telecom_type;
+                $insert['customer_type'] = $customer_type;
+                $insert['sub_product'] = $sub_product;
+                $insert['it_type'] = '';
+            }else if ($product =='it'){
+                $insert['product'] = $product;
+                $insert['telecom_type'] = '';
+                $insert['customer_type'] ='';
+                $insert['sub_product'] = '';
+                $insert['it_type'] = $it_type;
+            }
+
+
             $notification  = array(
                 'notification_subject' => 'Refer a friend',
                 'notification_description' => 'new refer a friend request added by ' . $name . ' , check and verify',
