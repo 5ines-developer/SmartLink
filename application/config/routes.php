@@ -71,6 +71,8 @@ $route['change-password']       = 'account/change_psw';
 //refer a friend
 $route['refer-a-friend']       	= 'account/refer_friend';
 $route['add-refer-a-friend']    = 'account/insert_refer';
+$route['refer-a-friend/edit/(:any)']    = 'account/edit_refer/$1';
+$route['refer-a-friend/delete/(:any)']    = 'account/delete_refer/$1';
 //notification
 $route['notifications']    		= 'account/notification_dash';
 $route['noti-view/(:any)/(:any)/(:any)']  = 'account/noti_view/$1/$2/$3';

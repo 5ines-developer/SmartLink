@@ -1061,7 +1061,7 @@ section {
 }
 
 .code-displayed {
-    width: 75%;
+    width: 55%;
     font-size: 15px;
     height: 32.4px;
     line-height: 1.4px;
@@ -1072,7 +1072,7 @@ section {
     text-align: center;
     color: #151515;
     padding: 17px 0px;
-    border: 2px dotted #00a0c1;
+    border: 2px dashed #00a0c1;
 }
 
 .claim-table th {
@@ -1144,18 +1144,6 @@ section {
     font-size: 13px;
 }
 
-.code-displayed button {
-    float: right;
-    top: -17px;
-    position: relative;
-    border: 0;
-    background-color: #00a0c1;
-    color: #fff;
-    padding: 4px 7px;
-    cursor: pointer;
-    line-height: 26px;
-}
-
 
 /*end list of claim*/
 
@@ -1177,12 +1165,18 @@ section {
 #referal-list td {
     font-size: 13px !important;
 }
+.reedit i{
+    font-size: 21px;
+}
+.redelete i{
+    font-size: 21px;
+}
 
 
 /* *******toast*********** */
 
 #toast-container {
-    top: 75% !important;
+    top: 50% !important;
     right: 0 !important;
     max-width: 26% !important;
     left: 35px !important;
@@ -1364,10 +1358,6 @@ section {
     .modal.forgot-pass {
         width: 80%;
         border-radius: 5px;
-    }
-    /* notification */
-    .notibadge {
-        right: 157px;
     }
 }
 

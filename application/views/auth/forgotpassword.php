@@ -32,7 +32,11 @@
                         <div>
                             <form action="<?php echo base_url('forgot-password') ?>" method="post"  class="col l12 m12 s12" id="login-form">
                                 <div class="row mb-0">
-                                    <div class="input-field col l12 m12 s12">
+                                    <div class="input-field col l4 m4 s6">
+                                        <input placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                                        <label for="country_code">Country Code <span class="error">*</span></label>
+                                    </div>
+                                    <div class="input-field col l8 m10 s6">
                                         <input placeholder="Mobile No." id="mobile" type="text" name="mobile" required>
                                         <label for="mobile">Mobile No.</label>
                                     </div>
@@ -71,16 +75,16 @@
                 mobile: {
                     required: true,
                     number: true,
-                    minlength: 10,
-                    maxlength:10
+                    minlength: 9,
+                    maxlength:9
                     },
                 },
             messages: {
                 mobile: {
                         required: "Please enter your Mobile number",
                         number:"Please enter a valid Mobile number",
-                        minlength: "Your Mobile number at least 10 digits",
-                        maxlength:"Your Mobile number must be 10 digits",
+                        minlength: "Your Mobile number at least 9 digits",
+                        maxlength:"Your Mobile number must be 9 digits",
                 }
             }
         });

@@ -36,6 +36,7 @@
                                         <th>Status</th>
                                         <th>Reward Points</th>
                                         <th>Expiry Date</th>
+                                        <th>Actions <a class='tooltipped' data-position='bottom' data-tooltip='<?php echo wordwrap("You can edit or delete the friend list within 10 Min", 40, "<br>", true); ?>'><i class='far fa-question-circle'></i></a></th>
                                     </tr>
                                 </thead>
 
@@ -54,11 +55,22 @@
                                             echo "Success";
                                         }else if ($value->referee_status == '0') {
                                              echo "Process";
-                                        }else if ($value->referee_status == '2') {
-                                             echo "Failed <a class='tooltipped' data-position='right' data-tooltip='".$value->referee_failed_reason."'><i class='far fa-question-circle'></i></a>";
-                                        }?></td>
+                                        }else if ($value->referee_status == '2') { ?>
+                                             <?php echo "Failed"; ?>
+                                              <a class='tooltipped' data-position='right' data-tooltip='<?php echo wordwrap($value->referee_failed_reason, 40, "<br>", true); ?>'><i class='far fa-question-circle'></i></a>
+                                        <?php }?></td>
                                         <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'; ?></td>
                                         <td><?php echo (!empty($value->reward_expiry_date) && $value->reward_expiry_date !='0000-00-00')?$value->reward_expiry_date:'---'; ?></td>
+                                        <td>
+
+                                            <?php 
+                                            $now = strtotime(date("Y-m-d H:i:s"));
+                                            $status_date = strtotime($value->referee_addedon);
+                                            $x = date($now-$status_date);
+                                            $dif =  ($x/60);
+                                            echo  ($dif <= '10') ? '<a class="reedit blue-text modal-trigger" href="'.base_url().'refer-a-friend/edit/'.$value->uniq.'"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete red-text" href="'.base_url().'refer-a-friend/delete/'.$value->uniq.'"><i class="material-icons dp48">delete</i></a>': '<a class="reedit grey-text"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete grey-text"><i class="material-icons dp48">delete</i></a>' ;
+                                            ?>
+                                            </td>
                                     </tr>
                                     <?php   } } ?>
                                 </tbody>
@@ -70,6 +82,9 @@
             </div>
         </div>
     </section>
+
+
+
     <?php  $this->load->view('includes/footer');?>
     <!-- /.boxed -->
     <!-- Javascript -->
@@ -79,31 +94,8 @@
     <script src="<?php echo base_url() ?>assets/javascript/jquery.validate.min.js"></script>
     <script> $(document).ready(function(){
     $('.tooltipped').tooltip();
+    $('.modal').modal()
   });</script>
-
-<script>
-
-<?php if (!empty($alert)) { 
-
-    foreach ($alert as $key => $value) { ?>
-
-        var toastHTML = '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
-        M.toast({
-            html: toastHTML,
-            displayLength:4000,
-            classes:'white'
-        });
-    
-        function toast() {
-            var toastElement = document.querySelector('.toast');
-      var toastInstance = M.Toast.getInstance(toastElement);
-      toastInstance.dismiss(); 
-        }
-      <?php  } }  ?>
-
-        
-
-    </script>
 
 </body>
 

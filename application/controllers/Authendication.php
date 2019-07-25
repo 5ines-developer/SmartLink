@@ -34,8 +34,7 @@ class Authendication extends CI_Controller
 
                 $refid = random_string('alnum', 50);
                 $phone = $this->input->post('phone');
-                // $country_code = $this->input->post('country_code');
-                $country_code = '91';
+                $country_code = '971';
                 $password = $this->input->post('password');
                 $cpassword = $this->input->post('cpassword');
                 $hash = $this->bcrypt->hash_password($password);
@@ -44,23 +43,16 @@ class Authendication extends CI_Controller
                 $terms = $this->input->post('terms');
                 $otp = random_string('numeric', '6');
 
-
-                $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[agent.agent_phone]',array('is_unique' => 'Account with This %s is already exist'));
-                $this->form_validation->set_rules('username', 'username', 'required|is_unique[agent.agent_name]',array('is_unique' => 'Account with This %s is already exist'));
+                $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[agent.agent_phone]');
+                $this->form_validation->set_rules('username', 'username', 'required|is_unique[agent.agent_name]');
                 $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[5]');
                 $this->form_validation->set_rules('terms', 'Terms & Condition', 'trim|required');
                 $this->form_validation->set_rules('cpassword', 'Password Confirmation', 'trim|required|matches[password]');
                 if ($this->form_validation->run() == false) {
-                    $error = validation_errors();
-                    $this->session->set_flashdata('error', $error);
                     $this->load->view('auth/register', $data, false);
                 } else {
                     if ($ref_code != '') {
-                        $ref['output'] = $this->referencecode_check($ref_code);
-                        if (empty($ref['output'])) {
-                            $this->session->set_flashdata('error', 'Invalid referrence code please enter the correct one or keep it blank');
-                            redirect('register', 'refresh');
-                        }
+                        $this->referencecode_check($ref_code);
                     }
 
                     $insert = array(
@@ -73,14 +65,12 @@ class Authendication extends CI_Controller
                         'agent_country_code' => $country_code,
                         'otp' => $otp,
                     );
-
-                    
-                    // $data['phone'] = '+'.$country_code.$phone;
-                    $data['phone'] = $phone;
+                    $data['phone'] = $country_code.$phone;
+                    // $data['phone'] = $phone;
 
                     if ($this->m_authendication->register($insert)) {
                         $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
-                        if ($this->otpsend($phone, $otp, $msg)) {
+                        if ($this->otpsend($data['phone'], $otp, $msg)) {
                             $this->session->set_flashdata('success', 'We have sent an OTP to ' . $data['phone'] . ' , Please enter the OTP and verify your account');
                             $data['title'] = 'Account verification - Smart Link';
                             $this->load->view('auth/otp-verify', $data);
@@ -316,18 +306,15 @@ class Authendication extends CI_Controller
     //  email Forgot password
     public function otpsend($phone, $otp, $msg)
     {
-
         /* API URL */
-        $url = 'http://trans.smsfresh.co/api/sendmsg.php';
-        $param = 'user=5inewebsolutions&pass=5ine5ine&sender=PROPSB&phone=' . $phone . '&text=' . $msg . '&priority=ndnd&stype=normal';
-
+        $url = ' http://customers.smsmarketing.ae/app/smsapi/index.php';
+        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMARTLINK&msg='.$msg;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $server_output = curl_exec($ch);
         curl_close($ch);
-
         return $server_output;
 
     }

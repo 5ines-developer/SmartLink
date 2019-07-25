@@ -13,10 +13,10 @@
             <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
             <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
             <style>
-            #select-telecom{display: none;}
-            #select-it{display: none;}
-            #select-business{display: none;}
-            #select-customer{display: none;}
+                #select-it{display: none;}
+                #select-telecom-for{display: none;}
+                #select-customer{display: none;}
+                #select-service{display: none;}
             </style>
         </head>
         <body>
@@ -38,96 +38,104 @@
                                             class="col l12 m12 s12" id="edit-form">
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Full Name" id="name" name="name" type="text" required>
+                                                    <input placeholder="Enter Full Name" id="name" name="name" type="text" required value="<?php echo(!empty($refer['referee_name']))?$refer['referee_name']:''; ?>">
                                                     <label for="name">Full Name <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('name'); ?></span>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Email" id="email" name="email" type="email">
-                                                    <input  id="uniq" name="uniq" type="hidden" value="<?php echo random_string('alnum',16); ?>">
+                                                    <input placeholder="Enter Email" id="email" name="email" type="email" value="<?php echo(!empty($refer['refree_email']))?$refer['refree_email']:''; ?>">
+                                                    <input  id="uniq" name="uniq" type="hidden" value="<?php echo(!empty($refer['uniq']))?$refer['uniq']:random_string('alnum',16);; ?>">
+                                                    <input name="edit" type="hidden" value="<?php echo(!empty($refer['referee_name']))?'1':''; ?>">
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required>
+                                                    <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
                                                     <label for="phone">Mobile No. <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('phone'); ?></span>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Company Name" id="company" type="text" name="company">
+                                                    <input placeholder="Enter Company Name" id="company" type="text" name="company"  value="<?php echo(!empty($refer['refree_company']))?$refer['refree_company']:''; ?>">
                                                     <label for="company">Company Name</label>
                                                 </div>
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Location" id="location" type="text" name="location">
+                                                    <input placeholder="Enter Location" id="location" type="text" name="location" value="<?php echo(!empty($refer['referee_location']))?$refer['referee_location']:''; ?>">
                                                     <label for="location">Location</label>
                                                 </div>
-                                                <div id="select-product">
-                                                    <div class="input-field col l6 m6 s12">
-                                                        <select name="product" id="product">
-                                                            <option value="" disabled selected>Select the Product</option>
-                                                            <option value="telecom">Telecom</option>
-                                                            <option value="it">IT</option>
+                                                <div class="input-field col l6 m6 s12">
+                                                    <textarea placeholder="Enter Area" id="area" name="area"
+                                                    class="materialize-textarea"><?php echo(!empty($refer['refree_area']))?$refer['refree_area']:''; ?></textarea>
+                                                    <label for="area">Area</label>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="row mb-0">
+                                                <div id="select-category" >
+                                                    <div class="input-field col l8 m8 s12">
+                                                        <select name="category" id="category">
+                                                            <option value="">Select the Category</option>
+                                                            <option value="telecom" <?php echo(!empty($refer['product']) && $refer['product']=='telecom')?'selected':''; ?> >Telecom</option>
+                                                            <option value="it" <?php echo(!empty($refer['product']) && $refer['product']=='it')?'selected':''; ?>>IT</option>
                                                         </select>
-                                                        <label>Product</label>
+                                                        <label>Category</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mb-0">
-                                                <div class="input-field col l6 m6 s12">
-                                                    <textarea placeholder="Enter Area" id="area" name="area"
-                                                    class="materialize-textarea"></textarea>
-                                                    <label for="area">Area</label>
-                                                </div>
-                                                <div id="select-telecom">
-                                                    <div class="input-field col l6 m6 s12">
-                                                        <select name="telecom_type" id="telecom">
-                                                            <option value="" disabled selected>Telecom</option>
-                                                            <option value="business">Business</option>
-                                                            <option value="personal">Personal</option>
+
+                                            <div class="row mb-0" id="telecom-sub" >
+                                                <div id="select-telecom-for" <?php echo(!empty($refer['telecom_type']))?'style="display:block;"':''; ?>>
+                                                    <div class="input-field col l4 m4 s12">
+                                                        <select name="telecom_type" id="telecom-for">
+                                                            <option value="">Category in Telecom</option>
+                                                            <option value="business" <?php echo(!empty($refer['telecom_type']) && $refer['telecom_type']=='business')?'selected':''; ?>>Business</option>
+                                                            <option value="personal" <?php echo(!empty($refer['telecom_type']) && $refer['telecom_type']=='personal')?'selected':''; ?>>Personal</option>
                                                         </select>
-                                                        <label>Plaese Choose a category in  Telecom </label>
+                                                        <label>Choose a category in Telecom</label>
                                                     </div>
                                                 </div>
-                                                <div id="select-it">
-                                                    <div class="input-field col l6 m6 s12">
-                                                        <select name="it_type" id="it">
-                                                            <option value="" disabled selected>IT</option>
-                                                            <option value="web developmnent">Web Development</option>
-                                                            <option value="app development">App Development</option>
-                                                        </select>
-                                                        <label>Plaese Choose a category in IT</label>
-                                                    </div>
-                                                </div>
-                                                <div id="select-business">
-                                                    <div class="input-field col l6 m6 s12">
-                                                        <select name="customer_type" id="business">
-                                                            <option value="" disabled selected>Business</option>
-                                                            <option value="newcustomer">New Customer</option>
-                                                            <option value="existingcustomer">Existing Customer</option>
+                                                <div id="select-customer" <?php echo(!empty($refer['customer_type']))?'style="display:block;"':''; ?>>
+                                                    <div class="input-field col l4 m4 s12">
+                                                        <select name="customer_type" id="customer-type">
+                                                            <option value="">Customer Type</option>
+                                                            <option value="newcustomer" <?php echo(!empty($refer['customer_type']) && $refer['customer_type']=='newcustomer')?'selected':''; ?>>New Customer</option>
+                                                            <option value="existingcustomer" <?php echo(!empty($refer['customer_type']) && $refer['customer_type']=='existingcustomer')?'selected':''; ?>>Existing Customer</option>
                                                         </select>
                                                         <label>select a customer type</label>
                                                     </div>
                                                 </div>
-                                                <div id="select-customer">
-                                                    <div class="input-field col l6 m6 s12">
-                                                        <select name="sub_product" id="customer">
+                                                <div id="select-service" <?php echo(!empty($refer['sub_product']))?'style="display:block;"':''; ?>>
+                                                    <div class="input-field col l4 m4 s12">
+                                                        <select name="service" id="service">
+                                                            <option value="">Product or Service</option>
                                                             <?php if (!empty($product)) {
                                                             foreach ($product as $key => $value) {
                                                             if ($value->category == 'telecom'){ ?>
-                                                            <option value="<?php echo $value->uniq ?>"><?php echo $value->service ?></option>
+                                                            <option value="<?php echo $value->uniq ?>" <?php echo(!empty($refer['sub_product']) && $refer['sub_product']==$value->uniq)?'selected':''; ?> ><?php echo $value->service ?></option>
                                                             <?php  } } } ?>
                                                         </select>
-                                                        <label>select a product</label>
+                                                        <label>select a product or Service</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-0">
+                                                <div id="select-it" <?php echo(!empty($refer['it_type']))?'style="display:block;"':''; ?>>
+                                                    <div class="input-field col l4 m4 s12">
+                                                        <select name="it_type" id="it">
+                                                            <option value="">Category in IT</option>
+                                                            <option value="web developmnent" <?php echo(!empty($refer['it_type']) && $refer['it_type']=='web developmnent')?'selected':''; ?>>Web Development</option>
+                                                            <option value="app development" <?php echo(!empty($refer['it_type']) && $refer['it_type']=='app development')?'selected':''; ?>>App Development</option>
+                                                        </select>
+                                                        <label>Choose a category in IT</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l12 m12 s12">
                                                     <textarea placeholder="Enter Description" id="description" name="description"
-                                                    class="materialize-textarea"></textarea>
+                                                    class="materialize-textarea"><?php echo(!empty($refer['description']))?$refer['description']:''; ?></textarea>
                                                     <label for="description">Description</label>
                                                 </div>
                                             </div>
@@ -174,55 +182,52 @@
             phone: {
             required: "Please enter your Mobile number",
             number: "Please enter a valid Mobile number",
-            minlength: "Your Mobile number at least 10 digits",
-            maxlength: "Your Mobile number must be 10 digits",
+            minlength: "Your Mobile number at least 9 digits",
+            maxlength: "Your Mobile number must be 9 digits",
             },
             name: "Please enter a valid Username",
             }
             });
             });
             </script>
+
             <script>
             $(document).ready(function() {
-            $('#product').on('change', function() {
-            var productval = this.value;
-            if (productval == 'telecom') {
-            $('#select-telecom').show();
-            $('#select-it').hide();
-            }else if (productval == 'it'){
-            $('#select-it').show();
-            $('#select-telecom').hide();
-            $('#select-business').hide();
-            $('#select-customer').hide();
-            }else{
-            $('#select-it').hide();
-            $('#select-telecom').hide();
-            $('#select-telecom').hide();
-            $('#select-business').hide();
-            $('#select-customer').hide();
-            }
+                $('#category').on('change', function() {
+                    var category = this.value;
+                        if (category == 'telecom') {
+                            $('#select-telecom-for').show();
+                            $('#select-it').hide();
+                        }else if (category == 'it'){
+                            $('#select-it').show();
+                            $('#select-telecom-for').hide();
+                            $('#select-customer').hide();
+                            $('#select-service').hide();
+                        }else{
+                            $('#select-it').hide();
+                            $('#select-telecom-for').hide();
+                            $('#select-customer').hide();
+                            $('#select-service').hide();
+                        }
+                });
+
+            $('#telecom-for').on('change', function() {
+                var telecomfor = this.value;
+                if (telecomfor == 'business') {
+                    $('#select-customer').show();
+                    $('#select-service').hide();
+                }else{
+                    $('#select-customer').hide();
+                    $('#select-service').hide();
+                }
             });
-            $('#telecom').on('change', function() {
-            var productval = this.value;
-            if (productval == 'business') {
-            $('#select-telecom').hide();
-            $('#select-business').show();
+
+            $('#customer-type').on('change', function() {
+            var customertype = this.value;
+            if (customertype != '') {
+                $('#select-service').show();
             }else{
-            $('#select-it').hide();
-            $('#select-telecom').show();
-            $('#select-business').hide();
-            }
-            });
-            $('#business').on('change', function() {
-            var productval = this.value;
-            if (productval != '') {
-            $('#select-customer').show();
-            $('#select-telecom').hide();
-            $('#select-business').hide();
-            }else{
-            $('#select-it').hide();
-            $('#select-telecom').hide();
-            $('#select-business').hide();
+                $('#select-service').hide();
             }
             });
             
@@ -231,29 +236,7 @@
             
             });
             </script>
-               <script>
-
-<?php if (!empty($alert)) { 
-
-    foreach ($alert as $key => $value) { ?>
-
-        var toastHTML = '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
-        M.toast({
-            html: toastHTML,
-            displayLength:4000,
-            classes:'white'
-        });
-    
-        function toast() {
-            var toastElement = document.querySelector('.toast');
-      var toastInstance = M.Toast.getInstance(toastElement);
-      toastInstance.dismiss(); 
-        }
-      <?php  } }  ?>
-
-        
-
-    </script>
+            
             
         </body>
     </html>

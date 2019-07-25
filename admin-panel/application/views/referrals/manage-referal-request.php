@@ -151,11 +151,13 @@
 
 
                            ?></td>
-                          <td class="<?php echo 'refre_status'.$value->referee_status?>"><?php if ($value->referee_status == '1') {
+                          <td class="<?php echo (!empty($value->is_deleted))?'delt_status'.$value->is_deleted:'refre_status'.$value->referee_status?>"><?php if ($value->referee_status == '1') {
                             echo 'Approved';
                           }else if ($value->referee_status == '2') {
                             echo 'Rejected';
-                          }else{
+                          }else if ($value->is_deleted == '1') {
+                            echo 'Deleted';
+                          }else if ($value->is_deleted == '0' && $value->referee_status == '0'){
                             echo 'Pending';
                           } ?></td>
                           <td><?php echo (!empty($value->referee_location))?$value->referee_location:'---'  ?></td>

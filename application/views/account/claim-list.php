@@ -10,17 +10,17 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
 <body>
-    <?php $this->load->view('includes/header');?>
+    <?php  $this->load->view('includes/header');?>
     <section class="agent-profile">
         <div class="container-wrap3">
             <div class="row mb-0">
                 <!-- sidebar -->
-                <?php $this->load->view('includes/agent-sidebar.php');?>
+                <?php $this->load->view('includes/agent-sidebar.php'); ?>
                 <!-- side bar end -->
 
                 <div class="col  l9 m8 s12">
@@ -43,28 +43,28 @@
                                             </thead>
                                             <tbody>
                                                 <?php if ($claim) {
-                                                foreach ($claim as $key => $value) {?>
+                                                  foreach ($claim as $key => $value) { ?>
                                                 <tr>
-                                                    <td><?php echo $value->claimed_on ?></td>
-                                                    <td><?php echo $value->claimed_points ?></td>
-                                                    <td><?php
+                                                    <td><?php echo  $value->claimed_on ?></td>
+                                                    <td><?php echo  $value->claimed_points ?></td>
+                                                    <td><?php 
                                                 if ($value->claim_status == '1') {
-                                                        echo 'Success';
-                                                    } elseif ($value->claim_status == '2') {
-                                                        echo 'Rejected';
-                                                    } else {
-                                                        echo 'Process';
-                                                    }?></td>
-                                                    <td class="show-smart"><?php
-                                                        if ($value->claim_status == '1' && !empty($value->coupon_code)) {?>
+                                                    echo 'Success';
+                                                }elseif ($value->claim_status == '2') {
+                                                    echo 'Rejected';
+                                                }else{
+                                                    echo 'Process';
+                                                }?></td>
+                                                    <td class="show-smart"><?php 
+                                                if ($value->claim_status == '1' && !empty($value->coupon_code)) { ?>
                                                         <a class="view-smart-code waves-effect waves-light btn-small modal-trigger"
                                                             id="<?php echo $value->claim_id ?>" href=".smartcode">View
                                                             Code</a>
-                                                        <?php } else {
-                                                        echo '-------';
-                                                    }?></td>
+                                                        <?php }else{ 
+                                                    echo '-------';
+                                                     }?></td>
                                                 </tr>
-                                                <?php }}?>
+                                                <?php }} ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -99,7 +99,7 @@
                             <span class="error"><?php echo form_error('password'); ?></span>
                             <p id="paswrd-error" class="paswrd-error error required"></p>
                         </div>
-                        <?php $this->load->view('includes/pre-loader');?>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
                         <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
@@ -124,7 +124,7 @@
                             <span class="error"><?php echo form_error('mobile'); ?></span>
                             <p id="mobile-error" class="mobile-error error required"></p>
                         </div>
-                        <?php $this->load->view('includes/pre-loader');?>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
                     </div>
@@ -151,7 +151,7 @@
                             <p id="resend-error" class="otp-error error required"></p>
                             <p id="resend-success" class="otp-error green-text  required"></p>
                         </div>
-                        <?php $this->load->view('includes/pre-loader');?>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
                         <a class="forgot-link right-align" id="resend-code" href="#">Resend Code?</a>
@@ -189,7 +189,7 @@
                             <span class="error"><?php echo form_error('c_password'); ?></span>
                             <p id="forgot-error" class="error required"></p>
                         </div>
-                        <?php $this->load->view('includes/pre-loader');?>
+                        <?php $this->load->view('includes/pre-loader'); ?>
                         <button class="btn register-formbutton waves-light " value="submit" name="submit"
                             id="process-refer">Submit</button>
                         <a class="forgot-link modal-trigger" href="#forgotpass">Forgot Password?</a>
@@ -200,8 +200,9 @@
         </form>
     </div>
 
+
     <!-- End Modal Structure -->
-    <?php $this->load->view('includes/footer');?>
+    <?php  $this->load->view('includes/footer');?>
     <!-- /.boxed -->
     <!-- Javascript -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -359,7 +360,7 @@
             var btnid = $("#claimid").val();
             loder(true);
             $.ajax({
-                url: "<?php echo base_url(); ?>verify-credentials",
+                url: "<?php echo base_url();?>verify-credentials",
                 type: "Post",
                 dataType: "html",
                 data: DataString,
@@ -369,7 +370,8 @@
                         $("#paswrd-error").append("<span>Wrong password</span>");
                     } else if (data != 'wrong password' && data != 'error' && data != '') {
                         $('.smartcode').modal('close');;
-                        $("#" + btnid).after("<div class ='code-displayed'> " + data +" <input type='hidden' name='cop_cod' value="+ data +" class='code-cop'> <span> <button onclick='myFunction()'><i class='material-icons dp48'>content_copy</i></button></span> </div>");
+                        $("#" + btnid).after("<a class ='code-displayed'> " + data +
+                            "</a>");
                         $("#" + btnid).remove();
                         $('.modal-overlay').css('display', 'none');
                     } else if (data == 'error') {
@@ -390,7 +392,7 @@
             var mobile = $("#mobile").val();
             loder(true);
             $.ajax({
-                url: "<?php echo base_url(); ?>account/claim_forgot",
+                url: "<?php echo base_url();?>account/claim_forgot",
                 type: "Post",
                 dataType: "html",
                 data: DataString,
@@ -425,7 +427,7 @@
                 var DataString = $("#otp-form").serialize();
                 loder(true);
                 $.ajax({
-                    url: "<?php echo base_url(); ?>account/forgot_verify",
+                    url: "<?php echo base_url();?>account/forgot_verify",
                     type: "Post",
                     dataType: "html",
                     data: DataString,
@@ -439,7 +441,8 @@
                         } else if (data < '3' && data >= '1') {
                             $(".otp-error>span").remove();
                             $(".otp-error").append(
-                                "<span>You have entered invalid OTP, You have only " + (max - data) + " attempts left</span>");
+                                "<span>You have entered invalid OTP, You have only " + (
+                                    max - data) + " attempts left</span>");
                         } else {
                             $('#otpmodal').modal('close');
                             $('#newpass').modal('open');
@@ -457,7 +460,7 @@
             var DataString = $("#set-pass").serialize();
             loder(true);
             $.ajax({
-                url: "<?php echo base_url(); ?>account/forgot_password_set",
+                url: "<?php echo base_url();?>account/forgot_password_set",
                 type: "Post",
                 dataType: "html",
                 data: DataString,
@@ -490,7 +493,7 @@
             var phone = $("#phone").val();
             loder(true);
             $.ajax({
-                url: "<?php echo base_url(); ?>account/resend_code",
+                url: "<?php echo base_url();?>account/resend_code",
                 type: "get",
                 dataType: "html",
                 data: {
@@ -535,38 +538,6 @@
 
 
     });
-    </script>
-    <script>
-    <?php if (!empty($alert)) {
-
-    foreach ($alert as $key => $value) {?>
-
-    var toastHTML =
-        '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
-    M.toast({
-        html: toastHTML,
-        displayLength: 4000,
-        classes: 'white'
-    });
-
-    function toast() {
-        var toastElement = document.querySelector('.toast');
-        var toastInstance = M.Toast.getInstance(toastElement);
-        toastInstance.dismiss();
-    }
-    <?php }}?>
-    </script>
-
-
-
-    <script>
-    function myFunction() {
-        var txt = $(this).prev('.code-cop').val();
-        var copyText = txt;
-        copyText.select();
-        document.execCommand("copy");
-        alert("Copied the text: " + copyText.value);
-    }
     </script>
 
 </body>

@@ -102,7 +102,10 @@ $this->ci->load->model('referal_model');
                                         <div class="x_title">
                                             <h2>Referral Detail</h2>
                                             <div class="banner-button">
-                                                <?php if(!empty($referal['referee_status']) && $referal['referee_status']=='1'){ ?>
+                                                <?php
+
+                                                if(empty($referal['is_deleted'])) {
+                                                if(!empty($referal['referee_status']) && $referal['referee_status']=='1'){ ?>
                                                 <button type="button" class="btn btn-dsable">Approved</button>
                                                 <?php } elseif (!empty($referal['referee_status']) && $referal['referee_status']=='2') { ?>
                                                 <button type="button" class="btn btn-dsable">Rejected</button>
@@ -111,7 +114,10 @@ $this->ci->load->model('referal_model');
                                                 data-target="#approve-model">Approve</button>
                                                 <button type="button" class="btn btn-danger" data-toggle="modal"
                                                 data-target="#reject-modal">Reject</button>
-                                                <?php } ?>
+                                                <?php } } 
+
+
+                                                ?>
                                                 
                                             </div>
                                             <div class="clearfix"></div>

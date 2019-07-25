@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="row mb-0">
                                     <div class="input-field col l4 m4 s4">
-                                        <select name="country_code" required id="country_code">
+                                        <!-- <select name="country_code" required id="country_code">
                                             <option value="" disabled selected>ex: +971</option>
                                             <?php if (!empty($country_code)) {
                                                         foreach ($country_code as $key => $value) { ?>
@@ -48,7 +48,8 @@
                                             </option>
                                             <?php   } } ?>
 
-                                        </select>
+                                        </select> -->
+                                        <input placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
                                         <label for="country_code">Country Code <span class="error">*</span></label>
                                     </div>
                                     <div class="input-field col l8 m8 s8">
@@ -154,8 +155,8 @@
                 phone: {
                     required: true,
                     number: true,
-                    minlength: 10,
-                    maxlength: 10,
+                    minlength: 9,
+                    maxlength: 9,
                 },
                 password: {
                     required: true,
@@ -177,8 +178,8 @@
                 phone: {
                     required: "Please enter your Mobile number",
                     number: "Please enter a valid Mobile number",
-                    minlength: "Your Mobile number at least 10 digits",
-                    maxlength: "Your Mobile number must be 10 digits",
+                    minlength: "Your Mobile number at least 9 digits",
+                    maxlength: "Your Mobile number must be 9 digits",
                 },
                 password: {
                     required: "Please provide a password",

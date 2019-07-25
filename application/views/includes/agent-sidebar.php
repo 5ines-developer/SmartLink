@@ -1,4 +1,10 @@
-<div class="col l3 m4 s12 hide-on-small-only">
+<div class="col l3 m4 s12">
+    <button class="waves-effect right" id="sidebarToggle" href="#">
+                            <i class="fas fa-bars"></i>
+                            </button>
+                            <button class="waves-effect right" id="sidebarclose" href="#">
+                            <i class="material-icons dp48">close</i>
+                            </button>
                     <div class="card" id="agent-sidebar">
                         <div class="card-content">
                             <ul class="agent-profile-sidebar">

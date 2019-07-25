@@ -82,6 +82,29 @@ class M_account extends CI_Model
         }
     }
 
+    public function edit_refer($id)
+    {
+        $this->db->where('uniq', $id);
+        $this->db->where('agent_id',$this->session->userdata('sid'));
+        $query = $this->db->get('referral');
+        if ($query->num_rows() > 0) {
+            return $query->row_array();
+        } else {
+            return false;
+        }
+
+    }
+
+    public function delete_refer($id='')
+    {
+        $this->db->where('uniq', $id);
+        $this->db->where('agent_id',$this->session->userdata('sid'));
+        return $this->db->update('referral',array('is_deleted' => '1'));
+    }
+
+    
+
+
     // phone check
     public function phone_check($phone)
     {
@@ -149,6 +172,7 @@ class M_account extends CI_Model
             $this->db->where('uniq', $refid);
         }
         $this->db->where('agent_id', $this->session->userdata('sid'));
+        $this->db->where('is_deleted','0');
         $query = $this->db->get('referral');
 
         if ($query->num_rows() > 0) {
