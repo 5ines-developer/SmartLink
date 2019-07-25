@@ -201,6 +201,11 @@ $this->ci->load->model('referal_model');
                                                     <td><?php echo (!empty($referal['referee_addedon']))?$referal['referee_addedon']:'---'  ?>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <td><?php echo (!empty($referal['description']))?$referal['description']:'---'  ?>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>
