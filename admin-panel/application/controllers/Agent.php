@@ -65,10 +65,10 @@ class Agent extends CI_Controller
         }
 
 
-    // notification
-    public function notification($id = '')
-    {
-        $datas = $this->referal_model->get_noti();
-        return $datas;
-    }
+        // notification
+        public function notification($id = '')
+        {
+            $datas = $this->referal_model->get_noti();
+            return $datas;
+        }
 }

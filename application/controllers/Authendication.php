@@ -205,7 +205,7 @@ class Authendication extends CI_Controller
         $this->session->unset_userdata($session_data);
         $this->session->sess_destroy();
         $this->session->set_flashdata('success', 'Successfully Logged out');
-        redirect(base_url());
+        redirect('login');
     }
 
     // forgot password

@@ -1,3 +1,6 @@
+<?php $this->ci =& get_instance(); 
+$this->ci->load->model('agent_model');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -102,6 +105,7 @@
                           <th>Agent Name</th>
                           <th>Agent Phone</th>
                           <th>Employee Reference Id</th>
+                          <th>Totral Referrals</th>
                           <th>Registered On</th>
                           <th>Operations</th>
                         </tr>
@@ -115,6 +119,7 @@
                           <td><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></td>
                           <td><?php echo (!empty($value->agent_phone ))?$value->agent_phone :'---'  ?></td>
                           <td><?php echo (!empty($value->employee_reference_id))?$value->employee_reference_id:'---'  ?></td>
+                          <td><?php echo $this->ci->agent_model->ref_count($value->agent_id);  ?></td>
                           <td><?php echo (!empty($value->agent_registered_on))?date("d-M-y", strtotime($value->agent_registered_on)):'---'; ?></td>
                           <td style="text-align:center;"><a href="<?php echo base_url('view-agent/').$value->agent_id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
                           <!-- <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-agent/').$value->agent_id?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> -->
