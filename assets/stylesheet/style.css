@@ -1508,15 +1508,20 @@ section {
 /* ************preloader*****/
 
 .preloader-verfy {
-    position: relative;
-    z-index: 10;
-    top: -53px;
-    display: block;
-    text-align: center;
+    top: 0px;
     display: none;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
+    left: 0;
 }
 
 .preloader-wrapper.big {
     width: 40px;
     height: 40px;
+    top: 145px;
 }

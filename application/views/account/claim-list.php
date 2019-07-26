@@ -545,9 +545,15 @@
         }
 
 
+        $('#smartcode').modal({ dismissible: false });
+        $('#otpmodal').modal({ dismissible: false });
+        $('#newpass').modal({ dismissible: false });
+        $('#forgotpass').modal({ dismissible: false });
+ 
 
     });
     </script>
+
 
 </body>
 
