@@ -23,7 +23,7 @@
     <section>
         <div class="container-wrap3">
             <div class="row mb-0">
-                <div class="col offset-l3 l6 m6 s12 pad40">
+                <div class="col offset-l3 l6 offset-m3 m6 s12 pad40">
                     <div class="register-form loginpad">
                         <div class="register-icon center-align">
                             <h5 class="register-title">Forgot Password</h5>
@@ -32,12 +32,9 @@
                         <div>
                             <form action="<?php echo base_url('forgot-password') ?>" method="post"  class="col l12 m12 s12" id="login-form">
                                 <div class="row mb-0">
-                                    <div class="input-field col l4 m4 s6">
-                                        <input placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
-                                        <label for="country_code">Country Code <span class="error">*</span></label>
-                                    </div>
-                                    <div class="input-field col l8 m10 s6">
-                                        <input placeholder="Mobile No." id="mobile" type="text" name="mobile" required>
+                                    <div class="input-field col l12 m12 s12">
+                                    <input class="col l2 m2 s2" placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                                        <input class="col l10 m10 s10" placeholder="Mobile No." id="mobile" type="text" name="mobile" required>
                                         <label for="mobile">Mobile No.</label>
                                     </div>
                                 </div>

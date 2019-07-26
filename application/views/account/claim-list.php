@@ -124,7 +124,8 @@
                 <div class="row">
                     <div class="col l12 s12">
                         <div class="input-field">
-                            <input class="" placeholder="Enter Your Mobile No." id="mobile" name="mobile" type="text"
+                        <input class="col l2 m2 s2" placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                            <input class="col l10 m10 s10" placeholder="Enter Your Mobile No." id="mobile" name="mobile" type="text"
                                 required="" autocomplete="off">
                             <label for="mobile" class="">Mobile No.</label>
                             <span class="error"><?php echo form_error('mobile'); ?></span>
@@ -543,10 +544,10 @@
         }
 
 
-        $('#smartcode').modal({ dismissible: false });
-        $('#otpmodal').modal({ dismissible: false });
-        $('#newpass').modal({ dismissible: false });
-        $('#forgotpass').modal({ dismissible: false });
+        // $('#smartcode').modal({ dismissible: false });
+        // $('#otpmodal').modal({ dismissible: false });
+        // $('#newpass').modal({ dismissible: false });
+        // $('#forgotpass').modal({ dismissible: false });
  
 
     });

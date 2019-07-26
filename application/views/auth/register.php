@@ -39,21 +39,9 @@
                                     </div>
                                 </div>
                                 <div class="row mb-0">
-                                    <div class="input-field col l4 m4 s4">
-                                        <!-- <select name="country_code" required id="country_code">
-                                            <option value="" disabled selected>ex: +971</option>
-                                            <?php if (!empty($country_code)) {
-                                                        foreach ($country_code as $key => $value) { ?>
-                                            <option value="<?php echo $value->code ?>"><?php echo '+'.$value->code ?>
-                                            </option>
-                                            <?php   } } ?>
-
-                                        </select> -->
-                                        <input placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
-                                        <label for="country_code">Country Code <span class="error">*</span></label>
-                                    </div>
-                                    <div class="input-field col l8 m8 s8">
-                                        <input placeholder="Mobile No." id="mobile" name="phone" type="text" required>
+                                    <div class="input-field col l12 m12 s12">
+                                    <input class="col l2 m2 s2" placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                                        <input class="col l10 m10 s10" placeholder="Mobile No." id="mobile" name="phone" type="text" required>
                                         <label for="mobile">Mobile No. <span class="error">*</span> </label>
                                         <span class="error"><?php echo form_error('phone'); ?></span>
                                     </div>
