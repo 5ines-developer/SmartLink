@@ -1,0 +1,52 @@
+{
+	// Use IntelliSense to learn about possible configuration attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit
+	// https://gitlab.otris.de/tools/vscode-janus-debug/wikis/home
+	"version": "1.0.43",
+	"configurations": [
+		{
+			"name": "Launch Script on Server",
+			"request": "launch",
+			"type": "janus",
+			"script": "",
+			"username": "admin",
+			"password": "${command:extension.vscode-janus-debug.askForPassword}",
+			"principal": "relations",
+			"host": "localhost",
+			"applicationPort": 11000,
+			"debuggerPort": 8089,
+			"currentConfiguration": true,
+			"stopOnEntry": true,
+			"log": {
+				"fileName": "${workspaceRoot}/vscode-janus-debug-launch.log",
+				"logLevel": {
+					"default": "Debug"
+				}
+			},
+			"timeout": 6000,
+			"localSources": {
+				"include": "**/*.js",
+				"exclude": "**/node_modules/**"
+			}
+		},
+		{
+			"name": "Attach to Server",
+			"request": "attach",
+			"type": "janus",
+			"host": "localhost",
+			"debuggerPort": 8089,
+			"log": {
+				"fileName": "${workspaceRoot}/vscode-janus-debug-attach.log",
+				"logLevel": {
+					"default": "Debug"
+				}
+			},
+			"timeout": 6000,
+			"localSources": {
+				"include": "**/*.js",
+				"exclude": "**/node_modules/**"
+			}
+		}
+	]
+}

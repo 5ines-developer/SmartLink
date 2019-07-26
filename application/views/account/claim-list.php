@@ -370,8 +370,8 @@
                         $("#paswrd-error").append("<span>Wrong password</span>");
                     } else if (data != 'wrong password' && data != 'error' && data != '') {
                         $('.smartcode').modal('close');;
-                        $("#" + btnid).after("<a class ='code-displayed'> " + data +
-                            "</a>");
+                        $("#" + btnid).after("<div class ='code-displayed'> " + data +" <input type='hidden' name='cop_cod' value="+ data +" class='code-cop'> <span> <button onclick='myFunction()'><i class='material-icons dp48'>content_copy</i></button></span> </div>");
+
                         $("#" + btnid).remove();
                         $('.modal-overlay').css('display', 'none');
                     } else if (data == 'error') {

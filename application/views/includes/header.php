@@ -14,13 +14,13 @@
     <?php  if ($this->session->userdata('sid') == '') { ?>
     <nav class="grey lighten-4" id="secondnavbar">
         <div class="nav-wrapper container-wrap2 ">
-            <a href="#!" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a>
+            <a href="<?php echo base_url()?>" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">About Us</a></li>
-                <li><a href="badges.html">Team</a></li>
-                <li><a href="collapsible.html">Mission & Vision</a></li>
-                <li><a href="mobile.html">Product & Service</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Mission & Vision</a></li>
+                <li><a href="#">Product & Service</a></li>
                 <li><a class="register-nav" href="<?php echo base_url () ?>register">Sign Up</a></li>
                 <li><a href="<?php echo base_url () ?>login">Login</a></li>
             </ul>
@@ -28,11 +28,11 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">About Us</a></li>
-        <li><a href="badges.html">Team</a></li>
-        <li><a href="collapsible.html">Mission & Vision</a></li>
-        <li><a href="mobile.html">Product & Service</a></li>
-        <li><a href="mobile.html">Refer & Earn</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Mission & Vision</a></li>
+        <li><a href="#">Product & Service</a></li>
+        <li><a href="#">Refer & Earn</a></li>
         <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
         <li><a href="<?php echo base_url () ?>login">Login</a></li>
     </ul>
@@ -74,13 +74,18 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">About Us</a></li>
-        <li><a href="badges.html">Team</a></li>
-        <li><a href="collapsible.html">Mission & Vision</a></li>
-        <li><a href="mobile.html">Product & Service</a></li>
-        <li><a href="mobile.html">Refer & Earn</a></li>
-        <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
-        <li><a href="<?php echo base_url () ?>login">Login</a></li>
+    <li><a class="waves-effect <?php if($this->uri->segment(1)=="dashboard"){echo "active";}?>" href="<?php echo base_url('dashboard')?>">Dashboard</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="account"){echo "active";}?>  " href="<?php echo base_url('account')?>">Profile</a>
+                                </li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="change-password"){echo "active";}?>" href="<?php echo base_url('change-password')?>">Change Password</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="refer-a-friend"){echo "active";}?>" href="<?php echo base_url('refer-a-friend')?>">Refer a friend</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="reward-points"){echo "active";}?>" href="<?php echo base_url('reward-points')?>">Reward Points</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="referal-list"){echo "active";}?>" href="<?php echo base_url('referal-list')?>">List of Referrals</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="claim-list"){echo "active";}?>" href="<?php echo base_url('claim-list')?>">List of Claims</a></li>
+                                <li><a class="waves-effect <?php if($this->uri->segment(1)=="notifications"){echo "active";}?>" href="<?php echo base_url('notifications')?>">Notifications<?php if (!empty($alert)) { ?>
+                        <span class="notibadge bg-red"><?php echo (!empty($alert))?count($alert):''; ?> </span>
+                        <?php } ?></a></li>
+                        <li><a href="<?php echo base_url () ?>logout">Logout </a></li>
     </ul>
 
     <?php } ?>

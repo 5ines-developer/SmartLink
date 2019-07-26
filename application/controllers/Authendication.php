@@ -51,8 +51,10 @@ class Authendication extends CI_Controller
                 if ($this->form_validation->run() == false) {
                     $this->load->view('auth/register', $data, false);
                 } else {
-                    if ($ref_code != '') {
-                        $this->referencecode_check($ref_code);
+                    $ref['output'] = $this->referencecode_check($ref_code);
+                    if (empty($ref['output'])) {
+                        $this->session->set_flashdata('error', 'Invalid referrence code please enter the correct one or keep it blank');
+                        redirect('register', 'refresh');
                     }
 
                     $insert = array(

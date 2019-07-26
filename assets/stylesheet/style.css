@@ -11,6 +11,10 @@ body {
     background-color: #fbfbfb;
 }
 
+i {
+    text-rendering: optimizelegibility !important;
+}
+
 body p {
     color: rgb(51, 51, 51);
     font-family: arial;
@@ -954,6 +958,10 @@ section {
 
 /**Notification**/
 
+.notibadge {
+    right: 157px;
+}
+
 .user-noti {
     padding: 15px;
     background: #f4f4f4;
@@ -1144,6 +1152,18 @@ section {
     font-size: 13px;
 }
 
+.code-displayed button {
+    float: right;
+    top: -17px;
+    position: relative;
+    border: 0;
+    background-color: #00a0c1;
+    color: #fff;
+    padding: 4px 7px;
+    cursor: pointer;
+    line-height: 26px;
+}
+
 
 /*end list of claim*/
 
@@ -1178,7 +1198,7 @@ section {
 /* *******toast*********** */
 
 #toast-container {
-    top: 50% !important;
+    top: 75% !important;
     right: 0 !important;
     max-width: 26% !important;
     left: 35px !important;
