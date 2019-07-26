@@ -23,7 +23,7 @@
                 <?php $this->load->view('includes/agent-sidebar.php'); ?>
                 <!-- side bar end -->
 
-                <div class="col  l9 m8 s12">
+                <div class="col  l9 m12 s12">
                     <div class="card agent-profile-right">
                         <div class="card-content agent-right-content">
                             <div class="agent-edit-title">
@@ -47,14 +47,20 @@
                                                 <tr>
                                                     <td><?php echo  $value->claimed_on ?></td>
                                                     <td><?php echo  $value->claimed_points ?></td>
-                                                    <td><?php 
-                                                if ($value->claim_status == '1') {
-                                                    echo 'Success';
-                                                }elseif ($value->claim_status == '2') {
-                                                    echo 'Rejected';
-                                                }else{
-                                                    echo 'Process';
-                                                }?></td>
+                                                    <td class="<?php if ($value->claim_status == '1') {
+                                                        echo "green-text";
+                                                    }else if ($value->claim_status == '0') {
+                                                        echo "blue-text";
+                                                    }else if ($value->claim_status == '2') {
+                                                        echo "red-text";
+                                                    }?>  "><?php 
+                                                    if ($value->claim_status == '1') {
+                                                        echo 'Success';
+                                                    }elseif ($value->claim_status == '2') {
+                                                        echo 'Rejected';
+                                                    }else{
+                                                        echo 'Process';
+                                                    }?></td>
                                                     <td class="show-smart"><?php 
                                                 if ($value->claim_status == '1' && !empty($value->coupon_code)) { ?>
                                                         <a class="view-smart-code waves-effect waves-light btn-small modal-trigger"
@@ -370,7 +376,10 @@
                         $("#paswrd-error").append("<span>Wrong password</span>");
                     } else if (data != 'wrong password' && data != 'error' && data != '') {
                         $('.smartcode').modal('close');;
-                        $("#" + btnid).after("<div class ='code-displayed'> " + data +" <input type='hidden' name='cop_cod' value="+ data +" class='code-cop'> <span> <button onclick='myFunction()'><i class='material-icons dp48'>content_copy</i></button></span> </div>");
+                        $("#" + btnid).after("<div class ='code-displayed'> " + data +
+                            " <input type='hidden' name='cop_cod' value=" + data +
+                            " class='code-cop'> <span> <button onclick='myFunction()'><i class='material-icons dp48'>content_copy</i></button></span> </div>"
+                            );
 
                         $("#" + btnid).remove();
                         $('.modal-overlay').css('display', 'none');

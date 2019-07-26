@@ -76,25 +76,6 @@ class Reward_model extends CI_Model
             }
         }
 
-
-        // public function unclaimed_point($agentid = null)
-        // {        
-        //     $status = array(0);
-        //     $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');        
-        //     $this->db->where('agent_id', $agentid);
-        //     $this->db->where_in('claim_status', $status);
-        //     $query = $this->db->get();
-    
-        //     if ($query->num_rows() > 0) {
-        //         foreach ($query->result() as $key => $value) {
-        //         }
-                
-        //         return $value->claimed_points;
-        //     } else {
-        //         return false;
-        //     }
-        // }
-
         public function approved_point($agentid = null)
         {        
             $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');        

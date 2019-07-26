@@ -25,7 +25,7 @@
                     <?php $this->load->view('includes/agent-sidebar.php');?>
 
                     <!-- side bar end -->
-                    <div class="col  l9 m8 s12">
+                    <div class="col  l9 m12 s12">
                         <div class="card agent-profile-right">
                             <div class="card-content agent-right-content">
                                 <div class="agent-edit-title">
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="notification-detail">
                                     <div class="row">
-                                        <div class="col l12">
+                                        <div class="col l12 m12 s12">
                                         <?php $cont = 0;if (!empty($noti)) {
                                         foreach ($noti as $key => $value) {$cont = $cont + 1;?>
                                             <div class="title-noti<?php if($value->notification_seen == '1'){echo '-see'; } ?>">

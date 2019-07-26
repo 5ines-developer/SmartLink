@@ -1,4 +1,4 @@
-<div class="col l3 m4 s12 hide-on-small-only">
+<div class="col l3 m4 s12 hide-on-med-and-down">
                     <div class="card" id="agent-sidebar">
                         <div class="card-content">
                             <ul class="agent-profile-sidebar">

@@ -25,7 +25,7 @@
                 <?php $this->load->view('includes/agent-sidebar.php'); ?>
 
                 <!-- side bar end -->
-                <div class="col  l9 m8 s12">
+                <div class="col  l9 offset-m2 m8 s12">
                     <div class="card agent-profile-right">
                         <div class="card-content agent-right-content">
                             <div class="agent-edit-title">

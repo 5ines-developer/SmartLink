@@ -958,10 +958,6 @@ section {
 
 /**Notification**/
 
-.notibadge {
-    right: 157px;
-}
-
 .user-noti {
     padding: 15px;
     background: #f4f4f4;
@@ -1239,6 +1235,12 @@ section {
 /* ******** ** ****************MEDIA QUERY **TABLET********************* */
 
 @media(min-width: 600px) and (max-width: 992px) {
+    .card-content.agent-right-content {
+        padding: 30px 20px 30px 20px !important;
+    }
+    .notibadge {
+        right: 140px;
+    }
     .pad40 {
         padding-right: 0 !important;
         padding-left: 0 !important;
@@ -1339,6 +1341,16 @@ section {
     .footer-address {
         margin-bottom: 0;
         text-align: justify;
+    }
+    /* navbar */
+    nav .sidenav-trigger {
+        margin: 0;
+    }
+    .sidenav {
+        width: 230px;
+    }
+    nav .brand-logo {
+        line-height: 10px;
     }
     /*login page*/
     #login-form {

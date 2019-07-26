@@ -48,6 +48,10 @@
     <style>
     p{font-size: 12px;}
     .banner-button{float: right;}
+    .x_title h2 {
+    margin: 23px 0 6px;}
+    ul {
+    margin-bottom: 0;}
     </style>
   </head>
   <body class="nav-md">

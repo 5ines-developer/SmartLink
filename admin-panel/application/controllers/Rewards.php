@@ -64,7 +64,6 @@ class Rewards extends CI_Controller
         $data['alert'] = $this->data;
         $agentid = $data['claim']['agent_id'];
         $data['reward'] = $this->reward_model->reward_point($agentid);
-        // $data['claimed'] = $this->reward_model->unclaimed_point($agentid);
         $data['ap_claim'] = $this->reward_model->approved_point($agentid);
         $this->load->view('rewards/view-reward-request', $data);
     }

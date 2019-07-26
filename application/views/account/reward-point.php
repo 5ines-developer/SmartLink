@@ -15,8 +15,7 @@
 
 </head>
 
-<body class="header_sticky">
-    <div class="boxed">
+<body >
         <?php  $this->load->view('includes/header');?>
         <section class="agent-profile">
             <div class="container-wrap3">
@@ -24,7 +23,7 @@
                     <!-- sidebar -->
                     <?php $this->load->view('includes/agent-sidebar.php'); ?>
                     <!-- side bar end -->
-                    <div class="col  l9 m8 s12">
+                    <div class="col  l9 m12  s12">
                         <div class="card agent-profile-right">
                             <div class="card-content agent-right-content">
                                 <div class="agent-edit-title">
@@ -58,7 +57,7 @@
                                                             id="reward" type="text" required>
                                                         <label for="reward" class="black-text">Enter reward point</label>
                                                         <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
-                                                        <span class="helper-text" data-error="wrong" data-success="right"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
+                                                        <span class="helper-text"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
 
                                                             <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
                                                             <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
@@ -78,7 +77,6 @@
             </div>
         </section>
         <?php  $this->load->view('includes/footer');?>
-    </div><!-- /.boxed -->
     <!-- Javascript -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
