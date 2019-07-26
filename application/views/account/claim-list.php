@@ -378,7 +378,7 @@
                         $('.smartcode').modal('close');;
                         $("#" + btnid).after("<div class ='code-displayed'> " + data +
                             " <input type='hidden' name='cop_cod' value=" + data +
-                            " class='code-cop'> <span> <button onclick='myFunction()'><i class='material-icons dp48'>content_copy</i></button></span> </div>"
+                            " class='code-cop'> <span> <button class='clip-btn'><i class='material-icons dp48'>content_copy</i></button></span> </div>"
                             );
 
                         $("#" + btnid).remove();
@@ -519,9 +519,7 @@
                     } else if (data == 'success') {
                         $("#resend-error>span").remove();
                         $("#resend-success>span").remove();
-                        $('#resend-success').append("<span>'We have sent an OTP to " +
-                            phone +
-                            ", Please enter the OTP and verify your account</span>");
+                        $('#resend-success').append("<span>'We have sent an OTP to " + phone + ", Please enter the OTP and verify your account</span>");
                     } else if (data == 'wrong mobile') {
                         $("#resend-error>span").remove();
                         $("#resend-success>span").remove();
@@ -553,6 +551,19 @@
 
     });
     </script>
+
+<script>
+        $(document).on("click",'.clip-btn', function(){
+        // value = $(this).data('clipboard-text'); //Upto this I am getting value
+        // val = $(this).val(); //Upto this I am getting value
+        val = $(this).closest(".code-displayed").find("input[name='cop_cod']").val();
+        var $temp = $("<input>");
+          $("body").append($temp);
+          $temp.val(val).select();
+          document.execCommand("copy");
+          $temp.remove();
+    })
+</script>
 
 
 </body>
