@@ -15,6 +15,41 @@
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
+<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip  i{
+    font-size: 15px;
+    position: relative;
+    top: 4px;
+    color: #29bdca;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 4px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  left: -35px;
+    top: 20px;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+
 <body>
     <?php  $this->load->view('includes/header');?>
     <section class="agent-profile">
@@ -37,7 +72,11 @@
                                         <th>Status</th>
                                         <th>Reward Points</th>
                                         <th>Expiry Date</th>
-                                        <th>Actions <a class='tooltipped' data-position='bottom' data-tooltip='<?php echo wordwrap("You can edit or delete the friend list within 10 Min", 40, "<br>", true); ?>'><i class='far fa-question-circle'></i></a></th>
+                                        <th>Actions 
+                                        <div class="tooltip"> <i class="material-icons">info_outline</i>
+                                                <span class="tooltiptext"><?php echo wordwrap("You can edit or delete the friend list within 10 Min", 40, "<br>", true); ?></span>
+                                        </div>
+                                        </th>
                                     </tr>
                                 </thead>
 
@@ -58,7 +97,9 @@
                                              echo "Process";
                                         }else if ($value->referee_status == '2') { ?>
                                              <?php echo "Failed"; ?>
-                                              <a class='tooltipped' data-position='right' data-tooltip='<?php echo wordwrap($value->referee_failed_reason, 40, "<br>", true); ?>'><i class='far fa-question-circle'></i></a>
+                                             <div class="tooltip"> <i class="material-icons">info_outline</i>
+                                                <span class="tooltiptext"><?php echo wordwrap($value->referee_failed_reason, 40, "<br>", true); ?></span>
+                                        </div>
                                         <?php }?></td>
                                         <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'; ?></td>
                                         <td><?php echo (!empty($value->reward_expiry_date) && $value->reward_expiry_date !='0000-00-00')?$value->reward_expiry_date:'---'; ?></td>
