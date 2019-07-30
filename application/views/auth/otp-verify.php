@@ -34,7 +34,7 @@
                             <div class="center-align">
                                 <h5 class="register-title black-text">Enter a verification Code</h5>
                                 <p class="para">A text message with a verification code was sent to
-                                    (<?php echo $phone ?> )</p>
+                                    (<?php echo $phone; ?> )</p>
                             </div>
                             <form action="<?php echo base_url('account-verify')?>" method="post" id="otpform"
                                 class="col l12 m12 s12">
@@ -43,7 +43,8 @@
                                         <input id="otp" name="otp" type="text" placeholder="Enter the 6 digit code"
                                             class="validate">
                                         <span class="error"><?php echo form_error('otp'); ?></span>
-                                        <input type="hidden" id="phone" name="phone" value="<?php echo $phone ?>" />
+                                        <input type="hidden" id="phone" name="phone" value="<?php echo $mobile ?>" />
+                                        <input type="hidden" id="cntry" name="cntry" value="<?php echo $cntry ?>" />
                                         <p id="paswrd-error" class="error required"></p>
                                     </div>
 
@@ -58,7 +59,7 @@
                             <form action="<?php echo base_url('authendication/resend_code') ?>" method="post"
                                 id="resendotp-form">
                                 <a class="forgot-link right-align" id="resend-code">Resend Code?</a>
-                                <input type="hidden" id="mobile" name="mobile" value="<?php echo $phone ?>" />
+                                <input type="hidden" id="mobile" name="mobile" value="<?php echo $mobile ?>" />
                             </form>
                         </div>
                     </div>
@@ -113,6 +114,7 @@
             event.preventDefault();
             var otp = $("#otp").val();
             var phone = $("#phone").val();
+            var cntry = $("#cntry").val();
             var max = '3';
             if (otp == '') {
                 return false;
@@ -124,7 +126,8 @@
                     dataType: "html",
                     data: {
                         "otp": otp,
-                        'phone': phone
+                        'phone': phone,
+                        'country': cntry
                     },
                     success: function(data) {
                         console.log(data);

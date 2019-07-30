@@ -38,7 +38,7 @@
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
                                                 <i class="fas fa-thumbs-up icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ?></h5>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ; ?></h5>
                                                 <p class="para-reward">Unclaimed Rewards Points</p>
                                             </div>
                                         </div>

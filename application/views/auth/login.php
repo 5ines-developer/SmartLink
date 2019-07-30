@@ -45,11 +45,11 @@
                                         <span class="error"><?php echo form_error('password'); ?></span>
                                     </div>
                                 </div>
-                                <div class="form-valdation-error">
+                                <!-- <div class="form-valdation-error">
 
                                     <?php echo ($this->session->flashdata('error'))? '<span class="error">'.$this->session->flashdata('error').'</span>' : '' ?>
                                     
-                                </div>
+                                </div> -->
                                 
                                 <button class="btn  left-align register-formbutton" value="submit"
                                     name="submit">Submit</button>

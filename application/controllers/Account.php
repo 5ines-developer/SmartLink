@@ -422,10 +422,11 @@ class Account extends CI_Controller
     {
         $mobile        = $this->input->post('mobile');
         $otp           = random_string('numeric', '6');
-        $data['phone'] = $mobile;
-        if ($result = $this->m_account->forgotPassword($mobile, $otp)) {
+        $country_code = '971';
+        $data['phone'] = $country_code.$mobile;
+        if ($result = $this->m_account->forgotPassword($mobile, $otp,$country_code)) {
             $msg  = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
-            $data = $this->otpsend($mobile, $otp, $msg);
+            $data = $this->otpsend($data['phone'], $otp, $msg);
             echo $data;
         } else {
             echo 'wrong mobile';
@@ -436,9 +437,9 @@ class Account extends CI_Controller
     public function otpsend($phone, $otp, $msg)
     {
         /* API URL */
-        $url   = 'http://trans.smsfresh.co/api/sendmsg.php';
-        $param = 'user=5inewebsolutions&pass=5ine5ine&sender=PROPSB&phone=' . $phone . '&text=' . $msg . '&priority=ndnd&stype=normal';
-        $ch    = curl_init($url);
+        $url = 'http://customers.smsmarketing.ae/app/smsapi/index.php';
+        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMART LINK&msg='.$msg;
+        $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -450,7 +451,9 @@ class Account extends CI_Controller
     {
         $otp            = $this->input->Post('otp');
         $phone          = $this->input->Post('phone');
-        $data['output'] = $this->m_authendication->forgot_verify($otp, $phone);
+        $country_code = '971';
+
+        $data['output'] = $this->m_authendication->forgot_verify($otp, $phone,$country_code);
         if ($data['output'] == '') {
             $this->session->set_flashdata('error', 'you have tried more than 2 attempts, Please enter your mobile number and try again');
             echo $data['output'];
@@ -488,10 +491,12 @@ class Account extends CI_Controller
     {
         $phone         = $this->input->get('mobile');
         $otp           = random_string('numeric', '6');
+        $country_code = '971';
+        $data['phone'] = $country_code.$phone;
         $msg           = 'Your One time Password For smart link reset password is ' . $otp . ' . Do not share with anyone';
         $data['phone'] = $phone;
-        if ($this->m_authendication->resend_code($phone, $otp)) {
-            if ($this->otpsend($phone, $otp, $msg)) {
+        if ($this->m_authendication->resend_code($phone, $otp,$country_code)) {
+            if ($this->otpsend($data['phone'], $otp, $msg)) {
                 echo 'success';
             } else {
                 $this->session->set_flashdata('error', 'Some error occured! Please contact our support team');

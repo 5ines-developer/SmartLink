@@ -43,7 +43,8 @@
                                         <input id="otp" type="text" placeholder="Enter the 6 digit code" name="otp"
                                             class="validate">
                                         <span class="error"><?php echo form_error('otp'); ?></span>
-                                        <input type="hidden" id="phone" name="phone" value="<?php echo $phone ?>" />
+                                        <input type="hidden" id="phone" name="phone" value="<?php echo $mobile ?>" />
+                                        <input type="hidden" id="cntry" name="cntry" value="<?php echo $cntry ?>" />
                                         <p id="paswrd-error" class="error required"></p>
                                     </div>
                                     <?php $this->load->view('includes/pre-loader'); ?>
@@ -54,7 +55,7 @@
                             </form>
                             <form action="<?php echo base_url('forgot-password') ?>" method="post" id="resendotp-form">
                                 <a class="forgot-link right-align" id="resend-code">Resend Code?</a>
-                                <input type="hidden" id="mobile" name="mobile" value="<?php echo $phone ?>" />
+                                <input type="hidden" id="mobile" name="mobile" value="<?php echo $mobile ?>" />
                             </form>
                         </div>
                     </div>
@@ -111,6 +112,7 @@
             event.preventDefault();
             var otp = $("#otp").val();
             var phone = $("#phone").val();
+            var cntry = $("#cntry").val();
             var max = '3';
             if (otp == '') {
                 return false;

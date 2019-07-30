@@ -292,9 +292,10 @@ class M_account extends CI_Model
         }
 
      // forgot password
-    public function forgotPassword($mobile,$otp)
+    public function forgotPassword($mobile,$otp,$country_code)
     {
         $this->db->where('agent_phone', $mobile);
+        $this->db->where('agent_country_code',$country_code);
         $this->db->where('agent_id', $this->session->userdata('sid'));
         $this->db->update('agent',array('otp'=>$otp,'otp_check_count'=>'0'));
         if($this->db->affected_rows() > 0){

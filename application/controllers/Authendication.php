@@ -42,6 +42,7 @@ class Authendication extends CI_Controller
                 $ref_code = $this->input->post('ref_code');
                 $terms = $this->input->post('terms');
                 $otp = random_string('numeric', '6');
+                
 
                 $this->form_validation->set_rules('phone', 'Phone number', 'required|is_unique[agent.agent_phone]');
                 $this->form_validation->set_rules('username', 'username', 'required|is_unique[agent.agent_name]');
@@ -51,11 +52,14 @@ class Authendication extends CI_Controller
                 if ($this->form_validation->run() == false) {
                     $this->load->view('auth/register', $data, false);
                 } else {
+                    if (!empty($ref_code)) {
                     $ref['output'] = $this->referencecode_check($ref_code);
                     if (empty($ref['output'])) {
                         $this->session->set_flashdata('error', 'Invalid referrence code please enter the correct one or keep it blank');
                         redirect('register', 'refresh');
                     }
+                    }
+
 
                     $insert = array(
                         'agent_reference_id' => $refid,
@@ -68,7 +72,8 @@ class Authendication extends CI_Controller
                         'otp' => $otp,
                     );
                     $data['phone'] = $country_code.$phone;
-                    // $data['phone'] = $phone;
+                    $data['mobile'] = $phone;
+                    $data['cntry'] = $country_code;
 
                     if ($this->m_authendication->register($insert)) {
                         $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
@@ -99,12 +104,16 @@ class Authendication extends CI_Controller
     public function resend_code($value = '')
     {
         $phone = $this->input->post('mobile');
+        $country_code = '971';
         $otp = random_string('numeric', '6');
+        $country_code = '971';
+        $data['phone'] = $country_code.$phone;
+        $data['mobile'] = $phone;
+        $data['cntry'] = $country_code;
         $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
-        $data['phone'] = $phone;
-        if ($this->m_authendication->resend_code($phone, $otp)) {
-            if ($this->otpsend($phone, $otp, $msg)) {
-                $this->session->set_flashdata('success', 'We have sent an OTP to ' . $phone . ' , Please enter the OTP and verify your account');
+        if ($this->m_authendication->resend_code($phone, $otp,$country_code)) {
+            if ($this->otpsend($data['phone'], $otp, $msg)) {
+                $this->session->set_flashdata('success', 'We have sent an OTP to ' . $data['phone'] . ' , Please enter the OTP and verify your account');
                 $data['title'] = 'Account verification - Smart Link';
                 $this->load->view('auth/otp-verify', $data);
             } else {
@@ -123,7 +132,8 @@ class Authendication extends CI_Controller
     {
         $otp = $this->input->get('otp');
         $phone = $this->input->get('phone');
-        $data['output'] = $this->m_authendication->activateAccount($otp, $phone);
+        $country = $this->input->get('country');
+        $data['output'] = $this->m_authendication->activateAccount($otp, $phone,$country);
 
         if ($data['output'] == '') {
 
@@ -224,14 +234,22 @@ class Authendication extends CI_Controller
             if (count($input) > 0) {
                 $mobile = $this->input->post('mobile');
                 $otp = random_string('numeric', '6');
-                $data['phone'] = $mobile;
+                $country_code = '971';
+                $data['phone'] = $country_code.$mobile;
+                $data['mobile'] = $mobile;
+                $data['cntry'] = $country_code;
 
-                if ($result = $this->m_authendication->forgotPassword($mobile, $otp)) {
+                if ($result = $this->m_authendication->forgotPassword($mobile, $otp,$country_code)) {
 
                     $msg = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
-                    $this->otpsend($mobile, $otp, $msg);
-                    $this->session->set_flashdata('success', 'Enter the OTP which has been sent to your Mobile No. ' . $mobile . ' to reset your password');
-                    $this->load->view('auth/forgot-verify', $data);
+
+                    if ($this->otpsend($data['phone'], $otp, $msg)) {
+                        $this->session->set_flashdata('success', 'Enter the OTP which has been sent to your Mobile No. ' . $data['phone'] . ' to reset your password');
+                        $this->load->view('auth/forgot-verify', $data);
+                    } else {
+                        $this->session->set_flashdata('error', 'Some error occured! Please contact our support team or try again');
+                        $this->load->view('auth/forgotpassword', $data, false);
+                    }
                 } else {
                     $this->session->set_flashdata('error', 'Invalid Phone Number. Please use registered Phone number');
                     redirect('forgot-password');
@@ -251,7 +269,8 @@ class Authendication extends CI_Controller
         $data['title'] = 'Forgot password';
         $otp = $this->input->Post('otp');
         $phone = $this->input->Post('phone');
-        $data['output'] = $this->m_authendication->forgot_verify($otp, $phone);
+        $country = $this->input->Post('cntry');
+        $data['output'] = $this->m_authendication->forgot_verify($otp, $phone,$country);
 
         if ($data['output'] == '') {
             $this->session->set_flashdata('error', 'you have tried more than 2 attempts, Please enter your mobile number and try again');
@@ -311,8 +330,8 @@ class Authendication extends CI_Controller
     public function otpsend($phone, $otp, $msg)
     {
         /* API URL */
-        $url = ' http://customers.smsmarketing.ae/app/smsapi/index.php';
-        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMARTLINK&msg='.$msg;
+        $url = 'http://customers.smsmarketing.ae/app/smsapi/index.php';
+        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMART LINK&msg='.$msg;
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);

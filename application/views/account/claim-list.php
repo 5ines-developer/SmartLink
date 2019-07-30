@@ -294,16 +294,16 @@
                 mobile: {
                     required: true,
                     number: true,
-                    minlength: 10,
-                    maxlength: 10
+                    minlength: 9,
+                    maxlength: 9
                 },
             },
             messages: {
                 mobile: {
                     required: "Please enter your Mobile number",
                     number: "Please enter a valid Mobile number",
-                    minlength: "Your Mobile number at least 10 digits",
-                    maxlength: "Your Mobile number must be 10 digits",
+                    minlength: "Your Mobile number at least 9 digits",
+                    maxlength: "Your Mobile number must be 9 digits",
                 }
             }
         });
