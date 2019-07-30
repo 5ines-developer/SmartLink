@@ -72,6 +72,7 @@ class M_account extends CI_Model
      **/
     public function insert_referrals($insert)
     {
+
         $this->db->where('uniq', $insert['uniq']);
         $query = $this->db->get('referral');
         if ($query->num_rows() > 0) {
@@ -123,9 +124,19 @@ class M_account extends CI_Model
      **/
     public function insert_notification($notification)
     {
+        
+        $this->db->where('thing_id', $notification['thing_id']);
         $this->db->where('uniq', $notification['uniq']);
+        $this->db->where('noti_to_type', 'admin');
+        $this->db->where('notification_type', '1');
+        $this->db->where('added_by_type', 'agent');
         $query = $this->db->get('notification');
         if ($query->num_rows() > 0) {
+            $this->db->where('thing_id', $notification['thing_id']);
+            $this->db->where('uniq', $notification['uniq']);
+            $this->db->where('noti_to_type', 'admin');
+            $this->db->where('notification_type', '1');
+            $this->db->where('added_by_type', 'agent');
             $this->db->where('uniq', $notification['uniq']);
             return $this->db->update('notification', $notification);
         } else {
@@ -184,12 +195,11 @@ class M_account extends CI_Model
 
     public function reward_point($var = null)
     {
-        // echo date('Y-m-d');exit;
         
         $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
         $this->db->where('agent_id', $this->session->userdata('sid'));
         $this->db->where('referee_status', '1');
-        // $this->db->where('reward_expiry_date <=', strtotime(date('Y-m-d')));
+        $this->db->where('reward_expiry_date >=', date('Y-m-d'));
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -202,12 +212,17 @@ class M_account extends CI_Model
         }
     }
 
+    
+
     public function claimed_point($var = null)
     {        
         $status = array(0, 1);
         $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');        
         $this->db->where('agent_id', $this->session->userdata('sid'));
         $this->db->where_in('claim_status', $status);
+        $this->db->or_where_in('return_reward','2');
+            $this->db->or_where_in('claimed_points','2');
+
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
@@ -288,6 +303,31 @@ class M_account extends CI_Model
             return false;
         }  
     }
+
+        public function rewrd_val($itemid)
+        {
+            $this->db->select('reward_points');
+            $this->db->where('agent_id', $this->session->userdata('sid'));
+            $this->db->where('uniq', $itemid);
+            $this->db->where('referee_status', '1');
+            $query = $this->db->get('referral')->row_array();
+            return $query['reward_points'];
+
+        }
+
+       public function notidet($itemid)
+        {
+            $this->db->select('uniq');
+            $this->db->where('added_by', $this->session->userdata('sid'));
+            $this->db->where('thing_id', $itemid);
+            $this->db->where('added_by_type', 'agent');
+            $this->db->where('noti_to_type', 'admin');
+            $this->db->where('notification_type', '1');
+            $query = $this->db->get('notification')->row_array();
+            return $query['uniq'];
+        }
+
+    
 
     
 

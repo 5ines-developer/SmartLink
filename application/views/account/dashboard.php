@@ -1,3 +1,7 @@
+<?php
+  $this->ci =& get_instance();
+  $this->ci->load->model('m_account');
+?>
 <!DOCTYPE html>
 
 <head>
@@ -60,7 +64,7 @@
                                         <div class="dashboard-ref">
                                             <div class="row">
                                                 <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref">30</span>
+                                                    <span class="m0 count-ref"><?php echo (!empty($reward))?$reward-$claimed:'0' ?></span>
                                                 </div>
                                                 <div class="col l9 m10 s9">
                                                     <span class="title-ref">Total Unclaimed Reward Point</span>
@@ -72,7 +76,7 @@
                                         <div class="dashboard-ref">
                                             <div class="row">
                                                 <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref">30</span>
+                                                    <span class="m0 count-ref"><?php echo (!empty($claimed))?$claimed:'0' ?></span>
                                                 </div>
                                                 <div class="col l9 m10 s9">
                                                     <span class="title-ref">Total Claimed Reward Point</span>
@@ -100,9 +104,13 @@
 
 <?php if (!empty($alert)) { 
 
-    foreach ($alert as $key => $value) { ?>
+    foreach ($alert as $key => $value) { 
 
-        var toastHTML = '<span>You have earned New reward points</span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+        if ($value->notification_type == '1' && $value->notification_subject == 'Refer a friend Success') {
+            $re_val = $this->ci->m_account->rewrd_val($value->thing_id);         
+        ?>
+
+        var toastHTML = '<span>You have earned <?php echo $re_val ?> reward points <a class="black-text" href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>" style="text-decoration: underline;">View</a></span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
         M.toast({
             html: toastHTML,
             displayLength:4000,
@@ -114,7 +122,7 @@
       var toastInstance = M.Toast.getInstance(toastElement);
       toastInstance.dismiss(); 
         }
-      <?php  } }  ?>
+      <?php  } }  }?>
 
         
 

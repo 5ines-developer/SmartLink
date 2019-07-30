@@ -60,7 +60,7 @@
                             <span><?php echo ucfirst($value->notification_subject) ?></span>
                             <span class="right time"><?php echo date("d-M-y", strtotime($value->added_on)) ?></span>
                         </a></li>
-                    <?php   }} ?>
+                    <?php  if ($i++ == 5) break; }} ?>
 
                     <li class="divider"></li>
                     <li><a class="center-align see-all" href="<?php echo base_url('notifications')?>">See All</a></li>
@@ -91,5 +91,5 @@
     <?php } ?>
 
 
-    <div class="hederHight"></div>
+    <div class="hederHight h84"></div>
 </header>

@@ -1,3 +1,7 @@
+<?php
+  $this->ci =& get_instance();
+  $this->ci->load->model('m_account');
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -49,6 +53,11 @@
                                                     <label for="email">Email</label>
                                                 </div>
                                             </div>
+                                            <?php
+                                            if (!empty($refer['referee_name'])) { 
+                                               $notiuniq =  $this->ci->m_account->notidet($refer['uniq']); ?>
+                                               <input name="notiuniq" type="hidden" value="<?php echo(!empty($refer['referee_name']))?$notiuniq:''; ?>">
+                                           <?php } ?>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
                                                     <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
@@ -236,7 +245,33 @@
             
             });
             </script>
-            
+             <script>
+
+<?php if (!empty($alert)) { 
+
+    foreach ($alert as $key => $value) { 
+
+        if ($value->notification_type == '1' && $value->notification_subject == 'Refer a friend Success') {
+            $re_val = $this->ci->m_account->rewrd_val($value->thing_id);         
+        ?>
+
+        var toastHTML = '<span>You have earned <?php echo $re_val ?> reward points <a class="black-text" href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>" style="text-decoration: underline;">View</a></span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+        M.toast({
+            html: toastHTML,
+            displayLength:100000,
+            classes:'white'
+        });
+    
+        function toast() {
+            var toastElement = document.querySelector('.toast');
+      var toastInstance = M.Toast.getInstance(toastElement);
+      toastInstance.dismiss(); 
+        }
+      <?php  } }  }?>
+
+        
+
+    </script>
             
         </body>
     </html>

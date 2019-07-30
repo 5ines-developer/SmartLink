@@ -56,7 +56,7 @@
                                     <a class="forgot-link" href="<?php echo base_url('forgot-password') ?>">Forgot Password?</a>
                             </form>
                             <div class="col l12 m12 s12">
-                                <p class="login-link">Don't have an Account?<a href="<?php echo base_url('register') ?>">Register</a></p>
+                                <p class="login-link">Don't have an Account?<a href="<?php echo base_url('register') ?>">Sign Up</a></p>
                             </div>
                         </div>
 

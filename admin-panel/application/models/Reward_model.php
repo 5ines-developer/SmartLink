@@ -80,7 +80,9 @@ class Reward_model extends CI_Model
         {        
             $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');        
             $this->db->where('agent_id', $agentid);
-            $this->db->where('claim_status', '1');
+            $this->db->where_in('claim_status', '1');
+            $this->db->or_where_in('return_reward','2');
+            $this->db->or_where_in('claimed_points','2');
             $query = $this->db->get();
     
             if ($query->num_rows() > 0) {

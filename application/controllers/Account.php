@@ -78,6 +78,7 @@ class Account extends CI_Controller
             $agentId       = $this->session->userdata('sid');
             $uniq          = $this->input->post('uniq');
             $edit          = $this->input->post('edit');
+            $notiuniq      = $this->input->post('notiuniq');
             
             $insert        = array(
                 'agent_id' => $agentId,
@@ -90,21 +91,28 @@ class Account extends CI_Controller
                 'uniq' => $uniq,
                 'description' => $description
             );
-
-            if ($product =='telecom') {
-                $insert['product'] = $product;
-                $insert['telecom_type'] = $telecom_type;
-                $insert['customer_type'] = $customer_type;
-                $insert['sub_product'] = $sub_product;
-                $insert['it_type'] = '';
-            }else if ($product =='it'){
-                $insert['product'] = $product;
+            if (!empty($product)) {
+                if ($product =='telecom') {
+                    $insert['product'] = $product;
+                    $insert['telecom_type'] = $telecom_type;
+                    $insert['customer_type'] = $customer_type;
+                    $insert['sub_product'] = $sub_product;
+                    $insert['it_type'] = '';
+                }else if ($product =='it'){
+                    $insert['product'] = $product;
+                    $insert['telecom_type'] = '';
+                    $insert['customer_type'] ='';
+                    $insert['sub_product'] = '';
+                    $insert['it_type'] = $it_type;
+                }
+            }else{
+                $insert['product'] = '';
                 $insert['telecom_type'] = '';
                 $insert['customer_type'] ='';
                 $insert['sub_product'] = '';
-                $insert['it_type'] = $it_type;
+                $insert['it_type'] = '';
             }
-
+            $output        = $this->m_account->insert_referrals($insert);
 
             $notification  = array(
                 'notification_subject' => 'Refer a friend',
@@ -112,12 +120,15 @@ class Account extends CI_Controller
                 'added_by' => $this->session->userdata('sid'),
                 'thing_id' => $uniq,
                 'notification_type' => '1',
-                'uniq' => random_string('alnum', 10),
                 'added_by_type' => 'agent',
                 'noti_to_type' => 'admin'
             );
-            $output        = $this->m_account->insert_referrals($insert);
-            $notioutput    = $this->notification($notification);
+            if (!empty($edit)) {
+                 $notification['uniq'] = $notiuniq;
+            }else{
+                $notification['uniq'] = random_string('alnum', 10);
+            }
+                $notioutput    = $this->notification($notification);
             $emailoutput   = $this->sendreferrals($insert);
             if ($output != '' && $notioutput != '' && $emailoutput != '') {
                 $this->session->set_flashdata('success', 'Friend reference has been Submitted Successfully');
@@ -142,6 +153,7 @@ class Account extends CI_Controller
     //  send refer a friend request to admin
     public function sendreferrals($insert = '')
     {
+
         $this->load->config('email');
         $this->load->library('email');
         $from = $this->config->item('smtp_user');
@@ -174,52 +186,57 @@ class Account extends CI_Controller
                                 <center>
                                 <table>
                                     <tr>
+                                        <th>Agent : </th>
+                                        <td>' . $this->session->userdata('suser') . '</td>
+                                    </tr>
+                                    <tr>
                                         <th>Refree Name : </th>
-                                        <td>' . $insert['referee_name'] . '</td>
+                                        <td>' .(!empty($insert['referee_name'])?$insert['referee_name']:'' ). '</td>
                                     </tr>
                                     <tr>
                                         <th>Refree Email : </th>
-                                        <td>' . $insert['refree_email'] . '</td>
+                                        <td>'.(!empty($insert['refree_email'])?$insert['refree_email']:'' ). '</td>
                                     </tr>
                                     <tr>
                                         <th>Referee Phone : </th>
-                                        <td>' . $insert['referee_phone'] . '</td>
+                                        <td>' .(!empty($insert['referee_phone'])?$insert['referee_phone']:'') . '</td>
                                     </tr>
                                     <tr>
                                         <th>Referee Company : </th>
-                                        <td>' . $insert['refree_company'] . '</td>
+                                        <td>' . (!empty($insert['refree_company'])?$insert['refree_company']:'') . '</td>
                                     </tr>
                                     <tr>
                                         <th>Referee location : </th>
-                                        <td>' . $insert['referee_location'] . '</td>
+                                        <td>' . (!empty($insert['referee_location'])?$insert['referee_location']:''). '</td>
                                     </tr>
                                     <tr>
                                         <th>Referee Area : </th>
-                                        <td>' . $insert['refree_area'] . '</td>
+                                        <td>' .(!empty($insert['refree_area'])?$insert['refree_area']:''). '</td>
                                     </tr>
                                     <tr>
                                         <th>Category : </th>
-                                        <td>' . $insert['product'] . '</td>
+                                        <td>' . (!empty($insert['product'])?$insert['product']:'' ). '</td>
                                     </tr> ';
-                    if ($insert['product'] == 'it') {
-                        $msg .= ' <tr>
-                                        <th>Product : </th>
-                                        <td>' . $insert['it_type'] . '</td>
-                                    </tr>';
-                    } else if ($insert['product'] == 'telecom') {
-                        $msg .= '<tr>
-                                        <th>Telecom Type : </th>
-                                        <td>' . $insert['telecom_type'] . '</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Telecom Type : </th>
-                                        <td>' . $insert['telecom_type'] . '</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Service : </th>
-                                        <td>' . $insert['sub_product'] . '</td>
-                                    </tr>';
-                    }
+                                    if(!empty($insert['product'])){
+                                if ($insert['product'] == 'it') {
+                                    $msg .= ' <tr>
+                                                    <th>Product : </th>
+                                                    <td>' . $insert['it_type'] . '</td>
+                                                </tr>';
+                                } else if ($insert['product'] == 'telecom') {
+                                    $msg .= '<tr>
+                                                    <th>Telecom Type : </th>
+                                                    <td>' . $insert['telecom_type'] . '</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Telecom Type : </th>
+                                                    <td>' . $insert['telecom_type'] . '</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Service : </th>
+                                                    <td>' . $insert['sub_product'] . '</td>
+                                                </tr>';
+                                }}
                     $msg .= ' <tr>
                                         <th>Customer Type : </th>
                                         <td>' . $insert['customer_type'] . '</td>

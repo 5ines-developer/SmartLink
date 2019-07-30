@@ -1,3 +1,7 @@
+<?php
+  $this->ci =& get_instance();
+  $this->ci->load->model('m_account');
+?>
 <!DOCTYPE html>
 
 <head>
@@ -61,7 +65,7 @@
 
                 <div class="col  l9 m12 s12">
                     <div class="card agent-profile-right">
-                        <div class="card-content agent-right-content">
+                        <div class="card-content agent-right-content of-table">
                             <div class="agent-edit-title">
                                 <h6 class="referal-list-title">List of Referal Detail
                             </div>
@@ -110,7 +114,7 @@
                                             $status_date = strtotime($value->referee_addedon);
                                             $x = date($now-$status_date);
                                             $dif =  ($x/60);
-                                            echo  ($dif <= '10') ? '<a class="reedit blue-text modal-trigger" href="'.base_url().'refer-a-friend/edit/'.$value->uniq.'"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete red-text" href="'.base_url().'refer-a-friend/delete/'.$value->uniq.'"><i class="material-icons dp48">delete</i></a>': '<a class="reedit grey-text"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete grey-text"><i class="material-icons dp48">delete</i></a>' ;
+                                            echo  ($dif <= '10') ? '<a class="reedit blue-text modal-trigger" href="'.base_url().'refer-a-friend/edit/'.$value->uniq.'"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete red-text exdelete" href="'.base_url().'refer-a-friend/delete/'.$value->uniq.'"><i class="material-icons dp48">delete</i></a>': '<a class="reedit grey-text"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete grey-text"><i class="material-icons dp48">delete</i></a>' ;
                                             ?>
                                             </td>
                                     </tr>
@@ -138,6 +142,43 @@
     $('.tooltipped').tooltip();
     $('.modal').modal()
   });</script>
+  <script>
+      $(document).ready(function(){
+        $(".exdelete").click(function(){
+                if (!confirm("Are you sure you want to delete this item?")){
+                  return false;
+                }
+           });
+      })
+    </script>
+     <script>
+
+<?php if (!empty($alert)) { 
+
+    foreach ($alert as $key => $value) { 
+
+        if ($value->notification_type == '1' && $value->notification_subject == 'Refer a friend Success') {
+            $re_val = $this->ci->m_account->rewrd_val($value->thing_id);         
+        ?>
+
+        var toastHTML = '<span>You have earned <?php echo $re_val ?> reward points <a class="black-text" href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>" style="text-decoration: underline;">View</a></span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+        M.toast({
+            html: toastHTML,
+            displayLength:100000,
+            classes:'white'
+        });
+    
+        function toast() {
+            var toastElement = document.querySelector('.toast');
+      var toastInstance = M.Toast.getInstance(toastElement);
+      toastInstance.dismiss(); 
+        }
+      <?php  } }  }?>
+
+        
+
+    </script>
+    
 
 </body>
 

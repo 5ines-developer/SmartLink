@@ -1,11 +1,11 @@
 <footer class="page-footer">
         <div class="container-wrap3 pb-25">
-            <div class="row mb-0">
+            <!-- <div class="row mb-0">
                 <div class="col l12 m12  s12">
                     <h5 class="center-align subscribe-heading">SUBSCRIBE NOW FOR UPDATES</h5>
                 </div>
-            </div>
-            <div class="row mb-0">
+            </div> -->
+            <!-- <div class="row mb-0">
                 <div class="col  l12 m12  s12">
                     <div class="newsletter-box">
                         <form>
@@ -19,7 +19,7 @@
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="row mb-0">
                 <div class="col l4 m4  s12">
                     <h6 class="center-align">Useful Links</h6>

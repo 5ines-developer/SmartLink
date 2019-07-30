@@ -213,6 +213,7 @@ class M_authendication extends CI_Model {
     {
         $this->db->select('referee_id');
         $this->db->where('agent_id', $this->session->userdata('sid'));
+        $this->db->where('is_deleted', '0');
         $query = $this->db->get('referral');
         if( $query->num_rows() > 0){
             return $query->num_rows();
@@ -226,6 +227,7 @@ class M_authendication extends CI_Model {
             $this->db->select('referee_id');
             $this->db->where('agent_id', $this->session->userdata('sid'));
             $this->db->where('referee_status', '0');
+            $this->db->where('is_deleted', '0');
             $query = $this->db->get('referral');
             if( $query->num_rows() > 0){
                 return $query->num_rows();
@@ -240,6 +242,7 @@ class M_authendication extends CI_Model {
              $this->db->select('referee_id');
              $this->db->where('agent_id', $this->session->userdata('sid'));
              $this->db->where('referee_status', '1');
+             $this->db->where('is_deleted', '0');
              $query = $this->db->get('referral');
              if( $query->num_rows() > 0){
                  return $query->num_rows();

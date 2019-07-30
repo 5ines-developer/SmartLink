@@ -5,24 +5,35 @@ $(document).ready(function() {
 
 });
 
-$(window).scroll(function() {
+// $(window).scroll(function() {
 
 
-    if ($(this).scrollTop() == 0) {
+//     if ($(this).scrollTop() == 0) {
 
-        $('#secondnavbar').removeClass('fixed1');
+//         $('#secondnavbar').removeClass('fixed1');
 
-        $('.hederHight').removeClass('h84');
+//         $('.hederHight').removeClass('h84');
 
-    } else {
+//     } else {
 
-        $('#secondnavbar').addClass('fixed1');
+//         $('#secondnavbar').addClass('fixed1');
+//         $('.hederHight').addClass('h84');
 
-        $('.hederHight').addClass('h84');
+//     }
 
-    }
+// });
 
-});
+// $('#secondnavbar').each(function() {
+//     var $this = $(this);
+//     var $target = $('#' + $(this).attr('data-target'));
+//     $this.pushpin({
+//         top: $target.offset().top,
+//         bottom: $target.offset().top + $target.outerHeight() - $this.height()
+//     });
+// });
+// $(document).ready(function() {
+//     $('.pushpin').pushpin();
+// });
 
 
 // mobile screen agent dashboard show and hide

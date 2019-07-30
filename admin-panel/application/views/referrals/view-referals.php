@@ -150,6 +150,12 @@ $this->ci->load->model('referal_model');
                                             </td>
 
                                         </tr>
+                                        <tr>
+                                            <th>Reward Expiry Date</th>
+                                            <td><?php echo (!empty($referal['reward_expiry_date']))?$referal['reward_expiry_date']:'---'  ?>
+                                            </td>
+
+                                        </tr>
                                         <?php } ?>
                                         <tr>
                                             <th>Refered by</th>
@@ -250,8 +256,6 @@ $this->ci->load->model('referal_model');
                                         value="<?php echo (!empty($referal['uniq']))?$referal['uniq']:''  ?>">
                                     <input type="hidden" name="noti_to"
                                         value="<?php echo (!empty($referal['agent_id']))?$referal['agent_id']:''  ?>">
-                                    <input type="hidden" name="reward_expiry"
-                                        value="<?php echo (!empty($reward['reward_expiry_date']))?$reward['reward_expiry_date']:''  ?>">
                                 </div>
                                 <p class="paswrd-error required"></p>
                                 <div class="form-group">
@@ -264,6 +268,19 @@ $this->ci->load->model('referal_model');
                                             value="<?php echo (!empty($reward['reward_points']))?$reward['reward_points']:''  ?>"
                                             <?php echo (!empty($reward['reward_points']))?'readonly':''  ?>> </div>
                                 </div>
+                               
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12col-xs-12">
+                                         <?php if (empty($reward['reward_expiry_date'])) {?>
+                                        <label class="control-label" for="ex_date">Expiry Date<span
+                                                class="required">*</span>
+                                        </label>
+                                        <?php } ?>
+                                        <input id="ex_date" placeholder="Eg: 90 days" class="form-control col-md-7 col-xs-12" type="<?php echo (!empty($reward['reward_expiry_date']))?'hidden':'text'  ?>" name="reward_expiry"
+                                        value="<?php echo (!empty($reward['reward_expiry_date']))?$reward['reward_expiry_date']:''  ?>">
+                                         </div>
+                                </div>
+                            
                                 <div class="ln_solid"></div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
