@@ -77,14 +77,14 @@ class Authendication extends CI_Controller
 
                     if ($this->m_authendication->register($insert)) {
                         $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
-                        if ($this->otpsend($data['phone'], $otp, $msg)) {
-                            $this->session->set_flashdata('success', 'We have sent an OTP to ' . $data['phone'] . ' , Please enter the OTP and verify your account');
+                        // if ($this->otpsend($data['phone'], $otp, $msg)) {
+                            $this->session->set_flashdata('success', 'We have sent an OTP to +'. $data['phone'] . ' , Please enter the OTP and verify your account');
                             $data['title'] = 'Account verification - Smart Link';
                             $this->load->view('auth/otp-verify', $data);
-                        } else {
-                            $this->session->set_flashdata('error', 'Some error occured! Please contact our support team');
-                            redirect('register', 'refresh');
-                        }
+                        // } else {
+                        //     $this->session->set_flashdata('error', 'Some error occured! Please contact our support team');
+                        //     redirect('register', 'refresh');
+                        // }
 
                     } else {
                         $this->session->set_flashdata('error', 'Some error occured! Please contact our support team');
@@ -137,7 +137,7 @@ class Authendication extends CI_Controller
 
         if ($data['output'] == '') {
 
-            $this->session->set_flashdata('error', 'you have tried more than 2 attempts, Please enter your mobile number and try again');
+            $this->session->set_flashdata('error', 'you have tried more than 2 attempts, Please register again');
             echo $data['output'];
 
         } else if ((!empty($data['output'])) && $data['output'] == $otp) {

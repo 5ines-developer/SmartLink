@@ -1,11 +1,13 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+class M_auth extends CI_Model
+{
+    protected $user_table = 'devusers';
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class M_authendication extends CI_Model {
-
-    // registration
+   	/**
+     * agent Registration
+     * @param: {array} agent Data
+     */
     public function register($data = null)
     {
         $this->db->insert('agent', $data);
@@ -16,33 +18,26 @@ class M_authendication extends CI_Model {
         }        
     }
 
-           //  get the country code
-        public function country_code()
-        {
-            $result = $this->db->get('country_code');
-            if($result->num_rows() > 0){
-                return $result->result();
-            }else{
-                return false;
-            }
-            
-        }
 
-
-        //  check the reference code of employee  is exist
-        public function isreference($str)
-        {
-            $this->db->where('employee_ref_id', $str);
-            $result = $this->db->get('employee');
-            if($result->num_rows() > 0){
+    /**
+     *  check the reference code of employee  is exist
+     * @param: employee reference code
+     */
+    public function isreference($str)
+    {
+        $this->db->where('employee_ref_id', $str);
+        $result = $this->db->get('employee');
+        if($result->num_rows() > 0){
                 return true;
-            }else{
-                return false;
-            }
-            
+        }else{
+            return false;
         }
+    }
 
-    //  account activation
+    /**
+     *  account activation
+     * @param: otp,mobile,country code,
+    */
     public function activateAccount($otp,$phone,$cntry)
     {
 
@@ -67,7 +62,7 @@ class M_authendication extends CI_Model {
              $up = '1';
             $data = $this->otp_countcheck($phone,$up,$cntry);
             $datas['otpcount'] = $data;
-             if ($datas['otpcount'] == '') {
+            if ($datas['otpcount'] == '') {
                 $this->db->where('agent_phone', $phone);
                 $this->db->where('agent_country_code', $cntry);
                 $this->db->delete('agent');
@@ -76,37 +71,16 @@ class M_authendication extends CI_Model {
         }
     }
 
-    public function resend_code($phone,$otp,$cntry)
-    {
-        $this->db->where('agent_phone', $phone);
-        $this->db->where('agent_country_code', $cntry);
-        $result = $this->db->get('agent');
-        if($result->num_rows() >= 1){
-            $update =  array('otp' => $otp,'otp_check_count'=>'0');
-            $this->db->where('agent_phone', $phone);
-            $this->db->where('agent_country_code', $cntry);
-            $this->db->update('agent', $update);
-            if($this->db->affected_rows() > 0){
-                return $otp;
-            }else{
-                return false;
-            }  
-        }else{
-            return false;
-        }
-    }
-
-
-    
 
     //  login
-    function can_login($username, $password)  
+    function can_login($username, $password,$country_code)  
     {
         $this->db->group_start();
-           $this->db->where('agent_name', $username);  
+           $this->db->where('agent_name', $username);
            $this->db->or_where('agent_phone', $username); 
         $this->db->group_end(); 
-        $this->db->where('agent_is_active', '1');  
+        $this->db->where('agent_is_active', '1'); 
+        $this->db->where('agent_country_code', $country_code);  
         $result = $this->getUsers($password);
 
         if (!empty($result)) {
@@ -117,7 +91,7 @@ class M_authendication extends CI_Model {
         }  
     }
 
-    // check password
+        // check password
     function getUsers($password) {
 
         $query = $this->db->get('agent');
@@ -150,11 +124,10 @@ class M_authendication extends CI_Model {
         }  
     }
 
-    
-        // forgot password
+            // forgot password
         public function forgot_verify($otp='',$mobile='',$country='')
         {
-            
+        	
             $this->db->where('agent_phone', $mobile);
             $this->db->where('agent_country_code', $country);
             $this->db->where('otp', $otp);
@@ -176,17 +149,20 @@ class M_authendication extends CI_Model {
         }
 
 
+            // otp count check
         public function otp_countcheck($mobile,$up,$cntry)
         {
             $this->db->select('otp_check_count');
             $this->db->where('agent_phone', $mobile);
             $this->db->where('agent_country_code', $cntry);
             $otpcheckcount = $this->db->get('agent')->row_array();
+            
             if ($up == '2') {
                 $inc = $otpcheckcount['otp_check_count'] - $otpcheckcount['otp_check_count'];
             }else if ($up == '1'){
                 $inc = $otpcheckcount['otp_check_count'] + '1';
             }
+            
             if ($otpcheckcount['otp_check_count'] < 2) {
                 $this->db->where('agent_phone', $mobile);
                 $this->db->where('agent_country_code', $cntry);
@@ -201,12 +177,8 @@ class M_authendication extends CI_Model {
             }
             
         }
-    
 
-
-
-
-    // password reset
+            // password reset
     public function setPassword($datas, $mobile,$otp)
     {
         $this->db->where('agent_phone', $mobile);
@@ -219,56 +191,26 @@ class M_authendication extends CI_Model {
         }
     }
 
-
-    //get total referal count
-    public function get_referal()
+        //resend otp code
+    public function resend_code($phone,$otp,$cntry)
     {
-        $this->db->select('referee_id');
-        $this->db->where('agent_id', $this->session->userdata('sid'));
-        $this->db->where('is_deleted', '0');
-        $query = $this->db->get('referral');
-        if( $query->num_rows() > 0){
-            return $query->num_rows();
+        $this->db->where('agent_phone', $phone);
+        $this->db->where('agent_country_code', $cntry);
+        $result = $this->db->get('agent');
+        if($result->num_rows() >= 1){
+            $update =  array('otp' => $otp,'otp_check_count'=>'0');
+            $this->db->where('agent_phone', $phone);
+            $this->db->where('agent_country_code', $cntry);
+            $this->db->update('agent', $update);
+            if($this->db->affected_rows() > 0){
+                return $otp;
+            }else{
+                return false;
+            }  
         }else{
             return false;
         }
     }
-        //get total referal count
-        public function pending_referal()
-        {
-            $this->db->select('referee_id');
-            $this->db->where('agent_id', $this->session->userdata('sid'));
-            $this->db->where('referee_status', '0');
-            $this->db->where('is_deleted', '0');
-            $query = $this->db->get('referral');
-            if( $query->num_rows() > 0){
-                return $query->num_rows();
-            }else{
-                return false;
-            }
-        }
-
-         //get total referal count
-         public function approved_referal()
-         {
-             $this->db->select('referee_id');
-             $this->db->where('agent_id', $this->session->userdata('sid'));
-             $this->db->where('referee_status', '1');
-             $this->db->where('is_deleted', '0');
-             $query = $this->db->get('referral');
-             if( $query->num_rows() > 0){
-                 return $query->num_rows();
-             }else{
-                 return false;
-             }
-         }
-
-    
-
-
-
 
 
 }
-
-/* End of file M_authendication.php */

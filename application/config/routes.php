@@ -84,10 +84,20 @@ $route['referal-list/(:any)']   = 'account/referal_list/$1';
 $route['reward-points']    		= 'account/reward_point';
 $route['claim-points']    		= 'account/claim_reward';
 $route['claim-list']    		= 'account/claims';
-$route['claim-list/(:any)']   = 'account/claims/$1';
-$route['verify-credentials']    		= 'account/code_auth';
+$route['claim-list/(:any)']   	= 'account/claims/$1';
+$route['verify-credentials']    = 'account/code_auth';
 
 //terms and conditions
-$route['terms-and-conditions']    		= 'pages/terms';
+$route['terms-and-conditions']  = 'pages/terms';
+/*================================================================*/
+// Rest Api****
+// rest Api Authentication
+$route['api/v1/register']	    		= 'api/auth/register';//agent  registration
+$route['api/v1/activate-account']	    = 'api/auth/otp_verify';//activate account
+$route['api/v1/resend-code']			= 'api/auth/resend_code';//resend otp to mobile
+$route['api/v1/login']	    			= 'api/auth/login';//login
+$route['api/v1/forgot-password']	    = 'api/auth/forgot_password';//forgot password
+$route['api/v1/forgot-password-verify']	= 'api/auth/forgot_verify';//verify otp and mobile no
+$route['api/v1/set-password']			= 'api/auth/set_password';//update new password
 
 
