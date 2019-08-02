@@ -100,4 +100,20 @@ $route['api/v1/forgot-password']	    = 'api/auth/forgot_password';//forgot passw
 $route['api/v1/forgot-password-verify']	= 'api/auth/forgot_verify';//verify otp and mobile no
 $route['api/v1/set-password']			= 'api/auth/set_password';//update new password
 
+// account settings
+$route['api/v1/profile']				= 'api/account/profile';//fetch agent profile
+$route['api/v1/update-profile']			= 'api/account/update_profile';//update agent profile
+//dashboard
+$route['api/v1/dashboard']				= 'api/dashboard/dashboard';//fetch agent profile
+//notification
+$route['api/v1/notification']			= 'api/notification/notiGet';//fetch agent profile
+$route['api/v1/notification/(:any)']	= 'api/notification/single_noti/$1';//fetch single notificationedit_refer
+//refer a friend
+$route['api/v1/refer-friend']		    = 'api/Referrals/insertRefer';//insert refer afriend
+$route['api/v1/referrals']		    	= 'api/Referrals/referrals';//all referrals
+$route['api/v1/refer-friend/edit/(:any)'] = 'api/Referrals/edit_refer/$1';//insert refer afriend
+$route['api/v1/referrals/update']		= 'api/Referrals/updateRefer';//update refer afriend
+$route['api/v1/referrals/delete/(:any)']		= 'api/Referrals/delete_refer/$1';//delete refer afriend
+//reward points
+$route['api/v1/reward-points']		    = 'api/Rewardpoint/reward';//insert refer afriend
 

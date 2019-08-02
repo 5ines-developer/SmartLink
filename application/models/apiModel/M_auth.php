@@ -43,7 +43,7 @@ class M_auth extends CI_Model
 
         $this->db->select('agent_id');
         $this->db->where('agent_phone', $phone);
-        $this->db->where('agent_country_code', $cntry);
+        // $this->db->where('agent_country_code', $cntry);
         $this->db->where('otp', $otp);
         $result = $this->db->get('agent');
         
@@ -51,7 +51,7 @@ class M_auth extends CI_Model
             $update =  array('otp' => random_string('numeric','6'), 'agent_is_active' => '1', 'agent_updated_on' => date('Y-m-d H:i:s'),'otp_check_count'=>'0');
             $this->db->where('agent_phone', $phone);
             $this->db->where('otp', $otp);
-            $this->db->where('agent_country_code', $cntry);
+            // $this->db->where('agent_country_code', $cntry);
             $this->db->update('agent', $update);
             if($this->db->affected_rows() > 0){
                 return $otp;
@@ -64,7 +64,7 @@ class M_auth extends CI_Model
             $datas['otpcount'] = $data;
             if ($datas['otpcount'] == '') {
                 $this->db->where('agent_phone', $phone);
-                $this->db->where('agent_country_code', $cntry);
+                // $this->db->where('agent_country_code', $cntry);
                 $this->db->delete('agent');
             }
              return $datas;
@@ -80,7 +80,7 @@ class M_auth extends CI_Model
            $this->db->or_where('agent_phone', $username); 
         $this->db->group_end(); 
         $this->db->where('agent_is_active', '1'); 
-        $this->db->where('agent_country_code', $country_code);  
+        // $this->db->where('agent_country_code', $country_code);  
         $result = $this->getUsers($password);
 
         if (!empty($result)) {
@@ -114,8 +114,9 @@ class M_auth extends CI_Model
     // forgot password
     public function forgotPassword($mobile, $otp,$country_code)
     {
+        
         $this->db->where('agent_phone', $mobile);
-        $this->db->where('agent_country_code', $country_code);
+        // $this->db->where('agent_country_code', $country_code);
         $this->db->update('agent',array('otp'=>$otp,'otp_check_count'=>'0'));
         if($this->db->affected_rows() > 0){
             return true;
@@ -129,7 +130,7 @@ class M_auth extends CI_Model
         {
         	
             $this->db->where('agent_phone', $mobile);
-            $this->db->where('agent_country_code', $country);
+            // $this->db->where('agent_country_code', $country);
             $this->db->where('otp', $otp);
             $query = $this->db->get('agent');
             if($query->num_rows() > 0){
@@ -154,7 +155,7 @@ class M_auth extends CI_Model
         {
             $this->db->select('otp_check_count');
             $this->db->where('agent_phone', $mobile);
-            $this->db->where('agent_country_code', $cntry);
+            // $this->db->where('agent_country_code', $cntry);
             $otpcheckcount = $this->db->get('agent')->row_array();
             
             if ($up == '2') {
@@ -165,7 +166,7 @@ class M_auth extends CI_Model
             
             if ($otpcheckcount['otp_check_count'] < 2) {
                 $this->db->where('agent_phone', $mobile);
-                $this->db->where('agent_country_code', $cntry);
+                // $this->db->where('agent_country_code', $cntry);
                 $this->db->update('agent', array('otp_check_count' => $inc ));
                 if ($this->db->affected_rows() > 0) {
                 return $inc;
@@ -195,12 +196,12 @@ class M_auth extends CI_Model
     public function resend_code($phone,$otp,$cntry)
     {
         $this->db->where('agent_phone', $phone);
-        $this->db->where('agent_country_code', $cntry);
+        // $this->db->where('agent_country_code', $cntry);
         $result = $this->db->get('agent');
         if($result->num_rows() >= 1){
             $update =  array('otp' => $otp,'otp_check_count'=>'0');
             $this->db->where('agent_phone', $phone);
-            $this->db->where('agent_country_code', $cntry);
+            // $this->db->where('agent_country_code', $cntry);
             $this->db->update('agent', $update);
             if($this->db->affected_rows() > 0){
                 return $otp;

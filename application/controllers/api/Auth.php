@@ -42,14 +42,14 @@ class Auth extends REST_Controller {
 			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 
 		}else{
-			$country_code = '971';
+			// $country_code = '971';
+			$country_code = '';
 			$otp = random_string('numeric', '6');
 			$input = $this->input->post();
 
-
 			if (!empty($input['ref_code'])) {
                 $ref['output'] = $this->m_auth->isreference($input['ref_code']);
-                if (empty($ref['output'])) {
+                if (empty($ref['output']) AND $ref['output'] == FALSE) {
                 	$message=array(
 						'status' => FALSE,
 						'message' => 'Invalid referrence code please enter the correct one or keep it blank'
@@ -60,47 +60,47 @@ class Auth extends REST_Controller {
 
 
 
-			$insert = array(
-                'agent_reference_id' => random_string('alnum', 50),
-                'agent_phone' => $input['phone'],
-                'agent_password' => $this->bcrypt->hash_password($input['password']),
-                'agent_name' => $input['nickname'],
-                'agent_terms_condition' => '1',
-                'employee_reference_id' => $input['nickname'],
-                'agent_country_code' => $country_code,
-                'otp' => $otp,
-            );
+				$insert = array(
+	                'agent_reference_id' => random_string('alnum', 50),
+	                'agent_phone' => $input['phone'],
+	                'agent_password' => $this->bcrypt->hash_password($input['password']),
+	                'agent_name' => $input['nickname'],
+	                'agent_terms_condition' => '1',
+	                'employee_reference_id' => (!empty($input['ref_code'])?$input['ref_code']:''),
+	                'agent_country_code' => $country_code,
+	                'otp' => $otp,
+	            );
 
-            $data['phone'] 	= $country_code.$input['phone'];
-            $data['mobile'] = $input['phone'];
-            $data['cntry'] 	= $country_code;
+	            $data['phone'] 	= $country_code.$input['phone'];
+	            $data['mobile'] = $input['phone'];
+	            $data['cntry'] 	= $country_code;
 
-            $output = $this->m_auth->register($insert);
-            $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
+	            $output = $this->m_auth->register($insert);
+	            $msg = 'Your One time Password For Smart Link registration is ' . $otp . ' . Do not share with anyone';
 
-            if ($output > 0 AND !empty($output)) {
-            	$output1 = $this->otpsend($data['phone'], $otp, $msg);
-            	if (!empty($output1)) {
-            		$message=array(
-						'status' => true,
-						'message' => 'We have sent an OTP to +' . $data['phone'] . ' , Please enter the OTP and verify your account'
-					);
-					// success 200 code send
-					$this->response($message, REST_Controller::HTTP_OK);
-            	}else{
+	            if ($output > 0 AND !empty($output)) {
+	            	$output1 = $this->otpsend($data['phone'], $otp, $msg);
+	            	if (!empty($output1)) {
+	            		$message=array(
+							'status' => true,
+							'message' => 'We have sent an OTP to +' . $data['phone'] . ' , Please enter the OTP and verify your account'
+						);
+						// success 200 code send
+						$this->response($message, REST_Controller::HTTP_OK);
+	            	}else{
+						$message=array(
+						'status' => FALSE,
+						'message' => 'Agent registration Failed'
+						);
+						$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+					}
+	            }else{
 					$message=array(
 					'status' => FALSE,
 					'message' => 'Agent registration Failed'
 					);
 					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 				}
-            }else{
-				$message=array(
-				'status' => FALSE,
-				'message' => 'Agent registration Failed'
-				);
-				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
-			}
 		}
 
 	}
@@ -114,33 +114,51 @@ class Auth extends REST_Controller {
     {
      	header("Access-Control-Allow-Origin: *");
 		$data = $this->security->xss_clean($_POST);
-		$input = $this->input->post();
-		$data['output'] = $this->m_auth->activateAccount($input['otp'],$input['phone'],$input['country_code']);
-		
-		if ($data['output']['otpcount'] == '') {
+		$this->form_validation->set_rules('otp', 'OTP', 'trim|required');
+		$this->form_validation->set_rules('phone', 'Mobile No.', 'trim|required');
+		$this->form_validation->set_rules('country_code', 'Country Code', 'trim|required');
+        if($this->form_validation->run() == FALSE) 
+		{
+			//form_validation error
 			$message=array(
-				'status' => FALSE,
-				'message' => 'Invalid OTP!, you have tried more than 2 attempts, Please register again'
+				'status' => false,
+				'error' => $this->form_validation->error_array(),
+				'message' => validation_errors()
 				);
-				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 
-		}else if ((!empty($data['output'])) && $data['output'] == $input['otp']) {
-			$message=array(
-					'status' => TRUE,
-					'message' => 'Your account has been activated successfully, you can login now'
+			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+
+		}else{
+			$input = $this->input->post();
+			$data['output'] = $this->m_auth->activateAccount($input['otp'],$input['phone'],$input['country_code']);
+
+
+
+			if ((!empty($data['output'])) && $data['output'] == $input['otp']) {
+				$message=array(
+						'status' => TRUE,
+						'message' => 'Your account has been activated successfully, you can login now'
+						);
+						$this->response($message, REST_Controller::HTTP_OK);
+
+			}else if (empty($data['output']['otpcount'])  && $data['output']['otpcount'] =='') {
+				$message=array(
+					'status' => FALSE,
+					'message' => 'Invalid OTP!, you have tried more than 2 attempts, Please register again'
 					);
-					$this->response($message, REST_Controller::HTTP_OK);
+					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 
-		}else if (!empty($data['output']['otpcount'])) {
-			$max= 3;
-			$count = $max - $data['output']['otpcount'];
-			$message=array(
-				'status' => FALSE,
-				'message' => 'Invalid OTP!, Please try again with valid OTP. You have only '.$count.' attempts left');
-				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+			}else if (!empty($data['output']['otpcount'])) {
+				$max= 3;
+				$count = $max - $data['output']['otpcount'];
+				$message=array(
+					'status' => FALSE,
+					'message' => 'Invalid OTP!, Please try again with valid OTP. You have only '.$count.' attempts left');
+					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+
+			}
 
 		}
-
     }
 
 
@@ -172,7 +190,8 @@ class Auth extends REST_Controller {
 		}else{
 
 			$input = $this->input->post();
-			$country_code = '971';
+			// $country_code = '971';
+			$country_code = '91';
 			$output = $this->m_auth->can_login($input['username'], $input['password'],$country_code);
 
 			if (!empty($output) AND $output != FALSE) {
@@ -180,6 +199,7 @@ class Auth extends REST_Controller {
 				$this->load->library('Authorization_Token');
 
 				// generate token
+				$token_data['id'] = $output['agent_id'];
 				$token_data['sid'] = $output['agent_id'];
 				$token_data['suser'] =$output['agent_name'];
 				$token_data['time'] = time();
@@ -202,7 +222,7 @@ class Auth extends REST_Controller {
 			}else{
 				$message=array(
 					'status' => FALSE,
-					'message' => 'Invalid email or password'
+					'message' => 'Invalid Credentials'
 				);
 				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 			}
@@ -234,12 +254,14 @@ class Auth extends REST_Controller {
 		}else{
 			$mobile = $this->input->post('phone');
             $otp = random_string('numeric', '6');
-            $country_code = '971';
+            // $country_code = '971';
+            $country_code = '';
             $data['phone'] = $country_code.$mobile;
             $data['mobile'] = $mobile;
             $data['cntry'] = $country_code;
             $output = $this->m_auth->forgotPassword($mobile, $otp,$country_code);
-            $msg = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
+            
+            $msg = 'Your One time Password For Smart Link Password reset is ' . $otp . ' . Do not share with anyone';
 
             if ($output > 0 AND !empty($output)) {
             	$output1 = $this->otpsend($data['phone'], $otp, $msg);
@@ -257,7 +279,13 @@ class Auth extends REST_Controller {
 					);
 					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 				}
-            }
+            }else{
+					$message=array(
+					'status' => FALSE,
+					'message' => 'Invalid Phone Number. Please use registered Phone number'
+					);
+					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+				}
 		}
 	}
 
@@ -284,7 +312,8 @@ class Auth extends REST_Controller {
 			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 		}else{
 			$input = $this->input->post();
-			$country_code = '971';
+			// $country_code = '971';
+			$country_code = '91';
 			$data['output'] = $this->m_auth->forgot_verify($input['otp'], $input['phone'],$country_code);
 
 			if ($data['output']== '') {
@@ -380,13 +409,13 @@ class Auth extends REST_Controller {
 		$data = $this->security->xss_clean($_POST);
 
 		$phone = $this->input->post('mobile');
-        $country_code = '971';
+        // $country_code = '971';
+        $country_code = '';
         $otp = random_string('numeric', '6');
-        $country_code = '971';
         $data['phone'] = $country_code.$phone;
         $data['mobile'] = $phone;
         $data['cntry'] = $country_code;
-        $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
+        $msg = 'Your One time Password For Smart Link registration is ' . $otp . ' . Do not share with anyone';
         $output = $this->m_auth->resend_code($phone, $otp,$country_code);
 
         if (!empty($output)) {
@@ -419,8 +448,13 @@ class Auth extends REST_Controller {
     	header("Access-Control-Allow-Origin: *");
 		$data = $this->security->xss_clean($_POST);
         /* API URL */
-        $url = 'http://customers.smsmarketing.ae/app/smsapi/index.php';
-        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMART LINK&msg='.$msg;
+        // $url = 'http://customers.smsmarketing.ae/app/smsapi/index.php';
+        // $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMART LINK&msg='.$msg;
+
+        /* API URL */
+        $url = 'http://trans.smsfresh.co/api/sendmsg.php';
+        $param = 'user=5inewebsolutions&pass=5ine5ine&sender=PROPSB&phone=' . $phone . '&text=' . $msg . '&priority=ndnd&stype=normal';
+        
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);

@@ -64,7 +64,7 @@
                                         <div class="dashboard-ref">
                                             <div class="row">
                                                 <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref"><?php echo (!empty($reward))?$reward-$claimed:'0' ?></span>
+                                                    <span class="m0 count-ref"><?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'0' ; ?></span>
                                                 </div>
                                                 <div class="col l9 m10 s9">
                                                     <span class="title-ref">Total Unclaimed Reward Point</span>
@@ -76,7 +76,7 @@
                                         <div class="dashboard-ref">
                                             <div class="row">
                                                 <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref"><?php echo (!empty($claimed))?$claimed:'0' ?></span>
+                                                    <span class="m0 count-ref"><?php echo (!empty($reward['avil_reward_point']))?$reward['claimed_points']+$reward['temp_claimed']:'0' ?></span>
                                                 </div>
                                                 <div class="col l9 m10 s9">
                                                     <span class="title-ref">Total Claimed Reward Point</span>

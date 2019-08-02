@@ -11,6 +11,7 @@ class Account extends CI_Controller
         $this->load->model('m_account');
         $this->load->model('m_authendication');
         $this->data = $this->get_notification();
+        $this->data = $this->reward_dec();
     }
     //  profile
     public function index()
@@ -116,7 +117,7 @@ class Account extends CI_Controller
 
             $notification  = array(
                 'notification_subject' => 'Refer a friend',
-                'notification_description' => 'new refer a friend request added by ' . $name . ' , check and verify',
+                'notification_description' => 'New refer a friend request added by ' . $name . ' , check and verify',
                 'added_by' => $this->session->userdata('sid'),
                 'thing_id' => $uniq,
                 'notification_type' => '1',
@@ -354,9 +355,18 @@ class Account extends CI_Controller
     {
         $data['alert']   = $this->data;
         $data['reward']  = $this->m_account->reward_point();
-        $data['claimed'] = $this->m_account->claimed_point();
         $this->load->view('account/reward-point', $data);
     }
+
+    public function reward_dec($id='')
+    {
+        
+       return $data['reward']  = $this->m_account->reward_dec();
+    }
+
+
+
+
     //claim reward point
     public function claim_reward($var = null)
     {
@@ -370,22 +380,31 @@ class Account extends CI_Controller
                 'agent_id' => $agent_id,
                 'uniq' => $uniq
             );
-            $ouput1         = $this->m_account->insert_claimrequest($insert);
-            $notification   = array(
-                'notification_subject' => 'Claim reward points',
-                'notification_description' => 'agent has requested to claim the reward points',
-                'added_by' => $this->session->userdata('sid'),
-                'thing_id' => $uniq,
-                'notification_type' => '2',
-                'uniq' => random_string('alnum', 10),
-                'added_by_type' => 'agent',
-                'noti_to_type' => 'admin'
-            );
-            $ouput2         = $this->notification($notification);
-            if ($ouput1 != '' && $ouput2 != '') {
-                $this->session->set_flashdata('success', 'Reward points claim request has been submitted successfully');
+            $eligible = $this->m_account->eligible_check($insert);
+            if (!empty($eligible) && $eligible!=FALSE) {
+
+                $ouput1         = $this->m_account->insert_claimrequest($insert);
+                $notification   = array(
+                    'notification_subject' => 'Claim reward points',
+                    'notification_description' => 'agent has requested to claim the reward points',
+                    'added_by' => $this->session->userdata('sid'),
+                    'thing_id' => $uniq,
+                    'notification_type' => '2',
+                    'uniq' => random_string('alnum', 10),
+                    'added_by_type' => 'agent',
+                    'noti_to_type' => 'admin'
+                );
+                $ouput2         = $this->notification($notification);
+                if ($ouput1 != '' && $ouput2 != '') {
+                    $this->session->set_flashdata('success', 'Reward points claim request has been submitted successfully');
+                    redirect('reward-points', 'refresh');
+                }
+            }else{
+                $this->session->set_flashdata('error', 'Unable to complete the redemption request, you have insufficient Reward Points');
                 redirect('reward-points', 'refresh');
             }
+
+            
         } else {
             $this->session->set_flashdata('error', 'Unable to process your request, Please try again!');
             redirect('reward-points', 'refresh');

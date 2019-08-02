@@ -38,14 +38,14 @@
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
                                                 <i class="fas fa-thumbs-up icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ; ?></h5>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'0' ; ?></h5>
                                                 <p class="para-reward">Unclaimed Rewards Points</p>
                                             </div>
                                         </div>
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="completed-refer">
                                                 <i class="fas fa-thumbs-down icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($claimed))?$claimed:'0' ?></h5>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward['avil_reward_point']))?$reward['claimed_points']+$reward['temp_claimed']:'0' ?></h5>
                                                 <p class="para-reward">Claimed Rewards Points</p>
                                             </div>
                                         </div>
@@ -60,10 +60,10 @@
                                                         <input placeholder="Enter reward point" name="reward"
                                                             id="reward" type="text" required>
                                                         <label for="reward" class="black-text">Enter reward point</label>
-                                                        <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
+                                                        <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']:'' ?>">
                                                         <span class="helper-text"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
 
-                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
+                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'' ?>">
                                                             <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
                                                             <p id="paswrd-error" class="error required"></p>
                                                     </div>

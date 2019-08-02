@@ -101,7 +101,7 @@ class Referal_model extends CI_Model {
 		}
 
 
-
+		//aprove the referrals
 		public function referal_change($change,$referalid)
 		{
 			$this->db->where('uniq', $referalid);
@@ -112,6 +112,34 @@ class Referal_model extends CI_Model {
 				return false;
 			}
 		}
+
+		//get agent available rewatd point -> approve referrals
+		public function agent_reward($rewrd='', $agent='')
+		{
+            $this->db->select('avil_reward_point');
+			$this->db->where('agent_id', $agent);
+			$result = $this->db->get('agent')->row_array();
+			$result1 = $this->up_agentReward($result['avil_reward_point'],$agent,$rewrd);
+			return $result1;
+			
+		}
+
+
+		//update agent rewrad points
+		public function up_agentReward($avail='',$agent='',$rewrd='')
+		{
+			$up = $avail + $rewrd;
+			$this->db->where('agent_id', $agent);
+			$this->db->where('agent_is_active', '1');
+			$this->db->update('agent', array('avil_reward_point' => $up ));
+			if ($this->db->affected_rows() > 0) {
+				return true;
+			}else{
+				return false;
+			}
+		}
+
+		
 
 		        /**
     * insert a notification

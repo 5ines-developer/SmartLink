@@ -76,7 +76,7 @@ class Authendication extends CI_Controller
                     $data['cntry'] = $country_code;
 
                     if ($this->m_authendication->register($insert)) {
-                        $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
+                        $msg = 'Your One time Password For Smart Link registration is ' . $otp . ' . Do not share with anyone';
                         // if ($this->otpsend($data['phone'], $otp, $msg)) {
                             $this->session->set_flashdata('success', 'We have sent an OTP to +'. $data['phone'] . ' , Please enter the OTP and verify your account');
                             $data['title'] = 'Account verification - Smart Link';
@@ -110,7 +110,7 @@ class Authendication extends CI_Controller
         $data['phone'] = $country_code.$phone;
         $data['mobile'] = $phone;
         $data['cntry'] = $country_code;
-        $msg = 'Your One time Password For smart link registration is ' . $otp . ' . Do not share with anyone';
+        $msg = 'Your One time Password For Smart Link registration is ' . $otp . ' . Do not share with anyone';
         if ($this->m_authendication->resend_code($phone, $otp,$country_code)) {
             if ($this->otpsend($data['phone'], $otp, $msg)) {
                 $this->session->set_flashdata('success', 'We have sent an OTP to ' . $data['phone'] . ' , Please enter the OTP and verify your account');
@@ -204,8 +204,7 @@ class Authendication extends CI_Controller
             $data['referal'] = $this->m_authendication->get_referal(); //get referals count
             $data['approved'] = $this->m_authendication->approved_referal(); //get referals count
             $data['pending'] = $this->m_authendication->pending_referal(); //get referals count
-            $data['reward']  = $this->m_account->reward_point();
-            $data['claimed'] = $this->m_account->claimed_point();
+            $data['reward']  = $this->m_account->reward_point();//get reward points
             $this->session->set_flashdata('referal', 'You have earned new reward points');
             $this->load->view('account/dashboard', $data);
         } else {
@@ -241,7 +240,7 @@ class Authendication extends CI_Controller
 
                 if ($result = $this->m_authendication->forgotPassword($mobile, $otp,$country_code)) {
 
-                    $msg = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
+                    $msg = 'Your One time Password For Smart Link Password reset is ' . $otp . ' . Do not share with anyone';
 
                     if ($this->otpsend($data['phone'], $otp, $msg)) {
                         $this->session->set_flashdata('success', 'Enter the OTP which has been sent to your Mobile No. ' . $data['phone'] . ' to reset your password');
