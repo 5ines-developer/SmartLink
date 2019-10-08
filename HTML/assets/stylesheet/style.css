@@ -999,6 +999,7 @@ border-bottom-left-radius: 4px;
     padding-bottom: 25px;
 
 }
+
 /*end list of claim*/
 
 
@@ -1012,8 +1013,7 @@ border-bottom-left-radius: 4px;
         padding-left: 0 !important;
     }
     .brand-logo img {
-        padding-top: 9px;
-        width: 226px;
+        padding-top: 6px;
         margin-left: 25px;
     }
     section {
