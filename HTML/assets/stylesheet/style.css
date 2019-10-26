@@ -373,7 +373,7 @@ section {
 
 .footer-copyright {
     background-color: #464646 !important;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .social-icons .btn-floating {
@@ -1020,6 +1020,11 @@ section {
     padding-bottom: 25px;
 }
 
+.table-note {
+    border: 1px solid #b0b0b0;
+    padding: 20px;
+}
+
 
 /*end list of claim*/
 
@@ -1033,8 +1038,8 @@ section {
         padding-left: 0 !important;
     }
     .brand-logo img {
-        padding-top: 6px;
-        margin-left: 25px;
+        padding-top: 11px;
+        margin-left: 15px;
     }
     section {
         padding: 40px 0;
@@ -1062,7 +1067,7 @@ section {
     }
     .footer-address {
         margin-bottom: 0;
-        text-align: justify;
+        text-align: center;
     }
     /*login page*/
     #login-form {

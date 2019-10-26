@@ -105,14 +105,35 @@ p {
 
 .product {
     padding: 30px 35px;
-    border-radius: 15px;
+    border-radius: 5px;
     width: 35%;
     background: white;
     margin-top: -130px;
+    border: 8px solid #eee;
+    background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
+    background-size: auto;
+    background-size: contain;
+    background-blend-mode: multiply;
 }
 
 .bg-prd-clr {
-    padding: 70px 0px;
+    /* background: #000000b5 url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: multiply; */
+    background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
+    background-size: auto;
+    background-size: contain;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
 }
 
 .mb80 {
@@ -130,6 +151,7 @@ p {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
+    color: white;
 }
 
 .personal p {
@@ -137,6 +159,7 @@ p {
     margin: 0;
     padding-bottom: 10px;
     font-weight: 400;
+    color: white;
 }
 
 .broad p {
@@ -201,8 +224,53 @@ p {
 }
 
 .productlist a {
-    font-size: 16px !important;
-    color: black !important;
+    font-size: 13px !important;
+    /* color: black !important; */
+}
+
+.productlist {
+    overflow-y: unset;
+    overflow-x: unset;
+    margin-top: 6px;
+    top: 15px;
+    background: none;
+}
+
+.business-detail li {
+    display: inline-block;
+}
+
+.busine-list {
+    background: white;
+    text-align: center;
+    margin-right: 10px;
+    padding: 25px;
+}
+
+.busine-list p {
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.tab-it {
+    position: absolute;
+    right: -115px;
+    width: 60%;
+}
+
+.tab-tel {
+    position: absolute;
+    left: -95px;
+    width: 60%;
+}
+
+.productlist .tab a.active {
+    background-color: #0095bf;
+    color: #fff;
+    border: 1px solid #0095bf;
 }
 
 .tab a:focus,
@@ -216,9 +284,27 @@ p {
     padding-top: 20px;
 }
 
-.product-list {
-    padding-top: 25px;
+.product-list .slick-dots {
+    top: 98%;
+    left: 0;
 }
+
+.bus-title {
+    border: 2px solid #fff;
+    background: #0095bf;
+    color: white;
+    text-align: center;
+    width: 30%;
+    padding: 15px;
+    font-size: 15px;
+    height: 15px;
+    line-height: 0px;
+}
+
+
+/* .product-list {
+    padding-top: 25px;
+} */
 
 
 /* .refer-list a {
@@ -349,6 +435,20 @@ p {
     cursor: pointer;
 }
 
+.busine-list:hover {
+    box-shadow: 0px 0px 10px 0px #e6e6e6;
+    /* border-right: 6px solid #0095bf; */
+    cursor: pointer;
+}
+
+.btn-bus {
+    padding: 9px 12px;
+    font-size: 14px;
+    background: #008ca4;
+    color: white;
+    border: none;
+}
+
 .btn-con {
     border: 1px solid black;
     padding: 7px 25px;
@@ -372,6 +472,27 @@ p {
 .web-dev p {
     font-size: 13px;
     font-weight: 400;
+    text-align: center;
+    margin: 0;
+}
+
+.pp {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.personal h4 {
+    font-size: 15px;
+}
+
+.web-dev {
+    background: white;
+    border-radius: 7px;
+    text-align: center;
+    padding: 35px;
 }
 
 .slick-dots {
@@ -407,16 +528,33 @@ p {
 .page-footer {
     padding-top: 20px;
     color: #fff;
-    background-color: #777 !important;
+    background-color: #000 !important;
 }
 
 
 /* new chages */
 
-.productlist li {
-    border: 1px Dashed #979797;
-    /* padding: 0px 35px !important; */
-    margin-left: 20px !important;
+
+/* .productlist li {
+    border: 1px solid #8e8e8e;
+} */
+
+.productlist .tab {
+    border: none;
+    border-radius: 0px;
+    background: white;
+    height: 35px;
+    width: 75%;
+    line-height: 32px;
+}
+
+.productlist .tab a {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.productlist .tabs .tab a:hover,
+.tabs .tab a {
+    color: #000;
 }
 
 .productlist .indicator {
@@ -507,6 +645,236 @@ p {
     text-align: center;
 } */
 
+.img-com {
+    width: 100%;
+    height: 275px;
+}
+
+.inner-back {
+    background-image: url('../img/inner-banner.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    padding: 40px 0px;
+}
+
+.inner-banner {
+    text-align: center;
+    color: white;
+}
+
+.inner-banner p {
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.tabs-mobile {
+    position: relative;
+    top: -45px;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.inner-banner h5 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.bor-ff {
+    border: 1px solid #e3e3e3;
+}
+
+.bor-ff tr {
+    background: white;
+    border: 1px solid #e3e3e3;
+}
+
+.bor-ff th {
+    border: 1px solid #bbb;
+    font-size: 13px;
+}
+
+.bor-ff td {
+    border: 1px solid #bbb;
+}
+
+.mobile-tabs .tab a:focus,
+.tabs .tab a:focus.active {
+    background-color: rgb(0, 149, 191);
+    outline: none;
+    color: white !important;
+    /* border-radius: 45px; */
+}
+
+.tr-headd {
+    color: #9004d0;
+}
+
+.mobile-tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: transparent;
+    will-change: left, right;
+}
+
+.mobile-tabs .tabs .tab a:hover,
+.tabs .tab a.active {
+    background-color: transparent;
+    color: #fff;
+    background: #02a9c9;
+}
+
+.container-table {
+    width: 90%;
+    margin: auto;
+}
+
+.bor-ff td {
+    padding: 10px 10px;
+    font-size: 13px;
+}
+
+.table-cont h5 {
+    font-size: 21px;
+    font-weight: 600;
+    color: #111;
+}
+
+.padd-sec {
+    padding: 10px;
+    /* background: #f7f7f7; */
+}
+
+.table-data {
+    margin-bottom: 20px;
+}
+
+.table-cont p {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.th-para {
+    font-size: 10px;
+    margin: 0;
+}
+
+.tabs-mobile .tabs {
+    text-align: center;
+}
+
+.pur {
+    background-color: #c724b1;
+    color: white;
+}
+
+.yell {
+    background: #fff4b9;
+}
+
+.device-tab {
+    border: 1px solid #e8e8e8;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+
+.table-cont p {
+    text-align: center;
+}
+
+.table-cont {
+    text-align: center;
+}
+
+.head-dev {
+    padding: 7px;
+    border-bottom: 1px solid #d9d9d9;
+    margin-bottom: 20px;
+}
+
+.head-dev h5 {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.head-dev p {
+    font-size: 13px;
+    margin: 0px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.head-title-dev h5 {
+    font-size: 18px;
+    font-weight: 800;
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+
+/* .device-tab:hover .card--device__header {
+    display: block;
+} */
+
+
+/* .device-tab:hover .head-dev {
+    padding: 7px;
+} */
+
+.card--device__header {
+    background-color: #c724b1;
+    font-family: du-font-primary-r;
+    color: #fff;
+    /* display: none; */
+    font-size: 15px;
+    padding: 14px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    font-weight: 600;
+}
+
+.head-title-dev {
+    border-top: 1px solid #bfbfbf;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+.pop-btn {
+    background: #01aac7;
+    padding: 10px 30px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.pop-btn:hover {
+    background: #05899f;
+}
+
+.device-tab:hover {
+    box-shadow: 0px 0px 8px 0px #d7d7d7;
+}
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    font-size: 13px;
+    color: #000;
+    display: block;
+    line-height: 22px;
+}
+
+.dropdown-content {
+    background-color: #fff;
+    margin: 0;
+    display: none;
+    min-width: 195px;
+}
+
 @media(max-width:767px) {
     .productlist li {
         border: 1px Dashed #979797;
@@ -542,8 +910,42 @@ p {
         padding-bottom: 5px;
         text-align: justify;
     }
+    .tab-tel {
+        position: absolute;
+        left: 0px;
+        width: 60%;
+    }
+    .img-com {
+        height: auto;
+        width: 100%;
+    }
+    .web-dev {
+        background: white;
+        border-radius: 7px;
+        text-align: center;
+        padding: 13px;
+        margin-bottom: 10px;
+    }
+    .productlist .tab {
+        width: 45%;
+    }
+    .busine-list {
+        margin-right: 0px;
+    }
+    .t1t2 {
+        padding-top: 0px;
+    }
+    .bus-title {
+        width: 100%;
+        margin-top: 45px;
+    }
+    .tab-it {
+        position: absolute;
+        right: 0px;
+        width: 60%;
+    }
     .head {
-        text-align: left;
+        text-align: center;
         font-size: 19px;
     }
     .slick-dots {
@@ -633,6 +1035,16 @@ p {
     }
     .refer-img {
         top: 0px;
+    }
+    .bor-ff {
+        border: 1px solid #e3e3e3;
+        margin-bottom: 10px;
+    }
+    .table-data {
+        margin-bottom: 20px;
+    }
+    .table-scroll {
+        overflow-y: scroll;
     }
 }
 
