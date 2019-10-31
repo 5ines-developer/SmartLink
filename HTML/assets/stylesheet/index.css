@@ -81,7 +81,7 @@ p {
     color: #b5b5b5;
     line-height: 23px;
     margin: 0;
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 }
 
 .cont-abot a {
@@ -245,6 +245,15 @@ p {
     text-align: center;
     margin-right: 10px;
     padding: 25px;
+    transition: 1s;
+}
+
+.business-detail p {
+    font-size: 13px;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    padding-bottom: 20px;
 }
 
 .busine-list p {
@@ -330,6 +339,30 @@ p {
 
 .refer-detail {
     margin-top: 40px;
+}
+
+.table-note ul {
+    column-count: 2;
+    line-height: 25px;
+    font-size: 13px;
+    padding: 0px 65px;
+}
+
+.bor-ffs th {
+    border: 1px solid #e3e3e3;
+}
+
+.bor-ffs td {
+    border: 1px solid #e3e3e3;
+}
+
+.bor-ffs {
+    border: 1px solid #e3e3e3;
+    display: none;
+}
+
+.table-note li {
+    list-style: square !important;
 }
 
 .m-heading {
@@ -435,10 +468,47 @@ p {
     cursor: pointer;
 }
 
+.personal-detail {
+    transition: 1s;
+}
+
+.personal-detail:hover {
+    box-shadow: 0px 0px 1px 0px #e6e6e6;
+    -ms-transform: scale\(1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s;
+}
+
 .busine-list:hover {
-    box-shadow: 0px 0px 10px 0px #e6e6e6;
-    /* border-right: 6px solid #0095bf; */
-    cursor: pointer;
+    box-shadow: 0px 0px 1px 0px #e6e6e6;
+    -ms-transform: scale\(1;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+.a-para {
+    display: none;
+}
+
+.tt-red {
+    margin: 0;
+    padding: 5px 0px;
+    color: #b70000;
+}
+
+.cb-faq {
+    padding: 8px 17px;
+    font-size: 13px;
+    letter-spacing: 0px;
+    line-height: 22px;
+}
+
+.ch-faq {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .btn-bus {
@@ -447,6 +517,7 @@ p {
     background: #008ca4;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .btn-con {
@@ -474,6 +545,29 @@ p {
     font-weight: 400;
     text-align: center;
     margin: 0;
+}
+
+.tr-smart {
+    margin: 0;
+    padding-bottom: 4px;
+    font-size: 13px !important;
+}
+
+.refer h4 {
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.refer p {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 5px;
+    color: blakc;
 }
 
 .pp {
@@ -555,6 +649,7 @@ p {
 .productlist .tabs .tab a:hover,
 .tabs .tab a {
     color: #000;
+    font-size: 12px;
 }
 
 .productlist .indicator {
@@ -647,7 +742,7 @@ p {
 
 .img-com {
     width: 100%;
-    height: 275px;
+    height: 298px;
 }
 
 .inner-back {
@@ -764,6 +859,18 @@ p {
 
 .tabs-mobile .tabs {
     text-align: center;
+    height: 35px;
+}
+
+.mobile-tabs .tab {
+    display: inline-block;
+    text-align: center;
+    line-height: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0;
+    margin-left: 0px;
+    text-transform: uppercase;
 }
 
 .pur {
@@ -784,6 +891,8 @@ p {
 
 .table-cont p {
     text-align: center;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 .table-cont {
@@ -875,7 +984,44 @@ p {
     min-width: 195px;
 }
 
+.our-team-detail h5 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.our-team-detail p {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+}
+
+.slider-team-list h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.slider-team {
+    padding: 25px;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    margin-top: 25px;
+}
+
+.testimon-img-list {
+    border-radius: 70px;
+    width: 100px;
+    height: 100px;
+}
+
 @media(max-width:767px) {
+    .tabs-mobile .tabs {
+        text-align: center;
+        height: 45px;
+    }
     .productlist li {
         border: 1px Dashed #979797;
         margin-left: 6px !important;
@@ -931,9 +1077,13 @@ p {
     }
     .busine-list {
         margin-right: 0px;
+        margin-bottom: 20px;
     }
     .t1t2 {
         padding-top: 0px;
+    }
+    .business-detail p {
+        text-align: center;
     }
     .bus-title {
         width: 100%;

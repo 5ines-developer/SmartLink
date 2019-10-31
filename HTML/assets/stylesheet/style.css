@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -1022,7 +1026,9 @@ section {
 
 .table-note {
     border: 1px solid #b0b0b0;
-    padding: 20px;
+    padding: 0px 20px;
+    margin-top: 10px;
+    color: olive
 }
 
 
