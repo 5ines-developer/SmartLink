@@ -110,10 +110,10 @@ p {
     background: white;
     margin-top: -130px;
     border: 8px solid #eee;
-    background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
+    /* background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
     background-size: auto;
     background-size: contain;
-    background-blend-mode: multiply;
+    background-blend-mode: multiply; */
 }
 
 .bg-prd-clr {
@@ -129,11 +129,12 @@ p {
     background-position: center;
     background-attachment: fixed;
     background-blend-mode: multiply; */
-    background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
+    /* background: #000c url('https://www.fingent.com/blog/assets/uploads/2018/03/image-15.jpg');
     background-size: auto;
     background-size: contain;
     background-blend-mode: multiply;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    background: #d9d9d9;
 }
 
 .mb80 {
@@ -151,7 +152,7 @@ p {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: white;
+    color: black;
 }
 
 .personal p {
@@ -159,7 +160,7 @@ p {
     margin: 0;
     padding-bottom: 10px;
     font-weight: 400;
-    color: white;
+    color: black;
 }
 
 .broad p {
@@ -243,7 +244,7 @@ p {
 .busine-list {
     background: white;
     text-align: center;
-    margin-right: 10px;
+    /* margin-right: 10px; */
     padding: 25px;
     transition: 1s;
 }
@@ -251,7 +252,7 @@ p {
 .business-detail p {
     font-size: 13px;
     font-weight: 400;
-    color: white;
+    color: black;
     margin: 0;
     padding-bottom: 20px;
 }
@@ -298,16 +299,97 @@ p {
     left: 0;
 }
 
-.bus-title {
+.personal-list h6 {
+    font-size: 47px;
+    color: #000;
+}
+
+
+/* .bus-title {
     border: 2px solid #fff;
-    background: #0095bf;
-    color: white;
+    background: #000;
+    color: #fff;
     text-align: center;
-    width: 30%;
+    width: 50%;
     padding: 15px;
     font-size: 15px;
     height: 15px;
     line-height: 0px;
+} */
+
+.refer a {
+    background: #0db1cc;
+    padding: 19px;
+    display: inline-block;
+    border-radius: 50px;
+    color: white;
+    margin: 8px 0px;
+}
+
+.faq {
+    text-align: center;
+    font-weight: 600;
+    margin: 50px;
+}
+
+.refer-icon {
+    border: 1px solid gray;
+    width: 70px;
+    border-radius: 19px;
+    padding: 8px;
+}
+
+.bu {
+    opacity: 0.5;
+}
+
+
+/* .pr {
+    opacity: 1;
+} */
+
+.pu {
+    opacity: 0.5;
+}
+
+.per {
+    opacity: 0.5;
+}
+
+.bus {
+    opacity: 1;
+}
+
+.bus-title {
+    border: 2px solid #fff;
+    color: #000;
+    padding: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 60%;
+    text-align: center;
+    background: white;
+}
+
+.personal-list {
+    background: white;
+    text-align: center;
+    padding: 25px;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.personal-list p {
+    text-align: center;
+}
+
+
+/* .per {
+    opacity: 0.4;
+} */
+
+.per .buss:hover {
+    opacity: 0.2;
 }
 
 
@@ -371,7 +453,6 @@ p {
     font-size: 15px;
     font-weight: 800;
     font-size: 13px !important;
-    font-weight: 700 !important;
 }
 
 .refer-list p {
@@ -509,6 +590,7 @@ p {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .btn-bus {
@@ -567,7 +649,7 @@ p {
     text-align: center;
     margin: 0;
     padding-bottom: 5px;
-    color: blakc;
+    color: black;
 }
 
 .pp {
@@ -636,7 +718,7 @@ p {
 .productlist .tab {
     border: none;
     border-radius: 0px;
-    background: white;
+    background: #777;
     height: 35px;
     width: 75%;
     line-height: 32px;
@@ -648,7 +730,7 @@ p {
 
 .productlist .tabs .tab a:hover,
 .tabs .tab a {
-    color: #000;
+    color: #fff;
     font-size: 12px;
 }
 
@@ -1017,7 +1099,111 @@ p {
     height: 100px;
 }
 
+.contact-back {
+    background-image: url('../img/contact-banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 55px;
+}
+
+.get-touch p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 10px;
+    color: gray;
+}
+
+.get-touch h5 {
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.get-address p {
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0;
+    padding-bottom: 10px;
+    color: gray;
+}
+
+.sect-tp {
+    padding: 50px 0px;
+}
+
+.get-address h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #0bafca;
+    letter-spacing: 1px;
+}
+
+.get-address a {
+    color: gray;
+    cursor: pointer;
+}
+
+.get-address {
+    border: 1px solid #eaeaea;
+    padding: 20px;
+}
+
+.call-action {
+    background: #0db1cc;
+    color: white;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 35px;
+    position: fixed;
+    top: 45%;
+    right: 0;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.call-action:hover {
+    background: #060606;
+}
+
 @media(max-width:767px) {
+    .faq {
+        text-align: center;
+        font-weight: 600;
+        margin: 20px;
+        font-size: 17px;
+    }
+    .get-address {
+        margin-top: 20px;
+    }
+    .inner-banner p {
+        font-size: 13px;
+    }
+    .contact-back {
+        padding: 20px;
+    }
+    .table-note ul {
+        column-count: 1;
+        line-height: 25px;
+        font-size: 13px;
+        padding: 0px 10px;
+    }
+    .container-table {
+        width: 100%;
+        margin: auto;
+    }
+    .table-cont {
+        text-align: justify;
+    }
+    .table-cont p {
+        text-align: justify;
+        margin: 0;
+        padding-bottom: 10px;
+    }
     .tabs-mobile .tabs {
         text-align: center;
         height: 45px;
@@ -1120,7 +1306,7 @@ p {
         margin-left: 4px;
     }
     .section-p {
-        padding: 20px 0px;
+        padding: 30px 0px;
     }
     .about-h p {
         padding: 0px 0px;
