@@ -185,7 +185,7 @@ p {
 }
 
 .dev-img {
-    width: 155px;
+    width: 116px;
 }
 
 .v-btn {
@@ -247,6 +247,7 @@ p {
     /* margin-right: 10px; */
     padding: 25px;
     transition: 1s;
+    height: 280px;
 }
 
 .business-detail p {
@@ -300,7 +301,7 @@ p {
 }
 
 .personal-list h6 {
-    font-size: 47px;
+    font-size: 35px;
     color: #000;
 }
 
@@ -317,19 +318,66 @@ p {
     line-height: 0px;
 } */
 
+.blink {
+    animation: blink 0.5s steps(5, start) infinite;
+    -webkit-animation: blink 2s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink {
+    to {
+        visibility: hidden;
+    }
+}
+
 .refer a {
     background: #0db1cc;
-    padding: 19px;
+    padding: 15px 30px;
     display: inline-block;
     border-radius: 50px;
     color: white;
     margin: 8px 0px;
+    font-size: 13px;
 }
 
 .faq {
     text-align: center;
     font-weight: 600;
-    margin: 50px;
+    margin-bottom: 30px;
+}
+
+.refer-list li {
+    display: inline-block;
+}
+
+.app-ic {
+    color: white;
+    font-size: 19px;
+    border: 1px solid white;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.kk-p {
+    font-size: 13px !important;
+    padding: 10px 0px !important;
+    letter-spacing: 1px;
+    font-weight: 600 !important;
+    color: purple !important;
+}
+
+.refer-list {
+    background: #7b087b;
+    padding: 19px;
+    height: 275px !important;
+    border-radius: 10px;
+    margin-right: 10px;
 }
 
 .refer-icon {
@@ -360,23 +408,28 @@ p {
     opacity: 1;
 }
 
+.b-width {
+    width: 65% !important;
+}
+
 .bus-title {
     border: 2px solid #fff;
     color: #000;
     padding: 8px;
     font-size: 15px;
     font-weight: 600;
-    width: 60%;
-    text-align: center;
+    width: 35%;
     background: white;
+    text-align: center;
 }
 
 .personal-list {
     background: white;
     text-align: center;
-    padding: 25px;
+    padding: 105px 0px;
     transition: 1s;
     cursor: pointer;
+    height: 280px;
 }
 
 .personal-list p {
@@ -457,7 +510,7 @@ p {
 
 .refer-list p {
     font-size: 13px;
-    color: #6a6a6a;
+    color: #fff;
     font-weight: 400;
     margin: 0;
     padding: 5px 0px;
@@ -650,6 +703,8 @@ p {
     margin: 0;
     padding-bottom: 5px;
     color: black;
+    letter-spacing: 1px;
+    padding-top: 5px;
 }
 
 .pp {
@@ -669,6 +724,7 @@ p {
     border-radius: 7px;
     text-align: center;
     padding: 35px;
+    height: 380px;
 }
 
 .slick-dots {
@@ -715,6 +771,11 @@ p {
     border: 1px solid #8e8e8e;
 } */
 
+.lab-in {
+    color: gray !important;
+    font-size: 13px !important;
+}
+
 .productlist .tab {
     border: none;
     border-radius: 0px;
@@ -732,6 +793,47 @@ p {
 .tabs .tab a {
     color: #fff;
     font-size: 12px;
+}
+
+.form-detail p {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 400;
+    color: white;
+    margin: 0px;
+}
+
+.form-cont {
+    border: 1px solid #f2f1f1;
+    padding: 30px;
+}
+
+.form-detail {
+    background: #000;
+    text-align: center;
+    padding: 17px;
+}
+
+.z-tt {
+    z-index: 99999;
+    /* left: auto;
+    right: 0; */
+}
+
+.form-detail h5 {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 16px;
+    color: white;
+    margin: 0;
+}
+
+.form-input {
+    padding: 15px;
+}
+
+.tabs.mobile-tabs a {
+    color: black;
 }
 
 .productlist .indicator {
@@ -842,6 +944,8 @@ p {
 .inner-banner p {
     text-align: center;
     color: white;
+    font-size: 14px;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -1124,10 +1228,32 @@ p {
 
 .get-address p {
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 400 !important;
     margin: 0;
     padding-bottom: 10px;
     color: gray;
+}
+
+.cont-list p {
+    margin: 0;
+    text-align: center;
+    padding: 16px 0px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cont-list {
+    text-align: center;
+    border: 1px solid #e6e6e6;
+    padding: 17px;
+}
+
+.ll-ic {
+    background: black;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
 }
 
 .sect-tp {
@@ -1149,6 +1275,7 @@ p {
 .get-address {
     border: 1px solid #eaeaea;
     padding: 20px;
+    margin-top: 75px;
 }
 
 .call-action {
@@ -1161,7 +1288,7 @@ p {
     border-radius: 35px;
     position: fixed;
     top: 45%;
-    right: 0;
+    right: 15px;
     cursor: pointer;
     transition: 1s;
 }

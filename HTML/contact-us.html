@@ -54,62 +54,88 @@
     <section class="sect-tp">
         <div class="container-fluide">
             <div class="row">
-                <div class="col l7">
-                    <div class="get-touch">
-                        <h5>GET IN TOUCH</h5>
-                        <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. </p>
-                    </div>
-                    <div class="form-contact">
-                        <form action="">
-                            <div class="row">
-                                <div class="col l6 s12">
-                                    <div class="input-field ">
-                                        <input id="name" type="text" class="validate" required>
-                                        <label for="name" name="name">Name</label>
-                                    </div>
-                                </div>
-                                <div class="col l6 s12">
-                                    <div class="input-field ">
-                                        <input id="phone" type="text" class="validate" required>
-                                        <label for="phone" name="phone">Phone</label>
-                                    </div>
-                                </div>
-                                <div class="col l6 s12">
-                                    <div class="input-field ">
-                                        <input id="email" type="text" class="validate" required>
-                                        <label for="email" name="email">Email</label>
-                                    </div>
-                                </div>
-                                <div class="col l6 s12">
-                                    <div class="input-field ">
-                                        <input id="last_name" type="text" class="validate" required>
-                                        <label for="last_name" name="subject">Subject</label>
-                                    </div>
-                                </div>
-                                <div class="col l12 s12 ">
-                                    <div class="input-field ">
-                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1">Message</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="butt-btn">
-                                <button type="submit" class="btn-con">Submit</button>
-                            </div>
-                        </form>
+                <div class="col l4">
+                    <div class="cont-list">
+                        <i class="fas fa-phone ll-ic"></i>
+                        <p>Landline : <a href="tel:+971 42535555">+971 42535555</a> </p>
                     </div>
                 </div>
-                <div class="col l5">
+                <div class="col l4">
+                    <div class="cont-list">
+                        <i class="fab fa-whatsapp ll-ic"></i>
+                        <p>Whatsapp :
+                            <a href="tel:0502904073">0502904073</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col l4">
+                    <div class="cont-list">
+                        <i class="far fa-envelope ll-ic"></i>
+                        <p class="black-text">Email :
+                            <a href="mailto:info@smartlink.ae" class="black-text">info@smartlink.ae </a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col offset-l1 l10 m12 s12 offset-s0">
+                    <div class="form-cont">
+                        <div class="get-touch">
+                            <h5>GET IN TOUCH</h5>
+                        </div>
+                        <div class="form-contact">
+                            <form action="">
+                                <div class="row">
+                                    <div class="col l6 s12">
+                                        <div class="input-field ">
+                                            <input id="name" type="text" class="validate" required>
+                                            <label for="name" name="name">Name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col l6 s12">
+                                        <div class="input-field ">
+                                            <input id="phone" type="text" class="validate" required>
+                                            <label for="phone" name="phone">Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col l6 s12">
+                                        <div class="input-field ">
+                                            <input id="email" type="text" class="validate">
+                                            <label for="email" name="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col l6 s12">
+                                        <div class="input-field ">
+                                            <input id="last_name" type="text" class="validate" required>
+                                            <label for="last_name" name="subject">Subject</label>
+                                        </div>
+                                    </div>
+                                    <div class="col l12 s12 ">
+                                        <div class="input-field ">
+                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <label for="textarea1">Message</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="butt-btn">
+                                    <button type="submit" class="btn-con">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col l5">
                     <div class="get-address">
-                        <h4>Address</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Name Phone Email Subject Textarea Address Lorem
-                            ipsum dolor sit amet, consectetuer adipiscing elit. </p>
                         <h4>Contact No</h4>
-                        <p><a tel:00000000000><b>Sales :</b> +00 8989898000</a></p>
+                        <p>
+                            <a tel:+971 42535555></a><b>Landline :</b> +971 42535555</a>
+                        </p>
+                        <p>
+                            <a tel:+971 42535555></a><b>Whatsapp :</b> 0502904073</a>
+                        </p>
                         <h4>Email</h4>
-                        <p><a mailto:mail@gamil.com><b>Sales :</b> mail@gmail.com</a></p>
+                        <p><a mailto:info@smartlink.ae><b>Sales :</b>info@smartlink.ae</a></p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>
@@ -173,6 +199,7 @@
             $('.modal').modal();
             $('.tabs').tabs();
 
+            instance.destroy();
         });
         $('.dropdown-trigger').dropdown();
     </script>
