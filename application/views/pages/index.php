@@ -713,7 +713,7 @@
 
     </div>
 
-    <footer class="page-footer">
+    <footer class="page-footer ">
         <div class="container-wrap3 pb-25">
             <!-- <div class="row mb-0">
                 <div class="col l12 m12  s12">

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+    <title>Smart Link</title>
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+</head>
+
+<body>
+    <header id="navbar">
+        <nav class="white z-depth-1" id="secondnavbar">
+            <div class="nav-wrapper container-wrap2 ">
+                <a href="home.html" class="brand-logo"><img src="assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Product & Service</a></li>
+                    <li><a href="#">Refer & Earn</a></li>
+                    <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
+                    <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Mission & Vision</a></li>
+            <li><a href="#">Product & Service</a></li>
+            <li><a class="#" href="">Register</a></li>
+            <li><a href="#">login</a></li>
+        </ul>
+        <div class="hederHight"></div>
+    </header>
+    <section class="section inner-back">
+        <div class="row">
+            <div class="col l12 s12">
+                <div class="inner-banner">
+                    <h5>Fixed Services</h5>
+                    <P>Start your business with a Business complete with Broad band landline and other free benefits </P>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="padd-sec">
+        <div class="container-table">
+            <div class="container-fluide">
+                <div class="tabs-mobile z-depth-1">
+                    <ul class="tabs mobile-tabs ">
+                        <li class="tab col l2">
+                            <a class=" active" href="#t1">Business complete </a>
+                        </li>
+                        <li class="tab col l2">
+                            <a href="#t2">Business Essential</a>
+                        </li>
+                        <li class="tab col l2">
+                            <a href="#t3">Trunk Line</a>
+                        </li>
+                        <li class="tab col l2">
+                            <a href="#t4">ISDN 2</a>
+                        </li>
+                        <li class="tab col l2">
+                            <a href="#t5">ISDN 30</a>
+                        </li>
+                        <li class="tab col l2">
+                            <a href="#t6">Premium Broadband</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t1">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>BUSINESS COMPLETE</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                            </div>
+                            <div class="table-data">
+                                <div class="row">
+                                    <div class="table-scroll">
+                                        <div class="col l12">
+                                            <table class="striped bor-ff">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="10" class="center">12 Month minimum Term</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="center">Business Complete
+                                                            <p class="center th-para">80 Mbps</p>
+                                                        </td>
+                                                        <td class="center">Business Complete
+                                                            <p class="center th-para">120 Mbps</p>
+                                                        </td>
+                                                        <td class="center">Business Complete
+                                                            <p class="center th-para">175 Mbps</p>
+                                                        </td>
+                                                        <td class="center">Business Complete
+                                                            <p class="center th-para">275 Mbps</p>
+                                                        </td>
+                                                        <td class="center">Business Complete
+                                                            <p class="center th-para">500 Mbps</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="10" class="center pur">You Pay</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center th-para">AED 950*</td>
+                                                        <td class="center th-para">AED 1,150*</td>
+                                                        <td class="center th-para">AED 1,350*</td>
+                                                        <td class="center th-para">AED 1,750*</td>
+                                                        <td class="center th-para">AED 3,000*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="10" class="center">One time activation fee 200*</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="10" class="center pur">You Get</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center th-para">80 / 10Mbpss</td>
+                                                        <td class="center th-para">120 / 15 Mbsp</td>
+                                                        <td class="center th-para">175 / 25 Mbsp</td>
+                                                        <td class="center th-para">275 / 30 Mbsp</td>
+                                                        <td class="center th-para">500 / 50 Mbsp</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="center th-para">Free device worth up-to AED 1,100</td>
+                                                        <!-- <td colspan="1"></td> -->
+                                                        <td colspan="3" class="center th-para">Free device worth upto AED 2,200</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div class="table-note">
+                                                <ul>
+                                                    <li>Two Office 356 license</li>
+                                                    <li>Online Office apps (Word,Excel,Powe Point)</li>
+                                                    <li>1TB cloud Storage</li>
+                                                    <li>Two business emails (50 GB each)</li>
+                                                    <li>Free domain name registration</li>
+                                                    <li>Free WIFI / LTE router</li>
+                                                    <li>Free data SIM with 4GB data bundle</li>
+                                                    <li>1 business line with 100 national / 100 international minutes</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t2">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>BUSINESS ESSENTIAL</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                            </div>
+                            <div class="table-data">
+                                <div class="row">
+                                    <div class="table-scroll">
+                                        <div class="col l12">
+                                            <table class="striped bor-ff">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="10" class="center">12 Month minimum Term</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="center">Business Complete
+                                                            <p class="center th-para">80 Mbps</p>
+                                                        </td>
+                                                        <td colspan="2" class="center">Business Complete
+                                                            <p class="center th-para">120 Mbps</p>
+                                                        </td>
+                                                        <td colspan="2" class="center">Business Complete
+                                                            <p class="center th-para">175 Mbps</p>
+                                                        </td>
+                                                        <td colspan="2" class="center">Business Complete
+                                                            <p class="center th-para">275 Mbps</p>
+                                                        </td>
+                                                        <td colspan="2" class="center">Business Complete
+                                                            <p class="center th-para">500 Mbps</p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="10" class="center pur">You Pay</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="10" class="center">One time activation fee 200*</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center th-para">AED 810*</td>
+                                                        <td class="center th-para">AED 1,450*</td>
+                                                        <td class="center th-para">AED 950*</td>
+                                                        <td class="center th-para">AED 1,850*</td>
+                                                        <td class="center th-para">AED 1,250*</td>
+                                                        <td class="center th-para">AED 2,250*</td>
+                                                        <td class="center th-para">AED 1,550*</td>
+                                                        <td class="center th-para">AED 2,850*</td>
+                                                        <td class="center th-para">AED 2,990*</td>
+                                                        <td class="center th-para">AED 3,650*</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="center th-para">12 month minimum term</td>
+                                                        <td class="center th-para">No contract</td>
+                                                        <td class="center th-para">12 month minimum term</td>
+                                                        <td class="center th-para">No contract</td>
+                                                        <td class="center th-para">12 month minimum term</td>
+                                                        <td class="center th-para">No contract</td>
+                                                        <td class="center th-para">12 month minimum term</td>
+                                                        <td class="center th-para">No contract</td>
+                                                        <td class="center th-para">12 month minimum term</td>
+                                                        <td class="center th-para">No contract</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2" class="center th-para">80 / 10Mbpss</td>
+                                                        <td colspan="2" class="center th-para">120 / 15 Mbsp</td>
+                                                        <td colspan="2" class="center th-para">175 / 25 Mbsp</td>
+                                                        <td colspan="2" class="center th-para">275 / 30 Mbsp</td>
+                                                        <td colspan="2" class="center th-para">500 / 50 Mbsp</td>
+                                                    </tr>
+                                                    <!-- <tr>
+                                                        <td colspan="2" class="center th-para">Free device worth up-to AED 1,100</td>
+                                                      
+                                                        <td colspan="3" class="center th-para">Free device worth upto AED 2,200</td>
+                                                    </tr> -->
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t3">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>TRUNK LINE (PBX)</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t4">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>ISDN2</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t5">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>ISDN 30</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-detail-tab" id="t6">
+                <div class="row">
+                    <div class="col l12 s12">
+                        <div class="tabs-mobile-table">
+                            <div class="table-cont">
+                                <h5>Premium Broadband (Dedicated broadband)</h5>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
+                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="page-footer ">
+        <div class="container-wrap3 pb-25">
+            <!-- <div class="row mb-0">
+                    <div class="col l12 m12  s12">
+                        <h5 class="black-text center-align subscribe-heading">SUBSCRIBE NOW</h5>
+                    </div>
+                </div>
+                <div class="row mb-0">
+                    <div class="col  l12 m12  s12">
+                        <div class="newsletter-box">
+                            <form>
+                                <div class="row mb-0">
+                                    <div class="input-field col offset-l3 l6 offset-m2 m6 s7">
+                                        <input placeholder="Enter Your Email" id="subscribe-input" type="text"
+                                            class="validate">
+                                    </div>
+                                    <button class="waves-effect waves-light btn subscribe-button">button</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
+            <div class="row mb-0">
+                <div class="col l4 m4  s12">
+                    <h6 class="center-align ">Useful Links</h6>
+                    <ul class="center-align useful-links">
+                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Contact Us</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">About Us</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Product & Service</a> |
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l4 m4 s12">
+                    <h6 class="center-align">Follow Us</h6>
+                    <ul class=" center-align social-icons">
+                        <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
+                                        class="fab fa-facebook-f"></i></a></li>
+                        <li><a class="btn-floating twitter btn-small waves-effect waves-light "><i
+                                        class="fab fa-twitter"></i></a></li>
+
+                        <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
+                                        class="fab fa-youtube "></i></a></li>
+
+                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
+                                        class="fab fa-linkedin-in"></i>
+                                </a></li>
+                    </ul>
+                </div>
+                <div class="col l4 m4 s12">
+                    <h6 class="center-align ">Address</h6>
+                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="footer-copyright ">
+            <div class="container-wrap3">
+                <center>
+                    <span class="copry-right">© Smart Link, All Rights Reserved. Developed By <a target="_blank"
+                                href="http://www.5ines.com/">5ine</a></span></center>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/javascript/script.js"></script>
+    <script src="assets/javascript/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.modal').modal();
+            $('.tabs').tabs();
+
+        });
+        $('.dropdown-trigger').dropdown();
+    </script>
+</body>
+
+</html>
