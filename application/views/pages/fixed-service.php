@@ -17,30 +17,7 @@
 </head>
 
 <body>
-    <header id="navbar">
-        <nav class="white z-depth-1" id="secondnavbar">
-            <div class="nav-wrapper container-wrap2 ">
-                <a href="home.html" class="brand-logo"><img src="assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Product & Service</a></li>
-                    <li><a href="#">Refer & Earn</a></li>
-                    <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
-                    <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Mission & Vision</a></li>
-            <li><a href="#">Product & Service</a></li>
-            <li><a class="#" href="">Register</a></li>
-            <li><a href="#">login</a></li>
-        </ul>
-        <div class="hederHight"></div>
-    </header>
+  <?php $this->load->view('includes/header.php'); ?>
     <section class="section inner-back">
         <div class="row">
             <div class="col l12 s12">
@@ -381,7 +358,7 @@
     </footer>
 
 
-
+<?php $this->load->view('includes/footer.php'); ?>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/javascript/script.js"></script>

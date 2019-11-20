@@ -60,7 +60,8 @@
                                            <?php } ?>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
+                                                    <input class="col l2 m2 s2" placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                                                    <input class="col l10 m10 s10"  placeholder="Eg: 551234567"  id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
                                                     <label for="phone">Mobile No. <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('phone'); ?></span>
                                                 </div>
@@ -183,8 +184,8 @@
             phone: {
             required: true,
             number: true,
-            minlength: 10,
-            maxlength: 10,
+            minlength: 9,
+            maxlength: 9,
             },
             },
             messages: {

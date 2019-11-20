@@ -41,7 +41,7 @@
                                         <div class="dashboard-list" id="process-refer">
                                             <i class="fas fa-sync icon-dash"></i>
                                             <h5 class="m0"><?php echo (!empty($referal))?$referal:'0'; ?></h5>
-                                            <p>Total no of Referral</p>
+                                            <p>Total no of Referrals</p>
                                         </div>
                                     </div>
                                     <div class="col xl4 m6 s12 l6">
@@ -63,11 +63,11 @@
                                     <div class="col l12 m12 s12 xl6">
                                         <div class="dashboard-ref">
                                             <div class="row">
-                                                <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref"><?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'0' ; ?></span>
+                                                <div class="col l4 m2 s3">
+                                                    <span class="m0 count-ref"><?php echo (!empty($reward))?$reward-$claimed:'0' ?></span>
                                                 </div>
-                                                <div class="col l9 m10 s9">
-                                                    <span class="title-ref">Total Unclaimed Reward Point</span>
+                                                <div class="col l8 m10 s9">
+                                                    <span class="title-ref">Total Unclaimed Reward Points</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,11 +75,11 @@
                                     <div class="col l12 m12 s12 xl6">
                                         <div class="dashboard-ref">
                                             <div class="row">
-                                                <div class="col l3 m2 s3">
-                                                    <span class="m0 count-ref"><?php echo (!empty($reward['avil_reward_point']))?$reward['claimed_points']+$reward['temp_claimed']:'0' ?></span>
+                                                <div class="col l4 m2 s3">
+                                                    <span class="m0 count-ref"><?php echo (!empty($claimed))?$claimed:'0' ?></span>
                                                 </div>
-                                                <div class="col l9 m10 s9">
-                                                    <span class="title-ref">Total Claimed Reward Point</span>
+                                                <div class="col l8 m10 s9">
+                                                    <span class="title-ref">Total Claimed Reward Points</span>
                                                 </div>
                                             </div>
                                         </div>

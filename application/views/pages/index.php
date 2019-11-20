@@ -10,37 +10,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheet/index.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url () ?>assets/stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url () ?>assets/stylesheet/index.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
-    <header id="navbar">
-        <nav class="white z-depth-1" id="secondnavbar">
-            <div class="nav-wrapper container-wrap2 ">
-                <a href="home.html" class="brand-logo"><img src="assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#product">Product & Service</a></li>
-                    <li><a href="#refer">Refer & Earn</a></li>
-                    <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
-                    <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#product">Product & Service</a></li>
-            <li><a href="#refer">Refer & Earn</a></li>
-            <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
-            <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
-        </ul>
-        <div class="hederHight"></div>
-    </header>
-
+  <?php $this->load->view('includes/header.php'); ?>
     <section class="pad-0">
         <!-- <div class="vd-box">
                 <video autoplay muted loop id="myVideo" width="100%">
@@ -50,9 +27,9 @@
         </div> -->
         <div class="fullscreen-bg">
             <video loop muted autoplay poster="/img/business.jpg" class="fullscreen-bg__video">
-                <source src="assets/video/banner-video.webm" type="video/webm">
-                <source src="assets/video/banner-video.mp4" type="video/mp4">
-                <source src="assets/video/banner-video.ogv" type="video/ogg">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.webm" type="video/webm">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.mp4" type="video/mp4">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.ogv" type="video/ogg">
             </video>
         </div>
     </section>
@@ -72,7 +49,7 @@
                     <div class="col l6 m6  s12">
                         <div class="col-img">
                             <div class="cont-abot">
-                                <img src="assets/img/company-vision.jpg" class="img-responsive" alt="">
+                                <img src="<?php echo base_url () ?>assets/img/company-vision.jpg" class="img-responsive" alt="">
                                 <h6>
                                     Who We Are & What We Do
                                 </h6>
@@ -318,7 +295,7 @@
                                         </div> -->
                                         <div class="row">
                                             <div class="col l6 m6">
-                                                <a href="mobile-device.html" class="white-text">
+                                                <a href="<?php echo base_url () ?>mobile-device" class="white-text">
                                                     <div class="busine-list">
                                                         <i class="material-icons shop-ee">phone_android</i>
                                                         <h6 class="s-heading black-text">Mobile & Devices</h6>
@@ -329,7 +306,7 @@
                                                 </a>
                                             </div>
                                             <div class="col l6 m6">
-                                                <a href="fixed-service.html" class="white-text">
+                                                <a href="<?php echo base_url () ?>fixed-service" class="white-text">
                                                     <div class="busine-list">
                                                         <i class="fas fa-broadcast-tower shop-ee"></i>
                                                         <!-- <i class="material-icons shop-ee">phonelink_setup</i> -->
@@ -713,70 +690,7 @@
 
     </div>
 
-    <footer class="page-footer ">
-        <div class="container-wrap3 pb-25">
-            <!-- <div class="row mb-0">
-                <div class="col l12 m12  s12">
-                    <h5 class="black-text center-align subscribe-heading">SUBSCRIBE NOW</h5>
-                </div>
-            </div>
-            <div class="row mb-0">
-                <div class="col  l12 m12  s12">
-                    <div class="newsletter-box">
-                        <form>
-                            <div class="row mb-0">
-                                <div class="input-field col offset-l3 l6 offset-m2 m6 s7">
-                                    <input placeholder="Enter Your Email" id="subscribe-input" type="text"
-                                        class="validate">
-                                </div>
-                                <button class="waves-effect waves-light btn subscribe-button">button</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> -->
-            <div class="row mb-0">
-                <div class="col l4 m4  s12">
-                    <h6 class="center-align ">Useful Links</h6>
-                    <ul class="center-align useful-links">
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Contact Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">About Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Product & Service</a> |
-                        </li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align">Follow Us</h6>
-                    <ul class=" center-align social-icons">
-                        <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
-                                    class="fab fa-facebook-f"></i></a></li>
-                        <li><a class="btn-floating twitter btn-small waves-effect waves-light "><i
-                                    class="fab fa-twitter"></i></a></li>
-
-                        <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
-                                    class="fab fa-youtube "></i></a></li>
-
-                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
-                                    class="fab fa-linkedin-in"></i>
-                            </a></li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align ">Address</h6>
-                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="footer-copyright ">
-            <div class="container-wrap3">
-                <center>
-                    <span class="copry-right">© Smart Link, All Rights Reserved. Developed By <a target="_blank"
-                            href="http://www.5ines.com/">5ine</a></span></center>
-            </div>
-        </div>
-    </footer>
+ <?php $this->load->view('includes/footer.php'); ?>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -809,7 +723,7 @@
             autoplay: true,
         });
         $(document).ready(function() {
-            $('.sidenav').sidenav({
+            $('#slide-out').sidenav({
                 closeOnClick: true,
                 edge: 'right', // <--- CHECK THIS OUT
             });
@@ -833,7 +747,7 @@
         $('.refer-list-detail').slick({
             dots: false,
             infinite: true,
-            autoplaySpeed: 3000,
+            autoplaySpeed: 2000,
             slidesToShow: 3,
             slidesToScroll: 1,
             // nextArrow: '<span class="next"><i class="fas fa-long-arrow-alt-right ll"></i></span>',

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -8,11 +12,6 @@ body {
 
 body {
     overflow: hidden;
-    background-color: #fbfbfb;
-}
-
-i {
-    text-rendering: optimizelegibility !important;
 }
 
 body p {
@@ -148,12 +147,6 @@ body p {
     margin-bottom: 0px;
 }
 
-.btn:hover,
-.btn-large:hover,
-.btn-small:hover {
-    background-color: #19bbdd;
-}
-
 
 /* ******************navigation bar************** */
 
@@ -203,11 +196,6 @@ nav ul a {
     z-index: 999;
 }
 
-#secondnavbar {
-    position: fixed;
-    z-index: 99999;
-}
-
 .h84 {
     height: 64px;
 }
@@ -219,75 +207,7 @@ nav ul a {
     width: 25px;
     padding: 10px;
     top: 23px;
-    right: 69px;
-}
-
-i.left {
-    margin-right: 4px;
-}
-
-.fas.fa-sign-out-alt {
-    font-size: 16px;
-}
-
-#secondnavbar.white a {
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    padding: 0 10px;
-}
-
-.notibadge.bg-red {
-    background: #F70C0C !important;
-    border: 1px solid #FF0F01 !important;
-    color: #fff;
-}
-
-.notibadge {
-    font-size: 11px;
-    font-weight: 600;
-    line-height: 13px;
-    padding: 1px 4px;
-    position: absolute;
-    right: 78px;
-    top: 15px;
-    display: inline-block;
-    min-width: 10px;
-    border-radius: 10px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-}
-
-#dropdown1 {
-    top: 65px !important;
-    width: 300px !important;
-    left: 836.1px !important;
-}
-
-#dropdown1 a:hover {
-    background-color: transparent;
-}
-
-#dropdown1 a {
-    font-size: 13px;
-    color: #000;
-    display: block;
-    line-height: 22px;
-    padding: 14px 16px !important;
-    font-weight: 400 !important;
-}
-
-.right.time {
-    margin-left: 16px;
-}
-
-.see-all {
-    background-color: #eee;
-}
-
-#mobile-demo {
-    z-index: 999999;
+    right: 64px;
 }
 
 
@@ -330,14 +250,6 @@ section {
     margin-bottom: 13px;
 }
 
-.terms-check a:hover {
-    color: #19bbdd;
-}
-
-.terms-link:hover {
-    color: #19bbdd;
-}
-
 .register-checklabel {
     font-size: 12px !important;
     font-weight: 100;
@@ -354,12 +266,14 @@ section {
 }
 
 .register-welcome img {
-    width: 85px;
+   width: 100px;
 }
 
 .register-welcome-title {
-    font-size: 25px;
-    font-weight: 600;
+font-size: 25px;
+font-weight: 600;
+margin: 0;
+padding-bottom: 10px;
 }
 
 .terms-link {
@@ -402,10 +316,6 @@ section {
     font-weight: 600;
 }
 
-.login-link a:hover {
-    color: #19bbdd;
-}
-
 #terms-error {
     top: 19px;
     left: -8px;
@@ -422,16 +332,6 @@ section {
 
 
 /* ****footer */
-
-.page-footer {
-    padding-top: 20px;
-    color: #fff;
-    background-color: #777 !important;
-}
-
-.page-footer h6 {
-    font-weight: 600;
-}
 
 .subscribe-heading {
     font-size: 21px;
@@ -471,7 +371,7 @@ section {
 .footer-address {
     line-height: 25px;
     font-weight: 100;
-    margin-bottom: 16px;
+    margin-bottom: 0;
     font-size: 14px;
     text-align: center;
     padding-left: 15px;
@@ -479,7 +379,7 @@ section {
 
 .footer-copyright {
     background-color: #464646 !important;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .social-icons .btn-floating {
@@ -503,11 +403,7 @@ section {
 }
 
 .useful-links a:hover {
-    color: #19bbdd !important
-}
-
-.copry-right a:hover {
-    color: #19bbdd;
+    color: #00a0c1 !important
 }
 
 
@@ -531,14 +427,10 @@ section {
 }
 
 .forgot-link {
-    float: right;
+    margin-left: 84px;
     font-weight: 500;
     color: #039be5;
-    font-size: 13px;
-}
-
-.forgot-link:hover {
-    color: #19bbdd;
+    font-size: 14px;
 }
 
 .error {
@@ -565,7 +457,6 @@ section {
     font-weight: 100;
     margin-bottom: 0;
     text-align: center;
-    padding-top: 8px;
 }
 
 
@@ -608,12 +499,6 @@ section {
     font-size: 12px !important;
     color: black;
     font-weight: 400;
-}
-
-#resend-code {
-    cursor: pointer;
-    float: right;
-    margin-right: 25px;
 }
 
 
@@ -723,7 +608,7 @@ section {
 /**********refer a friend********/
 
 .select-wrapper input.select-dropdown {
-    color: #000;
+    color: #c0c0c0;
 }
 
 #sidebarclose {
@@ -799,8 +684,6 @@ section {
     font-size: 14px;
     color: gray;
     margin-bottom: 7px;
-    text-align: center;
-    font-weight: 600;
 }
 
 .text-center {
@@ -1098,34 +981,12 @@ section {
 
 /**list-of-claim**/
 
-.view-smart-code {
-    background-color: #00a0c1;
-    font-size: 12px;
-}
-
-.code-displayed {
-    width: 75%;
-    font-size: 15px;
-    height: 32.4px;
-    line-height: 1.4px;
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    overflow: hidden;
-    text-align: center;
-    color: #151515;
-    padding: 17px 0px;
-    border: 2px dashed #00a0c1;
-}
-
 .claim-table th {
     font-size: 13px;
-    text-align: center;
 }
 
 .claim-table td {
     font-size: 12px;
-    text-align: center;
 }
 
 .claim-detail {
@@ -1146,22 +1007,7 @@ section {
     cursor: pointer;
 }
 
-.modal.smartcode {
-    width: 35%;
-    border-radius: 5px;
-}
-
-.modal.newpass {
-    width: 35%;
-    border-radius: 5px;
-}
-
-.modal.otpmodal {
-    width: 35%;
-    border-radius: 5px;
-}
-
-.modal.newpass {
+#smartcode {
     width: 35%;
     border-radius: 5px;
 }
@@ -1173,174 +1019,22 @@ section {
     color: #056a6a;
 }
 
-.mc-smartcode .mod-title {
+.mc-smartcode p {
     font-size: 12px;
     text-align: center;
     margin: 0px;
     padding-bottom: 25px;
 }
 
-.modal.forgot-pass {
-    width: 35%;
-    border-radius: 5px;
-}
-
-#resend-success {
-    font-size: 13px;
-}
-
-.code-displayed button {
-    float: right;
-    top: -17px;
-    position: relative;
-    border: 0;
-    background-color: #00a0c1;
-    color: #fff;
-    padding: 4px 7px;
-    cursor: pointer;
-    line-height: 26px;
+.table-note {
+    border: 1px solid #b0b0b0;
+    padding: 0px 20px;
+    margin-top: 10px;
+    color: olive
 }
 
 
 /*end list of claim*/
-
-
-/* ********** referal list detail********** */
-
-.referal-list-title {
-    margin-top: 0;
-    padding-bottom: 10px;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-#referal-list th {
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-}
-
-#referal-list td {
-    font-size: 13px !important;
-    text-align: center;
-}
-
-.reedit i {
-    font-size: 21px;
-}
-
-.redelete i {
-    font-size: 21px;
-}
-
-
-/* *******toast*********** */
-
-#toast-container {
-    right: 0 !important;
-    max-width: 26% !important;
-    left: 35px !important;
-    bottom: 20% !important;
-    color: #000;
-}
-
-.toast {
-    color: #000;
-    font-size: 13px;
-    border: 1px solid #dfdbdb;
-    padding: 25px 25px;
-    -webkit-box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
-}
-
-.toast .toast-action {
-    color: #000;
-    font-size: 12px;
-    position: relative;
-    top: -21px;
-}
-
-.toast .btn-flat i {
-    font-size: 18px;
-    line-height: inherit;
-    color: #5e6062;
-}
-
-
-/************tool tip******/
-
-.material-tooltip {
-    font-size: 11px;
-}
-
-
-/* ******** ** ****************MEDIA QUERY **TABLET********************* */
-
-@media(min-width: 600px) and (max-width: 992px) {
-    .card-content.agent-right-content {
-        padding: 30px 20px 30px 20px !important;
-    }
-    .notibadge {
-        right: 140px;
-    }
-    .pad40 {
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-    }
-    section {
-        padding: 40px 0;
-    }
-    .register-welcome {
-        margin-top: 40px;
-    }
-    .tb-mb0 {
-        margin-bottom: 0;
-    }
-    .footer-address {
-        margin-bottom: 0;
-    }
-    .loginpad {
-        padding: 25px 15px 25px 15px;
-    }
-    .forgot-link {
-        float: right;
-        font-weight: 500;
-        color: #039be5;
-        font-size: 13px;
-    }
-    /* agent edit profile */
-    #agent-edit {
-        width: 75%;
-    }
-    /**********refer a friend********/
-    .refer-friend .card-content.agent-right-content {
-        padding: 24px !important;
-    }
-    #toast-container {
-        top: 50% !important;
-        right: 10px !important;
-        max-width: 26% !important;
-        bottom: 20% !important;
-        color: #000;
-    }
-    /*claim reward*/
-    .modal.smartcode {
-        width: 50%;
-        border-radius: 5px;
-    }
-    .modal.newpass {
-        width: 50%;
-        border-radius: 5px;
-    }
-    .modal.otpmodal {
-        width: 50%;
-        border-radius: 5px;
-    }
-    .modal.newpass {
-        width: 50%;
-        border-radius: 5px;
-    }
-}
 
 
 /* ******** ** ****************MEDIA QUERY **mobile********************* */
@@ -1352,9 +1046,8 @@ section {
         padding-left: 0 !important;
     }
     .brand-logo img {
-        padding-top: 9px;
-        width: 226px;
-        margin-left: 25px;
+        padding-top: 11px;
+        margin-left: 15px;
     }
     section {
         padding: 40px 0;
@@ -1373,12 +1066,6 @@ section {
         text-align: justify;
         padding-left: 0;
     }
-    .register-welcome-title {
-        font-size: 20px;
-    }
-    .terms-link {
-        font-size: 15px;
-    }
     /*footer*/
     .subscribe-button {
         height: 36px;
@@ -1388,17 +1075,7 @@ section {
     }
     .footer-address {
         margin-bottom: 0;
-        text-align: justify;
-    }
-    /* navbar */
-    nav .sidenav-trigger {
-        margin: 0;
-    }
-    .sidenav {
-        width: 230px;
-    }
-    nav .brand-logo {
-        line-height: 10px;
+        text-align: center;
     }
     /*login page*/
     #login-form {
@@ -1406,7 +1083,7 @@ section {
         margin-bottom: 6px;
     }
     .forgot-link {
-        float: right;
+        margin-left: 40px;
     }
     .register-formbutton {
         padding-right: 20px;
@@ -1431,19 +1108,6 @@ section {
     #sidebarclose i {
         font-size: 18px;
     }
-    /* referal list */
-    #referal-list th {
-        font-size: 12px;
-        font-weight: 600;
-    }
-    /*****claim reward*****/
-    .modal.forgot-pass {
-        width: 80%;
-        border-radius: 5px;
-    }
-    .of-table{
-        overflow-x: scroll !important;
-    }
 }
 
 
@@ -1451,19 +1115,11 @@ section {
 
 @media(min-width:320px) and (max-width: 600px) {
     .forgot-link {
-        float: right;
+        margin-left: 12px;
     }
     /* agent edit profile */
     #agent-edit {
         width: 80%;
-    }
-    /* referal list */
-    #referal-list th {
-        font-size: 12px;
-        font-weight: 600;
-    }
-    .of-table{
-        overflow-x: scroll !important;
     }
 }
 
@@ -1482,19 +1138,7 @@ section {
         padding: 14px;
     }
     /*list of claim*/
-    .modal.smartcode {
-        width: 80%;
-        border-radius: 5px;
-    }
-    .modal.newpass {
-        width: 80%;
-        border-radius: 5px;
-    }
-    .modal.otpmodal {
-        width: 80%;
-        border-radius: 5px;
-    }
-    .modal.newpass {
+    #smartcode {
         width: 80%;
         border-radius: 5px;
     }
@@ -1551,31 +1195,4 @@ section {
         font-size: 13px;
         text-align: left;
     }
-    /* referal list */
-    #referal-list th {
-        font-size: 12px;
-        font-weight: 600;
-    }
-}
-
-
-/* ************preloader*****/
-
-.preloader-verfy {
-    top: 0px;
-    display: none;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 10;
-    cursor: pointer;
-    left: 0;
-}
-
-.preloader-wrapper.big {
-    width: 40px;
-    height: 40px;
-    top: 145px;
 }

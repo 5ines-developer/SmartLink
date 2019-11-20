@@ -22,17 +22,17 @@
             </div> -->
             <div class="row mb-0">
                 <div class="col l4 m4  s12">
-                    <h6 class="center-align">Useful Links</h6>
+                    <h6 class="center-align ">Useful Links</h6>
                     <ul class="center-align useful-links">
-                        <li class="white-text"><a class="white-text" href="#!">Contact Us</a> | </li>
-                        <li class="white-text"><a class="white-text" href="#!">About Us</a> | </li>
-                        <li class="white-text"><a class="white-text" href="#!">Refer & Earn</a> | </li>
-                        <li class="white-text"><a class="white-text" href="#!">Product & Service</a> |
+                        <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>contact-us">Contact Us</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>#about">About Us</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>#refer">Refer & Earn</a> | </li>
+                        <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>#product">Products & Service</a> |
                         </li>
                     </ul>
                 </div>
                 <div class="col l4 m4 s12">
-                    <h6 class="center-align white-text">Follow Us</h6>
+                    <h6 class="center-align">Follow Us</h6>
                     <ul class=" center-align social-icons">
                         <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
                                     class="fab fa-facebook-f"></i></a></li>
@@ -42,14 +42,18 @@
                         <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
                                     class="fab fa-youtube "></i></a></li>
 
-                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i class="fab fa-linkedin-in"></i>
+                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
+                                    class="fab fa-linkedin-in"></i>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col l4 m4 s12">
-                    <h6 class="center-align white-text">Address</h6>
-                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-                        animi, eveniet hic aliquid </p>
+                    <h6 class="center-align ">Countact Us</h6>
+                    <p class="footer-address white-text">Landline : <a href="tel:+971 42535555">+971 42535555</a> </p>
+                    <p class="footer-address white-text">Whatsapp :
+                            <a href="tel:0502904073">0502904073</a>
+                        </p>
+                    <!-- <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p> -->
                 </div>
             </div>
         </div>

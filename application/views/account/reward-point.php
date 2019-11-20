@@ -38,15 +38,15 @@
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
                                                 <i class="fas fa-thumbs-up icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'0' ; ?></h5>
-                                                <p class="para-reward">Unclaimed Rewards Points</p>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ; ?></h5>
+                                                <p class="para-reward">Unclaimed Reward Points</p>
                                             </div>
                                         </div>
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="completed-refer">
                                                 <i class="fas fa-thumbs-down icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward['avil_reward_point']))?$reward['claimed_points']+$reward['temp_claimed']:'0' ?></h5>
-                                                <p class="para-reward">Claimed Rewards Points</p>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($claimed))?$claimed:'0' ?></h5>
+                                                <p class="para-reward">Claimed Reward Points</p>
                                             </div>
                                         </div>
                                     </div>
@@ -54,16 +54,16 @@
                                     <div class="row">
                                         <div class="col xl6">
                                             <div class="claim-point">
-                                                <h6 class="title-claim">Claim Rewards Point</h6>
+                                                <h6 class="title-claim">Claim Reward Points</h6>
                                                 <form action="<?php echo base_url() ?>claim-points" method="post" id="signup-form">
                                                     <div class="input-field ">
                                                         <input placeholder="Enter reward point" name="reward"
                                                             id="reward" type="text" required>
                                                         <label for="reward" class="black-text">Enter reward point</label>
-                                                        <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']:'' ?>">
+                                                        <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
                                                         <span class="helper-text"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
 
-                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward['avil_reward_point']))?$reward['avil_reward_point']-$reward['temp_claimed']:'' ?>">
+                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
                                                             <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
                                                             <p id="paswrd-error" class="error required"></p>
                                                     </div>
@@ -93,14 +93,12 @@
 
             var total_reward = $('#tot_reward').val();
             var unclaimed = $('#unclaimed').val();
-            var reward = $("input[name=reward]").val();
-
-
-            if (reward <= unclaimed) {
+            var reward = $("input[name=reward]").val(); 
+            if (parseInt(unclaimed) >= parseInt(reward)) {
                 $( "#signup-form" ).submit();
             } else{
                 $("#paswrd-error>span").remove();
-                $("#paswrd-error").append("<span>Please enter a reward point which is less than available points</span>");
+                $("#paswrd-error").append("<span>Unable To process this request, you don\'t have sufficient reward points</span>");
                 return false;
 
             }         
