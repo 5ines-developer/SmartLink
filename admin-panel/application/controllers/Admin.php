@@ -112,6 +112,10 @@ class Admin extends CI_Controller
      */
     public function logout()
     {
+        $session_data = array(
+            'unique_id' => $this->session->userdata('unique_id'),
+            'adminemail'     => $this->session->userdata('adminemail'),
+        );
         $this->session->unset_userdata($session_data);
         $this->session->sess_destroy();
         $this->session->set_flashdata('logout', 'You are logged out Successfully');
@@ -135,10 +139,10 @@ class Admin extends CI_Controller
         } else {
             $config = array(
                 'protocol' => 'smtp',
-                'smtp_host' => 'mail.5ine.in',
-                'smtp_port' => 465,
-                'smtp_user' => 'testing@5ine.in',
-                'smtp_pass' => '5ine%ine1234',
+                'smtp_host' => 'mail.smartlink.ae',
+                'smtp_port' => 587,
+                'smtp_user' => 'no-reply@smartlink.ae',
+                'smtp_pass' => 's}t[xARFsONt',
                 'mailtype' => 'html',
                 'charset' => 'iso-8859-1',
             );
@@ -147,7 +151,7 @@ class Admin extends CI_Controller
             $this->load->library('email');
             // $this->email->clear(TRUE);
 
-            $this->email->from('testing@5ine.in');
+            $this->email->from('no-reply@smartlink.ae');
             $this->email->to($email);
             $this->email->subject('forgot password - Smart Link');
             $this->email->message('click here to set  a new password <a href="' . base_url() . 'set-password/' . $forgotid . '">Reset Password</a>');

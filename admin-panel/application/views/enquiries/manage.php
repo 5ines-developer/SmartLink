@@ -1,7 +1,3 @@
-<?php
-  $this->ci =& get_instance();
-  $this->ci->load->model('referal_model');
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,10 +44,6 @@
     <style>
     p{font-size: 12px;}
     .banner-button{float: right;}
-    .x_title h2 {
-    margin: 23px 0 6px;}
-    ul {
-    margin-bottom: 0;}
     </style>
   </head>
   <body class="nav-md">
@@ -91,21 +83,7 @@
                   </div>
                   <?php } ?>
                   <div class="x_title">
-                    <h2>Reward Points Claim Request</h2>
-                    <div class="banner-button">
-                      <ul class="referal-filter">
-                        <li class="dropdown">
-                          <a class="btn btn-app referal-filter-button" href="#"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>
-                          <ul class="dropdown-menu filter-menu">
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims"  >All</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=approved" >Approved</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=rejected" >Rejected</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=pending" >Pending</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                      
-                    </div>
+                    <h2>Enquiries</h2>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -121,31 +99,27 @@
                       <thead>
                         <tr>
                           <th>Sl No.</th>
-                          <th>Claimed By </th>
-                          <th>Points</th>
-                          <th>Status</th>
-                          <th>Claimed On</th>
-                          <th>Operations</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Phone</th>
+                          <th>Subject</th>
+                          <th>Date</th>
+                          <th>Operation</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php  $cont = 0; if (!empty($claim))
+                        <?php  $cont = 0; if (!empty($result))
                         {
-                        foreach ($claim as $key => $value) {$cont = $cont + 1;?>
+                        foreach ($result as $key => $value) {$cont = $cont + 1;?>
                           <tr>
-                          <td><?php echo (!empty($claim))?$cont:'---' ?></td>
-                          <td><a href="<?php echo base_url('view-agent/').$value->agent_id ?>" ><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></a></td>
-                          <td><?php echo (!empty($value->claimed_points))?$value->claimed_points:'---'  ?></td>
-                          <td class="<?php echo 'refre_status'.$value->claim_status?>"><?php if ($value->claim_status == '1') {
-                            echo 'Approved';
-                          }else if ($value->claim_status == '2') {
-                            echo 'Rejected';
-                          }else{
-                            echo 'Pending';
-                          } ?></td>
-                          <td><?php echo (!empty($value->claimed_on))?date("d-M-y h:i:s", strtotime($value->claimed_on)):'---'; ?></td>
-                          <td style="text-align:center;"><a href="<?php echo base_url('view-reward-claims/').$value->uniq?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <!-- <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-reward-claims/').$value->uniq?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> -->
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($result))?$cont:'---' ?></a></td>
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($value->name))?$value->name:'--'  ?></a></td>
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($value->email ))?$value->email :'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($value->phone))?$value->phone:'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($value->subject))?$value->subject:'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('enquiries/view/').$value->id ?>"> <?php echo (!empty($value->date))?date("d M, y", strtotime($value->date)):'---'; ?></a></td>
+                          <td style="text-align:center;"><a href="<?php echo base_url('enquiries/view/').$value->id?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
+                          
                         </td>
                       </tr>
                       <?php } }?>

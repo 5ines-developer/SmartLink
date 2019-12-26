@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <?php $this->load->view('includes/header.php'); ?>
+    <?php $this->load->view('includes/header.php'); ?>
     <section class="pad-0">
         <!-- <div class="vd-box">
                 <video autoplay muted loop id="myVideo" width="100%">
@@ -42,7 +42,8 @@
                 <div class="col l12">
                     <div class="about-h">
                         <h5 class="head">ABOUT US</h5>
-                        <p class="para-p tj">Incubated in the City of Gold, Dubai, we provide exemplary telecom solutions through innovation, technical expertise and fair business practices. Smart Link, as the name suggests—with defined, designed technology and process enabled business solutions, aid our clients to grow up to their prospects—ushering in value, reputation and connections; all the smartest way.</p>
+                        <p class="para-p tj">Incubated in the City of Gold, Dubai, we provide exemplary telecom solutions through innovation, technical expertise and fair business practices. Smart Link, as the name suggests—with defined, designed technology and process enabled
+                            business solutions, aid our clients to grow up to their prospects—ushering in value, reputation and connections; all the smartest way.</p>
                     </div>
                 </div>
             </div>
@@ -52,9 +53,12 @@
                         <div class="col-img">
                             <div class="cont-abot">
                                 <h6>
-                                   <b>Who We Are & What We Do ?</b>
+                                    <b>Who We Are & What We Do ?</b>
                                 </h6>
-                                <p>It is always a task to meet business requirements complying telecom and the latest technology within your budget, especially for SME’s. Managing telecom expenses require a special blend of IT and finance knowledge, coupled with service procedures and operators’ internal updates. The first and best way to reduce your telecom spend starts from having the right tools and processes in place, we know it better than anyone. We offer judicious methodologies and help enterprises to execute them with expert advisors and designated account managers. With standard business strategies, techniques and ethics we have been successfully assisting various enterprises with regards to their telecommunication and technology requirements.</p>
+                                <p>It is always a task to meet business requirements complying telecom and the latest technology within your budget, especially for SME’s. Managing telecom expenses require a special blend of IT and finance knowledge, coupled
+                                    with service procedures and operators’ internal updates. The first and best way to reduce your telecom spend starts from having the right tools and processes in place, we know it better than anyone. We offer judicious
+                                    methodologies and help enterprises to execute them with expert advisors and designated account managers. With standard business strategies, techniques and ethics we have been successfully assisting various enterprises
+                                    with regards to their telecommunication and technology requirements.</p>
                                 <!-- <a href="">OUR COMPANY HISTORY</a><span><i class="material-icons">trending_flat</i></span> -->
                             </div>
                         </div>
@@ -62,8 +66,8 @@
                     <div class="col l4 m4 s12">
                         <div class="cont-abot-team">
                             <div class="our-team-detail">
-                               <center> <img src="<?php echo base_url () ?>assets/img/company-vision.png" class="img-responsive" alt=""></center>
-                               <!--  <h5>Our Team</h5>
+                                <center> <img src="<?php echo base_url () ?>assets/img/company-vision.png" class="img-responsive" alt=""></center>
+                                <!--  <h5>Our Team</h5>
                                 <p>We are wll-corordinated team of professionals which uses innovative solutions-helping small and large enterprises across the Emirates with regards to teir telecommunication needs</p> -->
                                 <!-- <div class="slider-team">
                                     <div class="slider-team-list">
@@ -90,8 +94,9 @@
                     <div class="col l12 m12 s12">
                         <div class="cont-abot-team">
                             <div class="our-team-detail">
-                                 <h5>Our Team</h5>
-                                <p>We are a blend of dedicated professionals that includes Account Executives, Telecom Consultants, Operations Experts and Retention Specialists who practices innovative solutions to help SME’s across the Emirates. These talented people are through and through successful in helping and building strong relationships with our clients, round o'clock.</p>
+                                <h5>Our Team</h5>
+                                <p>We are a blend of dedicated professionals that includes Account Executives, Telecom Consultants, Operations Experts and Retention Specialists who practices innovative solutions to help SME’s across the Emirates. These talented
+                                    people are through and through successful in helping and building strong relationships with our clients, round o'clock.</p>
                             </div>
                         </div>
                     </div>
@@ -351,7 +356,7 @@
                             <div class="row">
                                 <div class="col l12 m12">
                                     <div class="personal">
-                                      <!--   <h4 class="info-it">Information Technology</h4> -->
+                                        <!--   <h4 class="info-it">Information Technology</h4> -->
                                         <!-- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
                                             nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p> -->
                                     </div>
@@ -362,7 +367,7 @@
                                         <div class="personal">
                                             <h4 class="black-text">PBX SYSTEM & IP PHONES</h4>
                                             <p class="align-center black-text">A complete solution for a business startup with IP/Analogue phones installation and configuration </p>
-                                             <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
+                                            <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
                                         </div>
 
                                     </div>
@@ -374,8 +379,8 @@
                                             <h4 class="black-text">WEB DEVOLPMENT & APP ( IOS , ANDROID )</h4>
                                             <p class="black-text">Say not to template website, Make your own custom website @ affordable price.
                                             </p>
-                                             <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
-                                    <!--         <p class="black-text">Mobile apps ( IOS/APK ) are designed and Hosted @ affordable price for new and existing business.
+                                            <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
+                                            <!--         <p class="black-text">Mobile apps ( IOS/APK ) are designed and Hosted @ affordable price for new and existing business.
                                             </p> -->
                                         </div>
                                     </div>
@@ -463,27 +468,27 @@
                             <div class="col l5 m5">
                                 <img src="assets/img/step1.png" class="img-responsive" alt="">
                                 <table class="striped bor-ffs ">
-                                                        <thead>
-                                                            <tr>
-                                                                <th colspan="" class="center">Product Name</th>
-                                                                <th colspan="" class="center">Reward Point (1point=AED 1)</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="center">Business Broadband</td>
-                                                                <td class="center">500 Points</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="center ">Business Postpaid Plan</td>
-                                                                <td class="center ">TBD</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td class="center ">Home Broadband</td>
-                                                                <td class="center ">350 Points</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                    <thead>
+                                        <tr>
+                                            <th colspan="" class="center">Product Name</th>
+                                            <th colspan="" class="center">Reward Point (1point=AED 1)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="center">Business Broadband</td>
+                                            <td class="center">500 Points</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center ">Business Postpaid Plan</td>
+                                            <td class="center ">TBD</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="center ">Home Broadband</td>
+                                            <td class="center ">350 Points</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="col l7 m7">
                                 <div class="refer-frd">
@@ -492,7 +497,7 @@
                                         <ul class="collapsible">
                                             <li class="">
                                                 <div class="collapsible-header ch-faq icon">
-                                               <span>HOW WILL I KNOW ABOUT PROGRESS OF MY REFErals ?</span>
+                                                    <span>HOW WILL I KNOW ABOUT PROGRESS OF MY REFErals ?</span>
                                                 </div>
                                                 <div class="collapsible-body cb-faq"><span>User will receive notification on app or web portal , on approval of submission, progress, activation, rewarded point & when you claim you reward.</span></div>
                                             </li>
@@ -535,7 +540,7 @@
                                             </li>
                                             <li>
                                                 <div class="collapsible-header ch-faq icon">
-                                                <span>WHAT IF MY SUBMIITED REFERNCE IS APPROVED ?</span>
+                                                    <span>WHAT IF MY SUBMIITED REFERNCE IS APPROVED ?</span>
                                                 </div>
                                                 <div class="collapsible-body cb-faq"><span>All submissions are verified by Admin for possible errors and will notify user if approved or rejected.
                                                             Admin reserve all the rights to reject or approve any reference or claims by a user.
@@ -548,7 +553,7 @@
                                             </li>
                                             <li>
                                                 <div class="collapsible-header ch-faq icon">
-                                                <span>How much I can claim in a day ?</span>
+                                                    <span>How much I can claim in a day ?</span>
                                                 </div>
                                                 <div class="collapsible-body cb-faq"><span>All reward points will be accumulated in users dash board, user can encash reward points in multiples of 100 , minimum of AED 100 & maximum of AED 2000.</span></div>
                                             </li>
@@ -649,44 +654,50 @@
                         <div class="col l4 s12 offset-l2">
                             <div class="input-field ">
                                 <input id="name" name="name" type="text" class="validate" required>
-                                <label for="name" >Name</label>
+                                <label for="name">Name</label>
                             </div>
                         </div>
                         <div class="col l4 s12 ">
                             <div class="input-field ">
                                 <input id="phone" name="phone" type="text" class="validate" required>
-                                <label for="phone" >Phone</label>
+                                <label for="phone">Phone</label>
                             </div>
                         </div>
                         <div class="col l4 s12 offset-l2">
                             <div class="input-field ">
                                 <input id="email" name="email" type="text" class="validate">
-                                <label for="email" >Email</label>
+                                <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="col l4 s12 ">
                             <div class="input-field ">
                                 <input id="subject" name="subject" type="text" class="validate">
-                                <label for="subject" >Subject</label>
+                                <label for="subject">Subject</label>
                                 <input type="hidden" value="<?php echo random_string('alnum',16); ?>" name="uniq">
                             </div>
                         </div>
-                        <div class="col l8 s12 offset-l2">
+                        <div class="col l8 offset-l2">
                             <div class="input-field ">
                                 <textarea id="textarea2" name="message" class="materialize-textarea"></textarea>
                                 <label for="textarea2">Mesaage</label>
                             </div>
                         </div>
 
-                        <div class="col l8 s12 offset-l4">
+                        <div class="col l5 s12 offset-l2">
 
-                        <div class="form-group marcls">
-                            <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c" id="captcha1"></div>
-                            <input type="hidden" class="hiddenRecaptcha" name="c_val1"
-                                        id="c_val1">
+                            <div class="form-group marcls">
+                                <?php $n1 =  random_string('numeric', 1);
+                            $n2 =  random_string('numeric', 1); 
+                            $st = $n1 + $n2;
+                            ?>
+                                <label><b style="color: black;">Before submit please verify you are not robot: &nbsp;<?php echo $n1.'+'.$n2 ?>  </b></label>
+                                <input type="hidden" value="<?php echo $n1 ?>" name="n1">
+                                <input type="hidden" value="<?php echo $n2 ?>" name="n2">
+                                <input type="hidden" value="<?php echo $st ?>" name="vali" id="vali">
+                                <input class="input-yy valid_num" type="number" name="result" value="" size="40" placeholder="<?php echo $n1.'+'.$n2 ?> =" aria-invalid="false" required>
+                            </div>
+                            <!-- <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div> -->
                         </div>
-                        <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div>
-                    </div>
 
                     </div>
                     <div class="butt-btn">
@@ -741,15 +752,21 @@
                                 <label for="textarea1" class="lab-in">Message</label>
                             </div>
                         </div>
-                       <div class="col l12 s12 ">
+                        <div class="col l12 s12 ">
                             <div class="form-group marcls">
-                                <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c" id="captcha2"></div>
-                                <input type="hidden" class="hiddenRecaptcha" name="c_val2"
-                                        id="c_val2">
+                                <?php $n1 =  random_string('numeric', 1);
+                            $n2 =  random_string('numeric', 1); 
+                            $st = $n1 + $n2;
+                            ?>
+                                <label><b style="color: black;">Before submit please verify you are not robot: &nbsp;<?php echo $n1.'+'.$n2 ?>  </b></label>
+                                <input type="hidden" value="<?php echo $n1 ?>" name="n1">
+                                <input type="hidden" value="<?php echo $n2 ?>" name="n2">
+                                <input type="hidden" value="<?php echo $st ?>" name="vali-m" id="vali-m">
+                                <input class="input-yy valid_num" type="number" name="result" value="" size="40" placeholder="<?php echo $n1.'+'.$n2 ?> =" aria-invalid="false" required>
                             </div>
-                            <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div>
+                            <!-- <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div> -->
                         </div>
-                        
+
 
                     </div>
                     <div class="butt-btn">
@@ -762,7 +779,7 @@
 
     </div>
 
- <?php $this->load->view('includes/footer.php'); ?>
+    <?php $this->load->view('includes/footer.php'); ?>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -770,54 +787,36 @@
     <script src="assets/javascript/jquery.validate.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
-        var CaptchaCallback = function() {
-            var captcha1;
-            var captcha2;
+        $(function() {
 
-            captcha1 = grecaptcha.render('captcha1', {
-                'sitekey': '6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c',
-                'callback': correctCaptcha_quote
-            });
-
-            captcha2 = grecaptcha.render('captcha2', {
-                'sitekey': '6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c',
-                'callback': correctCaptcha_quote1
-            });
-        }
-
-
-                var correctCaptcha_quote = function(response) {
-                    $("#c_val1").val(response);
+            $("#cone").validate({
+                rules: {
+                    result: {
+                        equalTo: "#vali",
+                    }
+                },
+                messages: {
+                    result: {
+                        equalTo: 'Invalid Result',
+                    }
                 }
 
-            var correctCaptcha_quote1 = function(response) {
-                    $("#c_val2").val(response);
-            }
+            });
+            $("#csecond").validate({
+                rules: {
+                    result: {
+                        equalTo: "#vali-m",
+                    }
+                },
+                messages: {
+                    result: {
+                        equalTo: 'Invalid Result',
+                    }
+                }
 
-
-        $("#cone").validate({
-
-            ignore: [],
-
-            rules: {
-                c_val1: {required: true, },
-            },
-        });
-
-
-        $("#csecond").validate({
-
-            ignore: [],
-
-            rules: {
-
-                c_val2: {required: true, },
-                
-            },
+            });
 
         });
-
-
     </script>
     <script>
         $(document).ready(function() {
@@ -908,12 +907,12 @@
                 $(".a-para2").fadeToggle();
             });
         });
-            $(document).ready(function() {
+        $(document).ready(function() {
             $(".claim3").click(function() {
                 $(".a-para3").fadeToggle();
             });
         });
-            $(document).ready(function() {
+        $(document).ready(function() {
             $(".claim4").click(function() {
                 $(".a-para4").fadeToggle();
             });
@@ -954,7 +953,7 @@
             )
         });
     </script>
-   <script>
+    <script>
         $(document).ready(function() {
             $('.per').hover(
                 function() {
@@ -975,6 +974,7 @@
             )
         });
     </script>
+
 </body>
 
 </html>

@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'www.5ineprojects.com',
-	'username' => 'a5inepro_smart',
-	'password' => 'zF)a+RT}!]Dv',
-	'database' => 'a5inepro_smartlink',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'smartlink',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

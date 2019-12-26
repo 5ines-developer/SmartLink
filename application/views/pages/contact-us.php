@@ -94,12 +94,20 @@
                                         </div>
                                     </div>
 
-                                    <div class="col l12 s12 ">
+                                    <div class="col l6 s12 ">
                                         <div class="form-group marcls">
-
-                                            <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c"></div>
+                                            <?php $n1 =  random_string('numeric', 1);
+                                            $n2 =  random_string('numeric', 1); 
+                                            $st = $n1 + $n2;
+                                            ?>
+                                            <label><b style="color: black;">Before submit please verify you are not robot: &nbsp;<?php echo $n1.'+'.$n2 ?>  </b></label>
+                                            <input type="hidden" value="<?php echo $n1 ?>" name="n1">
+                                            <input type="hidden" value="<?php echo $n2 ?>" name="n2">
+                                            <input type="hidden" value="<?php echo $st ?>" name="vali" id="vali">
+                                            <input class="input-yy valid_num" type="number" name="result" value="" size="40" placeholder="<?php echo $n1.'+'.$n2 ?> =" aria-invalid="false" required>
+                                            <!-- <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c"></div> -->
                                         </div>
-                                        <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div>
+                                        <!-- <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div> -->
                                     </div>
 
                                 </div>
@@ -135,7 +143,7 @@
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/javascript/script.js"></script>
     <script src="assets/javascript/jquery.validate.min.js"></script>
@@ -152,14 +160,16 @@
     <script>
         $(function() {
 
-            $('#contactform').on('submit', function(e) {
-
-                if (grecaptcha.getResponse() == "") {
-
-                    e.preventDefault();
-
-                    $('.error').text('Captcha is required');
-
+            $("#contactform").validate({
+                rules: {
+                    result: {
+                        equalTo: "#vali",
+                    }
+                },
+                messages: {
+                    result: {
+                        equalTo: 'Invalid Result',
+                    }
                 }
 
             });

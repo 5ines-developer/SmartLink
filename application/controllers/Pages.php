@@ -42,34 +42,45 @@ class Pages extends CI_Controller
 
     public function send_contact($value='')
     {
-        $this->form_validation->set_rules('name', 'Name', 'trim|required');
-        $this->form_validation->set_rules('phone', 'Phone', 'trim|required|numeric');
-        if ($this->form_validation->run() == TRUE) {
-            $insert = array(
-                'name'  => $this->input->post('name'),
-                'email' => $this->input->post('email'),
-                'phone' => $this->input->post('phone'),
-                'subject' => $this->input->post('subject'),
-                'message' => $this->input->post('message'),
-                'uniq' => $this->input->post('uniq'),
-            );
+        $n1 = $this->input->post('n1');
+		$n2 = $this->input->post('n2');
+		$result = $this->input->post('result');
+        $s = $n1 + $n2;
 
-            if($this->m_account->contactInsert($insert))
-            {// 
-                $this->sendEmail($insert);
-                $this->load->view('pages/thank-you');
-            }else{
-                $this->session->set_flashdata('error','Unable to subit your request <br> Please try agin later.');
+        if($result == $s){
+            $this->form_validation->set_rules('name', 'Name', 'trim|required');
+            $this->form_validation->set_rules('phone', 'Phone', 'trim|required|numeric');
+            if ($this->form_validation->run() == TRUE) {
+                $insert = array(
+                    'name'  => $this->input->post('name'),
+                    'email' => $this->input->post('email'),
+                    'phone' => $this->input->post('phone'),
+                    'subject' => $this->input->post('subject'),
+                    'message' => $this->input->post('message'),
+                    'uniq' => $this->input->post('uniq'),
+                );
+
+                if($this->m_account->contactInsert($insert))
+                {// 
+                    $this->sendEmail($insert);
+                    // print_r($insert);exit;
+                    $this->load->view('pages/thank-you');
+                }else{
+                    $this->session->set_flashdata('error','Unable to subit your request <br> Please try agin later.');
+                    redirect(base_url(),'refresh');
+                }
+                
+            } else {
+                $error = validation_errors();
+                $this->session->set_flashdata('formerror',$error);
                 redirect(base_url(),'refresh');
             }
-            
-        } else {
-            $error = validation_errors();
-            $this->session->set_flashdata('formerror',$error);
+        }else{
+            $this->session->set_flashdata('error','Invalid Human verification .');
             redirect(base_url(),'refresh');
         }
-    }
 
+    }
 
     public function sendEmail($insert='')
     {

@@ -1,0 +1,10 @@
+[17-Jul-2019 05:58:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 23
+[17-Jul-2019 05:58:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 23
+[17-Jul-2019 05:58:34 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 24
+[17-Jul-2019 05:59:00 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 24
+[17-Jul-2019 05:59:20 Etc/GMT] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 25
+[17-Jul-2019 06:08:44 Etc/GMT] PHP Parse error:  syntax error, unexpected ',' in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/views/referrals/manage-referal-request.php on line 141
+[17-Jul-2019 06:23:57 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/models/Referal_model.php on line 15
+[17-Jul-2019 09:48:17 Etc/GMT] PHP Fatal error:  Call to undefined method Reward_model::claimed_point() in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/controllers/Rewards.php on line 67
+[19-Sep-2019 15:38:14 Etc/GMT] PHP Parse error:  syntax error, unexpected 'POST' (T_STRING) in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/controllers/Push_noti.php on line 142
+[20-Nov-2019 10:47:27 Etc/GMT] PHP Fatal error:  Cannot use object of type stdClass as array in /home/a5ineprojects9/public_html/smartlink/admin-panel/application/controllers/Push_noti.php on line 97

@@ -21,6 +21,8 @@
                   <li><a href="<?php echo base_url() ?>manage-referals"><i class="fa fa-user-plus" aria-hidden="true"></i> Referals</a></li>
                   <li><a href="<?php echo base_url() ?>manage-reward-claims"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Rewards Claim Request</a></li>
                   <li><a href="<?php echo base_url() ?>manage-agents"><i class="fa fa-users" aria-hidden="true"></i> Agents</a></li>
+                  <li><a href="<?php echo base_url() ?>push-notification"><i class="fa fa-comments-o" aria-hidden="true"></i> Push Notification</a></li>
+                  <li><a href="<?php echo base_url() ?>enquiries"><i class="fa fa-comments-o" aria-hidden="true"></i> Enquiries</a></li>
                 </ul>
               </div>
             </div>

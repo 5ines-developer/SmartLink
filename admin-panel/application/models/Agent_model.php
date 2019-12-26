@@ -45,6 +45,17 @@ class Agent_model extends CI_Model
 
     }
 
+    public function delete_agent($id='')
+    {
+        $this->db->where('agent_id', $id)->delete('agent');
+        if ($this->db->affected_rows() > 0) {
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     //get total referrals
     public function referals($id = null)
     {
@@ -66,6 +77,15 @@ class Agent_model extends CI_Model
         $this->db->where('referee_status','1');
         $query = $this->db->get('referral');
         return $query->num_rows();
+    }
+
+    //get approval referrals count
+    public function service($id = null)
+    {
+        $this->db->select('service');
+        $this->db->where('uniq', $id);
+        $query = $this->db->get('product')->row_array();
+        return $query['service'];
     }
 
 }

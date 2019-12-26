@@ -1217,3 +1217,24 @@ section {
 #csecond .butt-btn {
     margin-top: 15px;
 }
+
+
+/* 26-12-changes */
+
+#toast-container {
+    top: 78px;
+    left: 5px;
+    max-width: 35%;
+}
+
+.toast .toast-action {
+    color: #000;
+}
+
+.preloader-verfy {
+    display: none;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    background: ;
+}
