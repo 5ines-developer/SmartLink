@@ -21,13 +21,10 @@
                 </div>
             </div> -->
             <div class="row mb-0">
-<<<<<<< HEAD
                 <div class="col l5 m4  s12">
                     <h6 class="center-align l-col">Useful Links</h6>
-=======
                 <div class="col l4 m4  s12">
                     <h6 class="center-align ">Useful Links</h6>
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                     <ul class="center-align useful-links">
                         <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>contact-us">Contact Us</a> | </li>
                         <li class="black-text"><a class="white-text text-lighten-3" href="<?php echo base_url () ?>#about">About Us</a> | </li>
@@ -36,13 +33,10 @@
                         </li>
                     </ul>
                 </div>
-<<<<<<< HEAD
                 <div class="col l3 m4 s12">
                     <h6 class="center-align l-col">Follow Us</h6>
-=======
                 <div class="col l4 m4 s12">
                     <h6 class="center-align">Follow Us</h6>
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                     <ul class=" center-align social-icons">
                         <li><a href="https://www.facebook.com/SMART-LINK-100710001391430/?modal=admin_todo_tour" class="btn-floating facebook btn-small waves-effect waves-light "><i
                                     class="fab fa-facebook-f"></i></a></li>
@@ -52,27 +46,21 @@
                         <li><a href="https://www.youtube.com/channel/UCflOCMYE_c5F2ZcsoecurjQ/?guided_help_flow=5" class="btn-floating youtube btn-small waves-effect waves-light "><i
                                     class="fab fa-youtube "></i></a></li>
 
-<<<<<<< HEAD
                         <li><a href="https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2F30884525%2Fadmin" class="btn-floating instagram btn-small waves-effect waves-light "><i
-=======
                         <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                                     class="fab fa-linkedin-in"></i>
                             </a></li>
                     </ul>
                 </div>
                 <div class="col l4 m4 s12">
-<<<<<<< HEAD
                     <h6 class="center-align l-col">Contact Us</h6>
                     <p class="footer-address white-text">Landline : <a href="tel:+971 42535555">+971 42535555</a> </p>
                     <p class="footer-address white-text">Whatsapp :<a href="tel:+971 502904073">+971 502904073</a></p>
-=======
                     <h6 class="center-align ">Countact Us</h6>
                     <p class="footer-address white-text">Landline : <a href="tel:+971 42535555">+971 42535555</a> </p>
                     <p class="footer-address white-text">Whatsapp :
                             <a href="tel:0502904073">0502904073</a>
                         </p>
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                     <!-- <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p> -->
                 </div>
             </div>
