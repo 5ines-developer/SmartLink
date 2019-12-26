@@ -33,10 +33,6 @@
                 <source src="<?php echo base_url () ?>assets/video/video.mp4" type="video/mp4">
                 <source src="<?php echo base_url () ?>assets/video/video.mov" type="video/mov">
                 <source src="<?php echo base_url () ?>assets/video/video.ogv" type="video/ogg">
-            <video loop muted autoplay poster="/img/business.jpg" class="fullscreen-bg__video">
-                <source src="<?php echo base_url () ?>assets/video/banner-video.webm" type="video/webm">
-                <source src="<?php echo base_url () ?>assets/video/banner-video.mp4" type="video/mp4">
-                <source src="<?php echo base_url () ?>assets/video/banner-video.ogv" type="video/ogg">
             </video>
         </div>
     </section>
@@ -55,7 +51,6 @@
                     <div class="col l8 m8  s12">
                         <div class="col-img">
                             <div class="cont-abot">
-                                <img src="<?php echo base_url () ?>assets/img/company-vision.jpg" class="img-responsive" alt="">
                                 <h6>
                                    <b>Who We Are & What We Do ?</b>
                                 </h6>
@@ -875,7 +870,7 @@
             dots: false,
             infinite: true,
             autoplaySpeed: 2000,
-            slidesToShow: 3,
+            slidesToShow: 5,
             slidesToScroll: 1,
             // nextArrow: '<span class="next"><i class="fas fa-long-arrow-alt-right ll"></i></span>',
             // prevArrow: '<span class="prev"><i class="fas fa-long-arrow-alt-left rr"></i></span>',

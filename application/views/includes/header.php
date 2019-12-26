@@ -13,7 +13,6 @@
     <?php  if ($this->session->userdata('sid') == '') { ?>
     <nav class="white z-depth-1" id="secondnavbar">
             <div class="nav-wrapper container-wrap2 nav-he">
-            <div class="nav-wrapper container-wrap2 ">
             <a href="<?php echo base_url () ?>index" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <!-- <a href="http://5ineprojects.com/smartlink/html/" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a> -->
@@ -23,11 +22,6 @@
                     <li><a href="<?php echo base_url () ?>#product">Products & Service</a></li>
                     <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
                     <li><a class="" href="<?php echo base_url () ?>register">Sign Up</a></li> 
-            <ul class="right hide-on-med-and-down">
-                    <li><a href="<?php echo base_url () ?>#about">About Us</a></li>
-                    <li><a href="<?php echo base_url () ?>#product">Product & Service</a></li>
-                    <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
-                <li><a class="" href="<?php echo base_url () ?>register">Sign Up</a></li>
                 <li><a href="<?php echo base_url () ?>login">Sign In</a></li>
             </ul>
         </div>
@@ -38,7 +32,6 @@
                     <li><a href="<?php echo base_url () ?>#product">Product & Service</a></li>
                     <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
                     <li><a href="<?php echo base_url () ?>register">Sign Up</a></li> 
-        <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
         <li><a href="<?php echo base_url () ?>login">Login</a></li>
     </ul>
     <?php }else{ ?>
@@ -101,5 +94,4 @@
 
     <div class="hederHight h84"></div>
 </div>
- <!--    <div class="hederHight h84"></div> -->
 </header>

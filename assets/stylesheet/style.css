@@ -169,7 +169,7 @@ nav ul a {
 }
 
 .brand-logo img {
-   padding-top: 7px;
+    padding-top: 7px;
 }
 
 #secondnavbar .nav-wrapper a {
@@ -266,14 +266,14 @@ section {
 }
 
 .register-welcome img {
-   width: 100px;
+    width: 100px;
 }
 
 .register-welcome-title {
-font-size: 25px;
-font-weight: 600;
-margin: 0;
-padding-bottom: 10px;
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 .terms-link {
@@ -313,11 +313,7 @@ padding-bottom: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 13px;
-<<<<<<< HEAD
     font-weight: 400;
-=======
-    font-weight: 600;
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
 }
 
 #terms-error {
@@ -382,20 +378,14 @@ padding-bottom: 10px;
 }
 
 .footer-copyright {
-<<<<<<< HEAD
     background-color: #e7e7e7 !important;
-=======
-    background-color: #464646 !important;
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
     font-weight: 400;
 }
+
 .copry-right {
-
-    color: 
-
-    black;
-
+    color: black;
 }
+
 .social-icons .btn-floating {
     background-color: #00a0c1;
 }
@@ -569,7 +559,7 @@ padding-bottom: 10px;
 
 .agent-edit-title-cn {
     padding-bottom: 23px;
-   /* font-weight: 600;*/
+    /* font-weight: 600;*/
 }
 
 .agent-edit-title {
@@ -903,7 +893,7 @@ padding-bottom: 10px;
 
 .spn-lef {
     font-size: 13px;
-  font-weight: 400;
+    font-weight: 400;
 }
 
 .ss-date {
@@ -919,9 +909,11 @@ padding-bottom: 10px;
     color: #373737;
     font-weight: 400;
 }
+
 #referal-list th {
     font-weight: 400;
 }
+
 .notification-detail li {
     padding-bottom: 18px;
 }
@@ -1212,17 +1204,16 @@ padding-bottom: 10px;
         font-size: 13px;
         text-align: left;
     }
-<<<<<<< HEAD
 }
 
-#csecond .input-field{
-    margin-top: 0; 
+#csecond .input-field {
+    margin-top: 0;
 }
+
 .sidenav {
     width: 340px;
 }
+
 #csecond .butt-btn {
     margin-top: 15px;
-=======
->>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
 }

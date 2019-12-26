@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/smartlink/admin-panel';
-$config['web_url'] = 'http://localhost/siemens/';
+$config['web_url'] = 'http://localhost/smartlink/';
 /*
 |--------------------------------------------------------------------------
 | Index File

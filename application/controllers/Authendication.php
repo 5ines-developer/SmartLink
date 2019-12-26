@@ -21,6 +21,7 @@ class Authendication extends CI_Controller
     // registration
     public function register()
     {
+        echo 'ok';
         $this->load->library('form_validation');
 
         if ($this->session->userdata('sid') == '') {
