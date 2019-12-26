@@ -14,6 +14,7 @@
         <!--Import Google Icon Font-->
         <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
+         <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/stylesheet/index.css">
         <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
     </head>
     <body >

@@ -16,6 +16,7 @@
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/stylesheet/index.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
@@ -45,20 +46,21 @@
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <th>Name : </th>
-                                            <td><?php echo(!empty($profile['agent_name']))?$profile['agent_name']:'' ; ?>
+                                            <th>Name </th>
+                                            <td><b>: </b> <?php echo(!empty($profile['agent_name']))?$profile['agent_name']:'' ; ?>
                                             </td>
                                         </tr>
-                                        <!-- <tr>
-                                            <th>Email :</th>
-                                            <td><?php echo(!empty($profile['agent_email']))?$profile['agent_email']:'' ; ?>
-                                            </td>
-                                        </tr> -->
+                                        
                                         <tr>
-                                            <th>Phone :</th>
-                                            <td><?php echo(!empty($profile['agent_phone']))?$profile['agent_phone']:'' ; ?>
+                                            <th>Phone </th>
+                                            <td><b>: </b> <?php echo(!empty($profile['agent_phone']))?$profile['agent_phone']:'' ; ?>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Employee Reference Code </th>
+                                            <td><b>: </b> <?php echo(!empty($profile['employee_reference_id']))?$profile['employee_reference_id']:'' ; ?>
+                                            </td>
+                                        </tr> 
                                         <!-- <tr>
                                             <th class="pt-15">Address :</th>
                                         </tr> -->

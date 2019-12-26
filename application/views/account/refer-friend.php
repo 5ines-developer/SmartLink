@@ -15,6 +15,7 @@
             <!--Import Google Icon Font-->
             <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
+             <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/stylesheet/index.css">
             <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
             <style>
                 #select-it{display: none;}
@@ -60,7 +61,8 @@
                                            <?php } ?>
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
-                                                    <input placeholder="Enter Mobile No." id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
+                                                    <input class="col l2 m2 s2" placeholder="+971" id="country_code" name="country_code" type="text" value="+971" readonly="">
+                                                    <input class="col l10 m10 s10"  placeholder="Eg: 551234567"  id="phone" type="text" name="phone" required value="<?php echo(!empty($refer['referee_phone']))?$refer['referee_phone']:''; ?>">
                                                     <label for="phone">Mobile No. <span class="error">*</span></label>
                                                     <span class="error"><?php echo form_error('phone'); ?></span>
                                                 </div>
@@ -72,7 +74,7 @@
                                             <div class="row mb-0">
                                                 <div class="input-field col l6 m6 s12">
                                                     <input placeholder="Enter Location" id="location" type="text" name="location" value="<?php echo(!empty($refer['referee_location']))?$refer['referee_location']:''; ?>">
-                                                    <label for="location">Location</label>
+                                                    <label for="location">City</label>
                                                 </div>
                                                 <div class="input-field col l6 m6 s12">
                                                     <textarea placeholder="Enter Area" id="area" name="area"
@@ -143,9 +145,9 @@
                                             </div>
                                             <div class="row mb-0">
                                                 <div class="input-field col l12 m12 s12">
-                                                    <textarea placeholder="Enter Description" id="description" name="description"
+                                                    <textarea placeholder="Enter Building Name" id="description" name="description"
                                                     class="materialize-textarea"><?php echo(!empty($refer['description']))?$refer['description']:''; ?></textarea>
-                                                    <label for="description">Description</label>
+                                                    <label for="description">Building Name  / Comments</label>
                                                 </div>
                                             </div>
                                             <div class="form-valdation-error">
@@ -183,8 +185,8 @@
             phone: {
             required: true,
             number: true,
-            minlength: 10,
-            maxlength: 10,
+            minlength: 9,
+            maxlength: 9,
             },
             },
             messages: {

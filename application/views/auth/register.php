@@ -12,6 +12,7 @@
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/stylesheet/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/index.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
@@ -70,23 +71,12 @@
                                     </div>
                                 </div>
                                 <div class="row mb-0">
-                                    <p class="terms-check">
-                                        <label class="termlable" for="terms-checkbox"> <input type="checkbox"
-                                                name="terms" id="terms-checkbox" class="terms-checkbox">I accept the
-                                            terms & conditions
-                                            <a href="<?php echo base_url()?>terms-and-conditions"><i
-                                                    class="material-icons dp48">info_outline</i></a>
-                                        </label>
-                                        <!-- <label>
-                                                <input class="filled-in" type="checkbox" name="terms" required/>
-                                                <span class="register-checklabel">Terms & Conditions <span class="error">*</span></span>
-                                            </label> -->
+                                    <div class="input-field col l12 m12 s10 te-checkbox">
+                                    <input type="checkbox" name="terms" id="terms-checkbox" class="terms-checkbox">I accept the terms & conditions
+                                     <a class="term-ll" href="<?php echo base_url()?>terms-and-conditions"><i class="material-icons dp48">info_outline</i></a>
                                         <span class="error"><?php echo form_error('terms'); ?></span>
-                                    </p>
+                                    </div>
                                 </div>
-                               <!--  <div class="form-valdation-error">
-                                    <?php echo ($this->session->flashdata('error'))? '<span class="error">'.$this->session->flashdata('error').'</span>' : '' ?>
-                                </div> -->
                                 <button class="btn  left-align register-formbutton" value="submit"
                                     name="submit">Submit</button>
                             </form>
@@ -100,17 +90,13 @@
                 <div class="col l6 m12  s12 ">
                     <div class="register-welcome">
                         <div class="register-welcome-image center-align">
-                            <img src="<?php echo base_url()?>assets/images/register-hi.png" alt="register">
+                            <img class="brain-icon" src="<?php echo base_url()?>assets/img/Brain.png" alt="register">
                         </div>
                         <h4 class="register-welcome-title center-align">Welcome</h4>
                         <div class="register-welcome-content center-align tb-mb0">
-                            <p class="register-welcome-content center-align">Lorem ipsum dolor sit amet consectetur,
-                                adipisicing elit. Nemo
-                                voluptatibus alias quis
-                                ipsa similique ex earum? Ex, quidem voluptatum recusandae expedita, ipsum nobis id
-                                repellendus modi voluptatem totam adipisci nisi?
+                            <p class="register-welcome-content center-align">Incubated in the City of Gold, Dubai, UAE, Smart Link Telecommunications Trading L.L.C provides exemplary telecom solutions through innovation, technical expertise and fair business practices.
                             </p>
-                            <a class="terms-link center-align" href="<?php echo base_url()?>terms-and-conditions">Terms & Condition</a>
+                            <!-- <a class="terms-link center-align" href="<?php echo base_url()?>terms-and-conditions">Terms & Condition</a> -->
                         </div>
                     </div>
                 </div>

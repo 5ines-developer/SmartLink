@@ -17,36 +17,13 @@
 </head>
 
 <body>
-    <header id="navbar">
-        <nav class="white z-depth-1" id="secondnavbar">
-            <div class="nav-wrapper container-wrap2 ">
-                <a href="home.html" class="brand-logo"><img src="assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Product & Service</a></li>
-                    <li><a href="#">Refer & Earn</a></li>
-                    <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
-                    <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Mission & Vision</a></li>
-            <li><a href="#">Product & Service</a></li>
-            <li><a class="#" href="">Register</a></li>
-            <li><a href="#">login</a></li>
-        </ul>
-        <div class="hederHight"></div>
-    </header>
+<?php $this->load->view('includes/header.php'); ?>
     <section class="section contact-back">
         <div class="row">
             <div class="col l12 s12">
                 <div class="inner-banner">
                     <h5>Contact Us</h5>
-                    <P>Get in touch with us. We'll do our best to help you.</P>
+                    <P>If think you have been overspending on your business telecom, submit a proposal and receive an analysis report with solution at free of cost.</P>
                 </div>
             </div>
         </div>
@@ -54,21 +31,21 @@
     <section class="sect-tp">
         <div class="container-fluide">
             <div class="row">
-                <div class="col l4">
+                <div class="col l4 s12">
                     <div class="cont-list">
                         <i class="fas fa-phone ll-ic"></i>
                         <p>Landline : <a href="tel:+971 42535555">+971 42535555</a> </p>
                     </div>
                 </div>
-                <div class="col l4">
+                <div class="col l4 s12">
                     <div class="cont-list">
                         <i class="fab fa-whatsapp ll-ic"></i>
                         <p>Whatsapp :
-                            <a href="tel:0502904073">0502904073</a>
+                            <a href="tel:+971 502904073">+971 502904073</a>
                         </p>
                     </div>
                 </div>
-                <div class="col l4">
+               <div class="col l4 s12">
                     <div class="cont-list">
                         <i class="far fa-envelope ll-ic"></i>
                         <p class="black-text">Email :
@@ -83,38 +60,47 @@
                             <h5>GET IN TOUCH</h5>
                         </div>
                         <div class="form-contact">
-                            <form action="">
+                            <form id="contactform" action="<?php echo base_url() ?>contact/insert" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col l6 s12">
                                         <div class="input-field ">
-                                            <input id="name" type="text" class="validate" required>
-                                            <label for="name" name="name">Name</label>
+                                            <input id="name" name="name" type="text" class="validate" required>
+                                            <label for="name" >Name</label>
                                         </div>
                                     </div>
                                     <div class="col l6 s12">
                                         <div class="input-field ">
-                                            <input id="phone" type="text" class="validate" required>
-                                            <label for="phone" name="phone">Phone</label>
+                                            <input id="phone" name="phone" type="text" class="validate" required>
+                                            <label for="phone" >Phone</label>
                                         </div>
                                     </div>
                                     <div class="col l6 s12">
                                         <div class="input-field ">
-                                            <input id="email" type="text" class="validate">
-                                            <label for="email" name="email">Email</label>
+                                            <input id="email" name="email" type="text" class="validate">
+                                            <label for="email" >Email</label>
                                         </div>
                                     </div>
                                     <div class="col l6 s12">
                                         <div class="input-field ">
-                                            <input id="last_name" type="text" class="validate" required>
-                                            <label for="last_name" name="subject">Subject</label>
+                                            <input id="last_name" name="subject" type="text" class="validate" >
+                                            <label for="last_name" >Subject</label>
+                                            <input type="hidden" value="<?php echo random_string('alnum',16); ?>" name="uniq">
                                         </div>
                                     </div>
                                     <div class="col l12 s12 ">
                                         <div class="input-field ">
-                                            <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                            <textarea id="textarea1" class="materialize-textarea" name="message"></textarea>
                                             <label for="textarea1">Message</label>
                                         </div>
                                     </div>
+
+                                    <div class="col l12 s12 ">
+                                                    <div class="form-group marcls">
+                                            <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c"></div>
+                                        </div>
+                                        <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div>
+                                    </div>
+
                                 </div>
                                 <div class="butt-btn">
                                     <button type="submit" class="btn-con">Submit</button>
@@ -139,57 +125,16 @@
             </div>
         </div>
     </section>
-    <div>
+<!--     <div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9403179910732!2d77.52152561404687!3d12.911557440895294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3fcf9271bc25%3A0xe806a9d57ba37b1b!2s5ine+Web+-+Best+Website+Design+%26+Digital+Marketing+Agency+in+RR+Nagar!5e0!3m2!1sen!2sin!4v1516776855209"
             style="border:0" allowfullscreen="" width="100%" height="450" frameborder="0"></iframe>
-    </div>
+    </div> -->
 
-    <footer class="page-footer ">
-        <div class="container-wrap3 pb-25">
-            <div class="row mb-0">
-                <div class="col l4 m4  s12">
-                    <h6 class="center-align ">Useful Links</h6>
-                    <ul class="center-align useful-links">
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Contact Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">About Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Product & Service</a> |
-                        </li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align">Follow Us</h6>
-                    <ul class=" center-align social-icons">
-                        <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                        <li><a class="btn-floating twitter btn-small waves-effect waves-light "><i
-                                        class="fab fa-twitter"></i></a></li>
-
-                        <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
-                                        class="fab fa-youtube "></i></a></li>
-
-                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
-                                        class="fab fa-linkedin-in"></i>
-                                </a></li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align ">Address</h6>
-                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p>
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="footer-copyright ">
-            <div class="container-wrap3">
-                <center><span class="copry-right">© Smart Link, All Rights Reserved. Developed By <a target="_blank"
-                                href="http://www.5ines.com/">5ine</a></span></center>
-            </div>
-        </div>
-    </footer>
+ <?php $this->load->view('includes/footer.php'); ?>
 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/javascript/script.js"></script>
     <script src="assets/javascript/jquery.validate.min.js"></script>
@@ -203,6 +148,25 @@
         });
         $('.dropdown-trigger').dropdown();
     </script>
+    <script>
+
+             $(function(){
+
+                 $('#contactform').on('submit', function(e) {
+
+                  if(grecaptcha.getResponse() == "") {
+
+                     e.preventDefault();
+
+                    $('.error').text('Captcha is required');
+
+                }
+
+                });
+
+             });
+
+            </script>
 </body>
 
 </html>

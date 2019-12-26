@@ -16,6 +16,7 @@
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/stylesheet/index.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 </head>
 
@@ -74,6 +75,8 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Status</th>
+                                        <th>Category</th>
+                                        <th>Service</th>
                                         <th>Reward Points</th>
                                         <th>Expiry Date</th>
                                         <th>Actions 
@@ -105,6 +108,18 @@
                                                 <span class="tooltiptext"><?php echo wordwrap($value->referee_failed_reason, 40, "<br>", true); ?></span>
                                         </div>
                                         <?php }?></td>
+                                        <td><?php echo (!empty($value->product))?ucfirst($value->product):'---'; ?></td>
+
+                                        <?php  if ($value->product == 'it' || $value->product == 'IT') { ?>
+                                          <td><?php echo (!empty($value->it_type))?ucfirst($value->it_type):'---'; ?></td>
+                                        <?php }else{ ?>
+                                          <td><?php echo $this->ci->m_account->getsrvice($value->sub_product); ?></td>
+                                        <?php } ?>
+
+
+
+
+
                                         <td><?php echo (!empty($value->reward_points))?$value->reward_points:'---'; ?></td>
                                         <td><?php echo (!empty($value->reward_expiry_date) && $value->reward_expiry_date !='0000-00-00')?$value->reward_expiry_date:'---'; ?></td>
                                         <td>
@@ -114,8 +129,16 @@
                                             $status_date = strtotime($value->referee_addedon);
                                             $x = date($now-$status_date);
                                             $dif =  ($x/60);
-                                            echo  ($dif <= '10') ? '<a class="reedit blue-text modal-trigger" href="'.base_url().'refer-a-friend/edit/'.$value->uniq.'"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete red-text exdelete" href="'.base_url().'refer-a-friend/delete/'.$value->uniq.'"><i class="material-icons dp48">delete</i></a>': '<a class="reedit grey-text"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete grey-text"><i class="material-icons dp48">delete</i></a>' ;
-                                            ?>
+
+                                            if ($value->referee_status == '0') { ?>
+
+                                              <a class="green-text" href="<?php echo base_url('referrals/view/'.$value->uniq) ?>"> <i class="material-icons dp48">remove_red_eye</i></a>&nbsp;&nbsp;
+
+                                           <?php if ($dif <= '10') { ?>
+                                               <a class="reedit blue-text modal-trigger" href="<?php echo base_url('refer-a-friend/edit/'.$value->uniq) ?>"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete red-text exdelete" href="<?php echo base_url('refer-a-friend/delete/'.$value->uniq) ?>"><i class="material-icons dp48">delete</i></a>
+                                            <?php } }else{ ?>
+                                             <a class="reedit grey-text"><i class="material-icons dp48">edit</i></a>&nbsp;&nbsp;<a class="redelete grey-text"><i class="material-icons dp48">delete</i></a>
+                                           <?php } ?>
                                             </td>
                                     </tr>
                                     <?php   } } ?>

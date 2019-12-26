@@ -9,6 +9,7 @@ class M_noti extends CI_Model {
     {
         $this->db->where('noti_to', $id);
         $this->db->where('noti_to_type', 'agent');
+        $this->db->where('notification_type !=', '3');
         $this->db->order_by('added_on', 'desc');
         return $this->db->get('notification')->result();
     }
@@ -18,10 +19,11 @@ class M_noti extends CI_Model {
         $this->db->where('notification_id', $id);
         $this->db->where('noti_to', $aid);
         $this->db->where('noti_to_type', 'agent');
+        $this->db->where('notification_type !=', '3');
         return $this->db->get('notification')->row_array();
     }
 
-    public function single_referal($referalId =null,$uid=null)
+    public function single_referal($refid =null,$uid=null)
     {
         $this->db->where('uniq', $refid);
         $this->db->where('agent_id', $uid);
@@ -62,5 +64,19 @@ class M_noti extends CI_Model {
             return false;
         }
     }
+
+     //get all notification
+    public function notiCount($id=null)
+    {
+        $this->db->where('noti_to', $id);
+        $this->db->where('noti_to_type', 'agent');
+        $this->db->where('notification_seen', '0');
+        $this->db->where('notification_type !=', '3');
+        $this->db->order_by('added_on', 'desc');
+        return $this->db->get('notification')->result();
+    }
+
+
+    
 
 }

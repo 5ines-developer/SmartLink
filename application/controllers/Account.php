@@ -11,7 +11,6 @@ class Account extends CI_Controller
         $this->load->model('m_account');
         $this->load->model('m_authendication');
         $this->data = $this->get_notification();
-        $this->data = $this->reward_dec();
     }
     //  profile
     public function index()
@@ -20,7 +19,6 @@ class Account extends CI_Controller
         $data['title']       = 'Account - Smart Link';
         $uid                 = $this->session->userdata('sid');
         $data['alert']       = $this->data;
-        // $uid ="24";
         $input               = $this->input->post();
         if (count($input) > 0) {
             $this->form_validation->set_rules('name', 'Name', 'trim');
@@ -117,7 +115,7 @@ class Account extends CI_Controller
 
             $notification  = array(
                 'notification_subject' => 'Refer a friend',
-                'notification_description' => 'New refer a friend request added by ' . $name . ' , check and verify',
+                'notification_description' => 'new refer a friend request added by ' . $name . ' , check and verify',
                 'added_by' => $this->session->userdata('sid'),
                 'thing_id' => $uniq,
                 'notification_type' => '1',
@@ -263,7 +261,8 @@ class Account extends CI_Controller
 ';
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Smart Link');
-        $this->email->to('prathwi@5ine.in');
+        $this->email->to('Info@smartlink.ae');
+        $this->email->cc('Naeem.k@smartlink.ae');
         $this->email->subject('Refer a friend request');
         $this->email->message($msg);
         if ($this->email->send()) {
@@ -297,6 +296,15 @@ class Account extends CI_Controller
             redirect('referal-list', 'refresh');
         }
         
+    }
+
+
+    public function view_refer($id='')
+    {
+       $data['alert']   = $this->data;
+       $data['title']   = 'Refer a Friend - Smart Link';
+       $data['refer'] = $this->m_account->edit_refer($id);
+       $this->load->view('account/view-referal', $data, false);
     }
 
 
@@ -355,18 +363,9 @@ class Account extends CI_Controller
     {
         $data['alert']   = $this->data;
         $data['reward']  = $this->m_account->reward_point();
+        $data['claimed'] = $this->m_account->claimed_point();
         $this->load->view('account/reward-point', $data);
     }
-
-    public function reward_dec($id='')
-    {
-        
-       return $data['reward']  = $this->m_account->reward_dec();
-    }
-
-
-
-
     //claim reward point
     public function claim_reward($var = null)
     {
@@ -380,31 +379,30 @@ class Account extends CI_Controller
                 'agent_id' => $agent_id,
                 'uniq' => $uniq
             );
+
             $eligible = $this->m_account->eligible_check($insert);
             if (!empty($eligible) && $eligible!=FALSE) {
-
-                $ouput1         = $this->m_account->insert_claimrequest($insert);
-                $notification   = array(
-                    'notification_subject' => 'Claim reward points',
-                    'notification_description' => 'agent has requested to claim the reward points',
-                    'added_by' => $this->session->userdata('sid'),
-                    'thing_id' => $uniq,
-                    'notification_type' => '2',
-                    'uniq' => random_string('alnum', 10),
-                    'added_by_type' => 'agent',
-                    'noti_to_type' => 'admin'
-                );
-                $ouput2         = $this->notification($notification);
-                if ($ouput1 != '' && $ouput2 != '') {
-                    $this->session->set_flashdata('success', 'Reward points claim request has been submitted successfully');
-                    redirect('reward-points', 'refresh');
-                }
-            }else{
-                $this->session->set_flashdata('error', 'Unable to complete the redemption request, you have insufficient Reward Points');
+            $ouput1         = $this->m_account->insert_claimrequest($insert);
+            $notification   = array(
+                'notification_subject' => 'Claim reward points',
+                'notification_description' => 'agent has requested to claim the reward points',
+                'added_by' => $this->session->userdata('sid'),
+                'thing_id' => $uniq,
+                'notification_type' => '2',
+                'uniq' => random_string('alnum', 10),
+                'added_by_type' => 'agent',
+                'noti_to_type' => 'admin'
+            );
+            $ouput2         = $this->notification($notification);
+            if ($ouput1 != '' && $ouput2 != '') {
+                $this->session->set_flashdata('success', 'Reward points claim request has been submitted successfully');
                 redirect('reward-points', 'refresh');
             }
 
-            
+        }else{
+                $this->session->set_flashdata('error', 'Unable to complete the redemption request, you have insufficient Reward Points');
+                redirect('reward-points', 'refresh');
+        }
         } else {
             $this->session->set_flashdata('error', 'Unable to process your request, Please try again!');
             redirect('reward-points', 'refresh');
@@ -444,7 +442,7 @@ class Account extends CI_Controller
         $country_code = '971';
         $data['phone'] = $country_code.$mobile;
         if ($result = $this->m_account->forgotPassword($mobile, $otp,$country_code)) {
-            $msg  = 'Your One time Password For smart link Password reset is ' . $otp . ' . Do not share with anyone';
+            $msg  = 'Your One time Password For Smart Link Password reset is ' . $otp . ' . Do not share with anyone';
             $data = $this->otpsend($data['phone'], $otp, $msg);
             echo $data;
         } else {
@@ -512,7 +510,7 @@ class Account extends CI_Controller
         $otp           = random_string('numeric', '6');
         $country_code = '971';
         $data['phone'] = $country_code.$phone;
-        $msg           = 'Your One time Password For smart link reset password is ' . $otp . ' . Do not share with anyone';
+        $msg           = 'Your One time Password For Smart Link reset password is ' . $otp . ' . Do not share with anyone';
         $data['phone'] = $phone;
         if ($this->m_authendication->resend_code($phone, $otp,$country_code)) {
             if ($this->otpsend($data['phone'], $otp, $msg)) {

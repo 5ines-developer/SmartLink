@@ -1,4 +1,5 @@
-<header id="navbar">
+<header id="navbar" >
+    <div class="navbar-fixed">
     <!-- <nav class="transparent z-depth-0 hide-on-med-and-down" id="topbar">
             <div class="nav-wrapper container-wrap2">
                 <a class="top-email" href="mailto:infosmartlink@gmail.com">infosmartlink@gmail.com</a>
@@ -9,47 +10,47 @@
                 </ul>
             </div>
         </nav> -->
-
-
     <?php  if ($this->session->userdata('sid') == '') { ?>
-    <nav class="grey lighten-4" id="secondnavbar">
-        <div class="nav-wrapper container-wrap2 ">
-            <a href="<?php echo base_url()?>" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Mission & Vision</a></li>
-                <li><a href="#">Product & Service</a></li>
-                <li><a class="register-nav" href="<?php echo base_url () ?>register">Sign Up</a></li>
-                <li><a href="<?php echo base_url () ?>login">Login</a></li>
+    <nav class="white z-depth-1" id="secondnavbar">
+            <div class="nav-wrapper container-wrap2 nav-he">
+            <a href="<?php echo base_url () ?>index" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <!-- <a href="http://5ineprojects.com/smartlink/html/" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a> -->
+            <!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->
+            <ul class="right hide-on-med-and-down lin-he">
+                    <li><a href="<?php echo base_url () ?>#about">About Us</a></li>
+                    <li><a href="<?php echo base_url () ?>#product">Products & Service</a></li>
+                    <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
+                    <li><a class="" href="<?php echo base_url () ?>register">Sign Up</a></li> 
+                <li><a href="<?php echo base_url () ?>login">Sign In</a></li>
             </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Team</a></li>
-        <li><a href="#">Mission & Vision</a></li>
-        <li><a href="#">Product & Service</a></li>
-        <li><a href="#">Refer & Earn</a></li>
-        <li><a href="<?php echo base_url () ?>register">Sign Up</a></li>
+       <li><a href="<?php echo base_url () ?>#about">About Us</a></li>
+                    <li><a href="<?php echo base_url () ?>#product">Product & Service</a></li>
+                    <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
+                    <li><a href="<?php echo base_url () ?>register">Sign Up</a></li> 
         <li><a href="<?php echo base_url () ?>login">Login</a></li>
     </ul>
     <?php }else{ ?>
-    <nav class="white" id="secondnavbar">
+    <nav class="white z-depth-1" id="secondnavbar">
         <div class="nav-wrapper container-wrap2 ">
-            <a href="#!" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo.png" alt=""></a>
+            <a href="<?php echo base_url () ?>index" class="brand-logo"><img src="<?php echo base_url()?>assets/images/logo1.jpg" alt="" class="img-responsive logo-wi"></a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html"><i class="material-icons dp48 left">account_circle</i>Profile</a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i
-                            class="material-icons dp48">notifications_none</i>
+            <ul class="right hide-on-med-and-down lin-he">
+                <li><a href="<?php echo base_url () ?>#about">About Us</a></li>
+                <li><a href="<?php echo base_url () ?>#product">Products & Service</a></li>
+                <li><a href="<?php echo base_url () ?>#refer">Refer & Earn</a></li>
+                <li><a href="<?php echo base_url () ?>account" class="profile-si"><i class="material-icons">account_circle</i></a></li>
+                <li><a class="dropdown-trigger profile-si"  href="#!" data-target="dropdown1"><i
+                            class="material-icons ">notifications_none</i>
                         <?php if (!empty($alert)) { ?>
                         <span class="notibadge bg-red"><?php echo (!empty($alert))?count($alert):''; ?> </span>
                         <?php } ?>
                     </a></li>
-                <ul id="dropdown1" class="dropdown-content">
+                <ul id="dropdown1" class="dropdown-content notifi">
                     <?php
                     $status='1';
                     $i = 1;
@@ -66,7 +67,7 @@
                     <li><a class="center-align see-all" href="<?php echo base_url('notifications')?>">See All</a></li>
                 </ul>
                 <!-- <li><a href="<?php echo base_url () ?>register"><i class="material-icons dp48">notifications_none</i><span class="notibadge bg-red"> 3 </span></a></li> -->
-                <li><a href="<?php echo base_url () ?>logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+                <li><a href="<?php echo base_url () ?>logout" class="profile-si"><i class="fas fa-sign-out-alt"></i></a></li>
 
 
             </ul>
@@ -92,4 +93,5 @@
 
 
     <div class="hederHight h84"></div>
+</div>
 </header>

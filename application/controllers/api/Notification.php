@@ -45,7 +45,7 @@ class Notification extends REST_Controller {
 			}else{
 				$message=array(
 				'status' => FALSE,
-				'message' => 'Some error occured, Please try again Later!'
+				'message' => 'No result found!'
 				);
 				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 			}
@@ -98,6 +98,43 @@ class Notification extends REST_Controller {
 				$message=array(
 				'status' => FALSE,
 				'message' => 'Some error occured, Please try again Later!'
+				);
+				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+			}
+
+		}else{
+
+				$message=array(
+				'status' => FALSE,
+				'message' => 'Invalid Token'
+				);
+			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+		}
+	}
+
+	public function notiCount_get($value='')
+	{
+		header("Access-Control-Allow-Origin: *");
+		$data = $this->security->xss_clean($_GET);
+		//load authorization token library
+		$this->load->library('Authorization_Token');
+		$is_valid_token = $this->authorization_token->validateToken();
+		if (!empty($is_valid_token) && $is_valid_token['status'] === true) 
+		{
+			foreach ($is_valid_token as $key => $value) { }
+			$output = $this->m_noti->notiCount($value->sid); //get all notification
+			if (!empty($output) AND $output != FALSE) {
+				$message=array(
+				'status' => true,
+				'data'	=> count($output),
+				'message' => 'Notification retrieved successfully'
+				);
+				// success 200 code send
+				$this->response($message, REST_Controller::HTTP_OK);
+			}else{
+				$message=array(
+				'status' => FALSE,
+				'message' => 'No result found!'
 				);
 				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 			}

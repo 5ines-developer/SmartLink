@@ -91,6 +91,12 @@ class M_auth extends CI_Model
         }  
     }
 
+    public function insertDeviceid($deviceid='',$userid='')
+    {
+        $insert = array ('device_id' => $deviceid, 'user_id' => $userid );
+        return $this->db->insert('device_id', $insert);
+    }
+
         // check password
     function getUsers($password) {
 
@@ -112,8 +118,11 @@ class M_auth extends CI_Model
     } 
 
     // forgot password
-    public function forgotPassword($mobile, $otp,$country_code)
+    public function forgotPassword($mobile='', $otp='',$country_code='',$aid='')
     {
+        if (!empty($aid)) {
+           $this->db->where('agent_id', $aid);
+        }
         
         $this->db->where('agent_phone', $mobile);
         // $this->db->where('agent_country_code', $country_code);
@@ -126,8 +135,11 @@ class M_auth extends CI_Model
     }
 
             // forgot password
-        public function forgot_verify($otp='',$mobile='',$country='')
+        public function forgot_verify($otp='',$mobile='',$country='',$aid='')
         {
+            if (!empty($aid)) {
+                $this->db->where('agent_id', $aid);
+            }
         	
             $this->db->where('agent_phone', $mobile);
             // $this->db->where('agent_country_code', $country);
@@ -180,8 +192,12 @@ class M_auth extends CI_Model
         }
 
             // password reset
-    public function setPassword($datas, $mobile,$otp)
+    public function setPassword($datas, $mobile,$otp,$aid='')
     {
+            if (!empty($aid)) {
+                $this->db->where('agent_id', $aid);
+            }
+
         $this->db->where('agent_phone', $mobile);
         $this->db->where('otp', $otp);
         $query = $this->db->update('agent', $datas);
@@ -193,8 +209,12 @@ class M_auth extends CI_Model
     }
 
         //resend otp code
-    public function resend_code($phone,$otp,$cntry)
+    public function resend_code($phone,$otp,$cntry,$aid='')
     {
+            if (!empty($aid)) {
+                $this->db->where('agent_id', $aid);
+            }
+
         $this->db->where('agent_phone', $phone);
         // $this->db->where('agent_country_code', $cntry);
         $result = $this->db->get('agent');

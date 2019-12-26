@@ -1,0 +1,34 @@
+[06-Jul-2019 05:27:00 Etc/GMT] PHP Fatal error:  Call to a member function num_rows() on array in /home/a5ineprojects9/public_html/smartlink/application/models/M_authendication.php on line 75
+[10-Jul-2019 12:03:06 Etc/GMT] PHP Fatal error:  Call to undefined function random_string() in /home/a5ineprojects9/public_html/smartlink/application/views/account/refer-friend.php on line 47
+[10-Jul-2019 12:03:16 Etc/GMT] PHP Fatal error:  Call to undefined function random_string() in /home/a5ineprojects9/public_html/smartlink/application/views/account/refer-friend.php on line 47
+[11-Jul-2019 04:12:35 Etc/GMT] PHP Fatal error:  Call to undefined function random_string() in /home/a5ineprojects9/public_html/smartlink/application/views/account/refer-friend.php on line 47
+[17-Jul-2019 05:31:09 Etc/GMT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 56
+[17-Jul-2019 08:00:29 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/a5ineprojects9/public_html/smartlink/application/views/account/refer-friend.php on line 119
+[17-Jul-2019 12:44:05 Etc/GMT] PHP Fatal error:  Call to a member function forgotPassword() on null in /home/a5ineprojects9/public_html/smartlink/application/controllers/Account.php on line 515
+[17-Jul-2019 13:58:44 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/a5ineprojects9/public_html/smartlink/application/controllers/Account.php on line 464
+[17-Jul-2019 14:14:58 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/a5ineprojects9/public_html/smartlink/application/controllers/Account.php on line 464
+[19-Jul-2019 04:45:18 Etc/GMT] PHP Fatal error:  Call to undefined method Pages::get_notification() in /home/a5ineprojects9/public_html/smartlink/application/controllers/Pages.php on line 13
+[30-Jul-2019 07:28:47 Etc/GMT] PHP Parse error:  syntax error, unexpected ',', expecting variable (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/models/M_account.php on line 295
+[31-Jul-2019 07:11:05 Etc/GMT] PHP Fatal error:  require_once(): Failed opening required '/home/a5ineprojects9/public_html/smartlink/application/third_party/php-jwt/JWT.php' (include_path='.:/opt/alt/php56/usr/share/pear:/opt/alt/php56/usr/share/php') in /home/a5ineprojects9/public_html/smartlink/application/libraries/Authorization_Token.php on line 12
+[31-Jul-2019 13:54:31 Etc/GMT] PHP Fatal error:  Cannot break/continue 1 level in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Auth.php on line 57
+[02-Aug-2019 05:44:32 Etc/GMT] PHP Fatal error:  Cannot redeclare M_referrals::delete_refer() in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_referrals.php on line 125
+[02-Aug-2019 05:44:48 Etc/GMT] PHP Parse error:  syntax error, unexpected 'serviceget' (T_STRING), expecting function (T_FUNCTION) in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_referrals.php on line 138
+[02-Aug-2019 05:45:19 Etc/GMT] PHP Parse error:  syntax error, unexpected 'serviceget' (T_STRING), expecting function (T_FUNCTION) in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_referrals.php on line 138
+[02-Aug-2019 05:46:53 Etc/GMT] PHP Parse error:  syntax error, unexpected end of file in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 427
+[20-Aug-2019 06:14:20 Etc/GMT] PHP Fatal error:  Call to undefined method M_account::checkpsw() in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Account.php on line 191
+[29-Aug-2019 07:57:16 Etc/GMT] PHP Fatal error:  Cannot break/continue 1 level in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Auth.php on line 58
+[04-Sep-2019 06:36:39 Etc/GMT] PHP Fatal error:  Call to undefined method M_account::getsrvice() in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 113
+[06-Sep-2019 09:15:10 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 126
+[06-Sep-2019 09:15:40 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 126
+[06-Sep-2019 09:15:41 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 126
+[06-Sep-2019 09:15:43 Etc/GMT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 126
+[06-Sep-2019 09:29:13 Etc/GMT] PHP Parse error:  syntax error, unexpected ')' in /home/a5ineprojects9/public_html/smartlink/application/views/account/referal-list.php on line 129
+[08-Sep-2019 10:23:03 Etc/GMT] PHP Fatal error:  Cannot use object of type CI_DB_mysqli_result as array in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_referrals.php on line 135
+[16-Sep-2019 09:50:49 Etc/GMT] PHP Parse error:  syntax error, unexpected '$subprod' (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 243
+[16-Sep-2019 09:52:01 Etc/GMT] PHP Parse error:  syntax error, unexpected '$subprod' (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 243
+[16-Sep-2019 09:53:40 Etc/GMT] PHP Parse error:  syntax error, unexpected '$subprod' (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 243
+[16-Sep-2019 09:53:57 Etc/GMT] PHP Parse error:  syntax error, unexpected '$subprod' (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 243
+[16-Sep-2019 10:11:54 Etc/GMT] PHP Parse error:  syntax error, unexpected '$subprod' (T_VARIABLE) in /home/a5ineprojects9/public_html/smartlink/application/controllers/api/Referrals.php on line 243
+[19-Sep-2019 13:24:43 Etc/GMT] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_auth.php on line 97
+[19-Sep-2019 13:24:51 Etc/GMT] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/a5ineprojects9/public_html/smartlink/application/models/apiModel/M_auth.php on line 97
+[29-Oct-2019 20:53:15 Etc/GMT] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 45480617 bytes) in /home/a5ineprojects9/public_html/smartlink/system/core/Common.php on line 725

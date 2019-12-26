@@ -17,7 +17,7 @@ class M_dashboard extends CI_Model {
         if( $query->num_rows() > 0){
             return $query->num_rows();
         }else{
-            return false;
+            return null;
         }
     }
 
@@ -32,7 +32,7 @@ class M_dashboard extends CI_Model {
             if( $query->num_rows() > 0){
                 return $query->num_rows();
             }else{
-                return false;
+                return null;
             }
         }
 
@@ -47,7 +47,7 @@ class M_dashboard extends CI_Model {
              if( $query->num_rows() > 0){
                  return $query->num_rows();
              }else{
-                 return false;
+                 return null;
              }
          }
 
@@ -66,7 +66,7 @@ class M_dashboard extends CI_Model {
             }
             return $value->reward_points;
         } else {
-            return false;
+            return null;
         }
     }
 
@@ -88,8 +88,15 @@ class M_dashboard extends CI_Model {
             
             return $value->claimed_points;
         } else {
-            return false;
+            return null;
         }
+    }
+
+    public function profile_image($uid='')
+    {
+        $query =  $this->db->select('agent_profile_file')->where('agent_id', $uid)->get('agent')->row_array();
+        return base_url().$query['agent_profile_file'];
+        
     }
 
 }

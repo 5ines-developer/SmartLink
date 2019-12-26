@@ -91,11 +91,15 @@ class M_referrals extends CI_Model
     **/
     public function referal_list($id =null )
     {
-        $this->db->where('is_deleted','0');
-        $query = $this->db->get('referral');
 
-        if ($query->num_rows() > 0) {
-            return $query->result();
+        $this->db->select('ref.*,p.service as sub_product');
+        $this->db->from('referral ref');
+        $this->db->where('ref.agent_id',$id);
+        $this->db->where('ref.is_deleted','0');
+        $this->db->join('product p', 'p.uniq = ref.sub_product', 'left');
+        $query = $this->db->get()->result();
+        if (!empty($query)) {
+            return $query;
         } else {
             return false;
         }
@@ -126,12 +130,17 @@ class M_referrals extends CI_Model
     {
         $this->db->select('service');
         $this->db->where('uniq', $itemd);
-        $result = $this->db->get('product');
-        if ($result->num_rows() > 0) {
+        $result = $this->db->get('product')->row_array();
+        if (!empty($result)) {
             return $result['service'];
         }else{
             return false;
         }
+    }
+
+    public function category($value='')
+    {
+        return $this->db->get('product')->result();
     }
 
 

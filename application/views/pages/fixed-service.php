@@ -17,36 +17,13 @@
 </head>
 
 <body>
-    <header id="navbar">
-        <nav class="white z-depth-1" id="secondnavbar">
-            <div class="nav-wrapper container-wrap2 ">
-                <a href="home.html" class="brand-logo"><img src="assets/images/logo1.jpg" class="img-responsive logo-wi" alt=""></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Product & Service</a></li>
-                    <li><a href="#">Refer & Earn</a></li>
-                    <li><a class="" href="http://5ineprojects.com/smartlink/register">Sign Up</a></li>
-                    <li><a href="http://5ineprojects.com/smartlink/login">Sign In</a></li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Mission & Vision</a></li>
-            <li><a href="#">Product & Service</a></li>
-            <li><a class="#" href="">Register</a></li>
-            <li><a href="#">login</a></li>
-        </ul>
-        <div class="hederHight"></div>
-    </header>
+  <?php $this->load->view('includes/header.php'); ?>
     <section class="section inner-back">
         <div class="row">
             <div class="col l12 s12">
                 <div class="inner-banner">
-                    <h5>Fixed Services</h5>
-                    <P>Start your business with a Business complete with Broad band landline and other free benefits </P>
+                    <h5>FIXED SERVICES</h5>
+                    <P>Superior business-grade internet broadband at the best price. 24/7 dedicated support & more to help you meet your business goals.</P>
                 </div>
             </div>
         </div>
@@ -83,8 +60,7 @@
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
                                 <h5>BUSINESS COMPLETE</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                                 <p>An all-inclusive solution that gives your businesses the best start with faster broadband, voice line, business email & storage, a free device and more.</p>
                             </div>
                             <div class="table-data">
                                 <div class="row">
@@ -131,11 +107,11 @@
                                                         <th colspan="10" class="center pur">You Get</th>
                                                     </tr>
                                                     <tr>
-                                                        <td class="center th-para">80 / 10Mbpss</td>
-                                                        <td class="center th-para">120 / 15 Mbsp</td>
-                                                        <td class="center th-para">175 / 25 Mbsp</td>
-                                                        <td class="center th-para">275 / 30 Mbsp</td>
-                                                        <td class="center th-para">500 / 50 Mbsp</td>
+                                                        <td class="center th-para">80 / 10 Mbps</td>
+                                                        <td class="center th-para">120 / 15 Mbps</td>
+                                                        <td class="center th-para">175 / 25 Mbps</td>
+                                                        <td class="center th-para">275 / 30 Mbps</td>
+                                                        <td class="center th-para">500 / 50 Mbps</td>
                                                     </tr>
                                                     <tr>
                                                         <td colspan="2" class="center th-para">Free device worth up-to AED 1,100</td>
@@ -148,13 +124,13 @@
                                             <div class="table-note">
                                                 <ul>
                                                     <li>Two Office 356 license</li>
-                                                    <li>Online Office apps (Word,Excel,Powe Point)</li>
+                                                    <li>Online Office apps (Word,Excel,PowerPoint)</li>
                                                     <li>1TB cloud Storage</li>
                                                     <li>Two business emails (50 GB each)</li>
                                                     <li>Free domain name registration</li>
                                                     <li>Free WIFI / LTE router</li>
                                                     <li>Free data SIM with 4GB data bundle</li>
-                                                    <li>1 business line with 100 national / 100 international minutes</li>
+                                                    <li>1 business line with 100 national minutes / 100 international minutes</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -171,8 +147,7 @@
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
                                 <h5>BUSINESS ESSENTIAL</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                               <p>A set of high-speed internet plans with download speeds of up to 500 Mbps that offers you unlimited internet use at affordable rates, which is best for SME’s looking for reliable and cost-effective internet plans.</p>
                             </div>
                             <div class="table-data">
                                 <div class="row">
@@ -186,19 +161,19 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td colspan="2" class="center">Business Complete
+                                                        <td colspan="2" class="center">Business Essential
                                                             <p class="center th-para">80 Mbps</p>
                                                         </td>
-                                                        <td colspan="2" class="center">Business Complete
+                                                        <td colspan="2" class="center">Business Essential
                                                             <p class="center th-para">120 Mbps</p>
                                                         </td>
-                                                        <td colspan="2" class="center">Business Complete
+                                                        <td colspan="2" class="center">Business Essential
                                                             <p class="center th-para">175 Mbps</p>
                                                         </td>
-                                                        <td colspan="2" class="center">Business Complete
+                                                        <td colspan="2" class="center">Business Essential
                                                             <p class="center th-para">275 Mbps</p>
                                                         </td>
-                                                        <td colspan="2" class="center">Business Complete
+                                                        <td colspan="2" class="center">Business Essential
                                                             <p class="center th-para">500 Mbps</p>
                                                         </td>
                                                     </tr>
@@ -234,11 +209,11 @@
 
                                                     </tr>
                                                     <tr>
-                                                        <td colspan="2" class="center th-para">80 / 10Mbpss</td>
-                                                        <td colspan="2" class="center th-para">120 / 15 Mbsp</td>
-                                                        <td colspan="2" class="center th-para">175 / 25 Mbsp</td>
-                                                        <td colspan="2" class="center th-para">275 / 30 Mbsp</td>
-                                                        <td colspan="2" class="center th-para">500 / 50 Mbsp</td>
+                                                        <td colspan="2" class="center th-para">80 / 10 Mbps</td>
+                                                        <td colspan="2" class="center th-para">120 / 15 Mbps**</td>
+                                                        <td colspan="2" class="center th-para">175 / 25 Mbps**</td>
+                                                        <td colspan="2" class="center th-para">275 / 30 Mbps**</td>
+                                                        <td colspan="2" class="center th-para">500 / 50 Mbps**</td>
                                                     </tr>
                                                     <!-- <tr>
                                                         <td colspan="2" class="center th-para">Free device worth up-to AED 1,100</td>
@@ -262,9 +237,8 @@
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
                                 <h5>TRUNK LINE (PBX)</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                                <p>Gives you one main 'pilot' number with multiple extensions. Each trunk line is given a number and has its own individual call charges.</p>
+                                <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
                             </div>
                         </div>
                     </div>
@@ -276,9 +250,8 @@
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
                                 <h5>ISDN2</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                                 <p>Offers your business a high-quality voice service with digital capability over two channels and a combined bandwidth of 128 Kbps. Two B-channels that can be used to carry voice, data and image, as well as one D-channel to handle packet data and call management.</p>
+                                <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
                             </div>
                         </div>
                     </div>
@@ -290,9 +263,8 @@
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
                                 <h5>ISDN 30</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                                 <p>30 B-channels that allows you faster and more flexible access to data, voice and video services; transmit large volumes of data and enjoy enhanced voice communication that requires higher capabilities, such as video conferencing, imaging, digital audio and more.</p>
+                                <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
                             </div>
                         </div>
                     </div>
@@ -303,10 +275,9 @@
                     <div class="col l12 s12">
                         <div class="tabs-mobile-table">
                             <div class="table-cont">
-                                <h5>Premium Broadband (Dedicated broadband)</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies
-                                    nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                                <button class="pop-btn"><a href="contact-us.html" class="white-text">Contact Us</a></button>
+                                <h5>Premium Broadband (Dedicated Broadband)</h5>
+                                 <p>Superior business-grade internet and access to 24/7 technical support with the bandwidth your business needs from 2 Mbps up to 1 Gbps symmetrical speeds for optimal performance.</p>
+                                <button class="pop-btn"><a href="<?php echo base_url () ?>contact-us" class="white-text">Contact Us</a></button>
                             </div>
                         </div>
                     </div>
@@ -315,73 +286,73 @@
         </div>
     </section>
 
-    <footer class="page-footer ">
-        <div class="container-wrap3 pb-25">
-            <!-- <div class="row mb-0">
-                    <div class="col l12 m12  s12">
-                        <h5 class="black-text center-align subscribe-heading">SUBSCRIBE NOW</h5>
-                    </div>
-                </div>
-                <div class="row mb-0">
-                    <div class="col  l12 m12  s12">
-                        <div class="newsletter-box">
-                            <form>
-                                <div class="row mb-0">
-                                    <div class="input-field col offset-l3 l6 offset-m2 m6 s7">
-                                        <input placeholder="Enter Your Email" id="subscribe-input" type="text"
-                                            class="validate">
-                                    </div>
-                                    <button class="waves-effect waves-light btn subscribe-button">button</button>
-                                </div>
-                            </form>
+    <div class="call-to-action">
+        <a href="" data-target="slide-out" class="sidenav-trigger "><i class="material-icons call-action Small pulse"> local_phone </i></a>
+    </div>
+    <div class="enquiry form">
+        <ul id="slide-out" class="right sidenav z-tt">
+            <div class="form-detail">
+                <h5>Inquire Now</h5>
+                <p>One of our Expert Advisers will contact you shortly.</p>
+            </div>
+            <div class="form-input">
+                <form action="<?php echo base_url() ?>contact/insert" method="post" enctype="multipart/form-data" id="csecond">
+                    <div class="row m0">
+                        <div class="col l12 s12 ">
+                            <div class="input-field ">
+                                <input id="name1" name="name" type="text" class="validate" required>
+                                <label for="name1" class="lab-in">Name</label>
+                                <?php echo form_error('name'); ?>
+                            </div>
                         </div>
+                        <div class="col l12 s12 ">
+                            <div class="input-field ">
+                                <input id="phone1" name="phone" type="text" class="validate" required>
+                                <label for="phone1" class="lab-in">Phone</label>
+                                <?php echo form_error('phone'); ?>
+                            </div>
+                        </div>
+                        <div class="col l12 s12 ">
+                            <div class="input-field ">
+                                <input id="email1" name="email" type="text" class="validate">
+                                <label for="email1" class="lab-in">Email</label>
+                            </div>
+                        </div>
+                        <div class="col l12 s12 ">
+                            <div class="input-field ">
+                                <input id="subject1" name="subject" type="text" class="validate">
+                                <label for="subject1" class="lab-in">Subject</label>
+                                <input type="hidden" value="<?php echo random_string('alnum',16); ?>" name="uniq">
+                            </div>
+                        </div>
+                        <div class="col l12 s12 ">
+                            <div class="input-field ">
+                                <textarea id="textarea1" name="message" class="materialize-textarea"></textarea>
+                                <label for="textarea1" class="lab-in">Message</label>
+                            </div>
+                        </div>
+                       <div class="col l12 s12 ">
+                            <div class="form-group marcls">
+                                <div class="g-recaptcha" data-sitekey="6LeExMMUAAAAAMMoz9iMWCwPsw9YKhF9EgWoj69c" id="captcha2"></div>
+                                <input type="hidden" class="hiddenRecaptcha" name="c_val2"
+                                        id="c_val2">
+                            </div>
+                            <div class="error red-text" style="margin-bottom:10px; margin-left:5px"></div>
+                        </div>
+                        
+
                     </div>
-                </div> -->
-            <div class="row mb-0">
-                <div class="col l4 m4  s12">
-                    <h6 class="center-align ">Useful Links</h6>
-                    <ul class="center-align useful-links">
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Contact Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">About Us</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Refer & Earn</a> | </li>
-                        <li class="black-text"><a class="white-text text-lighten-3" href="#!">Product & Service</a> |
-                        </li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align">Follow Us</h6>
-                    <ul class=" center-align social-icons">
-                        <li><a class="btn-floating facebook btn-small waves-effect waves-light "><i
-                                        class="fab fa-facebook-f"></i></a></li>
-                        <li><a class="btn-floating twitter btn-small waves-effect waves-light "><i
-                                        class="fab fa-twitter"></i></a></li>
-
-                        <li><a class="btn-floating youtube btn-small waves-effect waves-light "><i
-                                        class="fab fa-youtube "></i></a></li>
-
-                        <li><a class="btn-floating instagram btn-small waves-effect waves-light "><i
-                                        class="fab fa-linkedin-in"></i>
-                                </a></li>
-                    </ul>
-                </div>
-                <div class="col l4 m4 s12">
-                    <h6 class="center-align ">Address</h6>
-                    <p class="footer-address white-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos animi, eveniet hic aliquid </p>
-                </div>
+                    <div class="butt-btn">
+                        <center> <button type="submit" class="btn-con">Submit</button></center>
+                    </div>
+                </form>
             </div>
-        </div>
-        </div>
-        <div class="footer-copyright ">
-            <div class="container-wrap3">
-                <center>
-                    <span class="copry-right">© Smart Link, All Rights Reserved. Developed By <a target="_blank"
-                                href="http://www.5ines.com/">5ine</a></span></center>
-            </div>
-        </div>
-    </footer>
 
+        </ul>
 
+    </div>
 
+<?php $this->load->view('includes/footer.php'); ?>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/javascript/script.js"></script>

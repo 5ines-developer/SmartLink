@@ -67,7 +67,7 @@ class M_authendication extends CI_Model {
              $up = '1';
             $data = $this->otp_countcheck($phone,$up,$cntry);
             $datas['otpcount'] = $data;
-             if ($datas['otpcount'] == '') {
+            if ($datas['otpcount'] > '2') {
                 $this->db->where('agent_phone', $phone);
                 $this->db->where('agent_country_code', $cntry);
                 $this->db->delete('agent');

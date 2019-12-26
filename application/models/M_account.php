@@ -195,50 +195,64 @@ class M_account extends CI_Model
 
     public function reward_point($var = null)
     {
-        $this->db->select('avil_reward_point,claimed_points,temp_claimed');        
-        $this->db->where('agent_id', $this->session->userdata('sid'));
-        $query = $this->db->get('agent')->row_array();
-        return $query;
-    }
-
-    public function reward_dec($var = null)
-    {
-        $this->db->select('reward_points');        
+        
+        $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
         $this->db->where('agent_id', $this->session->userdata('sid'));
         $this->db->where('referee_status', '1');
         $this->db->where('reward_expiry_date >=', date('Y-m-d'));
-        $query = $this->db->get('referral')->result();
-        echo "<pre>";
-        print_r ($query);
-        echo "</pre>";exit();
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+
+            foreach ($query->result() as $key => $value) {
+            }
+            return $value->reward_points;
+        } else {
+            return false;
+        }
     }
-
-
 
     
 
-    /**
+    public function claimed_point($var = null)
+    {        
+        $status = array(0, 1);
+        $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');        
+        $this->db->where('agent_id', $this->session->userdata('sid'));
+        $this->db->where_in('claim_status', $status);
+        $this->db->or_where_in('return_reward','2');
+            $this->db->or_where_in('claimed_points','2');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $key => $value) {
+            }
+            
+            return $value->claimed_points;
+        } else {
+            return false;
+        }
+    }
+
+        /**
      * check eligibilty for claiming the reward points
      * @param : claimedpoint,agentid
      **/
     public function eligible_check($insert)
     {
-        $this->db->select('temp_claimed');
-        $this->db->where('agent_id', $insert['agent_id']);
-        $this->db->where('avil_reward_point >', $insert['claimed_points']);
-        $query = $this->db->get('agent')->row_array();
-        if (!empty($query)) {
-            $temp =  $query['temp_claimed'] + $insert['claimed_points'];
-            $this->db->where('agent_id', $insert['agent_id']);
-            $this->db->update('agent', array('temp_claimed' =>$temp ));
-            if ($this->db->affected_rows() > 0) {
-                return true;
+        $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
+        $this->db->where('agent_id', $this->session->userdata('sid'));
+        $this->db->where('referee_status', '1');
+        $this->db->where('reward_expiry_date >=', date('Y-m-d'));
+        $query = $this->db->get()->result();
+        foreach ($query as $key => $value) {
+            }
+            if ($insert['claimed_points'] < $value->reward_points) {
+               return true;
             }else{
                 return false;
             }
-        }else{
-            return false;
-        } 
     }
 
      /**
@@ -318,7 +332,8 @@ class M_account extends CI_Model
             $this->db->where('uniq', $itemid);
             $this->db->where('referee_status', '1');
             $query = $this->db->get('referral')->row_array();
-            return $query['reward_points']; 
+            return $query['reward_points'];
+
         }
 
        public function notidet($itemid)
@@ -331,6 +346,30 @@ class M_account extends CI_Model
             $this->db->where('notification_type', '1');
             $query = $this->db->get('notification')->row_array();
             return $query['uniq'];
+        }
+
+
+        public function getsrvice($id='')
+        {
+            $this->db->select('service');
+            $this->db->where('uniq', $id);
+            $query = $this->db->get('product')->row_array();
+
+            if (!empty($query['service'])) {
+                return $query['service'];
+            }else{
+                return '---';
+            }
+        }
+
+        public function contactInsert($insert='')
+        {
+            $result = $this->db->where('uniq', $insert['uniq'])->get('contact');
+            if ($result->num_rows() > 0) {
+                return $this->db->where('uniq', $insert['uniq'])->update('contact',$insert);
+            }else{
+                return $this->db->insert('contact', $insert);
+            }
         }
 
     

@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'account';
+$route['default_controller'] = 'pages';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -73,6 +73,12 @@ $route['refer-a-friend']       	= 'account/refer_friend';
 $route['add-refer-a-friend']    = 'account/insert_refer';
 $route['refer-a-friend/edit/(:any)']    = 'account/edit_refer/$1';
 $route['refer-a-friend/delete/(:any)']    = 'account/delete_refer/$1';
+$route['referrals/view/(:any)'] 		= 'account/view_refer/$1';//view refer afriend
+
+
+
+
+
 //notification
 $route['notifications']    		= 'account/notification_dash';
 $route['noti-view/(:any)/(:any)/(:any)']  = 'account/noti_view/$1/$2/$3';
@@ -89,6 +95,20 @@ $route['verify-credentials']    = 'account/code_auth';
 
 //terms and conditions
 $route['terms-and-conditions']  = 'pages/terms';
+$route['privacy-policy']  		= 'pages/privacy_policy';
+$route['copyright']  			= 'pages/copyright';
+$route['marketing']  			= 'pages/marketing';
+
+// landing page
+$route['index']  				= 'pages/index';
+$route['mobile-device']  		= 'pages/mobile_device';
+$route['fixed-service']  		= 'pages/fixed_service';
+$route['contact-us'] 			= 'pages/contact';
+$route['contact/insert'] 		= 'pages/send_contact';
+
+
+
+
 /*================================================================*/
 // Rest Api****
 // rest Api Authentication
@@ -102,18 +122,28 @@ $route['api/v1/set-password']			= 'api/auth/set_password';//update new password
 
 // account settings
 $route['api/v1/profile']				= 'api/account/profile';//fetch agent profile
+$route['api/v1/profile-image']			= 'api/account/profile_image';//update profile image
 $route['api/v1/update-profile']			= 'api/account/update_profile';//update agent profile
+$route['api/v1/change-password']		= 'api/account/changePass';//update agent profile
 //dashboard
 $route['api/v1/dashboard']				= 'api/dashboard/dashboard';//fetch agent profile
 //notification
 $route['api/v1/notification']			= 'api/notification/notiGet';//fetch agent profile
 $route['api/v1/notification/(:any)']	= 'api/notification/single_noti/$1';//fetch single notificationedit_refer
-//refer a friend
-$route['api/v1/refer-friend']		    = 'api/Referrals/insertRefer';//insert refer afriend
-$route['api/v1/referrals']		    	= 'api/Referrals/referrals';//all referrals
-$route['api/v1/refer-friend/edit/(:any)'] = 'api/Referrals/edit_refer/$1';//insert refer afriend
-$route['api/v1/referrals/update']		= 'api/Referrals/updateRefer';//update refer afriend
-$route['api/v1/referrals/delete/(:any)']		= 'api/Referrals/delete_refer/$1';//delete refer afriend
-//reward points
-$route['api/v1/reward-points']		    = 'api/Rewardpoint/reward';//insert refer afriend
+$route['api/v1/noti-count']				= 'api/notification/notiCount';//fetch agent profile
 
+//refer a friend
+$route['api/v1/refer-friend']		    	= 'api/Referrals/insertRefer';//insert refer afriend
+$route['api/v1/referrals']		    		= 'api/Referrals/referrals';//all referrals
+$route['api/v1/refer-friend/edit/(:any)'] 	= 'api/Referrals/edit_refer/$1';//insert refer afriend
+$route['api/v1/referrals/update']			= 'api/Referrals/updateRefer';//update refer afriend
+$route['api/v1/referrals/delete/(:any)'] 	= 'api/Referrals/delete_refer/$1';//delete refer afriend
+$route['api/v1/category']    				= 'api/Referrals/category';
+
+//reward points
+$route['api/v1/reward-points']		    = 'api/Rewardpoint/reward';//insert refer afriend -> get points
+$route['api/v1/claim-points']		    = 'api/Rewardpoint/insertclaim';//insert refer afriend
+$route['api/v1/claims']		    		= 'api/Rewardpoint/claims';//claim reward points list
+$route['api/v1/view-smartcode']		    = 'api/Rewardpoint/authcheck';//insert refer afriend
+
+ 

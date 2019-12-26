@@ -26,7 +26,7 @@ class Referrals extends REST_Controller {
 		header("Access-Control-Allow-Origin: *");
 		$data = $this->security->xss_clean($_POST);
 		$this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[9]|max_length[9]');
         if ($this->form_validation->run() == False) {
         	//form_validation error
 			$message=array(
@@ -48,31 +48,45 @@ class Referrals extends REST_Controller {
 				$agent = 	$value->suser;
 				$input = $this->input->post();
 				$uniq = random_string('alnum', 16);
+				$name 			= $this->input->post('name');
+				$phone 			= $this->input->post('phone');
+				$location 		= $this->input->post('location');
+				$email 			= $this->input->post('email');
+				$area 			= $this->input->post('area');
+				$company 		= $this->input->post('company');
+				$description 	= $this->input->post('description');
+				$product 		= $this->input->post('category');
+				$telecom_type 	= $this->input->post('telecom_type');
+				$customer_type 	= $this->input->post('customer_type');
+				$sub_product 	= $this->input->post('service');
+				$it_type 		= $this->input->post('it_type');
+
+
 				$insert        = array(
 	                'agent_id' => $value->sid,
-	                'referee_name' => $input['name'],
-	                'referee_phone' => $input['phone'],
-	                'referee_location' => $input['location'],
-	                'refree_email' => $input['email'],
-	                'refree_area' => $input['area'],
-	                'refree_company' => $input['company'],
+	                'referee_name' => $name,
+	                'referee_phone' => $phone,
+	                'referee_location' => $location,
+	                'refree_email' => $email,
+	                'refree_area' => $area,
+	                'refree_company' => $company,
 	                'uniq' => $uniq,
-	                'description' => $input['description']
+	                'description' => $description
             	);
 
-            	if (!empty($input['product'])) {
-	                if ($input['product'] =='telecom') {
-	                    $insert['product'] = $input['product'];
-	                    $insert['telecom_type'] = $input['telecom_type'];
-	                    $insert['customer_type'] = $input['customer_type'];
-	                    $insert['sub_product'] = $input['sub_product'];
+            	if (!empty($product)) {
+	                if ($product =='telecom' || $product =='Telecom' ) {
+	                    $insert['product'] = $product;
+	                    $insert['telecom_type'] = $telecom_type;
+	                    $insert['customer_type'] = $customer_type;
+	                    $insert['sub_product'] = $sub_product;
 	                    $insert['it_type'] = '';
-	                }else if ($product =='it'){
-	                    $insert['product'] = $input['product'];
+	                }else if ($product =='it' || $product =='IT' || $product =='It'){
+	                    $insert['product'] = $product;
 	                    $insert['telecom_type'] = '';
 	                    $insert['customer_type'] ='';
 	                    $insert['sub_product'] = '';
-	                    $insert['it_type'] = $input['it_type']; 
+	                    $insert['it_type'] = $it_type; 
 	                }
 	            }else{
 	                $insert['product'] = '';
@@ -81,6 +95,7 @@ class Referrals extends REST_Controller {
 	                $insert['sub_product'] = '';
 	                $insert['it_type'] = '';
 	            }
+	           
 
 	            $output        = $this->m_referrals->insert_referrals($insert);
 
@@ -88,7 +103,7 @@ class Referrals extends REST_Controller {
 
 	            	$notification  = array(
 		                'notification_subject' => 'Refer a friend',
-		                'notification_description' => 'New refer a friend request added by ' . $input['name'] . ' , check and verify',
+		                'notification_description' => 'New refer a friend request added by ' . $name . ' , check and verify',
 		                'added_by' => $value->sid,
 		                'thing_id' => $uniq,
 		                'notification_type' => '1',
@@ -204,33 +219,33 @@ class Referrals extends REST_Controller {
                                         <th>Category : </th>
                                         <td>' . (!empty($insert['product'])?$insert['product']:'' ). '</td>
                                     </tr> ';
+
+                                    
+
+
                                     if(!empty($insert['product'])){
-                                if ($insert['product'] == 'it') {
+                                if ($insert['product'] == 'it' || $insert['product'] =='IT' || $insert['product'] =='It' ) {
                                     $msg .= ' <tr>
                                                     <th>Product : </th>
-                                                    <td>' . $insert['it_type'] . '</td>
+                                                    <td>' . (!empty($insert['it_type'])?$insert['it_type']:'' ). '</td>
                                                 </tr>';
-                                } else if ($insert['product'] == 'telecom') {
+                                } else if ($insert['product'] =='telecom' || $insert['product'] =='Telecom' ) {
                                     $msg .= '<tr>
                                                     <th>Telecom Type : </th>
-                                                    <td>' . $insert['telecom_type'] . '</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Telecom Type : </th>
-                                                    <td>' . $insert['telecom_type'] . '</td>
+                                                    <td>' . (!empty($insert['telecom_type'])?$insert['telecom_type']:'' ). '</td>
                                                 </tr>
                                                 <tr>
                                                     <th>Service : </th>
-                                                    <td>' . $subprod . '</td>
+                                                    <td>' .(!empty($subprod)?$subprod:'' ). '</td>
                                                 </tr>';
                                 }}
                     $msg .= ' <tr>
                                         <th>Customer Type : </th>
-                                        <td>' . $insert['customer_type'] . '</td>
+                                        <td>' . (!empty($insert['customer_type'])?$insert['customer_type']:'' ) . '</td>
                                     </tr>
                                     <tr>
                                         <th>Description : </th>
-                                        <td>' . $insert['description'] . '</td>
+                                        <td>' . (!empty($insert['description'])?$insert['description']:'' ) . '</td>
                                     </tr>
                                 </table>
                                 </center>
@@ -248,7 +263,8 @@ class Referrals extends REST_Controller {
             </html> ';
         $this->email->set_newline("\r\n");
         $this->email->from($from, 'Smart Link');
-        $this->email->to('prathwi@5ine.in');
+        $this->email->to('info@smartlink.ae');
+        $this->email->to('naeem.k@smartlink.ae');
         $this->email->subject('Refer a friend request');
         $this->email->message($msg);
         if ($this->email->send()) {
@@ -391,7 +407,7 @@ class Referrals extends REST_Controller {
 		header("Access-Control-Allow-Origin: *");
 		$data = $this->security->xss_clean($_POST);
 		$this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('phone', 'Phone Number', 'required');
+        $this->form_validation->set_rules('phone', 'Phone Number', 'required|min_length[9]|max_length[9]');
         $this->form_validation->set_rules('uniq', 'Referral id', 'required');
         $this->form_validation->set_rules('noti_id', 'Notification id', 'required');
         if ($this->form_validation->run() == False) {
@@ -413,32 +429,45 @@ class Referrals extends REST_Controller {
 			{
 				foreach ($is_valid_token as $key => $value) { } // XSS Clean
 				$input = $this->input->post();
-				$uniq = random_string('alnum', 16);
+	            $uniq 			= $this->input->post('uniq');
+	            $name 			= $this->input->post('name');
+				$phone 			= $this->input->post('phone');
+				$location 		= $this->input->post('location');
+				$email 			= $this->input->post('email');
+				$area 			= $this->input->post('area');
+				$company 		= $this->input->post('company');
+				$description 	= $this->input->post('description');
+				$product 		= $this->input->post('category');
+				$telecom_type 	= $this->input->post('telecom_type');
+				$customer_type 	= $this->input->post('customer_type');
+				$sub_product 	= $this->input->post('service');
+				$it_type 		= $this->input->post('it_type');
+
 				$insert        = array(
 	                'agent_id' => $value->sid,
-	                'referee_name' => $input['name'],
-	                'referee_phone' => $input['phone'],
-	                'referee_location' => $input['location'],
-	                'refree_email' => $input['email'],
-	                'refree_area' => $input['area'],
-	                'refree_company' => $input['company'],
-	                'uniq' => $input['uniq'],
-	                'description' => $input['description']
+	                'referee_name' => $name,
+	                'referee_phone' => $phone,
+	                'referee_location' => $location,
+	                'refree_email' => $email,
+	                'refree_area' => $area,
+	                'refree_company' => $company,
+	                'uniq' => $uniq,
+	                'description' => $description
             	);
 
-            	if (!empty($input['product'])) {
-	                if ($input['product'] =='telecom') {
-	                    $insert['product'] = $input['product'];
-	                    $insert['telecom_type'] = $input['telecom_type'];
-	                    $insert['customer_type'] = $input['customer_type'];
-	                    $insert['sub_product'] = $input['sub_product'];
+            	if (!empty($product)) {
+	                if ($product =='telecom' || $product =='Telecom' ) {
+	                    $insert['product'] = $product;
+	                    $insert['telecom_type'] = $telecom_type;
+	                    $insert['customer_type'] = $customer_type;
+	                    $insert['sub_product'] = $sub_product;
 	                    $insert['it_type'] = '';
-	                }else if ($product =='it'){
-	                    $insert['product'] = $input['product'];
+	                }else if ($product =='it' || $product =='IT' || $product =='It'){
+	                    $insert['product'] = $product;
 	                    $insert['telecom_type'] = '';
 	                    $insert['customer_type'] ='';
 	                    $insert['sub_product'] = '';
-	                    $insert['it_type'] = $input['it_type']; 
+	                    $insert['it_type'] = $it_type; 
 	                }
 	            }else{
 	                $insert['product'] = '';
@@ -447,6 +476,7 @@ class Referrals extends REST_Controller {
 	                $insert['sub_product'] = '';
 	                $insert['it_type'] = '';
 	            }
+
 
 	            $output   = $this->m_referrals->insert_referrals($insert);
 
@@ -525,31 +555,42 @@ class Referrals extends REST_Controller {
             $status_date = strtotime($output['referee_addedon']);
             $x = date($now-$status_date);
             $dif =  ($x/60);
-            if ($dif >= '10') {
-            	$output1 = $this->m_referrals->delete_refer($output['uniq'],$value->sid);
+            if (!empty($output) AND $output != FALSE) {
+            	if ($dif < '10') {
+            		$output1 = $this->m_referrals->delete_refer($output['uniq'],$value->sid);
 
-            	if (!empty($output1) AND $output1 != FALSE) {
-					$message=array(
-					'status' => true,
-					'message' => 'Referral deleted Successfully'
-					);
-					// success 200 code send
-					$this->response($message, REST_Controller::HTTP_OK);
-				}else{
-					$message=array(
+	            	if (!empty($output1) AND $output1 != FALSE) {
+						$message=array(
+						'status' => true,
+						'message' => 'Referral deleted Successfully'
+						);
+						// success 200 code send
+						$this->response($message, REST_Controller::HTTP_OK);
+					}else{
+						$message=array(
+						'status' => FALSE,
+						'message' => 'Something went wrong please try again later!'
+						);
+						$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+					}
+	            }else{
+
+	            	$message=array(
 					'status' => FALSE,
-					'message' => 'Something went wrong please try again later!'
+					'message' => 'You are not allowed to delete this data, you can edit the referral within 10 min from you submitted the request'
 					);
 					$this->response($message, REST_Controller::HTTP_NOT_FOUND);
-				}
+	            }
+
             }else{
 
             	$message=array(
 				'status' => FALSE,
-				'message' => 'You are not allowed to delete this data, you can edit the referral within 10 min from you submitted the request'
+				'message' => 'Invalid referral id'
 				);
 				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
             }
+
 		}else{
 
 				$message=array(
@@ -559,5 +600,46 @@ class Referrals extends REST_Controller {
 			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 		}
     }
+
+
+
+    public function category_get($id = null)
+    {
+    	header("Access-Control-Allow-Origin: *");
+		$data = $this->security->xss_clean($_GET);
+		//load authorization token library
+		$this->load->library('Authorization_Token');
+		$is_valid_token = $this->authorization_token->validateToken();
+		if (!empty($is_valid_token) && $is_valid_token['status'] === true) 
+		{
+			foreach ($is_valid_token as $key => $value) { }
+			$output = $this->m_referrals->category();
+
+			if (!empty($output) AND $output != FALSE) {
+				$message=array(
+				'status' => true,
+				'data'	=> $output,
+				'message' => 'category retrieved successfully'
+				);
+				// success 200 code send
+				$this->response($message, REST_Controller::HTTP_OK);
+			}else{
+				$message=array(
+				'status' => FALSE,
+				'message' => 'No Results found'
+				);
+				$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+			}
+
+		}else{
+
+				$message=array(
+				'status' => FALSE,
+				'message' => 'Invalid Token'
+				);
+			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+		}
+    }
+
 
 }

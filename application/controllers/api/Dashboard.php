@@ -32,12 +32,13 @@ class Dashboard extends REST_Controller {
 		{
 			foreach ($is_valid_token as $key => $value) { }
 
-			$output['referal'] = $this->m_dashboard->get_referal($value->sid); //get referals count
+			$output['referal'] 	= $this->m_dashboard->get_referal($value->sid); //get referals count
             $output['approved'] = $this->m_dashboard->approved_referal($value->sid); //get referals count
-            $output['pending'] = $this->m_dashboard->pending_referal($value->sid); //get referals count
-            $output['reward']  = $this->m_dashboard->reward_point($value->sid);
-            $output['claimed'] = $this->m_dashboard->claimed_point($value->sid);
-			if (!empty($output) AND $output != FALSE) {
+            $output['pending'] 	= $this->m_dashboard->pending_referal($value->sid); //get referals count
+            $output['profile'] 	= $this->m_dashboard->profile_image($value->sid); //get referals count
+           
+
+			if (!empty($output) AND $output != null) {
 				$message=array(
 				'status' => true,
 				'data'	=> $output,
