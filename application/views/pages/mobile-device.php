@@ -760,6 +760,7 @@
                         </div>
                         
 
+<<<<<<< HEAD
                     </div>
                     <div class="butt-btn">
                         <center> <button type="submit" class="btn-con">Submit</button></center>
@@ -770,6 +771,8 @@
         </ul>
 
     </div>
+=======
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
 <?php $this->load->view('includes/footer.php'); ?>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

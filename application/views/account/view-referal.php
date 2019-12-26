@@ -15,7 +15,10 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<<<<<<< HEAD
      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>/assets/stylesheet/index.css">
+=======
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/stylesheet/style.css">
     <link href="//fonts.googleapis.com/css?family=Muli:400,600,700,800,900" rel="stylesheet" async defer>
 

@@ -70,10 +70,20 @@
                                         <label for="reference">Reference code </label>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                                 <div class="row mb-0">
                                     <div class="input-field col l12 m12 s10 te-checkbox">
                                     <input type="checkbox" name="terms" id="terms-checkbox" class="terms-checkbox">I accept the terms & conditions
                                      <a class="term-ll" href="<?php echo base_url()?>terms-and-conditions"><i class="material-icons dp48">info_outline</i></a>
+=======
+                                <div class="row">
+                                    <div class="input-field col l12 m12 s12 te-checkbox">
+                                    <input type="checkbox" name="terms" id="terms-checkbox" class="terms-checkbox">I accept the
+                                            terms & conditions
+                                            <a href="<?php echo base_url()?>terms-and-conditions"><i
+                                                    class="material-icons dp48">info_outline</i></a>
+                                       
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                                         <span class="error"><?php echo form_error('terms'); ?></span>
                                     </div>
                                 </div>

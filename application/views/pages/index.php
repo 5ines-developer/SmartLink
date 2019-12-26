@@ -27,12 +27,19 @@
                       </video>
         </div> -->
         <div class="fullscreen-bg">
+<<<<<<< HEAD
             <video loop muted autoplay poster="assets/img/business.jpg" preload="metadata" class="fullscreen-bg__video">
                 <source src="<?php echo base_url () ?>assets/video/video.flv" type="video/flv">
                 <source src="<?php echo base_url () ?>assets/video/video.webm" type="video/webm">
                 <source src="<?php echo base_url () ?>assets/video/video.mp4" type="video/mp4">
                 <source src="<?php echo base_url () ?>assets/video/video.mov" type="video/mov">
                 <source src="<?php echo base_url () ?>assets/video/video.ogv" type="video/ogg">
+=======
+            <video loop muted autoplay poster="/img/business.jpg" class="fullscreen-bg__video">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.webm" type="video/webm">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.mp4" type="video/mp4">
+                <source src="<?php echo base_url () ?>assets/video/banner-video.ogv" type="video/ogg">
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
             </video>
         </div>
     </section>
@@ -51,6 +58,10 @@
                     <div class="col l8 m8  s12">
                         <div class="col-img">
                             <div class="cont-abot">
+<<<<<<< HEAD
+=======
+                                <img src="<?php echo base_url () ?>assets/img/company-vision.jpg" class="img-responsive" alt="">
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
                                 <h6>
                                    <b>Who We Are & What We Do ?</b>
                                 </h6>
@@ -870,7 +881,11 @@
             dots: false,
             infinite: true,
             autoplaySpeed: 2000,
+<<<<<<< HEAD
             slidesToShow: 5,
+=======
+            slidesToShow: 3,
+>>>>>>> 988c56be4d589cbdb11d5b6b7750b98e4e42c691
             slidesToScroll: 1,
             // nextArrow: '<span class="next"><i class="fas fa-long-arrow-alt-right ll"></i></span>',
             // prevArrow: '<span class="prev"><i class="fas fa-long-arrow-alt-left rr"></i></span>',
