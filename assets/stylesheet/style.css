@@ -608,6 +608,22 @@ section {
     color: #000;
 }
 
+#resend-success {
+    font-size: 13px;
+}
+
+.code-displayed button {
+    float: right;
+    top: -17px;
+    position: relative;
+    border: 0;
+    background-color: #00a0c1;
+    color: #fff;
+    padding: 4px 7px;
+    cursor: pointer;
+    line-height: 26px;
+}
+
 
 /**********refer a friend********/
 
@@ -990,6 +1006,38 @@ section {
 
 /**list-of-claim**/
 
+.view-smart-code {
+    background-color: #00a0c1;
+    font-size: 12px;
+}
+
+.code-displayed {
+    width: 75%;
+    font-size: 15px;
+    height: 32.4px;
+    line-height: 1.4px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    color: #151515;
+    padding: 17px 0px;
+    border: 2px dashed #00a0c1;
+}
+
+.code-displayed button {
+    float: right;
+    top: -17px;
+    position: relative;
+    border: 0;
+    background-color: #00a0c1;
+    color: #fff;
+    padding: 4px 7px;
+    cursor: pointer;
+    line-height: 26px;
+}
+
 .claim-table th {
     font-size: 13px;
 }
@@ -1021,6 +1069,21 @@ section {
     border-radius: 5px;
 }
 
+.modal.newpass {
+    width: 35%;
+    border-radius: 5px;
+}
+
+.modal.otpmodal {
+    width: 35%;
+    border-radius: 5px;
+}
+
+.modal.smartcode {
+    width: 35%;
+    border-radius: 5px;
+}
+
 .mc-smartcode h4 {
     font-size: 17px;
     font-weight: 600;
@@ -1033,6 +1096,18 @@ section {
     text-align: center;
     margin: 0px;
     padding-bottom: 25px;
+}
+
+.mc-smartcode .mod-title {
+    font-size: 12px;
+    text-align: center;
+    margin: 0px;
+    padding-bottom: 25px;
+}
+
+.modal.forgot-pass {
+    width: 35%;
+    border-radius: 5px;
 }
 
 .table-note {
@@ -1231,10 +1306,61 @@ section {
     color: #000;
 }
 
+
+/* *******toast*********** */
+
+
+/* #toast-container {
+    right: 0 !important;
+    max-width: 35% !important;
+    left: 35px !important;
+    bottom: 20% !important;
+    color: #000;
+    top: 13%;
+    /* z-index: 0; */
+
+
+}
+*/ .toast {
+    position: relative;
+    color: #000;
+    font-size: 13px;
+    border: 1px solid #dfdbdb;
+    padding: 10px 25px;
+    -webkit-box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.12), 0px 0px 0px 0 rgba(0, 0, 0, 0.2);
+}
+.toast .toast-action {
+    color: #000;
+    font-size: 12px;
+    top: -21px;
+}
+.toast .btn-flat i {
+    font-size: 18px;
+    line-height: inherit;
+    color: #5e6062;
+}
+
+/************tool tip******/
+.material-tooltip {
+    font-size: 11px;
+}
+
+/* ************preloader*****/
 .preloader-verfy {
+    top: 0px;
     display: none;
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    background: ;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    cursor: pointer;
+    left: 0;
+}
+.preloader-wrapper.big {
+    width: 40px;
+    height: 40px;
+    top: 145px;
 }

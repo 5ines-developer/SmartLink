@@ -539,6 +539,7 @@
         });
 
 
+
         //page loader
         function loder(status) {
             if (status == true) {
@@ -547,7 +548,6 @@
                 $('.preloader-verfy').css('display', 'none');
             }
         }
-
 
         // $('#smartcode').modal({ dismissible: false });
         // $('#otpmodal').modal({ dismissible: false });
