@@ -1,4 +1,4 @@
-<?php
+ <?php
 $this->ci =& get_instance();
 $this->ci->load->model('referal_model');
 ?>
@@ -103,131 +103,46 @@ $this->ci->load->model('referal_model');
                                 </div>
                                 <?php } ?>
                                 <div class="x_title">
-                                    <h2>Referral Detail</h2>
-                                    <div class="banner-button">
-                                        <?php
-
-                                                if(empty($referal['is_deleted'])) {
-                                                if(!empty($referal['referee_status']) && $referal['referee_status']=='1'){ ?>
-                                        <button type="button" class="btn btn-dsable">Approved</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal"
-                                            data-target="#reject-modal">Reject</button>
-                                        <?php } elseif (!empty($referal['referee_status']) && $referal['referee_status']=='2') { ?>
-                                            <button type="button" class="btn btn-info" data-toggle="modal"
-                                            data-target="#approve-model">Approve</button>
-                                        <button type="button" class="btn btn-dsable">Rejected</button>
-                                        <?php } elseif (empty($referal['referee_status']) && $referal['referee_status']=='0') { ?>
-                                        <button type="button" class="btn btn-info" data-toggle="modal"
-                                            data-target="#approve-model">Approve</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal"
-                                            data-target="#reject-modal">Reject</button>
-                                        <?php } } 
-
-
-                                                ?>
-
-                                    </div>
+                                    <h2>Enquiry Detail</h2>
+                                    
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
                                     <table class="table viedet" style="margin-bottom: 0px;">
                                         <tr>
-                                            <th>Refree Name</th>
-                                            <td><?php echo (!empty($referal['referee_name']))?$referal['referee_name']:'---'  ?>
+                                            <th>Name</th>
+                                            <td><?php echo (!empty($result['name']))?$result['name']:'---'  ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Email</th>
-                                            <td><?php echo (!empty($referal['refree_email']))?$referal['refree_email']:'---'  ?>
+                                            <td><a href="mailto:<?php echo (!empty($result['email']))?$result['email']:'#'  ?>"><?php echo (!empty($result['email']))?$result['email']:'---'  ?></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <th>Phone</th>
-                                            <td><?php echo (!empty($referal['referee_phone']))?$referal['referee_phone']:'---'  ?>
+                                             <td><a href="tel:<?php echo (!empty($result['phone']))?$result['phone']:'#'  ?>"><?php echo (!empty($result['phone']))?$result['phone']:'---'  ?></a>
                                             </td>
                                         </tr>
-                                        <?php
-                                                if (!empty($referal['referee_status']) && $referal['referee_status'] == '1') { ?>
                                         <tr>
-                                            <th>Reward Points</th>
-                                            <td><?php echo (!empty($referal['reward_points']))?$referal['reward_points']:'---'  ?>
+                                            <th>Subject</th>
+                                             <td><?php echo (!empty($result['subject']))?$result['subject']:'---'  ?>
                                             </td>
+                                        </tr>
 
-                                        </tr>
                                         <tr>
-                                            <th>Reward Expiry Date</th>
-                                            <td><?php echo (!empty($referal['reward_expiry_date']))?$referal['reward_expiry_date']:'---'  ?>
+                                            <th>Date</th>
+                                             <td><?php echo (!empty($result['subject']))?date('d M, Y',strtotime($result['date'])):'---'  ?>
                                             </td>
+                                        </tr>
 
-                                        </tr>
-                                        <?php } ?>
                                         <tr>
-                                            <th>Refered by</th>
-                                            <td><?php echo $this->ci->referal_model->refered_by((!empty($referal['agent_id']))?$referal['agent_id']:'')  ?>
+                                            <th>Message</th>
+                                             <td><?php echo (!empty($result['subject']))?$result['subject']:'---'  ?>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <th>Location</th>
-                                            <td><?php echo (!empty($referal['referee_location']))?$referal['referee_location']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Refree Company</th>
-                                            <td><?php echo (!empty($referal['refree_company']))?$referal['refree_company']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Refree Area</th>
-                                            <td><?php echo (!empty($referal['refree_area']))?$referal['refree_area']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                                if (!empty($referal['product']) && $referal['product'] == 'it') { ?>
-                                        <tr>
-                                            <th>Service</th>
-                                            <td><?php echo (!empty($referal['it_type']))?$referal['it_type']:'---'   ?>
-                                            </td>
-                                        </tr>
-                                        <?php }else if(!empty($referal['product']) && $referal['product'] == 'telecom'){ ?>
-                                        <tr>
-                                            <th>category</th>
-                                            <td><?php echo (!empty($referal['telecom_type']))?$referal['telecom_type']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Customer Type</th>
-                                            <td><?php echo (!empty($referal['customer_type']))?$referal['customer_type']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th>Service</th>
-                                            <td><?php if($referal['product'] == 'telecom'){
-                                                        echo $referal['service'];
-                                                        }else if($referal['product'] == 'it'){
-                                                        echo $referal['it_service'];
-                                                        }else{
-                                                        echo '---';
-                                                        }  ?>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                        <tr>
-                                            <th>Requested On</th>
-                                            <td><?php echo (!empty($referal['referee_addedon']))?$referal['referee_addedon']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <?php if ($referal['referee_status']=='2') { ?>
-                                            <tr>
-                                            <th>Reason for Rejectection</th>
-                                            <td><?php echo (!empty($referal['referee_failed_reason']))?$referal['referee_failed_reason']:'---'  ?>
-                                            </td>
-                                        </tr>
-                                        <?php } ?>
-                                        <tr>
-                                            <th>Description</th>
-                                            <td><?php echo (!empty($referal['description']))?$referal['description']:'---'  ?>
-                                            </td>
-                                        </tr>
+                                        
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -267,11 +182,6 @@ $this->ci->load->model('referal_model');
                                         value="<?php echo (!empty($referal['uniq']))?$referal['uniq']:''  ?>">
                                     <input type="hidden" name="noti_to"
                                         value="<?php echo (!empty($referal['agent_id']))?$referal['agent_id']:''  ?>">
-                                        
-                                        
-                                         <input type="hidden" name="typs" value="<?php echo (!empty($referal['type']))?$referal['type']:''  ?>" >
-                                        
-                                        
                                 </div>
                                 <p class="paswrd-error required"></p>
                                 <div class="form-group">
@@ -282,7 +192,7 @@ $this->ci->load->model('referal_model');
                                         <input type="text" id="rewrd" required="required"
                                             class="form-control col-md-7 col-xs-12" name="rewrd"
                                             value="<?php echo (!empty($reward['reward_points']))?$reward['reward_points']:''  ?>"
-                                            > </div>
+                                            <?php echo (!empty($reward['reward_points']))?'readonly':''  ?>> </div>
                                 </div>
                                
                                 <div class="form-group">
@@ -334,8 +244,6 @@ $this->ci->load->model('referal_model');
                                         value="<?php echo (!empty($referal['uniq']))?$referal['uniq']:''  ?>">
                                     <input type="hidden" name="noti_to"
                                         value="<?php echo (!empty($referal['agent_id']))?$referal['agent_id']:''  ?>">
-                                        
-                                        <input type="hidden" name="typs" value="<?php echo (!empty($referal['type']))?$referal['type']:''  ?>" >
                                 </div>
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -398,57 +306,8 @@ $this->ci->load->model('referal_model');
         }, 4000);
     });
     </script>
-    <script>
-    $(document).ready(function() {
-        $("#referal-approve").on('submit', function(event) {
-            event.preventDefault();
-            var DataString = $("#referal-approve").serialize();
-            $.ajax({
-                url: "<?php echo base_url();?>approve-referals",
-                type: "Post",
-                dataType: "html",
-                data: DataString,
-                success: function(data) {
-                    console.log(data);
-                    if (data == 'wrong password') {
-                        $(".paswrd-error").append("<span>Wrong password</span>");
-                    } else if (data == '1') {
-                        location.href = "<?php echo base_url('manage-referals')?>"
-                    } else if (data == '') {
-                        $(".paswrd-error").append(
-                            "<span>Unable to process your request please try again!</span>"
-                        );
-                    }
-                }
-            });
-        });
-    });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $("#referal-reject").on('submit', function(event) {
-            event.preventDefault();
-            var DataString = $("#referal-reject").serialize();
-            $.ajax({
-                url: "<?php echo base_url();?>reject-referals",
-                type: "Post",
-                dataType: "html",
-                data: DataString,
-                success: function(data) {
-                    if (data == 'wrong password') {
-                        $(".paswrd-error-reject").append("<span>Wrong password</span>");
-                    } else if (data == '1') {
-                        location.href = "<?php echo base_url('manage-referals')?>"
-                    } else if (data == '') {
-                        $(".paswrd-error-reject").append(
-                            "<span>Unable to process your request please try again!</span>"
-                        );
-                    }
-                }
-            });
-        });
-    });
-    </script>
+    
+    
 </body>
 
 </html>

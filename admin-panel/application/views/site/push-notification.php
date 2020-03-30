@@ -48,10 +48,6 @@
     <style>
     p{font-size: 12px;}
     .banner-button{float: right;}
-    .x_title h2 {
-    margin: 23px 0 6px;}
-    ul {
-    margin-bottom: 0;}
     </style>
   </head>
   <body class="nav-md">
@@ -91,21 +87,10 @@
                   </div>
                   <?php } ?>
                   <div class="x_title">
-                    <h2>Reward Points Claim Request</h2>
-                    <div class="banner-button">
-                      <ul class="referal-filter">
-                        <li class="dropdown">
-                          <a class="btn btn-app referal-filter-button" href="#"><i class="fa fa-filter" aria-hidden="true"></i>Filter</a>
-                          <ul class="dropdown-menu filter-menu">
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims"  >All</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=approved" >Approved</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=rejected" >Rejected</a></li>
-                            <li><a class="refer-filter" href="<?php echo base_url() ?>manage-reward-claims?filter=pending" >Pending</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                      
-                    </div>
+                    <h2>Push Notifications</h2>
+                     <div class="banner-button">
+                      <a type="button" class="btn btn-success" href="<?php echo base_url('push-notification/send') ?>"> <i class="fa fa-plus" aria-hidden="true"></i> Send Notification</a>
+                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -121,32 +106,24 @@
                       <thead>
                         <tr>
                           <th>Sl No.</th>
-                          <th>Claimed By </th>
-                          <th>Points</th>
-                          <th>Status</th>
-                          <th>Claimed On</th>
-                          <th>Operations</th>
+                          <th>Title</th>
+                          <th>Description</th>
+                          <th>Link</th>
+                          <th>User</th>
+                          <th>Sent On</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php  $cont = 0; if (!empty($claim))
+                        <?php  $cont = 0; if (!empty($push))
                         {
-                        foreach ($claim as $key => $value) {$cont = $cont + 1;?>
+                        foreach ($push as $key => $value) {$cont = $cont + 1;?>
                           <tr>
-                          <td><?php echo (!empty($claim))?$cont:'---' ?></td>
-                          <td><a href="<?php echo base_url('view-agent/').$value->agent_id ?>" ><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></a></td>
-                          <td><?php echo (!empty($value->claimed_points))?$value->claimed_points:'---'  ?></td>
-                          <td class="<?php echo 'refre_status'.$value->claim_status?>"><?php if ($value->claim_status == '1') {
-                            echo 'Approved';
-                          }else if ($value->claim_status == '2') {
-                            echo 'Rejected';
-                          }else{
-                            echo 'Pending';
-                          } ?></td>
-                          <td><?php echo (!empty($value->claimed_on))?date("d-M-y h:i:s", strtotime($value->claimed_on)):'---'; ?></td>
-                          <td style="text-align:center;"><a href="<?php echo base_url('view-reward-claims/').$value->uniq?>" style="font-size: 22px;color: #2e9be0"><i class="fa fa-eye" aria-hidden="true"></i></a>&nbsp;&nbsp;
-                          <!-- <a onclick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url('delete-reward-claims/').$value->uniq?>" style="font-size: 22px;color: #e9160fe6" ><i class="fa fa-trash" aria-hidden="true"></i></a> -->
-                        </td>
+                          <td><?php echo (!empty($push))?$cont:'---' ?></td>
+                          <td><?php echo (!empty($value->notification_subject))?$value->notification_subject:'--'  ?></td>
+                          <td><?php echo (!empty($value->notification_description ))?$value->notification_description :'---'  ?></td>
+                          <td><?php echo (!empty($value->link))?$value->link:'---'  ?></td>
+                          <td><?php echo $this->ci->push_model->agent($value->noti_to);  ?></td>
+                          <td><?php echo (!empty($value->added_on))?date("d-M-y", strtotime($value->added_on)):'---'; ?></td>
                       </tr>
                       <?php } }?>
                     </tbody>

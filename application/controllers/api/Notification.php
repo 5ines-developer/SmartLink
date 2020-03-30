@@ -84,7 +84,11 @@ class Notification extends REST_Controller {
             	$output1 = $this->m_noti->single_referal($itemid,$value->sid); //get referal
 	        } elseif ($output['notification_type'] == '2') {
 	        	$output1 = $this->m_noti->single_claim($itemid,$value->sid); //get claimdetail
+	        }elseif ($output['notification_type'] == '3') {
+	        	$output1 = $this->m_noti->single_push($id); //get pushnoti
 	        }
+
+
 
 			if (!empty($output) AND !empty($output1) AND $output != FALSE) {
 				$message=array(

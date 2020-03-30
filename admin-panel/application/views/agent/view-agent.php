@@ -1,6 +1,6 @@
 <?php
-$this->ci = &get_instance();
-$this->ci->load->model('Product_model');
+$this->ci =& get_instance();
+$this->ci->load->model('agent_model');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,12 +154,12 @@ $this->ci->load->model('Product_model');
                                             <td><?php echo (!empty($referal)) ? $cont : '' ?></td>
                                             <td><?php echo $this->ci->referal_model->refered_by((!empty($value->agent_id)) ? $value->agent_id : '---') ?>
                                             </td>
-                                            <td><?php echo (!empty($value->referee_name)) ? $value->referee_name : '---' ?>
+                                            <td><a href="<?php echo base_url('view-referals/').$value->uniq ?>" ><?php echo (!empty($value->referee_name)) ? $value->referee_name : '---' ?></a>
                                             </td>
                                             <td><?php echo (!empty($value->referee_phone)) ? $value->referee_phone : '---' ?>
                                             </td>
                                             <td><?php echo (!empty($value->product)) ? $value->product : '---' ?></td>
-                                            <td><?php echo (!empty($value->sub_product)) ? $value->sub_product : '---' ?>
+                                            <td><a href="<?php echo base_url('edit-product/').$value->sub_product ?>" ><?php echo (!empty($value->sub_product)) ? $this->ci->agent_model->service($value->sub_product) : '---' ?></a>
                                             </td>
                                             <td class="<?php echo 'refre_status' . $value->referee_status ?>"><?php if ($value->referee_status == '1') {
                                             echo 'Approved';

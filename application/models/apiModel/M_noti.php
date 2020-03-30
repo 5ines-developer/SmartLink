@@ -9,7 +9,7 @@ class M_noti extends CI_Model {
     {
         $this->db->where('noti_to', $id);
         $this->db->where('noti_to_type', 'agent');
-        $this->db->where('notification_type !=', '3');
+        // $this->db->where('notification_type !=', '3');
         $this->db->order_by('added_on', 'desc');
         return $this->db->get('notification')->result();
     }
@@ -19,7 +19,7 @@ class M_noti extends CI_Model {
         $this->db->where('notification_id', $id);
         $this->db->where('noti_to', $aid);
         $this->db->where('noti_to_type', 'agent');
-        $this->db->where('notification_type !=', '3');
+        // $this->db->where('notification_type !=', '3');
         return $this->db->get('notification')->row_array();
     }
 
@@ -51,6 +51,19 @@ class M_noti extends CI_Model {
             }
         }
 
+         public function single_push($id =null)
+        {
+            $this->db->select('notification_subject,notification_description,link');
+            $this->db->where('notification_id', $id);
+            $query = $this->db->get('notification');
+    
+            if ($query->num_rows() > 0) {
+                return $query->row_array();
+            } else {
+                return false;
+            }
+        }
+
 
     //update if notification seen
     public function noti_seen($notiid = null)
@@ -71,7 +84,7 @@ class M_noti extends CI_Model {
         $this->db->where('noti_to', $id);
         $this->db->where('noti_to_type', 'agent');
         $this->db->where('notification_seen', '0');
-        $this->db->where('notification_type !=', '3');
+        // $this->db->where('notification_type !=', '3');
         $this->db->order_by('added_on', 'desc');
         return $this->db->get('notification')->result();
     }

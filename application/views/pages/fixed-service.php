@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
     <title>Smart Link</title>
     <!--Import materialize.css-->
@@ -95,7 +95,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="center th-para">AED 950*</td>
-                                                        <td class="center th-para">AED 1,150*</td>
+                                                        <td class="center th-para">AED 1,000*</td>
                                                         <td class="center th-para">AED 1,350*</td>
                                                         <td class="center th-para">AED 1,750*</td>
                                                         <td class="center th-para">AED 3,000*</td>

@@ -130,16 +130,23 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <?php  $cont = 0; if (!empty($referal))
+                        <?php
+
+                        // echo "<pre>";
+                        // print_r ($referal);
+                        // echo "</pre>";
+
+
+                          $cont = 0; if (!empty($referal))
                         {
                         foreach ($referal as $key => $value) {$cont = $cont + 1;?>
                           <tr>
                           <td><?php echo (!empty($referal))?$cont:'---' ?></td>
-                          <td><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></td>
+                          <td><a href="<?php echo base_url('view-agent/').$value->agent_id ?>" ><?php echo (!empty($value->agent_name))?$value->agent_name:'---'  ?></a></td>
                           <td><?php echo (!empty($value->referee_name))?$value->referee_name:'---'  ?></td>
-                          <td><?php echo (!empty($value->referee_phone))?$value->referee_phone:'---'  ?></td>
-                          <td><?php echo (!empty($value->product))?$value->product:'---'  ?></td>
-                          <td><?php 
+                          <td><a href="tel:<?php echo (!empty($value->referee_phone))?$value->referee_phone:'---'  ?>" ><?php echo (!empty($value->referee_phone))?$value->referee_phone:'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('edit-product/').$value->sub_product ?>" ><?php echo (!empty($value->product))?$value->product:'---'  ?></a></td>
+                          <td><a href="<?php echo base_url('edit-product/').$value->sub_product ?>" ><?php 
 
                           if($value->product == 'telecom'){
                             echo $value->service ;
@@ -150,8 +157,9 @@
                           }
 
 
-                           ?></td>
-                          <td class="<?php echo (!empty($value->is_deleted))?'delt_status'.$value->is_deleted:'refre_status'.$value->referee_status?>"><?php if ($value->referee_status == '1') {
+                           ?></a></td>
+                          <td class="<?php echo (!empty($value->is_deleted))?'delt_status'.$value->is_deleted:'refre_status'.$value->referee_status?>">
+                            <?php if ($value->referee_status == '1') {
                             echo 'Approved';
                           }else if ($value->referee_status == '2') {
                             echo 'Rejected';

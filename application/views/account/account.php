@@ -175,7 +175,7 @@
             $re_val = $this->ci->m_account->rewrd_val($value->thing_id);         
         ?>
 
-        var toastHTML = '<span>You have earned <?php echo $re_val ?> reward points <a class="black-text" href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>" style="text-decoration: underline;">View</a></span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
+var toastHTML = '<span style="color:black;font-weight: 400;font-size: 14px;">You have earned <?php echo $re_val ?> reward points <a class="" href="<?php echo base_url('noti-view/').$value->thing_id.'/'.$value->notification_type.'/'.$value->uniq ?>" style="text-decoration: unset;background: #05afc9;color: white;padding: 5px 15px;font-size: 13px;margin-left: 35px;">View</a></span><button class="btn-flat toast-action" onclick="toast()"><i class="material-icons dp48">close</i></button>';
         M.toast({
             html: toastHTML,
             displayLength:4000,

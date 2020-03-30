@@ -39,7 +39,7 @@ class Agent extends CI_Controller
          * url : delete-agent
          * @param : id
         */
-        public function delete_agent($id='')
+        public function delet_agent($id='')
         {
                 // send to model
                 if($this->agent_model->delete_agent($id)){

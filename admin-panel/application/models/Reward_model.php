@@ -12,7 +12,7 @@ class Reward_model extends CI_Model
     public function getclaimed($filter = '')
     {
 
-        $this->db->select('cl.claim_id,cl.claim_status,cl.claimed_points,cl.claimed_on,cl.uniq,ag.agent_name,cl.coupon_code,cl.coupon_added_by');
+        $this->db->select('cl.claim_id,cl.claim_status,cl.claimed_points,cl.claimed_on,cl.uniq,ag.agent_id,ag.agent_name,cl.coupon_code,cl.coupon_added_by');
 
         if (!empty($filter)) {
             if ($filter == 'approved') {

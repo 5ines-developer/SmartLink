@@ -87,13 +87,25 @@ class Referals extends CI_Controller
         if ($this->checkpsw_check($ap_password)) {
             $change = array('referee_status' => $approve, 'reward_points' => $rewrd, 'reward_points' => $rewrd, 'reward_expiry_date' => $reward_expiry_date);
             $output = $this->referal_model->referal_change($change, $referalid);
-            if (!empty($output)) {
-                $output1 = $this->referal_model->agent_reward($rewrd, $noti_to);
-            }
-
+            
+            $typs = $this->input->post('typs');
+            
+            // if($typs == '1'){
+            //     $var1 = 'Refer a friend Success';
+            //     $var2 = 'your refer a friend request is succesfull';
+            // }else{
+            //     $var1 = 'Share with a friend Success';
+            //     $var2 = 'Share with a friend is succesfull';
+            // }
+            
+            $var1 = 'Share with a friend Success';
+            $var2 = 'Share with a friend is succesfull';
+            
+            
+            
             $notification = array(
-                'notification_subject' => 'Refer a friend Success',
-                'notification_description' => 'your refer a friend request is succesfull.',
+                'notification_subject' => $var1,
+                'notification_description' => $var2,
                 'added_by' => $this->session->userdata('unique_id'),
                 'thing_id' => $referalid,
                 'notification_type' => '1',
@@ -102,6 +114,8 @@ class Referals extends CI_Controller
                 'added_by_type' => 'admin',
                 'noti_to_type' => 'agent',
             );
+            
+            
             if ($output != '') {
                 $this->insert_notification($notification);
                 $this->session->set_flashdata('success', 'Referal request Approved Successfully');
@@ -130,10 +144,23 @@ class Referals extends CI_Controller
         if ($this->checkpsw_check($rj_password)) {
             $change = array('referee_status' => $reject, 'referee_failed_reason' => $reject_reason);
             $output = $this->referal_model->referal_change($change, $referalid);
+            
+             $typs = $this->input->post('typs');
+            
+            // if($typs == '1'){
+            //     $var1 = 'Refer a friend request rejected';
+            //     $var2 = 'your refer a friend request has been rejected';
+            // }else{
+            //     $var1 = 'Share with a friend rejected';
+            //     $var2 = 'Share with a friend is rejected';
+            // }
+            
+            $var1 = 'Share with a friend rejected';
+            $var2 = 'Share with a friend is rejected';
 
             $notification = array(
-                'notification_subject' => 'Refer a friend request rejected',
-                'notification_description' => 'your refer a friend request has been rejected.',
+                'notification_subject' => $var1,
+                'notification_description' => $var2,
                 'added_by' => $this->session->userdata('unique_id'),
                 'thing_id' => $referalid,
                 'notification_type' => '1',

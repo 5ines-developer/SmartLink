@@ -140,6 +140,8 @@ $route['api/v1/referrals/update']			= 'api/Referrals/updateRefer';//update refer
 $route['api/v1/referrals/delete/(:any)'] 	= 'api/Referrals/delete_refer/$1';//delete refer afriend
 $route['api/v1/category']    				= 'api/Referrals/category';
 
+$route['api/v1/share']    				= 'api/Referrals/shareFriend';
+
 //reward points
 $route['api/v1/reward-points']		    = 'api/Rewardpoint/reward';//insert refer afriend -> get points
 $route['api/v1/claim-points']		    = 'api/Rewardpoint/insertclaim';//insert refer afriend

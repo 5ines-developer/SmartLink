@@ -640,6 +640,114 @@ class Referrals extends REST_Controller {
 			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
 		}
     }
+    
+    
+    
+    public function shareFriend_post($id = null)
+    {
+    	header("Access-Control-Allow-Origin: *");
+		$data = $this->security->xss_clean($_POST);
+		$this->form_validation->set_rules('mobile', 'Mobile Number', 'required|min_length[9]|max_length[9]');
+        $this->form_validation->set_rules('name', 'Name', 'required');
+        if ($this->form_validation->run() == False) {
+        	//form_validation error
+			$message=array(
+				'status' => false,
+				'error' => $this->form_validation->error_array(),
+				'message' => validation_errors()
+				);
+			$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+        }else{
+        	//load authorization token library
+			$this->load->library('Authorization_Token');
+			$is_valid_token = $this->authorization_token->validateToken();
+
+			if (!empty($is_valid_token) && $is_valid_token['status'] === true) 
+			{
+				foreach ($is_valid_token as $key => $value) { }
+				$mobile = $this->input->post('mobile');
+				$name 	= $this->input->post('name');
+				$uniq = random_string('alnum', 16);
+				
+				$country_code = '971';
+				
+				$phone  =  $country_code.$mobile;
+
+				  $insert = array(
+				     'agent_id' => $value->sid,
+				  	'referee_name' => $name, 
+				  	'referee_phone' => $mobile,
+				  	'type' =>'1',
+				  	'uniq' => random_string('alnum', 10),
+				  );
+
+				$output   = $this->m_referrals->insert_referrals($insert);
+
+				$notification  = array(
+		                'notification_subject' => 'Share with a friend',
+		                'notification_description' => 'New share to friend request added by ' . $name . ' , check and verify',
+		                'added_by' => $value->sid,
+		                'thing_id' => $uniq,
+		                'notification_type' => '1',
+		                'added_by_type' => 'agent',
+		                'noti_to_type' => 'admin',
+		                'uniq' => random_string('alnum', 10)
+            	);
+
+	            	$notioutput    = $this->notification($notification);
+	            	$notioutput    = $this->shareSms($phone);
+
+	            	if (!empty($output) AND $output != FALSE) {
+
+	            		$message=array(
+						'status' => true,
+						'message' => 'Share Link has been sent Successfully'
+						);
+						// success 200 code send
+						$this->response($message, REST_Controller::HTTP_OK);
+
+	            	}else{
+
+	            		$message=array(
+						'status' => FALSE,
+						'message' => 'Something went wrong please try again later!'
+						);
+						$this->response($message, REST_Controller::HTTP_NOT_FOUND);
+	            	}
+
+			}else{
+			    $message=array(
+				'status' => FALSE,
+				'message' => 'Invalid Token'
+				);
+			    $this->response($message, REST_Controller::HTTP_NOT_FOUND);
+			}
+        }
+    }
+    
+    
+    
+        /**
+	*	IOS Share sms links
+	*	@method : post
+	*/ 
+    public function shareSms($phone='')
+    {
+    	$msg = 'Join me on Smarlink Telecom  by installing the app from below link to fulfill your requirements on telecom services.https://apps.apple.com/us/app/smartlink-telecom/id1481769188?ls=1';
+    	
+
+        /* API URL */
+        $url = 'http://customers.smsmarketing.ae/app/smsapi/index.php';
+        $param = 'key=5d380c6faed8b&campaign=6390&routeid=39&type=text&contacts='.$phone.'&senderid=SMART LINK&msg='.$msg;
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $server_output = curl_exec($ch);
+        curl_close($ch);
+        return $server_output;
+        
+    }
 
 
 }

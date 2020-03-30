@@ -129,7 +129,7 @@ class Account extends CI_Controller
             }
                 $notioutput    = $this->notification($notification);
             $emailoutput   = $this->sendreferrals($insert);
-            if ($output != '' && $notioutput != '' && $emailoutput != '') {
+            if ($output != '' && $notioutput != '') {
                 $this->session->set_flashdata('success', 'Friend reference has been Submitted Successfully');
                 redirect('referal-list', 'refresh');
             } else {
@@ -158,7 +158,7 @@ class Account extends CI_Controller
         $from = $this->config->item('smtp_user');
         $msg  = '<!DOCTYPE html>
             <html>
-                <head>
+                <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
                     <title>
                     </title>
                 </head>
