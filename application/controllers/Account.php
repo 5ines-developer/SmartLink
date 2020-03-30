@@ -263,6 +263,7 @@ class Account extends CI_Controller
         $this->email->from($from, 'Smart Link');
         $this->email->to('Info@smartlink.ae');
         $this->email->cc('Naeem.k@smartlink.ae');
+        // $this->email->to('rishabhm@5ine.in');
         $this->email->subject('Refer a friend request');
         $this->email->message($msg);
         if ($this->email->send()) {

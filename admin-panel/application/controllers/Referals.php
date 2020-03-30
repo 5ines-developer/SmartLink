@@ -87,6 +87,7 @@ class Referals extends CI_Controller
         if ($this->checkpsw_check($ap_password)) {
             $change = array('referee_status' => $approve, 'reward_points' => $rewrd, 'reward_points' => $rewrd, 'reward_expiry_date' => $reward_expiry_date);
             $output = $this->referal_model->referal_change($change, $referalid);
+<<<<<<< HEAD
             
             $typs = $this->input->post('typs');
             
@@ -103,6 +104,8 @@ class Referals extends CI_Controller
             
             
             
+=======
+>>>>>>> d379cc6bd3854f6ee1d4e6ed826905cff54011e1
             $notification = array(
                 'notification_subject' => $var1,
                 'notification_description' => $var2,
