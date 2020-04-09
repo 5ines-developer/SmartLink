@@ -141,7 +141,7 @@ $this->ci->load->model('referal_model');
                                         </tr>
                                         <tr>
                                             <th>Unclaimed Reward Points</th>
-                                            <td><?php if (!empty($reward)) { $unclaimed = $reward - $ap_claim; } echo $unclaimed; ?>
+                                            <td><?php if (!empty($reward)) { $unclaimed = $reward; } echo $unclaimed; ?>
                                             </td>
                                         </tr>
                                         <tr>

@@ -11,7 +11,7 @@ class M_reward extends CI_Model
 	public function reward_point($id = null)
     {
         
-        $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
+        $this->db->select('SUM(remain_points) AS reward_points FROM referral');        
         $this->db->where('agent_id', $id);
         $this->db->where('referee_status', '1');
         $this->db->where('reward_expiry_date >=', date('Y-m-d'));

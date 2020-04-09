@@ -33,7 +33,7 @@ class Rewardpoint extends REST_Controller {
 			foreach ($is_valid_token as $key => $value) { }
             $output['reward']  = $this->m_reward->reward_point($value->sid);
             $output['claimed'] = $this->m_reward->claimed_point($value->sid);
-            $output['unclaimed'] =  $output['reward'] - $output['claimed'];
+            $output['unclaimed'] =$output['reward'];
 
 			if (!empty($output) AND $output != FALSE) {
 				$message=array(

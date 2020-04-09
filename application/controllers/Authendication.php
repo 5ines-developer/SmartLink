@@ -363,6 +363,11 @@ class Authendication extends CI_Controller
         return $datas;
     }
 
+    public function reward_cron($value='')
+    {
+        $this->m_authendication->reward_cron();
+    }
+
 }
 
 /* End of file Authendication.php */

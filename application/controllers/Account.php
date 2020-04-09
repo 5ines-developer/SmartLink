@@ -365,7 +365,11 @@ class Account extends CI_Controller
         $data['alert']   = $this->data;
         $data['reward']  = $this->m_account->reward_point();
         $data['claimed'] = $this->m_account->claimed_point();
+        $data['tmp_claim'] = $this->m_account->tmp_claim();
+
+        
         $this->load->view('account/reward-point', $data);
+        
     }
     //claim reward point
     public function claim_reward($var = null)
@@ -567,5 +571,8 @@ class Account extends CI_Controller
             return false;
         }
     }
+
+
+
 }
 /* End of file account.php */

@@ -263,6 +263,13 @@ class M_authendication extends CI_Model {
              }
          }
 
+         public function reward_cron($value='')
+         {
+            $this->db->where('referee_status', '1');
+            $this->db->where('reward_expiry_date <', date('Y-m-d'));
+            return $this->db->update('referral', array('rem_status' => 1, 'remain_points' => 0));
+         }
+
     
 
 

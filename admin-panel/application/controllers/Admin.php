@@ -318,4 +318,13 @@ class Admin extends CI_Controller
         return $datas;
     }
 
+    public function reward_cron($value='')
+    {
+        $referal = $this->admin_model->expiredRefer();
+        echo "<pre>";
+        print_r ($referal);
+        echo "</pre>";exit();
+        
+    }
+
 }

@@ -60,7 +60,7 @@ class Reward_model extends CI_Model
         
         public function reward_point($agentid = null)
         {
-            $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
+            $this->db->select('SUM(remain_points) AS reward_points FROM referral');        
             $this->db->where('agent_id', $agentid);
             $this->db->where('referee_status', '1');
             $this->db->where('reward_expiry_date >=', date('Y-m-d'));
@@ -98,6 +98,9 @@ class Reward_model extends CI_Model
         // update claim reward table
         public function claim_change($change,$claimid)
 		{
+            if ((empty($change['return_reward'])) || ($change['return_reward']!=1)) {
+                $result = $this->remainUpdate($claimid);
+            }
 			$this->db->where('uniq', $claimid);
 			$this->db->update('claim_reward', $change);
 			if ($this->db->affected_rows() > 0) {
@@ -106,4 +109,45 @@ class Reward_model extends CI_Model
 				return false;
 			}
 		}
+
+        public function remainUpdate($claimid='')
+        {
+            $uppoint = '';
+            $agent = $this->db->select('agent_id,claimed_points')->where('uniq',$claimid)->get('claim_reward')->row();
+            if (!empty($agent->agent_id)) {
+                $point = $this->db->where('agent_id', $agent->agent_id)->where('rem_status',0)->where('remain_points !=',null)->order_by('reward_expiry_date','asc')->get('referral')->result();
+
+                if (!empty($point)) {
+                    $this->pointUp($point,$claimid,$agent);
+                }else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
+
+        }
+
+        public function pointUp($point='',$claimid='',$agent='')
+        {
+
+            foreach ($point as $key => $value) {
+                if (!empty($value->referee_id)) {
+                    if ($agent->claimed_points > $value->remain_points) {
+                        $uppoint = $agent->claimed_points - $value->remain_points;
+                        $this->db->where('referee_id',$value->referee_id)->update('referral',array('remain_points' => 0, 'rem_status' => 1));
+                    }else{
+                        $uppoint = $value->remain_points - $agent->claimed_points;
+                        $this->db->where('referee_id',$value->referee_id)->update('referral',array('remain_points' =>$uppoint, 'rem_status' => 0));
+                    }
+
+                    if (empty($uppoint)) {
+                        break;
+                    }
+
+                }else{
+                    return false;
+                }
+            }
+        }
 }

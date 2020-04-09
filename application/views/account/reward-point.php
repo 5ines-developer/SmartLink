@@ -34,12 +34,27 @@
                                 <div class="agent-edit-title">
                                     <h6 class="agent-edit-title-cn">Reward Points</h6>
                                 </div>
+
+                                <?php 
+
+                                if (!empty($tmp_claim)) {
+                                    if($tmp_claim > $reward){
+                                        $balance = $tmp_claim - $reward;
+                                    }else{
+                                        $balance = $reward - $tmp_claim;
+                                    }
+                                }else{
+                                    $balance = $reward;
+                                }
+
+
+                                ?>
                                 <div class="reward-detail">
                                     <div class="row">
                                         <div class="col xl5 m6 s12 l6">
                                             <div class="dashboard-reward" id="process-refer">
                                                 <i class="fas fa-thumbs-up icon-reward"></i>
-                                                <h5 class="m0 head-reward"><?php echo (!empty($reward))?$reward-$claimed:'0' ; ?></h5>
+                                                <h5 class="m0 head-reward"><?php echo (!empty($balance))?$balance:'0' ; ?></h5>
                                                 <p class="para-reward">Unclaimed Reward Points</p>
                                             </div>
                                         </div>
@@ -64,7 +79,7 @@
                                                         <input name="tot_reward" id="tot_reward" type="hidden" value="<?php echo (!empty($reward))?$reward:'' ?>">
                                                         <span class="helper-text"><strong>Note : </strong>Min 100 - Max 1000 You can claim</span>
 
-                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($reward))?$reward-$claimed:'' ?>">
+                                                            <input  name="unclaimed" id="unclaimed" type="hidden" value="<?php echo (!empty($balance))?$balance:'' ?>">
                                                             <input  name="uniq" id="uniq" type="hidden"  value="<?php echo  random_string('alnum','10') ?>">
                                                             <p id="paswrd-error" class="error required"></p>
                                                     </div>

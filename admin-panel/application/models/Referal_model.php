@@ -156,6 +156,19 @@ class Referal_model extends CI_Model {
 			$query = $this->db->get('agent')->row_array();
 			return $query['agent_name'];
 		}
+
+		public function agent_point($reward_points='',$id='')
+		{
+			$query =  $this->db->where('agent_id', $id)->get('agent');
+			if ($query->num_rows() > 0){
+				$result = $query->row();
+				$reward = $result->point_avail + $reward_points;
+				$total  = $result->tot_reward  + $reward_points;
+				return $this->db->where('agent_id', $id)->update('agent',array('tot_reward' => $total,'point_avail'=>$reward));
+			}else{
+				return false;
+			}
+		}
 		
 
 }

@@ -85,10 +85,10 @@ class Referals extends CI_Controller
         $reward_expiry_date = date('Y-m-d', strtotime($Date . ' + '.$exipry));
 
         if ($this->checkpsw_check($ap_password)) {
-            $change = array('referee_status' => $approve, 'reward_points' => $rewrd, 'reward_points' => $rewrd, 'reward_expiry_date' => $reward_expiry_date);
+            $change = array('referee_status' => $approve, 'reward_points' => $rewrd, 'reward_expiry_date' => $reward_expiry_date, 'remain_points' =>$rewrd);
+
             $output = $this->referal_model->referal_change($change, $referalid);
-            
-            $typs = $this->input->post('typs');
+            $typs  = $this->input->post('typs');
             
             // if($typs == '1'){
             //     $var1 = 'Refer a friend Success';

@@ -196,7 +196,7 @@ class M_account extends CI_Model
     public function reward_point($var = null)
     {
         
-        $this->db->select('SUM(reward_points) AS reward_points FROM referral');        
+        $this->db->select('SUM(remain_points) AS reward_points FROM referral');        
         $this->db->where('agent_id', $this->session->userdata('sid'));
         $this->db->where('referee_status', '1');
         $this->db->where('reward_expiry_date >=', date('Y-m-d'));
@@ -207,6 +207,22 @@ class M_account extends CI_Model
             foreach ($query->result() as $key => $value) {
             }
             return $value->reward_points;
+        } else {
+            return false;
+        }
+    }
+
+    public function tmp_claim($value='')
+    {
+        $this->db->select('SUM(claimed_points) AS claimed_points FROM claim_reward ');
+        $this->db->where('agent_id', $this->session->userdata('sid'));
+        $this->db->where('claim_status', 0);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $key => $value) {
+            }
+            
+            return $value->claimed_points;
         } else {
             return false;
         }
